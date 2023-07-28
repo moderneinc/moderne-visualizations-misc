@@ -1,0 +1,11 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.ParseFailureAnalysis
+displayName: Parse failure analysis
+description: >
+  This report shows different stack traces from the projects organized into clusters based on similarities. 
+  Each cluster represents a group of related themes. 
+  The legend provides a representative sample from each cluster to help understand the overall theme within the stack traces.
+  _Note_: The representation of the stack traces are being projected into 2D for visualization purposes only, which is why some clusters might look spread out.
+recipe: org.openrewrite.FindParseFailures
+dataTable: org.openrewrite.table.ParseFailures

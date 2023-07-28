@@ -1,0 +1,7 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.LanguageComposition
+displayName: Language composition
+description: This report shows the different languages that are used in the projects.
+recipe: org.openrewrite.LanguageComposition
+dataTable: org.openrewrite.table.LanguageCompositionPerFile

@@ -1,0 +1,14 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.DependencyVulnerabilities
+displayName: Dependency vulnerability profile
+description: >
+  This report shows the number of known vulnerabilities associated with dependencies in the projects.
+  Here you can see the type of version increases that would be required to fix current vulnerabilities as well as the associated severity distributions.
+  For more information see:
+    - **[Dependency updates unmasked](https://www.moderne.io/blog/security-dependency-updates-unmasked)**
+recipe:
+  org.openrewrite.java.dependencies.DependencyVulnerabilityCheck:
+    scope: runtime
+    overrideManagedVersion: true
+dataTable: org.openrewrite.java.dependencies.table.VulnerabilityReport

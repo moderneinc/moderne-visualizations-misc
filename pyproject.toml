@@ -1,0 +1,19 @@
+# @see https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+
+[project]
+name = "moderne_visualizations_misc"
+version = "1.0.0"
+description = "Miscellaneous visualizations for the Moderne platform"
+authors = [
+    { name = "Jonathan Schneider", email = "jonathan@moderne.io"},
+    { name = "Kyle Scully", email = "kyle@moderne.io"}
+]
+license = { text = "Apache-2.0" }
+dependencies = [
+    "pandas==2.0.3",
+    "ipython==8.13.0",
+    "code_data_science==1.1.0"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/moderneinc/visualizations-misc"
