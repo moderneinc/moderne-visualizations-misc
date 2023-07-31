@@ -2,11 +2,11 @@
 
 [project]
 name = "moderne_visualizations_misc"
-version = "0.1.1"
+version = "0.1.2"
 description = "Miscellaneous visualizations for the Moderne platform"
 authors = [
-    { name = "Jonathan Schneider", email = "jonathan@moderne.io"},
-    { name = "Kyle Scully", email = "kyle@moderne.io"}
+    { name = "Jonathan Schneider", email = "jonathan@moderne.io" },
+    { name = "Kyle Scully", email = "kyle@moderne.io" }
 ]
 license = { text = "Apache-2.0" }
 dependencies = [
@@ -19,5 +19,9 @@ dependencies = [
 "Homepage" = "https://github.com/moderneinc/visualizations-misc"
 
 [tool.setuptools.packages.find]
-include = ["moderne_visualizations_misc"]
+include = [
+    "moderne_visualizations_misc",
+    "moderne_visualizaitons_misc/specs",
+    "moderne_visualizaitons_misc/images"
+]
 exclude = ["samples"]
