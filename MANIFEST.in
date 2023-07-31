@@ -1,3 +1,3 @@
-include moderne_visualizations_misc/**/*.ipynb
+include moderne_visualizations_misc/*.ipynb
 include moderne_visualizations_misc/**/*.yml
 include moderne_visualizations_misc/**/*.png
