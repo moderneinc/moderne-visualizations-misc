@@ -3,4 +3,4 @@ Miscellaneous Visualizations
 
 Installation:
 
-    pip install moderne_visualizations_misc
+    pip install moderne-visualizations-misc

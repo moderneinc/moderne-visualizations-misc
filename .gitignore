@@ -13,3 +13,5 @@ pip-delete-this-directory.txt
 venv/
 dist/
 build/
+
+.DS_Store
