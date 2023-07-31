@@ -17,3 +17,7 @@ dependencies = [
 
 [project.urls]
 "Homepage" = "https://github.com/moderneinc/visualizations-misc"
+
+[tool.setuptools.packages.find]
+include = ["moderne_visualizations_misc"]
+exclude = ["samples"]
