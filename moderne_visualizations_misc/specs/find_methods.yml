@@ -1,0 +1,9 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.FindMethods
+displayName: Find uses of method in code
+description: This report shows the uses of a method across projects.
+recipe:
+  org.openrewrite.java.search.FindMethods:
+    methodPattern: java.util.List add(..)
+dataTable: org.openrewrite.java.table.MethodCalls
