@@ -1,0 +1,9 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.SourceFileModelTypes
+displayName: LST model types of matching source files.
+description: Identifies which parser was used to parse matching source files.
+recipe:
+  org.openrewrite.FindSourceFiles:
+    filePattern: '**/*.kt'
+dataTable: org.openrewrite.table.SourcesFiles
