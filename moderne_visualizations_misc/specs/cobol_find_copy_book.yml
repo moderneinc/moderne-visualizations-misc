@@ -1,9 +1,9 @@
 ---
 type: specs.moderne.io/v1beta/visualization
 name: io.moderne.FindCobolCopyBook
-displayName: Find COBOL Copy Book relationships
+displayName: Find COBOL copybook relationships
 description: >
-  This diagram shows which COBOL copy books are used by which COBOL sources with a directed graph visualization.
+  This diagram shows which COBOL copybooks are used by which COBOL sources with a directed graph visualization.
   Missing copybooks are highlighted in red.
 recipe: org.openrewrite.cobol.search.FindCopyBook
 dataTable: org.openrewrite.cobol.table.CopyBookSource
