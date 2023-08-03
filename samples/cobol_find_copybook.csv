@@ -1,6 +1,4 @@
-repositoryOrigin,repositoryPath,repositoryBranch,copyBookName,copyBookSourcePath,resolutionStatus,markedWord
-github.com,moderneinc/cobol-samples,main,cobol/SM205A.cbl,K5SDB,"/Users/jon/Projects/github/moderneinc/cobol-samples/cobol/copybooks/K5SDB.CPY",RESOLVED,DATA
-github.com,moderneinc/cobol-samples,main,cobol/SM205A.cbl,K501B,"/Users/jon/Projects/github/moderneinc/cobol-samples/cobol/copybooks/K501B.CPY",RESOLVED,02
+repositoryOrigin,repositoryPath,repositoryBranch,copybookName,copybookSourcePath,resolutionStatus,markedWord
 github.com,moderneinc/cobol-samples,main,cobol/SM103A.cbl,K3SCA,"/Users/jon/Projects/github/moderneinc/cobol-samples/cobol/copybooks/K3SCA.CPY",RESOLVED,XXXXX082
 github.com,moderneinc/cobol-samples,main,cobol/SM103A.cbl,K3OCA,"/Users/jon/Projects/github/moderneinc/cobol-samples/cobol/copybooks/K3OCA.CPY",RESOLVED,XXXXX083
 github.com,moderneinc/cobol-samples,main,cobol/SM103A.cbl,K3SNA,"/Users/jon/Projects/github/moderneinc/cobol-samples/cobol/copybooks/K3SNA.CPY",RESOLVED,DECIMAL-POINT
@@ -30,6 +28,8 @@ github.com,moderneinc/cobol-samples,main,cobol/SM201A.cbl,K1WKA,"/Users/jon/Proj
 github.com,moderneinc/cobol-samples,main,cobol/SM201A.cbl,K1WKB,"/Users/jon/Projects/github/moderneinc/cobol-samples/cobol/copybooks/K1WKB.CPY",RESOLVED,02
 github.com,moderneinc/cobol-samples,main,cobol/SM201A.cbl,K1WKB,"/Users/jon/Projects/github/moderneinc/cobol-samples/cobol/copybooks/K1WKB.CPY",RESOLVED,02
 github.com,moderneinc/cobol-samples,main,cobol/SM201A.cbl,K1PRB,"/Users/jon/Projects/github/moderneinc/cobol-samples/cobol/copybooks/K1PRB.CPY",RESOLVED,MOVE
+github.com,moderneinc/cobol-samples,main,cobol/SM205A.cbl,K5SDB,"/Users/jon/Projects/github/moderneinc/cobol-samples/cobol/copybooks/K5SDB.CPY",RESOLVED,DATA
+github.com,moderneinc/cobol-samples,main,cobol/SM205A.cbl,K501B,"/Users/jon/Projects/github/moderneinc/cobol-samples/cobol/copybooks/K501B.CPY",RESOLVED,02
 github.com,moderneinc/cobol-samples,main,cobol/SM202A.cbl,K2SEA,"/Users/jon/Projects/github/moderneinc/cobol-samples/cobol/copybooks/K2SEA.CPY",RESOLVED,PARA-1
 github.com,moderneinc/cobol-samples,main,cobol/SM202A.cbl,K2PRA,"/Users/jon/Projects/github/moderneinc/cobol-samples/cobol/copybooks/K2PRA.CPY",RESOLVED,MOVE
 github.com,moderneinc/cobol-samples,main,cobol/SM202A.cbl,K2PRA,"/Users/jon/Projects/github/moderneinc/cobol-samples/cobol/copybooks/K2PRA.CPY",RESOLVED,MOVE
