@@ -2,7 +2,7 @@
 
 [project]
 name = "moderne_visualizations_misc"
-version = "0.1.17"
+version = "0.1.18"
 description = "Miscellaneous visualizations for the Moderne platform"
 authors = [
     { name = "Jonathan Schneider", email = "jonathan@moderne.io" },
