@@ -13,7 +13,8 @@ dependencies = [
     "pandas==2.0.3",
     "ipython==8.13.0",
     "code_data_science==1.1.4",
-    "graphviz==0.20.1"
+    "graphviz==0.20.1",
+    "plotly==5.14.1"
 ]
 
 [project.urls]
