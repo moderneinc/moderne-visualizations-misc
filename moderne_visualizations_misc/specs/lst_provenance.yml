@@ -1,0 +1,7 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.LstProvenance
+displayName: Plugin versions used to build LSTs
+description: The Moderne Gradle and Maven plugins used to build the LSTs.
+recipe: org.openrewrite.FindLstProvenance
+dataTable: org.openrewrite.table.LstProvenanceTable
