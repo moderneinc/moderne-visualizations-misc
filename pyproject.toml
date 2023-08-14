@@ -2,7 +2,7 @@
 
 [project]
 name = "moderne_visualizations_misc"
-version = "0.1.26"
+version = "0.1.27"
 description = "Miscellaneous visualizations for the Moderne platform"
 authors = [
     { name = "Jonathan Schneider", email = "jonathan@moderne.io" },
@@ -12,7 +12,7 @@ license = { text = "Apache-2.0" }
 dependencies = [
     "pandas==2.0.3",
     "ipython==8.13.0",
-    "code_data_science==1.1.4",
+    "code_data_science==1.1.5",
     "graphviz==0.20.1",
     "plotly==5.14.1",
     "matplotlib==3.7.1",
