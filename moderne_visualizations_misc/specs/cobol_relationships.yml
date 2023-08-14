@@ -6,3 +6,12 @@ description: >
   This diagram shows relationships between different COBOL resources.
 recipe: org.openrewrite.cobol.search.FindRelationships
 dataTable: org.openrewrite.cobol.table.CobolRelationships
+options:
+  - dependency:
+      # type/name/example -- inferred from papermill
+      # https://papermill.readthedocs.io/en/latest/usage-inspect.html#inspect-via-cli
+      description: The entity that depends on another entity.
+      valid:
+        - COBOL
+        - Copybook
+      required: false
