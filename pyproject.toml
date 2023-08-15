@@ -1,5 +1,4 @@
 # @see https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
-
 [project]
 name = "moderne_visualizations_misc"
 version = "0.1.28"
@@ -12,12 +11,15 @@ license = { text = "Apache-2.0" }
 dependencies = [
     "pandas==2.0.3",
     "ipython==8.13.0",
-    "code_data_science==1.1.5",
+    "code_data_science==1.1.6",
     "graphviz==0.20.1",
     "plotly==5.14.1",
     "matplotlib==3.7.1",
     "nbformat==5.9.0",
 ]
+
+[project.optional-dependencies]
+dev = ["poethepoet", "nbqa", "black", "nb_mypy"]
 
 [project.urls]
 "Homepage" = "https://github.com/moderneinc/visualizations-misc"
@@ -28,4 +30,8 @@ include = [
     "moderne_visualizaitons_misc/specs",
     "moderne_visualizaitons_misc/images"
 ]
-exclude = ["samples"]
+exclude = ["samples", "scripts"]
+
+[tool.poe.tasks]
+type-check = "nbqa mypy --ignore-missing-imports ./moderne_visualizations_misc"
+format = "nbqa black ./moderne_visualizations_misc"
