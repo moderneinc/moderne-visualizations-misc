@@ -7,15 +7,6 @@ description: >
 recipe: org.openrewrite.cobol.search.FindRelationships
 dataTable: org.openrewrite.cobol.table.CobolRelationships
 options:
-  # type and example are from papermill/notebook
-  # https://papermill.readthedocs.io/en/latest/usage-inspect.html#inspect-via-cli
-  - dependency:
-      displayName: Dependency
-      description: The entity that depends on another entity.
-      valid:
-        - COBOL
-        - Copybook
-      required: false
   - node_shape:
       displayName: Node shape
       description: 'The shape of the nodes in the diagram. (default: ellipse)'
