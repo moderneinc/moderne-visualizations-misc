@@ -1,7 +1,7 @@
 # @see https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
 [project]
 name = "moderne_visualizations_misc"
-version = "0.1.30"
+version = "0.1.31"
 description = "Miscellaneous visualizations for the Moderne platform"
 authors = [
     { name = "Jonathan Schneider", email = "jonathan@moderne.io" },
