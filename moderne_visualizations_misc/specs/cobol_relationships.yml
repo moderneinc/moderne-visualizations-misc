@@ -15,3 +15,8 @@ options:
         - ellipse
         - box
       required: false
+  - filter_resources_related_to:
+      displayName: Show only resources related to
+      description: >
+        Enter the name of a resource to filter the diagram to only show dependents and dependencies containing that resource.
+      required: false
