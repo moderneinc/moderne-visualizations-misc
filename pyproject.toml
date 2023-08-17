@@ -20,7 +20,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["poethepoet", "nbqa", "black", "nb_mypy"]
+dev = ["poethepoet", "nbqa", "black", "nb_mypy", "python-semantic-release"]
 
 [project.urls]
 "Homepage" = "https://github.com/moderneinc/visualizations-misc"
