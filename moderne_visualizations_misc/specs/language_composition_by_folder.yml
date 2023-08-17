@@ -1,0 +1,7 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.LanguageCompositionByFolder
+displayName: Language composition by folder
+description: This report shows the different languages that are used in the projects, organized by the folders containing the source files.
+recipe: org.openrewrite.LanguageComposition
+dataTable: org.openrewrite.table.LanguageCompositionPerFolder
