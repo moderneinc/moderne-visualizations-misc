@@ -40,31 +40,3 @@ format = "nbqa black ./moderne_visualizations_misc"
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
-
-[tool.semantic_release.commit_parser_options]
-allowed_tags = [
-    "build",
-    "chore",
-    "ci",
-    "docs",
-    "feat",
-    "fix",
-    "perf",
-    "style",
-    "refactor",
-    "test",
-    ""
-]
-minor_tags = ["feat"]
-patch_tags = [
-    "build",
-    "chore",
-    "ci",
-    "docs",
-    "fix",
-    "perf",
-    "style",
-    "refactor",
-    "test",
-    ""
-]

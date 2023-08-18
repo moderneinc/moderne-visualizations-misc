@@ -3,6 +3,16 @@ name: Publish to PyPI
 # on manually trigger
 on:
   workflow_dispatch:
+    inputs:
+      scope:
+        description: Release scope
+        required: true
+        default: minor
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
 
 jobs:
   publish:
@@ -17,6 +27,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install build
           pip install twine
+
+      - name: Bump version and commit change
+        run: |
+          pip install ".[ci]"
+          semantic-release version --${{ github.event.inputs.scope }}
 
       - name: Build and publish
         env:
