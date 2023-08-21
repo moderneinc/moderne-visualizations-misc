@@ -2,6 +2,13 @@
 
 
 
+## v0.2.0 (2023-08-21)
+
+### Feature
+
+* feat(sql_crud): add option to filter operations ([`4527362`](https://github.com/moderneinc/moderne-visualizations-misc/commit/4527362492dab1b35e2ced37e634db774a3af1c5))
+
+
 ## v0.1.38 (2023-08-18)
 
 ### Ci
