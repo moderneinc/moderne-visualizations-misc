@@ -2,6 +2,13 @@
 
 
 
+## v0.4.0 (2023-08-22)
+
+### Unknown
+
+* Prevent redundant copybook relationships. (#12) ([`1ada2b3`](https://github.com/moderneinc/moderne-visualizations-misc/commit/1ada2b3b26c145b92b20b633c4923c11b692cf73))
+
+
 ## v0.3.1 (2023-08-22)
 
 ### Chore
