@@ -2,6 +2,13 @@
 
 
 
+## v0.5.0 (2023-08-22)
+
+### Unknown
+
+* Fix relationships for copybooks that to refer to more than 1 copybook. ([`13efd0c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/13efd0c8bd7010f0daed817559dee7972e84f26b))
+
+
 ## v0.4.0 (2023-08-22)
 
 ### Unknown
