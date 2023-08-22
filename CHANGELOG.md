@@ -2,6 +2,13 @@
 
 
 
+## v0.3.1 (2023-08-22)
+
+### Chore
+
+* chore: move parse_failure_analysis to dev ([`4213578`](https://github.com/moderneinc/moderne-visualizations-misc/commit/4213578172bc4edbd83b05307d241330a19dbd23))
+
+
 ## v0.3.0 (2023-08-22)
 
 
