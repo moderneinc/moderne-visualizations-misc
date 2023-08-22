@@ -2,6 +2,16 @@
 
 
 
+## v0.3.0 (2023-08-22)
+
+
+## v0.2.1 (2023-08-22)
+
+### Unknown
+
+* Updated SQL relationship colors for visibility (#11) ([`788945e`](https://github.com/moderneinc/moderne-visualizations-misc/commit/788945ee6126bb9756621324482ae7cf7f40b2af))
+
+
 ## v0.2.0 (2023-08-21)
 
 ### Feature
