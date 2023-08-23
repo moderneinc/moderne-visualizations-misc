@@ -2,6 +2,13 @@
 
 
 
+## v0.6.0 (2023-08-23)
+
+### Feature
+
+* feat: add parameter for defining graphviz layout engine (#13) ([`9ee166e`](https://github.com/moderneinc/moderne-visualizations-misc/commit/9ee166ef585e29626dc344bb7ecd75fb61391a1a))
+
+
 ## v0.5.0 (2023-08-22)
 
 ### Unknown
