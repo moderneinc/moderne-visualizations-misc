@@ -7,9 +7,17 @@ description: >
 recipe: org.openrewrite.cobol.search.FindRelationships
 dataTable: org.openrewrite.cobol.table.CobolRelationships
 options:
+  - default_end:
+      displayName: Layout engine
+      description: "Various algorithms for projecting abstract graphs into a space for visualization. (default: sfdp)"
+      valid:
+        - sfdp
+        - dot
+        - circo
+      required: false
   - node_shape:
       displayName: Node shape
-      description: 'The shape of the nodes in the diagram. (default: ellipse)'
+      description: "The shape of the nodes in the diagram. (default: ellipse)"
       valid:
         - circle
         - ellipse
