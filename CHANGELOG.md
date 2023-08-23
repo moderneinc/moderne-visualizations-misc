@@ -2,6 +2,13 @@
 
 
 
+## v0.8.0 (2023-08-23)
+
+### Unknown
+
+* Added normalization graph config. Added beautify for filtered graphs for easy readability. ([`1e13558`](https://github.com/moderneinc/moderne-visualizations-misc/commit/1e1355878bdf9cdc0cd8ee05bc5383f388d7b321))
+
+
 ## v0.7.0 (2023-08-23)
 
 ### Unknown
