@@ -2,6 +2,15 @@
 
 
 
+## v0.7.0 (2023-08-23)
+
+### Unknown
+
+* Removed graph layout option settings. (#14)
+
+Set engine to &#34;sfdp&#34; and added configurations for clearer clustering. ([`44534d5`](https://github.com/moderneinc/moderne-visualizations-misc/commit/44534d57b2b47632e80266e485e95f02df0ff48a))
+
+
 ## v0.6.0 (2023-08-23)
 
 ### Feature
