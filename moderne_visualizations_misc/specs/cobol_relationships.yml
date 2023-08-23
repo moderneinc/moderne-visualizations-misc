@@ -7,7 +7,7 @@ description: >
 recipe: org.openrewrite.cobol.search.FindRelationships
 dataTable: org.openrewrite.cobol.table.CobolRelationships
 options:
-  - default_end:
+  - default_engine:
       displayName: Layout engine
       description: "Various algorithms for projecting abstract graphs into a space for visualization. (default: sfdp)"
       valid:
