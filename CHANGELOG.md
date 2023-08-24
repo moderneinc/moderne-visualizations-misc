@@ -2,6 +2,14 @@
 
 
 
+## v0.10.0 (2023-08-24)
+
+### Unknown
+
+* Set overlap_scaling to 30.
+Updated engine to neato. ([`c96dc47`](https://github.com/moderneinc/moderne-visualizations-misc/commit/c96dc47e69fa626f19b4f09c5e99843eefa4f07c))
+
+
 ## v0.9.0 (2023-08-24)
 
 ### Unknown
