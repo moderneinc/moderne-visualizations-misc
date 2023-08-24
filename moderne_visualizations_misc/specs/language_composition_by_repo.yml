@@ -1,0 +1,7 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.LanguageCompositionByRepo
+displayName: Language composition by repository
+description: This report shows the different languages that are used in each repository.
+recipe: org.openrewrite.LanguageComposition
+dataTable: org.openrewrite.table.LanguageCompositionPerFile
