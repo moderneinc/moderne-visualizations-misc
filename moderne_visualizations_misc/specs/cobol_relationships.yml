@@ -20,3 +20,10 @@ options:
       description: >
         Enter the name of a resource to filter the diagram to only show dependents and dependencies containing that resource.
       required: false
+  - exclude_incoming_relationships:
+      displayName: Exclude incoming relationships
+      description: Removes incoming relationships from the graph.
+      valid:
+        - true
+        - false
+      required: false
