@@ -2,6 +2,13 @@
 
 
 
+## v0.11.0 (2023-08-24)
+
+### Unknown
+
+* Change engine back to sfdp ([`e873023`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e87302361b84874274c4d1b017bd27ab02b6085d))
+
+
 ## v0.10.0 (2023-08-24)
 
 ### Unknown
