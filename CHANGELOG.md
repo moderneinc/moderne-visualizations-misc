@@ -2,6 +2,16 @@
 
 
 
+## v0.9.0 (2023-08-24)
+
+### Unknown
+
+* Expanded viewable relationships through filter. (#15)
+
+Added option to view exclude relationships.
+Create a unique shape for filtered node. ([`d5d339b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/d5d339bd7c16e4d5c3b5a7a7339d70766680d671))
+
+
 ## v0.8.0 (2023-08-23)
 
 ### Unknown
