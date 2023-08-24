@@ -2,6 +2,13 @@
 
 
 
+## v0.12.0 (2023-08-24)
+
+### Feature
+
+* feat: Add language composition by repository (#16) ([`ab0c328`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ab0c328ea4e5c3a6668ff76131cb41cb9f1fc5e1))
+
+
 ## v0.11.0 (2023-08-24)
 
 ### Unknown
