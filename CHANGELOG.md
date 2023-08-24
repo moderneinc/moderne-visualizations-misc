@@ -2,6 +2,13 @@
 
 
 
+## v0.12.1 (2023-08-24)
+
+### Fix
+
+* fix(cobol_relationships): update size ([`3c4a4a6`](https://github.com/moderneinc/moderne-visualizations-misc/commit/3c4a4a60cd87ec4f1bfe1d06db02b9f7e401d3a6))
+
+
 ## v0.12.0 (2023-08-24)
 
 ### Feature
