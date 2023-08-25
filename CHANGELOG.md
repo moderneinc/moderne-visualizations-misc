@@ -2,6 +2,13 @@
 
 
 
+## v0.13.1 (2023-08-25)
+
+### Fix
+
+* fix(cobol_relationships): escape html annotation ([`e42b14d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e42b14dabf2ed5cbe674cca511e8b237574fc9f2))
+
+
 ## v0.13.0 (2023-08-25)
 
 ### Feature
