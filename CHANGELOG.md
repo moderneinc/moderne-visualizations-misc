@@ -2,6 +2,13 @@
 
 
 
+## v0.13.0 (2023-08-25)
+
+### Feature
+
+* feat(maven): Add effective maven settings data grid (#17) ([`34cf41a`](https://github.com/moderneinc/moderne-visualizations-misc/commit/34cf41a441d01096012276405ec8574af7cb06e1))
+
+
 ## v0.12.1 (2023-08-24)
 
 ### Fix
