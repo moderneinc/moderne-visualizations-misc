@@ -1,0 +1,8 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.EffectiveMavenSettings
+displayName: Effective maven settings
+description: >
+  This data grid contains the maven settings file used by each pom.
+recipe: org.openrewrite.maven.search.FindMavenSettings
+dataTable: org.openrewrite.maven.table.EffectiveMavenSettings
