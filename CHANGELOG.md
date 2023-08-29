@@ -2,6 +2,13 @@
 
 
 
+## v0.16.2 (2023-08-29)
+
+### Chore
+
+* chore: move older yml to dev mode ([`9eb1499`](https://github.com/moderneinc/moderne-visualizations-misc/commit/9eb14996f4fe876cbca09295e0d9ab6435c9d524))
+
+
 ## v0.16.1 (2023-08-29)
 
 ### Chore
