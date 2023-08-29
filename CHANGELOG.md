@@ -2,6 +2,13 @@
 
 
 
+## v0.15.0 (2023-08-29)
+
+### Fix
+
+* fix: Add node_shape for io.moderne.FindCallGraph ([`f3f55ae`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f3f55aed98eaffc80125e79d992afc95ee95caa8))
+
+
 ## v0.14.0 (2023-08-29)
 
 ### Unknown
