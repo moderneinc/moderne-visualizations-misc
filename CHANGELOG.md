@@ -2,6 +2,13 @@
 
 
 
+## v0.16.1 (2023-08-29)
+
+### Chore
+
+* chore(call_graph_uml): add parameters tag ([`7946989`](https://github.com/moderneinc/moderne-visualizations-misc/commit/794698937df80796ec8de6fe744fc25815296ac1))
+
+
 ## v0.16.0 (2023-08-29)
 
 ### Feature
