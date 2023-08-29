@@ -2,6 +2,36 @@
 
 
 
+## v0.16.0 (2023-08-29)
+
+### Feature
+
+* feat: add call_graph_uml ([`c81fc11`](https://github.com/moderneinc/moderne-visualizations-misc/commit/c81fc110862db1c61ebbfa57d8710b1c15edbd5f))
+
+### Unknown
+
+* Call graph (#21)
+
+* Call graph vis WIP
+
+* chore: add uml notebook
+
+* chore: update dependency
+
+* Renamed uml variant to call_graph_uml.
+Added filtering by FQN and method name.
+Started update for call_graph with graphviz.
+
+* poe format
+
+* Updated call_graph_uml name with UML.
+
+---------
+
+Co-authored-by: Sam Snyder &lt;sam@moderne.io&gt;
+Co-authored-by: Kyle Scully &lt;scullykns@gmail.com&gt; ([`2895601`](https://github.com/moderneinc/moderne-visualizations-misc/commit/289560176e54a454bd682528b31d3da6ef40befb))
+
+
 ## v0.15.0 (2023-08-29)
 
 ### Fix
