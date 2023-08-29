@@ -7,6 +7,14 @@ description: >
 recipe: org.openrewrite.FindCallGraph
 dataTable: org.openrewrite.table.CallGraph
 options:
+  - node_shape:
+      displayName: Node shape
+      description: "The shape of the nodes in the diagram. (default: ellipse)"
+      valid:
+        - circle
+        - ellipse
+        - box
+      required: false
   - filter_resources_related_to:
       displayName: Show only resources related to
       description: >
