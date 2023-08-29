@@ -1,9 +1,9 @@
 ---
 type: specs.moderne.io/v1beta/visualization
 name: io.moderne.FindCallGraph
-displayName: Call Graph
+displayName: Call Graph UML
 description: >
-  This diagram shows relationships for method calls.
+  This diagram shows relationships for method calls in UML.
 recipe: org.openrewrite.FindCallGraph
 dataTable: org.openrewrite.table.CallGraph
 options:
