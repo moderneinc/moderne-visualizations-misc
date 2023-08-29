@@ -2,6 +2,26 @@
 
 
 
+## v0.15.0 (2023-08-29)
+
+### Fix
+
+* fix: Add node_shape for io.moderne.FindCallGraph ([`f3f55ae`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f3f55aed98eaffc80125e79d992afc95ee95caa8))
+
+
+## v0.14.0 (2023-08-29)
+
+### Unknown
+
+* Basic call graph ([`7a7af62`](https://github.com/moderneinc/moderne-visualizations-misc/commit/7a7af62bbd67fd004f6912a1aa76b5a518dd59aa))
+
+* Call graph vis WIP (#18)
+
+Co-authored-by: Sam Snyder &lt;sam@moderne.io&gt; ([`d4be066`](https://github.com/moderneinc/moderne-visualizations-misc/commit/d4be06651311e1cedb223d848fdcfb39d6bcc79d))
+
+* Added nodesep and removed minLen. ([`393455b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/393455b26b3144734f48cccd87c34727cff9c571))
+
+
 ## v0.13.1 (2023-08-25)
 
 ### Fix
