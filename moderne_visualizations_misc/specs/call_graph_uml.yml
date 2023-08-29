@@ -1,0 +1,18 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.FindCallGraph
+displayName: Call Graph UML
+description: >
+  This diagram shows relationships for method calls in UML.
+recipe: org.openrewrite.FindCallGraph
+dataTable: org.openrewrite.table.CallGraph
+options:
+  - filter_by_fqn:
+      displayName: Fully qualified name
+      description: >
+        Enter the name fully qualified name to filter by.
+      required: false
+  - filter_by_method_name:
+      displayName: Method name
+      description: Enter the name method name to filter by.
+      required: false
