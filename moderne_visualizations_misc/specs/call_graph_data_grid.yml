@@ -1,0 +1,18 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.CallGraphDataGrid
+displayName: Call graph data grid
+description: >
+  This data grid shows relationships for method calls.
+recipe: org.openrewrite.FindCallGraph
+dataTable: org.openrewrite.table.CallGraph
+options:
+  - filter_by_fqn:
+      displayName: Fully qualified name
+      description: >
+        Enter the fully qualified name of the class to filter by.
+      required: false
+  - filter_by_method_name:
+      displayName: Method name
+      description: Enter the method name to filter by.
+      required: false
