@@ -2,6 +2,19 @@
 
 
 
+## v0.17.0 (2023-08-30)
+
+### Fix
+
+* fix: Typos in call graph yaml ([`997b4d2`](https://github.com/moderneinc/moderne-visualizations-misc/commit/997b4d2314efa3bf1522a3ea028c2ada3b8bb751))
+
+### Unknown
+
+* Filter df if filter_by_fqn is provided. (#22)
+
+Prevent inner classes relationships, since it causes an issue in UML (requires creating inner classes in the template). ([`a64544f`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a64544fca60ba66eab9c8c70cd193478a086602c))
+
+
 ## v0.16.2 (2023-08-29)
 
 ### Chore
