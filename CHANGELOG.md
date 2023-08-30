@@ -2,6 +2,13 @@
 
 
 
+## v0.18.0 (2023-08-30)
+
+### Feature
+
+* feat: call_graph_data_grid ([`3cd1321`](https://github.com/moderneinc/moderne-visualizations-misc/commit/3cd132104e5c30fc193351c71d87311c1f748cc3))
+
+
 ## v0.17.4 (2023-08-30)
 
 ### Chore
