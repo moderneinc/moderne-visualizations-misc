@@ -2,6 +2,13 @@
 
 
 
+## v0.17.3 (2023-08-30)
+
+### Chore
+
+* chore: update manifest to include resources ([`037c28d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/037c28d909e43757f389631ab1b71a7e674f6e6f))
+
+
 ## v0.17.2 (2023-08-30)
 
 ### Chore
