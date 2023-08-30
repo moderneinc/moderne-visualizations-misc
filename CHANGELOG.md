@@ -2,6 +2,13 @@
 
 
 
+## v0.17.1 (2023-08-30)
+
+### Chore
+
+* chore(call_graph_uml): use local plantuml ([`cc87e3f`](https://github.com/moderneinc/moderne-visualizations-misc/commit/cc87e3fa9e6e09352bd5c78a40f6c1433f89b357))
+
+
 ## v0.17.0 (2023-08-30)
 
 ### Fix
