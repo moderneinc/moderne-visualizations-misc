@@ -2,6 +2,15 @@
 
 
 
+## v0.17.2 (2023-08-30)
+
+### Chore
+
+* chore(call_graph_uml): more cleanup ([`6ee728f`](https://github.com/moderneinc/moderne-visualizations-misc/commit/6ee728ff6d00383c24b369a8cbb3e4ead4608b42))
+
+* chore(call_graph_uml): cleanup ([`4385818`](https://github.com/moderneinc/moderne-visualizations-misc/commit/4385818fb106bc559afb1150581ed0162ad349e9))
+
+
 ## v0.17.1 (2023-08-30)
 
 ### Chore
