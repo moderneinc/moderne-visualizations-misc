@@ -2,6 +2,13 @@
 
 
 
+## v0.17.4 (2023-08-30)
+
+### Chore
+
+* chore(call_graph_uml): raise exception if df empty ([`a1edefb`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a1edefbfe73f13ef3a6bf611c1a5e5172ee7d903))
+
+
 ## v0.17.3 (2023-08-30)
 
 ### Chore
