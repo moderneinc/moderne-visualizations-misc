@@ -1,7 +1,7 @@
 # @see https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
 [project]
 name = "moderne_visualizations_misc"
-version = "0.18.1"
+version = "0.17.4"
 description = "Miscellaneous visualizations for the Moderne platform"
 authors = [
     { name = "Jonathan Schneider", email = "jonathan@moderne.io" },
@@ -21,7 +21,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["poethepoet", "nbqa", "black", "nb_mypy"]
-ci = ["python-semantic-release"]
+ci = ["poethepoet", "python-semantic-release", "papermill"]
 
 [project.urls]
 "Homepage" = "https://github.com/moderneinc/visualizations-misc"
@@ -38,6 +38,8 @@ exclude = ["samples", "scripts"]
 [tool.poe.tasks]
 check-types = "nbqa mypy --ignore-missing-imports ./moderne_visualizations_misc"
 format = "nbqa black ./moderne_visualizations_misc"
+check-options = "python3 scripts/check_options.py"
+check-sentence-casing = "python3 scripts/check_sentence_casing.py"
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
