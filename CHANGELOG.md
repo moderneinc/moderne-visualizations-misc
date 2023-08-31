@@ -2,6 +2,13 @@
 
 
 
+## v0.18.1 (2023-08-31)
+
+### Unknown
+
+* Render inner classes in the call_graph_uml. ([`e3be531`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e3be531de20d611025858445675c561186464d34))
+
+
 ## v0.18.0 (2023-08-30)
 
 ### Feature
