@@ -4,11 +4,11 @@ import yaml
 
 
 def check_notebook_options(notebook_filename):
-    notebook_path = f"/Users/kylescully/Repos/visualizations-misc/moderne_visualizations_misc/{notebook_filename}"
+    notebook_path = f"./moderne_visualizations_misc/{notebook_filename}"
     notebook_options = pm.inspect_notebook(notebook_path)
     option_names = list(notebook_options.keys())
 
-    spec__path = f"/Users/kylescully/Repos/visualizations-misc/moderne_visualizations_misc/specs/{notebook_filename.replace('.ipynb', '.yml')}"
+    spec__path = f"./moderne_visualizations_misc/specs/{notebook_filename.replace('.ipynb', '.yml')}"
 
     result = None
     with open(spec__path, 'r') as stream:
