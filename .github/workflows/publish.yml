@@ -29,10 +29,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install build
           pip install twine
+          pip install ".[ci]"
+
+      - name: Check sentence casing
+        run: |
+          poe check-sentence-casing
+
+      - name: Check options
+        run: |
+          poe check-options
 
       - name: Bump version and commit change
         run: |
-          pip install ".[ci]"
           semantic-release version --${{ github.event.inputs.scope }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
