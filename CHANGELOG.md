@@ -2,6 +2,21 @@
 
 
 
+## v0.18.2 (2023-09-01)
+
+### Ci
+
+* ci: cleanup local things ([`f28f587`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f28f587d91d646842d49ada9846a46e5db099ee8))
+
+* ci: prevent publish unless checks pass ([`d2d5d8e`](https://github.com/moderneinc/moderne-visualizations-misc/commit/d2d5d8ee3c0bd9623f22648ed72bf0e4f2cbaa70))
+
+* ci: add tasks to check options and casing ([`f1c6883`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f1c68837cc83a0414a7efdabdfecfac8aa7f09ab))
+
+### Documentation
+
+* docs: update README ([`18d75df`](https://github.com/moderneinc/moderne-visualizations-misc/commit/18d75df9c3147df05939bf6c07a0a4bf90520d87))
+
+
 ## v0.18.1 (2023-08-31)
 
 ### Unknown
