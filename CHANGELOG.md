@@ -2,6 +2,13 @@
 
 
 
+## v0.19.1 (2023-09-01)
+
+### Chore
+
+* chore(parse_failure_stacktraces): update image ([`2523496`](https://github.com/moderneinc/moderne-visualizations-misc/commit/2523496788889be382066dd6716496008d735796))
+
+
 ## v0.19.0 (2023-09-01)
 
 ### Chore
