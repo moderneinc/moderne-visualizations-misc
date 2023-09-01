@@ -1,0 +1,7 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.ParseFailureStacktraces
+displayName: Parse failure stacktraces
+description: This report shows the parse failure stacktraces by parsers and counts.
+recipe: org.openrewrite.FindParseFailures
+dataTable: org.openrewrite.table.ParseFailures
