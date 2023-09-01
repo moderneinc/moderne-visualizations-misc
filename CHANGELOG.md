@@ -2,6 +2,23 @@
 
 
 
+## v0.19.0 (2023-09-01)
+
+### Chore
+
+* chore(parse_failure_stacktraces): clean outputs ([`4866f3d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/4866f3de47ed73bbcce0c5ffa4bc463bed4a7a42))
+
+* chore(parse_failure_stacktraces): trying as data grid ([`3ee1458`](https://github.com/moderneinc/moderne-visualizations-misc/commit/3ee14583402c6c354e31d285a3c6ae8cb5d6b3c4))
+
+### Unknown
+
+* add parse-failure-stacktraces image ([`e07ff30`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e07ff301b06ca9e266f88cef19c275b936f9c786))
+
+* add parse_failure_stacktraces.yml ([`83a8294`](https://github.com/moderneinc/moderne-visualizations-misc/commit/83a82940cc68b65553acbfebfea12bd19af03dfc))
+
+* Add parse failure stack trace grouping and top10 failures display ([`f913a19`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f913a197b7d5469a952b3cbda52fffe42daea28e))
+
+
 ## v0.18.2 (2023-09-01)
 
 ### Ci
