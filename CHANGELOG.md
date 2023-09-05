@@ -2,6 +2,17 @@
 
 
 
+## v0.19.2 (2023-09-05)
+
+### Chore
+
+* chore: update plantuml jar ([`db92036`](https://github.com/moderneinc/moderne-visualizations-misc/commit/db920361d4956984a0475fa4efa1444e5626ae5c))
+
+### Fix
+
+* fix(call_graph_uml): addres bad hierarchy with inner classes ([`5a6559d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/5a6559def1815c2354abcdb4f4766bd29214b676))
+
+
 ## v0.19.1 (2023-09-01)
 
 ### Chore
