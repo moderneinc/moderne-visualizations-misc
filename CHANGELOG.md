@@ -2,6 +2,17 @@
 
 
 
+## v0.19.4 (2023-09-05)
+
+### Chore
+
+* chore: sentence casing ([`fad64f0`](https://github.com/moderneinc/moderne-visualizations-misc/commit/fad64f0060afa5b20f43bf9e3c4ce15af3814753))
+
+### Unknown
+
+* Update displayName of ParseFailureStacktraces ([`8822467`](https://github.com/moderneinc/moderne-visualizations-misc/commit/88224678ce271fe0863a6629421e8af118574270))
+
+
 ## v0.19.3 (2023-09-05)
 
 ### Chore
