@@ -1,7 +1,7 @@
 ---
 type: specs.moderne.io/v1beta/visualization
 name: io.moderne.ParseFailureStacktraces
-displayName: Top 10 Parse failures grouped by Stackstraces
+displayName: Top 10 parse failures grouped by stacktraces
 description: This report shows the parse failure stacktraces analysis by parsers and counts.
 recipe: org.openrewrite.FindParseFailures
 dataTable: org.openrewrite.table.ParseFailures
