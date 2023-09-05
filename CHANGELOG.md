@@ -2,6 +2,17 @@
 
 
 
+## v0.19.3 (2023-09-05)
+
+### Chore
+
+* chore: run formatting ([`cc24328`](https://github.com/moderneinc/moderne-visualizations-misc/commit/cc24328631ca74fcb674c628de257a5ae42e6f57))
+
+### Fix
+
+* fix(call_graph_uml): address backward link creation ([`f4f8738`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f4f8738898ce152b2414fa26900fcbc605cfaccf))
+
+
 ## v0.19.2 (2023-09-05)
 
 ### Chore
