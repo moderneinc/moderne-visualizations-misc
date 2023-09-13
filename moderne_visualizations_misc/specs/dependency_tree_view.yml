@@ -1,0 +1,8 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.DependencyTreeView
+displayName: Dependency tree view
+description: >
+  Render a tree data grid to explore dependencies.
+recipe: org.openrewrite.java.dependencies.DependencyList
+dataTable: org.openrewrite.java.dependencies.table.DependencyListReport
