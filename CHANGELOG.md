@@ -2,6 +2,13 @@
 
 
 
+## v0.20.0 (2023-09-13)
+
+### Feature
+
+* feat: add dependency_tree_view ([`06d16b1`](https://github.com/moderneinc/moderne-visualizations-misc/commit/06d16b10ed5fa3c8a413d871ca8b0004893ab472))
+
+
 ## v0.19.4 (2023-09-05)
 
 ### Chore
