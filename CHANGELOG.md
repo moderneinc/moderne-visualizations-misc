@@ -2,6 +2,13 @@
 
 
 
+## v0.20.1 (2023-09-13)
+
+### Chore
+
+* chore(dependency_tree_view): add image ([`420897c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/420897c2c4a10996a70b418a62169fa5eef09ffe))
+
+
 ## v0.20.0 (2023-09-13)
 
 ### Feature
