@@ -1,0 +1,8 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.CommentLanguageDistribution
+displayName: Comment Language Distribution
+description: >
+  Show pie graph of the distribution of the language of comments.
+recipe: 	org.openrewrite.recipe.rewrite-ai-search.FindCommentsLanguage
+dataTable: org.openrewrite.recipe.rewrite-ai-search.LanguageDistribution
