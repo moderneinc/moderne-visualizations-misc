@@ -2,6 +2,13 @@
 
 
 
+## v0.22.0 (2023-09-19)
+
+### Fix
+
+* fix(comment_lang): update recipe and dataTable ([`0a44876`](https://github.com/moderneinc/moderne-visualizations-misc/commit/0a4487676d6e15b0dfadcbf5bc66e929b52649b2))
+
+
 ## v0.21.0 (2023-09-19)
 
 ### Unknown
