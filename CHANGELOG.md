@@ -2,6 +2,17 @@
 
 
 
+## v0.24.0 (2023-09-21)
+
+### Unknown
+
+* adding other category ([`1bd710d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/1bd710db10df0f30e8b6c53834581a543f9f2de2))
+
+* Merge branch &#39;main&#39; of https://github.com/moderneinc/moderne-visualizations-misc ([`2bcf996`](https://github.com/moderneinc/moderne-visualizations-misc/commit/2bcf99607a934f5f9d5a4c87aca83610bcb344bc))
+
+* adding unknown to dict of languages ([`6623df2`](https://github.com/moderneinc/moderne-visualizations-misc/commit/6623df2a50a1670caf362dd15b18975468d4ec3e))
+
+
 ## v0.23.0 (2023-09-21)
 
 
