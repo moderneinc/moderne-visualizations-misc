@@ -2,6 +2,29 @@
 
 
 
+## v0.23.0 (2023-09-21)
+
+
+## v0.22.0 (2023-09-19)
+
+### Fix
+
+* fix(comment_lang): update recipe and dataTable ([`0a44876`](https://github.com/moderneinc/moderne-visualizations-misc/commit/0a4487676d6e15b0dfadcbf5bc66e929b52649b2))
+
+
+## v0.21.0 (2023-09-19)
+
+### Unknown
+
+* fixing sentence case ([`992ef06`](https://github.com/moderneinc/moderne-visualizations-misc/commit/992ef06a0c6019469b02437fa0a64f0d95623e39))
+
+* typo ([`27645f9`](https://github.com/moderneinc/moderne-visualizations-misc/commit/27645f97dbaaf60808e5d138bef329511b89dbd3))
+
+* typo ([`e51aa30`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e51aa305850641e81dc855b14370ab082acb1802))
+
+* visualization added for language comment distribution ([`d12ab12`](https://github.com/moderneinc/moderne-visualizations-misc/commit/d12ab12969c6955f995281458ef519c523fb867a))
+
+
 ## v0.20.1 (2023-09-13)
 
 ### Chore
