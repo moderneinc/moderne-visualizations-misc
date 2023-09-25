@@ -2,6 +2,13 @@
 
 
 
+## v0.25.0 (2023-09-25)
+
+### Unknown
+
+* Java versions by source set ([`9353b3c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/9353b3c8ea691378d4becef0fed122e9dd6524d8))
+
+
 ## v0.24.0 (2023-09-21)
 
 ### Unknown
