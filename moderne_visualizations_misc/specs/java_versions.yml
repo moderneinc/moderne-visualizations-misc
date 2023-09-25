@@ -1,0 +1,7 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.JavaVersionsBySourceSet
+displayName: Java versions by source set
+description: This report shows the distribution of Java versions by source set.
+recipe: org.openrewrite.java.migrate.search.AboutJavaVersion
+dataTable: org.openrewrite.java.migrate.table.JavaVersionPerSourceSet
