@@ -2,6 +2,13 @@
 
 
 
+## v0.26.1 (2023-09-26)
+
+### Chore
+
+* chore(dependency_vulnerabilities): update description ([`e6b49c6`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e6b49c62730e693d439232ec25ccc97cea7650c7))
+
+
 ## v0.26.0 (2023-09-26)
 
 ### Feature
