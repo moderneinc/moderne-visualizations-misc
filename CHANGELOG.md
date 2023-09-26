@@ -2,6 +2,13 @@
 
 
 
+## v0.26.0 (2023-09-26)
+
+### Feature
+
+* feat(dependency_vulnerabilities): add repo filter option ([`f518777`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f518777ced2a23ec3991f53e8537f03d4fa0bcab))
+
+
 ## v0.25.0 (2023-09-25)
 
 ### Unknown
