@@ -4,13 +4,19 @@
 [![CI](https://github.com/moderneinc/moderne-visualizations-misc/actions/workflows/checks.yml/badge.svg)](https://github.com/moderneinc/moderne-visualizations-misc/actions/workflows/checks.yml)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
-Installation:
+## Installation
 
 ```bash
 pip install moderne-visualizations-misc
 ```
 
-Contributing:
+## Run
+
+```bash
+jupyter notebook
+```
+
+## Contributing
 
 Install development requirements:
 
