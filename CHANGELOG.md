@@ -2,6 +2,30 @@
 
 
 
+## v0.27.1 (2023-10-03)
+
+### Fix
+
+* fix(language_comp): support column rename sourceFileType ([`9ac123c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/9ac123c8fb0770f8a6e0bfb088a2d3c24539f728))
+
+### Unknown
+
+* Add preview image for maven parent poms ([`7142ed4`](https://github.com/moderneinc/moderne-visualizations-misc/commit/7142ed4c04a6c601595823c38870ba3c7672b0ff))
+
+* Add explicit legend ([`640b2f4`](https://github.com/moderneinc/moderne-visualizations-misc/commit/640b2f4a53139a0ea7dbdc9d78458abf821b70e6))
+
+* Update README to include running locally ([`51bd92b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/51bd92bf676304fd6f382f6d803550148a6ea127))
+
+* Add samples after rename projectArtifactId &amp; drop datedSnapshotVersion ([`c1eb9b3`](https://github.com/moderneinc/moderne-visualizations-misc/commit/c1eb9b335833d9ad98aad78a0ad469334526efcf))
+
+
+## v0.27.0 (2023-09-30)
+
+### Unknown
+
+* Visualize Maven parent POM artifactIds &amp; versions in use (#24) ([`f223ef4`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f223ef427dd31ed255d2689e40ee3ef9f96c66b3))
+
+
 ## v0.26.1 (2023-09-26)
 
 ### Chore
