@@ -1,4 +1,4 @@
-repositoryOrigin,repositoryPath,repositoryBranch,sourcePath,language,parserClass,linesOfText,hasParseFailures
+repositoryOrigin,repositoryPath,repositoryBranch,sourcePath,language,sourceFileType,linesOfText,hasParseFailures
 github.com,sookyeomKim/MyBlog,master,src/main/webapp/content/images/0711_3.JPG,Other/unknown/unparseable,org.openrewrite.quark.Quark,0,FALSE
 github.com,sookyeomKim/MyBlog,master,src/main/webapp/content/images/ydj.png,Other/unknown/unparseable,org.openrewrite.quark.Quark,0,FALSE
 github.com,sookyeomKim/MyBlog,master,src/main/webapp/content/images/0714_1.JPG,Other/unknown/unparseable,org.openrewrite.quark.Quark,0,FALSE
