@@ -2,6 +2,13 @@
 
 
 
+## v0.28.0 (2023-10-26)
+
+### Feature
+
+* feat: add recipe_performance ([`b13106c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/b13106c74bb78b8b9e2cfca7ac1d1cf6354543de))
+
+
 ## v0.27.1 (2023-10-03)
 
 ### Fix
