@@ -2,6 +2,13 @@
 
 
 
+## v0.29.0 (2023-10-26)
+
+### Fix
+
+* fix(recipe_performance): parameter top_n int conversion ([`34718e4`](https://github.com/moderneinc/moderne-visualizations-misc/commit/34718e4c9705157a67627c5b3d2e8c56a3898525))
+
+
 ## v0.28.1 (2023-10-26)
 
 ### Chore
