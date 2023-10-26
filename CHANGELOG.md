@@ -2,6 +2,15 @@
 
 
 
+## v0.28.1 (2023-10-26)
+
+### Chore
+
+* chore: specify recipe for recipe_performance ([`82840dc`](https://github.com/moderneinc/moderne-visualizations-misc/commit/82840dcf6ed38b3043b4c4de305f59430de87228))
+
+* chore: formatting ([`f54ad25`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f54ad2561a1cf93ea17a5258545027887821658f))
+
+
 ## v0.28.0 (2023-10-26)
 
 ### Feature
