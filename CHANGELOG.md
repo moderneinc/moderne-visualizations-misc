@@ -2,6 +2,13 @@
 
 
 
+## v0.29.1 (2023-10-26)
+
+### Chore
+
+* chore(recipe_performance): convert to seconds ([`3025838`](https://github.com/moderneinc/moderne-visualizations-misc/commit/30258386fc9b57c9f8112fb4315b2beefb84340c))
+
+
 ## v0.29.0 (2023-10-26)
 
 ### Fix
