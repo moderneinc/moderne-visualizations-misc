@@ -1,0 +1,21 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.RecipePerformance
+displayName: Recipe performance
+description: Display the top N recipes by edit time or scan time.
+recipe: org.openrewrite.*
+dataTable: org.openrewrite.table.RecipeRunStats
+options:
+  - sort_by:
+      displayName: Sort the recipes by
+      description: >
+        Sort the recipes by time spent scanning or time spent editing. (default: scan)
+      valid:
+        - scan
+        - edit
+      required: false
+  - top_n:
+      displayName: Top N recipes
+      description: >
+        The number of recipes to plot. (default: 10)
+      required: false
