@@ -29,9 +29,6 @@ ci = ["poethepoet", "python-semantic-release", "papermill"]
 [tool.setuptools.packages.find]
 include = [
     "moderne_visualizations_misc",
-    "moderne_visualizaitons_misc/specs",
-    "moderne_visualizaitons_misc/images",
-    "moderne_visualizaitons_misc/resources"
 ]
 exclude = ["samples", "scripts"]
 
