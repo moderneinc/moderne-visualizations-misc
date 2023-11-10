@@ -5,3 +5,19 @@ displayName: Language composition
 description: This report shows the different languages that are used in the projects.
 recipe: org.openrewrite.LanguageComposition
 dataTable: org.openrewrite.table.LanguageCompositionPerFile
+options:
+  - unit:
+      displayName: Unit
+      description: >
+        Which unit to use when measuring language compositions. Options include `lines` and `files`.
+
+        `lines` will measure language composition by lines of code. `files` will count the number of files with each language.
+
+        Because Moderne cannot parse all languages, you may want to know which files are not being parsed. Measuring by `lines` will
+        only show you successfully-parsed files, as unparseable files cannot have their lines of code counted.
+        
+        Defaults to `lines`.
+      valid:
+        - lines
+        - files
+      required: false
