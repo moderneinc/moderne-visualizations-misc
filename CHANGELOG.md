@@ -2,6 +2,21 @@
 
 
 
+## v0.30.0 (2023-11-10)
+
+### Chore
+
+* chore: update pyproject.toml ([`c2895bc`](https://github.com/moderneinc/moderne-visualizations-misc/commit/c2895bc15f0d43c154ee9a5aebc4f5070a4a8790))
+
+### Feature
+
+* feat: Add unit measurement to language composition notebooks (#25) ([`f8ee8ac`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f8ee8acdd01d267597e258d5f8f1e90f5f364dff))
+
+### Unknown
+
+* Adding image for comment language distribution viz ([`a6cebe5`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a6cebe547f6d1de96521fd0f758e496b9aa869df))
+
+
 ## v0.29.1 (2023-10-26)
 
 ### Chore
