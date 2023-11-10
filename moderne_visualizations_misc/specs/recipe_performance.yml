@@ -3,7 +3,7 @@ type: specs.moderne.io/v1beta/visualization
 name: io.moderne.RecipePerformance
 displayName: Recipe performance
 description: Display the top N recipes by edit time or scan time.
-recipe: org.openrewrite.java.migrate.UpgradeToJava17
+recipe: '*'
 dataTable: org.openrewrite.table.RecipeRunStats
 options:
   - sort_by:
