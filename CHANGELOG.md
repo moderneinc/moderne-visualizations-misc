@@ -2,6 +2,13 @@
 
 
 
+## v0.30.1 (2023-11-10)
+
+### Chore
+
+* chore: update recipe performance spec to all recipes ([`6c1e15c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/6c1e15c8c6f6ab7fcddaa89ca096df9cdc2ae6ce))
+
+
 ## v0.30.0 (2023-11-10)
 
 ### Chore
