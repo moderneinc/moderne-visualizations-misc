@@ -9,7 +9,7 @@ options:
   - sort_by:
       displayName: Sort the recipes by
       description: >
-        Sort the recipes by time spent scanning or time spent editing. (default: scan)
+        Sort the recipes by time spent scanning or time spent editing. (default: edit)
       valid:
         - scan
         - edit
