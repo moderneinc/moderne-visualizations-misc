@@ -2,6 +2,13 @@
 
 
 
+## v0.30.2 (2023-11-11)
+
+### Fix
+
+* fix(recipe_performance): add minimum plot height ([`208978d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/208978d4d9e4f74afd066211e68ecf7fd65749b1))
+
+
 ## v0.30.1 (2023-11-10)
 
 ### Chore
