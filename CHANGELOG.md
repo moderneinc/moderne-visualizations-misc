@@ -2,6 +2,13 @@
 
 
 
+## v0.30.3 (2023-11-11)
+
+### Documentation
+
+* docs(recipe_performance): correction regarding default ([`a1c9924`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a1c992433ad43369f2714c9b1a37bdf5384c2acf))
+
+
 ## v0.30.2 (2023-11-11)
 
 ### Fix
