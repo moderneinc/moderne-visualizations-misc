@@ -9,13 +9,13 @@ authors = [
 ]
 license = { text = "Apache-2.0" }
 dependencies = [
-    "pandas==2.0.3",
-    "ipython==8.13.0",
     "code-data-science==1.1.8",
     "graphviz==0.20.1",
-    "plotly==5.14.1",
+    "ipython==8.13.0",
     "matplotlib==3.7.1",
     "nbformat==5.9.0",
+    "pandas==2.0.3",
+    "plotly==5.14.1",
     "typing-extensions",
 ]
 
@@ -27,9 +27,7 @@ ci = ["poethepoet", "python-semantic-release", "papermill"]
 "Homepage" = "https://github.com/moderneinc/visualizations-misc"
 
 [tool.setuptools.packages.find]
-include = [
-    "moderne_visualizations_misc",
-]
+include = ["moderne_visualizations_misc"]
 exclude = ["samples", "scripts"]
 
 [tool.poe.tasks]

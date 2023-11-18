@@ -1,0 +1,24 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.CompositeRecipeResultsSankey
+displayName: Composite Recipe Results
+description: >
+  The number of source files affected by each recipe. Recipes can be composed in hierarchical forms. The representation below is a Sankey diagram. \
+
+  Reading left to right, the diagram shows the number of source files that cumulatively are changed by all recipes that are connected by successive doNext() chaining. The rightmost recipes are the "leaves" of this operation, i.e. the lowest level operations performed by a composite recipe. \
+
+  The Sankey diagram will be uninteresting for a recipe that isn't a composite.
+recipe: '*'
+dataTable: org.openrewrite.table.SourcesFileResults
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive). 
+         
+        Branch names are appended to the repository name with a `/` separator.
+
+        Examples:
+         - The term `moderne` could be used to include any repository with `moderne` in the name or branch.
+         - The term `moderne-test/main` could be used to filter to a repository named `moderne-test` with a branch named `main`.
+      required: false
