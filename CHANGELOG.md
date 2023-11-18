@@ -2,6 +2,15 @@
 
 
 
+## v0.31.1 (2023-11-18)
+
+### Chore
+
+* chore(sankey): update scaling and description ([`aad3949`](https://github.com/moderneinc/moderne-visualizations-misc/commit/aad3949c58a0fa1460a19d76a7209f8fcffbd912))
+
+* chore(sankey): remove unused import ([`faddce2`](https://github.com/moderneinc/moderne-visualizations-misc/commit/faddce2e9e190ababe1942def3c3b6c0ffa268c4))
+
+
 ## v0.31.0 (2023-11-18)
 
 ### Chore
