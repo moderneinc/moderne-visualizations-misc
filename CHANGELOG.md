@@ -2,6 +2,21 @@
 
 
 
+## v0.31.0 (2023-11-18)
+
+### Chore
+
+* chore: fix formatting ([`e00bdcf`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e00bdcfe17e6c75faf40097f16f9b1e2e4ec4359))
+
+### Feature
+
+* feat: add composite recipe results sankey ([`c5f9ec7`](https://github.com/moderneinc/moderne-visualizations-misc/commit/c5f9ec70b6a59b37b00c166440c3a4fe1efb978d))
+
+### Fix
+
+* fix(sankey): add count threshold to spec ([`00469f2`](https://github.com/moderneinc/moderne-visualizations-misc/commit/00469f25855dcbbf1a23b8087cfe5eb009f890af))
+
+
 ## v0.30.3 (2023-11-11)
 
 ### Documentation
