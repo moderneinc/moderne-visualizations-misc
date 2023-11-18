@@ -22,3 +22,8 @@ options:
          - The term `moderne` could be used to include any repository with `moderne` in the name or branch.
          - The term `moderne-test/main` could be used to filter to a repository named `moderne-test` with a branch named `main`.
       required: false
+  - count_threshold:
+      displayName: Count threshold
+      description: >
+        Only include data where the number of source files affected by the recipe is greater than this value. (default: 0)
+      required: false
