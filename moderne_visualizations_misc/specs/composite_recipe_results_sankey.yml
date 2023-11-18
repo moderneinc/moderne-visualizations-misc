@@ -1,7 +1,7 @@
 ---
 type: specs.moderne.io/v1beta/visualization
 name: io.moderne.CompositeRecipeResultsSankey
-displayName: Composite Recipe Results
+displayName: Composite recipe results
 description: >
   The number of source files affected by each recipe. Recipes can be composed in hierarchical forms. The representation below is a Sankey diagram. \
 
