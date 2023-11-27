@@ -2,6 +2,6 @@
 type: specs.moderne.io/v1beta/visualization
 name: io.moderne.GradleWrappers
 displayName: Gradle wrapper composition
-description: This report shows the different Gradle wrappers that are used in the projects.
+description: Reports the distribution of Gradle wrapper versions in use.
 recipe: org.openrewrite.gradle.search.FindGradleWrapper
 dataTable: org.openrewrite.gradle.table.GradleWrappersInUse

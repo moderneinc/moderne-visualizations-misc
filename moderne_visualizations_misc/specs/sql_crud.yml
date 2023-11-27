@@ -2,7 +2,7 @@
 type: specs.moderne.io/v1beta/visualization
 name: io.moderne.SqlCrud
 displayName: SQL operation usage in code
-description: This report shows the SQL operation usages across the projects. It is a good way to understand the SQL usage patterns and identify call sites.
+description: Reports SQL operation usage. It is a good way to understand the SQL usage patterns and identify call sites.
 recipe: org.openrewrite.sql.FindSql
 dataTable: org.openrewrite.sql.table.DatabaseColumnsUsed
 options:

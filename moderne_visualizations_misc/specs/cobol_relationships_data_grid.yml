@@ -3,7 +3,7 @@ type: specs.moderne.io/v1beta/visualization
 name: io.moderne.FindCobolRelationshipsDataGrid
 displayName: COBOL relationships data grid
 description: >
-  This data grid contains relational information about COBOL resources.
+  Reports the relationships between different COBOL resources. Includes COBOL sources, Copybooks, Link-edit cards, DB2 access, and others.
 recipe: org.openrewrite.cobol.search.FindRelationships
 dataTable: org.openrewrite.cobol.table.CobolRelationships
 options:
