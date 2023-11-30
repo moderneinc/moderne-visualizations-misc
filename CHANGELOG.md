@@ -2,6 +2,15 @@
 
 
 
+## v0.32.1 (2023-11-30)
+
+### Chore
+
+* chore: bumping code-data-science version for bug fix ([`160c237`](https://github.com/moderneinc/moderne-visualizations-misc/commit/160c2375db8778389b9aa5dfad85e8739a0d8308))
+
+* chore(dependency_usage_violin): sentence casing ([`bc879d7`](https://github.com/moderneinc/moderne-visualizations-misc/commit/bc879d7d62cf51594349b2b88976166a6249a57d))
+
+
 ## v0.32.0 (2023-11-30)
 
 ### Chore
