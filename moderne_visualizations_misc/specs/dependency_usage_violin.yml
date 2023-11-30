@@ -1,0 +1,8 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.DependencyUsageViolin
+displayName: Dependency usage
+description: >
+  This notebook shows the distribution of dependencies by version.
+recipe: org.openrewrite.maven.search.DependencyInsight
+dataTable: org.openrewrite.maven.table.DependenciesInUse
