@@ -2,6 +2,23 @@
 
 
 
+## v0.32.0 (2023-11-30)
+
+### Chore
+
+* chore: formatting and polish ([`9125462`](https://github.com/moderneinc/moderne-visualizations-misc/commit/91254625d05a057dc4eeca8e730c17bc5581b8b6))
+
+### Feature
+
+* feat: add dependency usage violin ([`5234f14`](https://github.com/moderneinc/moderne-visualizations-misc/commit/5234f1410333fb300b7f1c79149cede465b57f16))
+
+### Unknown
+
+* Improve descriptions ([`e020857`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e02085772cccea24d314de50d34f65d218d5fe72))
+
+* Fix up some thumbnails ([`80ea73e`](https://github.com/moderneinc/moderne-visualizations-misc/commit/80ea73e1d54cb2e2af26d88915e18fa6d0196ba2))
+
+
 ## v0.31.1 (2023-11-18)
 
 ### Chore
