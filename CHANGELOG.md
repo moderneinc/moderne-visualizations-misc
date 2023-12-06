@@ -2,6 +2,13 @@
 
 
 
+## v0.32.2 (2023-12-06)
+
+### Unknown
+
+* Duplicate violin chart for the other recipes which use it ([`4296c89`](https://github.com/moderneinc/moderne-visualizations-misc/commit/4296c89ea0ac1f77376fce5d6628da709eddba59))
+
+
 ## v0.32.1 (2023-11-30)
 
 ### Chore
