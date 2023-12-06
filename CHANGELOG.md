@@ -2,6 +2,13 @@
 
 
 
+## v0.32.3 (2023-12-06)
+
+### Unknown
+
+* Fix copy &amp; paste error ([`13cd075`](https://github.com/moderneinc/moderne-visualizations-misc/commit/13cd07570f3c8d615b664b103ce10c6a21227fc4))
+
+
 ## v0.32.2 (2023-12-06)
 
 ### Unknown
