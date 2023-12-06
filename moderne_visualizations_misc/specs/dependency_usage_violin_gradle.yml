@@ -4,5 +4,5 @@ name: io.moderne.DependencyUsageViolinGradle
 displayName: Dependency usage
 description: >
   See the distribution of dependencies by version.
-recipe: org.openrewrite.java.dependencies.DependencyInsight
+recipe: org.openrewrite.gradle.search.DependencyInsight
 dataTable: org.openrewrite.maven.table.DependenciesInUse
