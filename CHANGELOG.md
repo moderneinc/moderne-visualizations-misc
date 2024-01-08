@@ -2,6 +2,15 @@
 
 
 
+## v0.33.1 (2024-01-08)
+
+### Unknown
+
+* typo ([`894c2c0`](https://github.com/moderneinc/moderne-visualizations-misc/commit/894c2c0dd4454d344e0bd6813c8944da70dadd7b))
+
+* Update embeddings_clustering.yml (#27) ([`e178fff`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e178fffb81db675333afd455d5b17c75829aef78))
+
+
 ## v0.33.0 (2024-01-08)
 
 ### Unknown
