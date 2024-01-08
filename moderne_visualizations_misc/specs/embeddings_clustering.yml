@@ -3,7 +3,8 @@ type: specs.moderne.io/v1beta/visualization
 name: io.moderne.GetCodeEmbedding
 displayName: Clutering methods
 description: >
-  Get clusters of methods declarations using AI generated embeddings
-recipe: io.moderne.ai.search.GetCodeEmbedding:
-  codeSnippetType: 'methods'
+  Get clusters of methods declarations using ai generated embeddings
+recipe: 
+  io.moderne.ai.search.GetCodeEmbedding:
+    codeSnippetType: methods
 dataTable: io.moderne.ai.search.GetCodeEmbedding
