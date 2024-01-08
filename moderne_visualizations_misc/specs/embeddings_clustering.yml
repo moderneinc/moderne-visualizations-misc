@@ -1,9 +1,9 @@
 ---
 type: specs.moderne.io/v1beta/visualization
-name: io.moderne.
-displayName: Get clusters of methods using embeddings
+name: io.moderne.GetCodeEmbedding
+displayName: Clutering methods
 description: >
-  This diagram shows relationships for method calls in UML.
+  Get clusters of methods declarations using AI generated embeddings
 recipe: io.moderne.ai.search.GetCodeEmbedding:
   codeSnippetType: 'methods'
 dataTable: io.moderne.ai.search.GetCodeEmbedding
