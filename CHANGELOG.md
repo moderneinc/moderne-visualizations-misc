@@ -2,6 +2,21 @@
 
 
 
+## v0.33.2 (2024-01-08)
+
+### Unknown
+
+* Lower timeout, reorder legend, change embds (#29)
+
+* reorder legend, change embeddings, and fix perplexity for small datatable
+
+* lower perplexity
+
+---------
+
+Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://github.com/moderneinc/moderne-visualizations-misc/commit/0193da90f9f903154e582da6c8eeef922b62628e))
+
+
 ## v0.33.1 (2024-01-08)
 
 ### Unknown
