@@ -7,4 +7,4 @@ description: >
 recipe: 
   io.moderne.ai.search.GetCodeEmbedding:
     codeSnippetType: methods
-dataTable: io.moderne.ai.search.GetCodeEmbedding
+dataTable: io.moderne.ai.table.Embeddings
