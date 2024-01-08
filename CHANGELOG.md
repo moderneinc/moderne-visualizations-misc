@@ -2,6 +2,19 @@
 
 
 
+## v0.33.0 (2024-01-08)
+
+### Unknown
+
+* fix yml ([`d81a36f`](https://github.com/moderneinc/moderne-visualizations-misc/commit/d81a36fca42a9a14137ddb80abec13e24d7b5b03))
+
+* more moderne colors + fix name yml ([`8597485`](https://github.com/moderneinc/moderne-visualizations-misc/commit/859748562b228931d960353a7d9ef3daf3649290))
+
+* adding embedding clustering yml file ([`8e31c8d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/8e31c8df1694c073c35f2d52e2d5560aedf939f7))
+
+* clustering methods or classes ([`f7ac8da`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f7ac8da527819c7bb011ac2baac29eadbf67af62))
+
+
 ## v0.32.3 (2023-12-06)
 
 ### Unknown
