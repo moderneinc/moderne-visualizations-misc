@@ -2,6 +2,19 @@
 
 
 
+## v0.33.3 (2024-01-08)
+
+### Chore
+
+* chore: clear outputs ([`13ac74a`](https://github.com/moderneinc/moderne-visualizations-misc/commit/13ac74a97a70e879342ea772416d5d8a157931d6))
+
+* chore: formatting ([`e75d91e`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e75d91ec6c1d35cc59a2afb69abb9be8c5210a3f))
+
+### Fix
+
+* fix(violin): add a min height to figure for readability ([`a22b3bb`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a22b3bb23bf6cd09d140e105f5c17c04540ea4a4))
+
+
 ## v0.33.2 (2024-01-08)
 
 ### Unknown
