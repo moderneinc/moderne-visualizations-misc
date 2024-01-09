@@ -2,6 +2,23 @@
 
 
 
+## v0.34.0 (2024-01-09)
+
+### Unknown
+
+* Changed from TSNE to UMAP for 2D projection (#30)
+
+* Changed from TSNE to UMAP for 2D projection
+
+* added umap dependency
+
+* fix umap dependency
+
+---------
+
+Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`4811028`](https://github.com/moderneinc/moderne-visualizations-misc/commit/4811028916bc125bd2acb5ad8dff7fb7a9e69e40))
+
+
 ## v0.33.3 (2024-01-08)
 
 ### Chore
