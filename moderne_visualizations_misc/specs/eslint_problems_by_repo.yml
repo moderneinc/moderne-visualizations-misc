@@ -1,0 +1,7 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.ESLintProblemsByRepo
+displayName: ESLint problems by repository
+description: This report shows the reported ESLint problems in each repository.
+recipe: org.openrewrite.codemods.ESLint
+dataTable: org.openrewrite.codemods.ESLint
