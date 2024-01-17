@@ -2,6 +2,37 @@
 
 
 
+## v0.35.0 (2024-01-17)
+
+### Chore
+
+* chore: more clean up ([`10b516d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/10b516d320ceb394a0d3845e5a1c204e1b53c760))
+
+* chore: clean up and format ([`8583d87`](https://github.com/moderneinc/moderne-visualizations-misc/commit/8583d87c142743f97f0f50e3a22e69ad2e86f420))
+
+### Feature
+
+* feat(language-comp): improve simple text mapping based on file extensions ([`32d6235`](https://github.com/moderneinc/moderne-visualizations-misc/commit/32d6235c9c5a3c617e18f69c8868da3231415ddb))
+
+### Unknown
+
+* Add visualization for ESLint (#31)
+
+* Add visualization for ESLint
+
+* Update notebook
+
+* Update notebook
+
+* Clear cell outputs
+
+* &#34;Correct&#34; case of `Eslint`
+
+* Fix some more minor issues
+
+* Polish ([`456ce3c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/456ce3cb70e3066a11d5511a99d54daf60688261))
+
+
 ## v0.34.0 (2024-01-09)
 
 ### Unknown
