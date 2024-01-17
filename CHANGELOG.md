@@ -2,6 +2,13 @@
 
 
 
+## v0.35.1 (2024-01-17)
+
+### Fix
+
+* fix(eslint): update data table name ([`ef16017`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ef1601778277a65c936d994747e10d05f495c98e))
+
+
 ## v0.35.0 (2024-01-17)
 
 ### Chore
