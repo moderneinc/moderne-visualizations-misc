@@ -1,0 +1,7 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.ESLintProblems
+displayName: Eslint problems
+description: This report shows the reported ESLint problems across projects.
+recipe: org.openrewrite.codemods.ESLint
+dataTable: org.openrewrite.codemods.ESLint
