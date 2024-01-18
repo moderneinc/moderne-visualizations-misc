@@ -1,6 +1,9 @@
 import os
 import yaml
 
+ignore_words = [
+    "ESLint",
+]
 
 def sentence_case(sentence: str):
     """
@@ -10,7 +13,7 @@ def sentence_case(sentence: str):
 
     for index, word in enumerate(words):
         # if word is ALL UPPER then leave it alone
-        if word.isupper():
+        if word.isupper() or word in ignore_words:
             pass
         # if word ends in lowercase s but rest is uppercase then leave it alone
         elif word[:-1].isupper() and word[-1] == 's':
