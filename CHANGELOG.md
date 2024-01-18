@@ -2,6 +2,13 @@
 
 
 
+## v0.36.3 (2024-01-18)
+
+### Fix
+
+* fix(spring_components): remove link due to issue ([`19ee5e5`](https://github.com/moderneinc/moderne-visualizations-misc/commit/19ee5e540aa3be4790464949e20a4169234775e1))
+
+
 ## v0.36.2 (2024-01-18)
 
 ### Fix
