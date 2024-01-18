@@ -17,7 +17,8 @@ dependencies = [
     "pandas==2.0.3",
     "plotly==5.14.1",
     "typing-extensions",
-    "umap-learn==0.5.5"
+    "umap-learn==0.5.5",
+    "networkx==3.1"
 ]
 
 [project.optional-dependencies]

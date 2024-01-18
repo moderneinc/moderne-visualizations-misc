@@ -1,0 +1,8 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.SpringComponentRelationshipsDataGrid
+displayName: Spring component relationships data grid
+description: >
+  Explore dependency relationships of Spring components.
+recipe: org.openrewrite.java.spring.search.FindSpringComponents
+dataTable: org.openrewrite.java.spring.table.SpringComponentRelationships

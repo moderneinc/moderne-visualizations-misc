@@ -1,0 +1,8 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.SpringComponentsDataGrid
+displayName: Spring components data grid
+description: >
+  Find locations where Spring components are used.
+recipe: org.openrewrite.java.spring.search.FindSpringComponents
+dataTable: org.openrewrite.java.spring.table.SpringComponents

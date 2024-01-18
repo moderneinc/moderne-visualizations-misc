@@ -1,0 +1,22 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.SpringComponentRelationships
+displayName: Spring component relationships
+description: >
+  This diagram shows relationships between different Spring components.
+recipe: org.openrewrite.java.spring.search.FindSpringComponents
+dataTable: org.openrewrite.java.spring.table.SpringComponentRelationships
+options:
+  - node_shape:
+      displayName: Node shape
+      description: 'The shape of the nodes in the diagram. (default: box)'
+      valid:
+        - circle
+        - ellipse
+        - box
+      required: false
+  - filter_to_relevant:
+      displayName: Filter to relative nodes
+      description: >
+        Enter a term to filter the diagram to only show nodes relative to nodes containing that term.
+      required: false
