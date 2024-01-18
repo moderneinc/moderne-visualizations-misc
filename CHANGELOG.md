@@ -2,6 +2,21 @@
 
 
 
+## v0.36.0 (2024-01-18)
+
+### Chore
+
+* chore: file name typos ([`9874e07`](https://github.com/moderneinc/moderne-visualizations-misc/commit/9874e0722b540e92458c7839ea4cd3b5d326a9d5))
+
+### Ci
+
+* ci: add ignore words to sentence casing check ([`3b1fa91`](https://github.com/moderneinc/moderne-visualizations-misc/commit/3b1fa91e06ec3858d8c21af07dd7db7c5ffa38e4))
+
+### Feature
+
+* feat: add spring component visualizations ([`8f51080`](https://github.com/moderneinc/moderne-visualizations-misc/commit/8f5108078379a5b83312bf0e28ca5fd46a9e3f19))
+
+
 ## v0.35.1 (2024-01-17)
 
 ### Fix
