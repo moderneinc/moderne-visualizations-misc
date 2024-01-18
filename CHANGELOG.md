@@ -2,6 +2,13 @@
 
 
 
+## v0.36.1 (2024-01-18)
+
+### Fix
+
+* fix: various fixes ([`f7057b8`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f7057b874102017d3e56d94d161ecee7f00ae5c8))
+
+
 ## v0.36.0 (2024-01-18)
 
 ### Chore
