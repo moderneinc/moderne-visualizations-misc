@@ -2,6 +2,13 @@
 
 
 
+## v0.36.4 (2024-01-18)
+
+### Fix
+
+* fix(spring_relations): scaling issue ([`fd3af6a`](https://github.com/moderneinc/moderne-visualizations-misc/commit/fd3af6a1f933d40ad5bf8c54a9e8519d0f2601b2))
+
+
 ## v0.36.3 (2024-01-18)
 
 ### Fix
