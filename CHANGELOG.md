@@ -2,6 +2,13 @@
 
 
 
+## v0.36.2 (2024-01-18)
+
+### Fix
+
+* fix: link type issue ([`9a2c92a`](https://github.com/moderneinc/moderne-visualizations-misc/commit/9a2c92a3fa87fe5fcc440993dc4e7673716f2f87))
+
+
 ## v0.36.1 (2024-01-18)
 
 ### Fix
