@@ -2,6 +2,13 @@
 
 
 
+## v0.36.5 (2024-01-23)
+
+### Fix
+
+* fix(violin): ensure version column isnt read as float ([`ce8eec6`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ce8eec64ffb77d7e9ef7f1b0234d13a03d3e3f37))
+
+
 ## v0.36.4 (2024-01-18)
 
 ### Fix
