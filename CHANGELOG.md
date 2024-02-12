@@ -2,6 +2,13 @@
 
 
 
+## v0.37.0 (2024-02-12)
+
+### Feature
+
+* feat(violin): add hover counts and improve legibility (#35) ([`207b04a`](https://github.com/moderneinc/moderne-visualizations-misc/commit/207b04ac9b3b8f9cb464c22b412719bdab34c213))
+
+
 ## v0.36.5 (2024-01-23)
 
 ### Fix
