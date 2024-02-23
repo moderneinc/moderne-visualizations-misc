@@ -2,6 +2,13 @@
 
 
 
+## v0.38.0 (2024-02-23)
+
+### Unknown
+
+* change recipe path after reorganising ml recipes (#36) ([`a747f4c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a747f4c48d3abb4b13c3751543fec57f11a03e75))
+
+
 ## v0.37.0 (2024-02-12)
 
 ### Feature
