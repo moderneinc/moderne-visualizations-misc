@@ -5,6 +5,6 @@ displayName: Clustering methods
 description: >
   Get clusters of methods declarations using ai generated embeddings
 recipe: 
-  io.moderne.ai.search.GetCodeEmbedding:
+  io.moderne.ai.research.GetCodeEmbedding:
     codeSnippetType: methods
 dataTable: io.moderne.ai.table.Embeddings
