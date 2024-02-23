@@ -4,5 +4,5 @@ name: io.moderne.CommentLanguageDistribution
 displayName: Comment language distribution
 description: >
   Show pie graph of the distribution of the language of comments.
-recipe: io.moderne.ai.search.FindCommentsLanguage
+recipe: io.moderne.ai.FindCommentsLanguage
 dataTable: io.moderne.ai.table.LanguageDistribution
