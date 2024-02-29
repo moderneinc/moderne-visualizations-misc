@@ -4,7 +4,7 @@ name: io.moderne.DependencyUsageViolinGradle
 displayName: Dependency usage
 description: >
   See the distribution of dependencies by version.
-recipe: org.openrewrite.java.dependencies.DependencyInsight:
+recipe: org.openrewrite.java.dependencies.DependencyInsight
   groupIdPattern: com.fasterxml.jackson.*
   artifactIdPattern: "*"
 dataTable: org.openrewrite.maven.table.DependenciesInUse
