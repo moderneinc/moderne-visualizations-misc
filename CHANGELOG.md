@@ -2,6 +2,27 @@
 
 
 
+## v0.39.0 (2024-02-29)
+
+### Fix
+
+* fix: Fix yaml for real ([`7eb7868`](https://github.com/moderneinc/moderne-visualizations-misc/commit/7eb7868146fa7f2ef543754ddbc3dd8a9b4b12a2))
+
+* fix: fix yaml ([`bff7957`](https://github.com/moderneinc/moderne-visualizations-misc/commit/bff795729c1602970fcf55da6cb390fa594ed832))
+
+### Unknown
+
+* Use jackson for dependency insight (#37)
+
+* Use jackson for dependency insight
+
+* Update dependency_usage_violin.yml
+
+* Update dependency_usage_violin_gradle.yml
+
+* Update dependency_usage_violin_maven.yml ([`02c1906`](https://github.com/moderneinc/moderne-visualizations-misc/commit/02c19060e0e91bdd1af80ad9efdf6bf37e8e7a30))
+
+
 ## v0.38.0 (2024-02-23)
 
 ### Unknown
