@@ -2,6 +2,13 @@
 
 
 
+## v0.39.1 (2024-03-08)
+
+### Fix
+
+* fix(violin): use correct recipes ([`0375921`](https://github.com/moderneinc/moderne-visualizations-misc/commit/0375921957d6219140e6930b2099031624c36485))
+
+
 ## v0.39.0 (2024-02-29)
 
 ### Fix
