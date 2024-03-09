@@ -2,6 +2,13 @@
 
 
 
+## v0.40.0 (2024-03-09)
+
+### Unknown
+
+* Node.js dependency violin ([`d92ae6b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/d92ae6b00007685f48d269e3f250732febf1140a))
+
+
 ## v0.39.1 (2024-03-08)
 
 ### Fix
