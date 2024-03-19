@@ -2,6 +2,13 @@
 
 
 
+## v0.40.1 (2024-03-19)
+
+### Fix
+
+* fix(nodejs): update image ([`cacae7b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/cacae7bacaac6d791672ebaae783b44b3f3adf57))
+
+
 ## v0.40.0 (2024-03-09)
 
 ### Unknown
@@ -722,7 +729,7 @@ Set engine to &#34;sfdp&#34; and added configurations for clearer clustering. ([
 ## v0.3.0 (2023-08-22)
 
 
-## v0.2.1 (2023-08-22)
+## v0.2.1 (2023-08-21)
 
 ### Unknown
 
@@ -745,7 +752,7 @@ Set engine to &#34;sfdp&#34; and added configurations for clearer clustering. ([
 * ci: add version bumping to release ([`ca7ba04`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ca7ba048426387a25beb271185953ed1ab29ebf3))
 
 
-## v0.1.37 (2023-08-18)
+## v0.1.37 (2023-08-17)
 
 ### Chore
 
@@ -754,7 +761,7 @@ Set engine to &#34;sfdp&#34; and added configurations for clearer clustering. ([
 * chore: seperate ci only deps ([`8b7afd1`](https://github.com/moderneinc/moderne-visualizations-misc/commit/8b7afd17f69e7b7f656f4cb3b3007a4e12d2a9a2))
 
 
-## v0.1.36 (2023-08-18)
+## v0.1.36 (2023-08-17)
 
 ### Chore
 
