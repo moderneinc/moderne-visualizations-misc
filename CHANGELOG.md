@@ -2,6 +2,17 @@
 
 
 
+## v0.41.0 (2024-03-26)
+
+### Feature
+
+* feat: Add named visualization specifically for Jackson ([`2601075`](https://github.com/moderneinc/moderne-visualizations-misc/commit/26010753963a0577c1fdb6dcf49c822337d4bc91))
+
+### Unknown
+
+* Jackson ([`aacb54b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/aacb54b8e7e617a546e39b2babc286a43367c1c2))
+
+
 ## v0.40.1 (2024-03-19)
 
 ### Fix
