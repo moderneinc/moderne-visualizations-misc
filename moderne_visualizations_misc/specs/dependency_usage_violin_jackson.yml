@@ -1,6 +1,6 @@
 ---
 type: specs.moderne.io/v1beta/visualization
-name: io.moderne.DependencyUsageViolin
+name: io.moderne.DependencyUsageViolinJackson
 displayName: Jackson usage
 description: >
   See the distribution of dependencies by version.
