@@ -2,6 +2,13 @@
 
 
 
+## v0.43.1 (2024-04-12)
+
+### Fix
+
+* fix(sql_crud): link column ([`7e4de81`](https://github.com/moderneinc/moderne-visualizations-misc/commit/7e4de818c54f5d723da1844f6f195a8df73be096))
+
+
 ## v0.43.0 (2024-04-12)
 
 
