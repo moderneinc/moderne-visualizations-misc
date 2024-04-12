@@ -2,6 +2,13 @@
 
 
 
+## v0.43.2 (2024-04-12)
+
+### Fix
+
+* fix(sql_crud): scm types ([`be9553d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/be9553db21682e0ffc05cf5196d103fc788252ab))
+
+
 ## v0.43.1 (2024-04-12)
 
 ### Fix
