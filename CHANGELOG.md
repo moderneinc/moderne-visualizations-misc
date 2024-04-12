@@ -2,6 +2,13 @@
 
 
 
+## v0.42.0 (2024-04-12)
+
+### Feature
+
+* feat(sql_crud): add link column ([`30f6c43`](https://github.com/moderneinc/moderne-visualizations-misc/commit/30f6c434e370902b9535a27876ff0258c39c6541))
+
+
 ## v0.41.0 (2024-03-26)
 
 ### Feature
