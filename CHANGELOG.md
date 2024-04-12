@@ -2,6 +2,13 @@
 
 
 
+## v0.43.3 (2024-04-12)
+
+### Fix
+
+* fix(sql_crud): handle missing data ([`98387b9`](https://github.com/moderneinc/moderne-visualizations-misc/commit/98387b980ff17a93907383d729be1f08d5b1dada))
+
+
 ## v0.43.2 (2024-04-12)
 
 ### Fix
