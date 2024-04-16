@@ -2,6 +2,13 @@
 
 
 
+## v0.44.0 (2024-04-16)
+
+### Unknown
+
+* empty datatable fail safe (#39) ([`06a860b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/06a860b575df4cb8c5eb9803a5b775863dde113a))
+
+
 ## v0.43.3 (2024-04-12)
 
 ### Fix
