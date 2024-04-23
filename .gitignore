@@ -18,3 +18,4 @@ build/
 
 .mypy_cache/
 .python/
+.venv/
