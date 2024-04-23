@@ -2,6 +2,23 @@
 
 
 
+## v0.45.0 (2024-04-23)
+
+### Unknown
+
+* feat/updated colors (#40)
+
+* feat: update to latest visualization colors
+
+* refactor: update screenshots
+
+* refactor: remove padding from screenshots
+
+* chore: bump version of code science
+
+* style: reformat ([`7827d26`](https://github.com/moderneinc/moderne-visualizations-misc/commit/7827d268760d63143193805f465b835570d7a198))
+
+
 ## v0.44.0 (2024-04-16)
 
 ### Unknown
