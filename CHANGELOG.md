@@ -2,6 +2,13 @@
 
 
 
+## v0.45.1 (2024-04-25)
+
+### Fix
+
+* fix(embeddings): revert to previous color ([`d157dd4`](https://github.com/moderneinc/moderne-visualizations-misc/commit/d157dd4529f719cd8ed9d49b256eadd43de69f2d))
+
+
 ## v0.45.0 (2024-04-23)
 
 ### Unknown
