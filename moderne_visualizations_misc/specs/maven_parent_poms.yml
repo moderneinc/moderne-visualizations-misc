@@ -3,5 +3,9 @@ type: specs.moderne.io/v1beta/visualization
 name: io.moderne.MavenParentPOMs
 displayName: Maven parent POMs
 description: This report shows the different Maven parent POMs that are used in the projects.
-recipe: org.openrewrite.maven.search.ParentPomInsight
+recipe:
+  org.openrewrite.maven.search.ParentPomInsight:
+    groupIdPattern: "*"
+    artifactIdPattern: "*"
+    version: x
 dataTable: org.openrewrite.maven.table.ParentPomsInUse
