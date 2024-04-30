@@ -2,6 +2,15 @@
 
 
 
+## v0.45.2 (2024-04-30)
+
+### Unknown
+
+* Add defaults to Maven parent poms (#41)
+
+Such that it produces meaningful visualizations directly from DevCenter ([`ff6c21d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ff6c21d952c88cf0c587f6f00c018876f6664a70))
+
+
 ## v0.45.1 (2024-04-25)
 
 ### Fix
