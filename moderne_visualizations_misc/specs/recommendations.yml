@@ -1,0 +1,8 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.Recommendations
+displayName: Parse and display recommendations
+description: >
+  Parse each recommendation and collect which recipes are more likely to do the recommendations.
+recipe: io.moderne.ai.research.GetRecommendations
+dataTable: io.moderne.ai.table.Recommendations
