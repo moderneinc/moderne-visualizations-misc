@@ -2,6 +2,25 @@
 
 
 
+## v0.46.0 (2024-05-06)
+
+### Refactor
+
+* refactor: update maven parent pom color scheme (#44)
+
+utilize the `color_by_weight(500)` ([`7e3223d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/7e3223d63ad06dba818323a02df83a86cd3ca474))
+
+* refactor: update cont. color scale for recipe performance (#43)
+
+use new palette
+
+fix https://github.com/moderneinc/moderne-ui/issues/4273 ([`1112c02`](https://github.com/moderneinc/moderne-visualizations-misc/commit/1112c02122a5aad65b2ae7f64710bbd9f80901ac))
+
+### Unknown
+
+* changes to accept both methods and classes for clustering embeddings (#42) ([`8e80d75`](https://github.com/moderneinc/moderne-visualizations-misc/commit/8e80d75d1b95fc6ebe64fc8a71474957e9152191))
+
+
 ## v0.45.2 (2024-04-30)
 
 ### Unknown
