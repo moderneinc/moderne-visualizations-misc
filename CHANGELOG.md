@@ -2,6 +2,19 @@
 
 
 
+## v0.47.0 (2024-05-14)
+
+### Unknown
+
+* Feat visualization for recommendations (#45)
+
+* use gradio client to search + display using moderne datagrid
+
+* add yml for recommendatinos
+
+* clean up ([`29cf70f`](https://github.com/moderneinc/moderne-visualizations-misc/commit/29cf70fd561cb2e314966cd822c36ad915bfb5fa))
+
+
 ## v0.46.0 (2024-05-06)
 
 ### Refactor
