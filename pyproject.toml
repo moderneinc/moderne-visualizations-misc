@@ -18,7 +18,8 @@ dependencies = [
     "plotly==5.14.1",
     "typing-extensions",
     "umap-learn==0.5.5",
-    "networkx==3.1"
+    "networkx==3.1",
+    "numpy==1.26.4"
 ]
 
 [project.optional-dependencies]
