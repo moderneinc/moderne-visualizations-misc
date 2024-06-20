@@ -1,6 +1,12 @@
 # CHANGELOG
 
+## v0.48.0 (2024-06-20)
 
+### Fix
+
+* fix: use `1.24.4` instead (#47) ([`bdb0e29`](https://github.com/moderneinc/moderne-visualizations-misc/commit/bdb0e29869f0e188bf6592d77ccab14131d49633))
+
+* fix: lock numpy down to 1.x to avoid v2 incompat (#46) ([`0946862`](https://github.com/moderneinc/moderne-visualizations-misc/commit/0946862327d19c991b4003a96a5ade858f4ffffc))
 
 ## v0.47.0 (2024-05-14)
 
@@ -13,7 +19,6 @@
 * add yml for recommendatinos
 
 * clean up ([`29cf70f`](https://github.com/moderneinc/moderne-visualizations-misc/commit/29cf70fd561cb2e314966cd822c36ad915bfb5fa))
-
 
 ## v0.46.0 (2024-05-06)
 
@@ -33,7 +38,6 @@ fix https://github.com/moderneinc/moderne-ui/issues/4273 ([`1112c02`](https://gi
 
 * changes to accept both methods and classes for clustering embeddings (#42) ([`8e80d75`](https://github.com/moderneinc/moderne-visualizations-misc/commit/8e80d75d1b95fc6ebe64fc8a71474957e9152191))
 
-
 ## v0.45.2 (2024-04-30)
 
 ### Unknown
@@ -42,13 +46,11 @@ fix https://github.com/moderneinc/moderne-ui/issues/4273 ([`1112c02`](https://gi
 
 Such that it produces meaningful visualizations directly from DevCenter ([`ff6c21d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ff6c21d952c88cf0c587f6f00c018876f6664a70))
 
-
 ## v0.45.1 (2024-04-25)
 
 ### Fix
 
 * fix(embeddings): revert to previous color ([`d157dd4`](https://github.com/moderneinc/moderne-visualizations-misc/commit/d157dd4529f719cd8ed9d49b256eadd43de69f2d))
-
 
 ## v0.45.0 (2024-04-23)
 
@@ -66,13 +68,11 @@ Such that it produces meaningful visualizations directly from DevCenter ([`ff6c2
 
 * style: reformat ([`7827d26`](https://github.com/moderneinc/moderne-visualizations-misc/commit/7827d268760d63143193805f465b835570d7a198))
 
-
 ## v0.44.0 (2024-04-16)
 
 ### Unknown
 
 * empty datatable fail safe (#39) ([`06a860b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/06a860b575df4cb8c5eb9803a5b775863dde113a))
-
 
 ## v0.43.3 (2024-04-12)
 
@@ -80,13 +80,11 @@ Such that it produces meaningful visualizations directly from DevCenter ([`ff6c2
 
 * fix(sql_crud): handle missing data ([`98387b9`](https://github.com/moderneinc/moderne-visualizations-misc/commit/98387b980ff17a93907383d729be1f08d5b1dada))
 
-
 ## v0.43.2 (2024-04-12)
 
 ### Fix
 
 * fix(sql_crud): scm types ([`be9553d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/be9553db21682e0ffc05cf5196d103fc788252ab))
-
 
 ## v0.43.1 (2024-04-12)
 
@@ -94,16 +92,13 @@ Such that it produces meaningful visualizations directly from DevCenter ([`ff6c2
 
 * fix(sql_crud): link column ([`7e4de81`](https://github.com/moderneinc/moderne-visualizations-misc/commit/7e4de818c54f5d723da1844f6f195a8df73be096))
 
-
 ## v0.43.0 (2024-04-12)
-
 
 ## v0.42.0 (2024-04-12)
 
 ### Feature
 
 * feat(sql_crud): add link column ([`30f6c43`](https://github.com/moderneinc/moderne-visualizations-misc/commit/30f6c434e370902b9535a27876ff0258c39c6541))
-
 
 ## v0.41.0 (2024-03-26)
 
@@ -115,13 +110,11 @@ Such that it produces meaningful visualizations directly from DevCenter ([`ff6c2
 
 * Jackson ([`aacb54b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/aacb54b8e7e617a546e39b2babc286a43367c1c2))
 
-
 ## v0.40.1 (2024-03-19)
 
 ### Fix
 
 * fix(nodejs): update image ([`cacae7b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/cacae7bacaac6d791672ebaae783b44b3f3adf57))
-
 
 ## v0.40.0 (2024-03-09)
 
@@ -129,13 +122,11 @@ Such that it produces meaningful visualizations directly from DevCenter ([`ff6c2
 
 * Node.js dependency violin ([`d92ae6b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/d92ae6b00007685f48d269e3f250732febf1140a))
 
-
 ## v0.39.1 (2024-03-08)
 
 ### Fix
 
 * fix(violin): use correct recipes ([`0375921`](https://github.com/moderneinc/moderne-visualizations-misc/commit/0375921957d6219140e6930b2099031624c36485))
-
 
 ## v0.39.0 (2024-02-29)
 
@@ -157,13 +148,11 @@ Such that it produces meaningful visualizations directly from DevCenter ([`ff6c2
 
 * Update dependency_usage_violin_maven.yml ([`02c1906`](https://github.com/moderneinc/moderne-visualizations-misc/commit/02c19060e0e91bdd1af80ad9efdf6bf37e8e7a30))
 
-
 ## v0.38.0 (2024-02-23)
 
 ### Unknown
 
 * change recipe path after reorganising ml recipes (#36) ([`a747f4c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a747f4c48d3abb4b13c3751543fec57f11a03e75))
-
 
 ## v0.37.0 (2024-02-12)
 
@@ -171,13 +160,11 @@ Such that it produces meaningful visualizations directly from DevCenter ([`ff6c2
 
 * feat(violin): add hover counts and improve legibility (#35) ([`207b04a`](https://github.com/moderneinc/moderne-visualizations-misc/commit/207b04ac9b3b8f9cb464c22b412719bdab34c213))
 
-
 ## v0.36.5 (2024-01-23)
 
 ### Fix
 
 * fix(violin): ensure version column isnt read as float ([`ce8eec6`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ce8eec64ffb77d7e9ef7f1b0234d13a03d3e3f37))
-
 
 ## v0.36.4 (2024-01-18)
 
@@ -185,13 +172,11 @@ Such that it produces meaningful visualizations directly from DevCenter ([`ff6c2
 
 * fix(spring_relations): scaling issue ([`fd3af6a`](https://github.com/moderneinc/moderne-visualizations-misc/commit/fd3af6a1f933d40ad5bf8c54a9e8519d0f2601b2))
 
-
 ## v0.36.3 (2024-01-18)
 
 ### Fix
 
 * fix(spring_components): remove link due to issue ([`19ee5e5`](https://github.com/moderneinc/moderne-visualizations-misc/commit/19ee5e540aa3be4790464949e20a4169234775e1))
-
 
 ## v0.36.2 (2024-01-18)
 
@@ -199,13 +184,11 @@ Such that it produces meaningful visualizations directly from DevCenter ([`ff6c2
 
 * fix: link type issue ([`9a2c92a`](https://github.com/moderneinc/moderne-visualizations-misc/commit/9a2c92a3fa87fe5fcc440993dc4e7673716f2f87))
 
-
 ## v0.36.1 (2024-01-18)
 
 ### Fix
 
 * fix: various fixes ([`f7057b8`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f7057b874102017d3e56d94d161ecee7f00ae5c8))
-
 
 ## v0.36.0 (2024-01-18)
 
@@ -221,13 +204,11 @@ Such that it produces meaningful visualizations directly from DevCenter ([`ff6c2
 
 * feat: add spring component visualizations ([`8f51080`](https://github.com/moderneinc/moderne-visualizations-misc/commit/8f5108078379a5b83312bf0e28ca5fd46a9e3f19))
 
-
 ## v0.35.1 (2024-01-17)
 
 ### Fix
 
 * fix(eslint): update data table name ([`ef16017`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ef1601778277a65c936d994747e10d05f495c98e))
-
 
 ## v0.35.0 (2024-01-17)
 
@@ -259,7 +240,6 @@ Such that it produces meaningful visualizations directly from DevCenter ([`ff6c2
 
 * Polish ([`456ce3c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/456ce3cb70e3066a11d5511a99d54daf60688261))
 
-
 ## v0.34.0 (2024-01-09)
 
 ### Unknown
@@ -276,7 +256,6 @@ Such that it produces meaningful visualizations directly from DevCenter ([`ff6c2
 
 Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`4811028`](https://github.com/moderneinc/moderne-visualizations-misc/commit/4811028916bc125bd2acb5ad8dff7fb7a9e69e40))
 
-
 ## v0.33.3 (2024-01-08)
 
 ### Chore
@@ -288,7 +267,6 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`4811028`](https://gith
 ### Fix
 
 * fix(violin): add a min height to figure for readability ([`a22b3bb`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a22b3bb23bf6cd09d140e105f5c17c04540ea4a4))
-
 
 ## v0.33.2 (2024-01-08)
 
@@ -304,7 +282,6 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`4811028`](https://gith
 
 Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://github.com/moderneinc/moderne-visualizations-misc/commit/0193da90f9f903154e582da6c8eeef922b62628e))
 
-
 ## v0.33.1 (2024-01-08)
 
 ### Unknown
@@ -312,7 +289,6 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 * typo ([`894c2c0`](https://github.com/moderneinc/moderne-visualizations-misc/commit/894c2c0dd4454d344e0bd6813c8944da70dadd7b))
 
 * Update embeddings_clustering.yml (#27) ([`e178fff`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e178fffb81db675333afd455d5b17c75829aef78))
-
 
 ## v0.33.0 (2024-01-08)
 
@@ -326,20 +302,17 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * clustering methods or classes ([`f7ac8da`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f7ac8da527819c7bb011ac2baac29eadbf67af62))
 
-
 ## v0.32.3 (2023-12-06)
 
 ### Unknown
 
 * Fix copy &amp; paste error ([`13cd075`](https://github.com/moderneinc/moderne-visualizations-misc/commit/13cd07570f3c8d615b664b103ce10c6a21227fc4))
 
-
 ## v0.32.2 (2023-12-06)
 
 ### Unknown
 
 * Duplicate violin chart for the other recipes which use it ([`4296c89`](https://github.com/moderneinc/moderne-visualizations-misc/commit/4296c89ea0ac1f77376fce5d6628da709eddba59))
-
 
 ## v0.32.1 (2023-11-30)
 
@@ -348,7 +321,6 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 * chore: bumping code-data-science version for bug fix ([`160c237`](https://github.com/moderneinc/moderne-visualizations-misc/commit/160c2375db8778389b9aa5dfad85e8739a0d8308))
 
 * chore(dependency_usage_violin): sentence casing ([`bc879d7`](https://github.com/moderneinc/moderne-visualizations-misc/commit/bc879d7d62cf51594349b2b88976166a6249a57d))
-
 
 ## v0.32.0 (2023-11-30)
 
@@ -366,7 +338,6 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * Fix up some thumbnails ([`80ea73e`](https://github.com/moderneinc/moderne-visualizations-misc/commit/80ea73e1d54cb2e2af26d88915e18fa6d0196ba2))
 
-
 ## v0.31.1 (2023-11-18)
 
 ### Chore
@@ -374,7 +345,6 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 * chore(sankey): update scaling and description ([`aad3949`](https://github.com/moderneinc/moderne-visualizations-misc/commit/aad3949c58a0fa1460a19d76a7209f8fcffbd912))
 
 * chore(sankey): remove unused import ([`faddce2`](https://github.com/moderneinc/moderne-visualizations-misc/commit/faddce2e9e190ababe1942def3c3b6c0ffa268c4))
-
 
 ## v0.31.0 (2023-11-18)
 
@@ -390,13 +360,11 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * fix(sankey): add count threshold to spec ([`00469f2`](https://github.com/moderneinc/moderne-visualizations-misc/commit/00469f25855dcbbf1a23b8087cfe5eb009f890af))
 
-
 ## v0.30.3 (2023-11-11)
 
 ### Documentation
 
 * docs(recipe_performance): correction regarding default ([`a1c9924`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a1c992433ad43369f2714c9b1a37bdf5384c2acf))
-
 
 ## v0.30.2 (2023-11-11)
 
@@ -404,13 +372,11 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * fix(recipe_performance): add minimum plot height ([`208978d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/208978d4d9e4f74afd066211e68ecf7fd65749b1))
 
-
 ## v0.30.1 (2023-11-10)
 
 ### Chore
 
 * chore: update recipe performance spec to all recipes ([`6c1e15c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/6c1e15c8c6f6ab7fcddaa89ca096df9cdc2ae6ce))
-
 
 ## v0.30.0 (2023-11-10)
 
@@ -426,20 +392,17 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * Adding image for comment language distribution viz ([`a6cebe5`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a6cebe547f6d1de96521fd0f758e496b9aa869df))
 
-
 ## v0.29.1 (2023-10-26)
 
 ### Chore
 
 * chore(recipe_performance): convert to seconds ([`3025838`](https://github.com/moderneinc/moderne-visualizations-misc/commit/30258386fc9b57c9f8112fb4315b2beefb84340c))
 
-
 ## v0.29.0 (2023-10-26)
 
 ### Fix
 
 * fix(recipe_performance): parameter top_n int conversion ([`34718e4`](https://github.com/moderneinc/moderne-visualizations-misc/commit/34718e4c9705157a67627c5b3d2e8c56a3898525))
-
 
 ## v0.28.1 (2023-10-26)
 
@@ -449,13 +412,11 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * chore: formatting ([`f54ad25`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f54ad2561a1cf93ea17a5258545027887821658f))
 
-
 ## v0.28.0 (2023-10-26)
 
 ### Feature
 
 * feat: add recipe_performance ([`b13106c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/b13106c74bb78b8b9e2cfca7ac1d1cf6354543de))
-
 
 ## v0.27.1 (2023-10-03)
 
@@ -473,13 +434,11 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * Add samples after rename projectArtifactId &amp; drop datedSnapshotVersion ([`c1eb9b3`](https://github.com/moderneinc/moderne-visualizations-misc/commit/c1eb9b335833d9ad98aad78a0ad469334526efcf))
 
-
 ## v0.27.0 (2023-09-30)
 
 ### Unknown
 
 * Visualize Maven parent POM artifactIds &amp; versions in use (#24) ([`f223ef4`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f223ef427dd31ed255d2689e40ee3ef9f96c66b3))
-
 
 ## v0.26.1 (2023-09-26)
 
@@ -487,20 +446,17 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * chore(dependency_vulnerabilities): update description ([`e6b49c6`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e6b49c62730e693d439232ec25ccc97cea7650c7))
 
-
 ## v0.26.0 (2023-09-26)
 
 ### Feature
 
 * feat(dependency_vulnerabilities): add repo filter option ([`f518777`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f518777ced2a23ec3991f53e8537f03d4fa0bcab))
 
-
 ## v0.25.0 (2023-09-25)
 
 ### Unknown
 
 * Java versions by source set ([`9353b3c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/9353b3c8ea691378d4becef0fed122e9dd6524d8))
-
 
 ## v0.24.0 (2023-09-21)
 
@@ -512,16 +468,13 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * adding unknown to dict of languages ([`6623df2`](https://github.com/moderneinc/moderne-visualizations-misc/commit/6623df2a50a1670caf362dd15b18975468d4ec3e))
 
-
 ## v0.23.0 (2023-09-21)
-
 
 ## v0.22.0 (2023-09-19)
 
 ### Fix
 
 * fix(comment_lang): update recipe and dataTable ([`0a44876`](https://github.com/moderneinc/moderne-visualizations-misc/commit/0a4487676d6e15b0dfadcbf5bc66e929b52649b2))
-
 
 ## v0.21.0 (2023-09-19)
 
@@ -535,20 +488,17 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * visualization added for language comment distribution ([`d12ab12`](https://github.com/moderneinc/moderne-visualizations-misc/commit/d12ab12969c6955f995281458ef519c523fb867a))
 
-
 ## v0.20.1 (2023-09-13)
 
 ### Chore
 
 * chore(dependency_tree_view): add image ([`420897c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/420897c2c4a10996a70b418a62169fa5eef09ffe))
 
-
 ## v0.20.0 (2023-09-13)
 
 ### Feature
 
 * feat: add dependency_tree_view ([`06d16b1`](https://github.com/moderneinc/moderne-visualizations-misc/commit/06d16b10ed5fa3c8a413d871ca8b0004893ab472))
-
 
 ## v0.19.4 (2023-09-05)
 
@@ -560,7 +510,6 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * Update displayName of ParseFailureStacktraces ([`8822467`](https://github.com/moderneinc/moderne-visualizations-misc/commit/88224678ce271fe0863a6629421e8af118574270))
 
-
 ## v0.19.3 (2023-09-05)
 
 ### Chore
@@ -570,7 +519,6 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 ### Fix
 
 * fix(call_graph_uml): address backward link creation ([`f4f8738`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f4f8738898ce152b2414fa26900fcbc605cfaccf))
-
 
 ## v0.19.2 (2023-09-05)
 
@@ -582,13 +530,11 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * fix(call_graph_uml): addres bad hierarchy with inner classes ([`5a6559d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/5a6559def1815c2354abcdb4f4766bd29214b676))
 
-
 ## v0.19.1 (2023-09-01)
 
 ### Chore
 
 * chore(parse_failure_stacktraces): update image ([`2523496`](https://github.com/moderneinc/moderne-visualizations-misc/commit/2523496788889be382066dd6716496008d735796))
-
 
 ## v0.19.0 (2023-09-01)
 
@@ -606,7 +552,6 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * Add parse failure stack trace grouping and top10 failures display ([`f913a19`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f913a197b7d5469a952b3cbda52fffe42daea28e))
 
-
 ## v0.18.2 (2023-09-01)
 
 ### Ci
@@ -621,13 +566,11 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * docs: update README ([`18d75df`](https://github.com/moderneinc/moderne-visualizations-misc/commit/18d75df9c3147df05939bf6c07a0a4bf90520d87))
 
-
 ## v0.18.1 (2023-08-31)
 
 ### Unknown
 
 * Render inner classes in the call_graph_uml. ([`e3be531`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e3be531de20d611025858445675c561186464d34))
-
 
 ## v0.18.0 (2023-08-30)
 
@@ -635,20 +578,17 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * feat: call_graph_data_grid ([`3cd1321`](https://github.com/moderneinc/moderne-visualizations-misc/commit/3cd132104e5c30fc193351c71d87311c1f748cc3))
 
-
 ## v0.17.4 (2023-08-30)
 
 ### Chore
 
 * chore(call_graph_uml): raise exception if df empty ([`a1edefb`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a1edefbfe73f13ef3a6bf611c1a5e5172ee7d903))
 
-
 ## v0.17.3 (2023-08-30)
 
 ### Chore
 
 * chore: update manifest to include resources ([`037c28d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/037c28d909e43757f389631ab1b71a7e674f6e6f))
-
 
 ## v0.17.2 (2023-08-30)
 
@@ -658,13 +598,11 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * chore(call_graph_uml): cleanup ([`4385818`](https://github.com/moderneinc/moderne-visualizations-misc/commit/4385818fb106bc559afb1150581ed0162ad349e9))
 
-
 ## v0.17.1 (2023-08-30)
 
 ### Chore
 
 * chore(call_graph_uml): use local plantuml ([`cc87e3f`](https://github.com/moderneinc/moderne-visualizations-misc/commit/cc87e3fa9e6e09352bd5c78a40f6c1433f89b357))
-
 
 ## v0.17.0 (2023-08-30)
 
@@ -678,20 +616,17 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 Prevent inner classes relationships, since it causes an issue in UML (requires creating inner classes in the template). ([`a64544f`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a64544fca60ba66eab9c8c70cd193478a086602c))
 
-
 ## v0.16.2 (2023-08-29)
 
 ### Chore
 
 * chore: move older yml to dev mode ([`9eb1499`](https://github.com/moderneinc/moderne-visualizations-misc/commit/9eb14996f4fe876cbca09295e0d9ab6435c9d524))
 
-
 ## v0.16.1 (2023-08-29)
 
 ### Chore
 
 * chore(call_graph_uml): add parameters tag ([`7946989`](https://github.com/moderneinc/moderne-visualizations-misc/commit/794698937df80796ec8de6fe744fc25815296ac1))
-
 
 ## v0.16.0 (2023-08-29)
 
@@ -722,13 +657,11 @@ Started update for call_graph with graphviz.
 Co-authored-by: Sam Snyder &lt;sam@moderne.io&gt;
 Co-authored-by: Kyle Scully &lt;scullykns@gmail.com&gt; ([`2895601`](https://github.com/moderneinc/moderne-visualizations-misc/commit/289560176e54a454bd682528b31d3da6ef40befb))
 
-
 ## v0.15.0 (2023-08-29)
 
 ### Fix
 
 * fix: Add node_shape for io.moderne.FindCallGraph ([`f3f55ae`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f3f55aed98eaffc80125e79d992afc95ee95caa8))
-
 
 ## v0.14.0 (2023-08-29)
 
@@ -742,13 +675,11 @@ Co-authored-by: Sam Snyder &lt;sam@moderne.io&gt; ([`d4be066`](https://github.co
 
 * Added nodesep and removed minLen. ([`393455b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/393455b26b3144734f48cccd87c34727cff9c571))
 
-
 ## v0.13.1 (2023-08-25)
 
 ### Fix
 
 * fix(cobol_relationships): escape html annotation ([`e42b14d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e42b14dabf2ed5cbe674cca511e8b237574fc9f2))
-
 
 ## v0.13.0 (2023-08-25)
 
@@ -756,13 +687,11 @@ Co-authored-by: Sam Snyder &lt;sam@moderne.io&gt; ([`d4be066`](https://github.co
 
 * feat(maven): Add effective maven settings data grid (#17) ([`34cf41a`](https://github.com/moderneinc/moderne-visualizations-misc/commit/34cf41a441d01096012276405ec8574af7cb06e1))
 
-
 ## v0.12.1 (2023-08-24)
 
 ### Fix
 
 * fix(cobol_relationships): update size ([`3c4a4a6`](https://github.com/moderneinc/moderne-visualizations-misc/commit/3c4a4a60cd87ec4f1bfe1d06db02b9f7e401d3a6))
-
 
 ## v0.12.0 (2023-08-24)
 
@@ -770,13 +699,11 @@ Co-authored-by: Sam Snyder &lt;sam@moderne.io&gt; ([`d4be066`](https://github.co
 
 * feat: Add language composition by repository (#16) ([`ab0c328`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ab0c328ea4e5c3a6668ff76131cb41cb9f1fc5e1))
 
-
 ## v0.11.0 (2023-08-24)
 
 ### Unknown
 
 * Change engine back to sfdp ([`e873023`](https://github.com/moderneinc/moderne-visualizations-misc/commit/e87302361b84874274c4d1b017bd27ab02b6085d))
-
 
 ## v0.10.0 (2023-08-24)
 
@@ -784,7 +711,6 @@ Co-authored-by: Sam Snyder &lt;sam@moderne.io&gt; ([`d4be066`](https://github.co
 
 * Set overlap_scaling to 30.
 Updated engine to neato. ([`c96dc47`](https://github.com/moderneinc/moderne-visualizations-misc/commit/c96dc47e69fa626f19b4f09c5e99843eefa4f07c))
-
 
 ## v0.9.0 (2023-08-24)
 
@@ -795,13 +721,11 @@ Updated engine to neato. ([`c96dc47`](https://github.com/moderneinc/moderne-visu
 Added option to view exclude relationships.
 Create a unique shape for filtered node. ([`d5d339b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/d5d339bd7c16e4d5c3b5a7a7339d70766680d671))
 
-
 ## v0.8.0 (2023-08-23)
 
 ### Unknown
 
 * Added normalization graph config. Added beautify for filtered graphs for easy readability. ([`1e13558`](https://github.com/moderneinc/moderne-visualizations-misc/commit/1e1355878bdf9cdc0cd8ee05bc5383f388d7b321))
-
 
 ## v0.7.0 (2023-08-23)
 
@@ -811,13 +735,11 @@ Create a unique shape for filtered node. ([`d5d339b`](https://github.com/moderne
 
 Set engine to &#34;sfdp&#34; and added configurations for clearer clustering. ([`44534d5`](https://github.com/moderneinc/moderne-visualizations-misc/commit/44534d57b2b47632e80266e485e95f02df0ff48a))
 
-
 ## v0.6.0 (2023-08-23)
 
 ### Feature
 
 * feat: add parameter for defining graphviz layout engine (#13) ([`9ee166e`](https://github.com/moderneinc/moderne-visualizations-misc/commit/9ee166ef585e29626dc344bb7ecd75fb61391a1a))
-
 
 ## v0.5.0 (2023-08-22)
 
@@ -825,13 +747,11 @@ Set engine to &#34;sfdp&#34; and added configurations for clearer clustering. ([
 
 * Fix relationships for copybooks that to refer to more than 1 copybook. ([`13efd0c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/13efd0c8bd7010f0daed817559dee7972e84f26b))
 
-
 ## v0.4.0 (2023-08-22)
 
 ### Unknown
 
 * Prevent redundant copybook relationships. (#12) ([`1ada2b3`](https://github.com/moderneinc/moderne-visualizations-misc/commit/1ada2b3b26c145b92b20b633c4923c11b692cf73))
-
 
 ## v0.3.1 (2023-08-22)
 
@@ -839,9 +759,7 @@ Set engine to &#34;sfdp&#34; and added configurations for clearer clustering. ([
 
 * chore: move parse_failure_analysis to dev ([`4213578`](https://github.com/moderneinc/moderne-visualizations-misc/commit/4213578172bc4edbd83b05307d241330a19dbd23))
 
-
 ## v0.3.0 (2023-08-22)
-
 
 ## v0.2.1 (2023-08-21)
 
@@ -849,13 +767,11 @@ Set engine to &#34;sfdp&#34; and added configurations for clearer clustering. ([
 
 * Updated SQL relationship colors for visibility (#11) ([`788945e`](https://github.com/moderneinc/moderne-visualizations-misc/commit/788945ee6126bb9756621324482ae7cf7f40b2af))
 
-
 ## v0.2.0 (2023-08-21)
 
 ### Feature
 
 * feat(sql_crud): add option to filter operations ([`4527362`](https://github.com/moderneinc/moderne-visualizations-misc/commit/4527362492dab1b35e2ced37e634db774a3af1c5))
-
 
 ## v0.1.38 (2023-08-18)
 
@@ -865,7 +781,6 @@ Set engine to &#34;sfdp&#34; and added configurations for clearer clustering. ([
 
 * ci: add version bumping to release ([`ca7ba04`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ca7ba048426387a25beb271185953ed1ab29ebf3))
 
-
 ## v0.1.37 (2023-08-17)
 
 ### Chore
@@ -873,7 +788,6 @@ Set engine to &#34;sfdp&#34; and added configurations for clearer clustering. ([
 * chore: update project stuff ([`2769aef`](https://github.com/moderneinc/moderne-visualizations-misc/commit/2769aef1bcc8a05093c3ca8122482c805d59ed65))
 
 * chore: seperate ci only deps ([`8b7afd1`](https://github.com/moderneinc/moderne-visualizations-misc/commit/8b7afd17f69e7b7f656f4cb3b3007a4e12d2a9a2))
-
 
 ## v0.1.36 (2023-08-17)
 
