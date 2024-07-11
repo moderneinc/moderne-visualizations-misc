@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.49.1 (2024-07-11)
+
+### Chore
+
+* chore(github_secrets): updated image ([`a422fde`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a422fde77706a9ede292f35cb94c6012fac0e6f1))
+
 ## v0.49.0 (2024-07-11)
 
 ### Feature
