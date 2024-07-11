@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.49.0 (2024-07-11)
+
+### Feature
+
+* feat: add GitHub secrets in use ([`92cc34d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/92cc34d8b3a4925cad7e7bc421182b21197b45ac))
+
 ## v0.48.0 (2024-06-20)
 
 ### Fix
@@ -466,8 +472,6 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 
 * Merge branch &#39;main&#39; of https://github.com/moderneinc/moderne-visualizations-misc ([`2bcf996`](https://github.com/moderneinc/moderne-visualizations-misc/commit/2bcf99607a934f5f9d5a4c87aca83610bcb344bc))
 
-* adding unknown to dict of languages ([`6623df2`](https://github.com/moderneinc/moderne-visualizations-misc/commit/6623df2a50a1670caf362dd15b18975468d4ec3e))
-
 ## v0.23.0 (2023-09-21)
 
 ## v0.22.0 (2023-09-19)
@@ -479,6 +483,8 @@ Co-authored-by: juju &lt;justine.gehring@gmail.com&gt; ([`0193da9`](https://gith
 ## v0.21.0 (2023-09-19)
 
 ### Unknown
+
+* adding unknown to dict of languages ([`6623df2`](https://github.com/moderneinc/moderne-visualizations-misc/commit/6623df2a50a1670caf362dd15b18975468d4ec3e))
 
 * fixing sentence case ([`992ef06`](https://github.com/moderneinc/moderne-visualizations-misc/commit/992ef06a0c6019469b02437fa0a64f0d95623e39))
 
@@ -905,8 +911,6 @@ Co-authored-by: Sam Snyder &lt;sam@moderne.io&gt; ([`dd66434`](https://github.co
 
 * Merge branch &#39;main&#39; of https://github.com/moderneinc/moderne-visualizations-misc ([`f9ea0c9`](https://github.com/moderneinc/moderne-visualizations-misc/commit/f9ea0c9fe05cbf571c008dcaff753024dcfbde35))
 
-* Update samples to include bindcard bindplan linkedit ([`c6430b3`](https://github.com/moderneinc/moderne-visualizations-misc/commit/c6430b317e62f6d474b8fed572977389591b998c))
-
 * Merge pull request #3 from shanman190/feature/gradle-wrappers-image
 
 Add preview image for gradle wrapper visualization ([`8cb35e3`](https://github.com/moderneinc/moderne-visualizations-misc/commit/8cb35e3f9cdc697a8daf419f7552ee08655e35d2))
@@ -918,6 +922,8 @@ Add preview image for gradle wrapper visualization ([`8cb35e3`](https://github.c
 Add gradle wrapper visualization ([`3693164`](https://github.com/moderneinc/moderne-visualizations-misc/commit/3693164d34fb136367ae212cbcdac584edd851f8))
 
 * Add gradle wrapper visualization ([`b3243bc`](https://github.com/moderneinc/moderne-visualizations-misc/commit/b3243bcc76ef9f14aac2e93441a28cc51e4223f3))
+
+* Update samples to include bindcard bindplan linkedit ([`c6430b3`](https://github.com/moderneinc/moderne-visualizations-misc/commit/c6430b317e62f6d474b8fed572977389591b998c))
 
 * Clear outputs ([`62b79d5`](https://github.com/moderneinc/moderne-visualizations-misc/commit/62b79d53d584504df8417f2512b55dedaf84ad1b))
 
