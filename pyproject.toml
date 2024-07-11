@@ -38,6 +38,7 @@ check-types = "nbqa mypy --ignore-missing-imports ./moderne_visualizations_misc"
 format = "nbqa black ./moderne_visualizations_misc"
 check-options = "python3 scripts/check_options.py"
 check-sentence-casing = "python3 scripts/check_sentence_casing.py"
+check-all = ["format", "check-options", "check-sentence-casing"]
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]

@@ -3,6 +3,7 @@ import yaml
 
 ignore_words = [
     "ESLint",
+    "GitHub"
 ]
 
 def sentence_case(sentence: str):
