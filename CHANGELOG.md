@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.50.2 (2024-07-12)
+
+### Chore
+
+* chore(text matches): limit to org.openrewrite.text.Find for now ([`b9c022e`](https://github.com/moderneinc/moderne-visualizations-misc/commit/b9c022e551d3981c162d9bf41d3e0442e035d5cb))
+
 ## v0.50.1 (2024-07-12)
 
 ### Fix
