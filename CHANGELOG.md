@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.50.1 (2024-07-12)
+
+### Fix
+
+* fix(text matches): use better default ([`239e3fc`](https://github.com/moderneinc/moderne-visualizations-misc/commit/239e3fc9255f3c11be76c25aad7ac9737960d7b4))
+
 ## v0.50.0 (2024-07-12)
 
 ### Feature
