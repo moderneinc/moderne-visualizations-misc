@@ -4,7 +4,7 @@ name: io.moderne.TextMatchesTreeGrid
 displayName: Text matches
 description: >
   Unique list of GitHub action secrets used in workflows. Expand the secret row to see a list of repositories using that secret.
-recipe: '*'
+recipe: 'org.openrewrite.text.Find'
 dataTable: org.openrewrite.table.TextMatches
 options:
   - sub_string_regex:
