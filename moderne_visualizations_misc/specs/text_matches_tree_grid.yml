@@ -1,0 +1,20 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.TextMatchesTreeGrid
+displayName: Text matches
+description: >
+  Unique list of GitHub action secrets used in workflows. Expand the secret row to see a list of repositories using that secret.
+recipe: '*'
+dataTable: org.openrewrite.table.TextMatches
+options:
+  - sub_string_regex:
+      displayName: Regex to match string
+      description: >
+        The matches column of the data table is the line of text containing a match with at ~~> pointing to where the match begins.
+        To find the unique match on each line a regex is used to extract the match.  This regex is typically the one used in the recipe run.
+      required: true
+  - matches_column_header:
+      displayName: Matches column header
+      description: >
+        The name of the column header for matches (default: Matches)
+      required: false
