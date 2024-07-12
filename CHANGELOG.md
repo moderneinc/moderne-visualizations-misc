@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.50.0 (2024-07-12)
+
+### Feature
+
+* feat: add text matches (#49) ([`a1f9524`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a1f95248e3bcb85d0520701d888a43024be599d6))
+
 ## v0.49.1 (2024-07-11)
 
 ### Chore
