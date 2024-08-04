@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.52.0 (2024-08-04)
+
+### Chore
+
+* chore: style cleanup ([`a249460`](https://github.com/moderneinc/moderne-visualizations-misc/commit/a2494608f0a8c26227c102816033e638d214ce81))
+
 ## v0.51.0 (2024-08-04)
 
 ### Feature
