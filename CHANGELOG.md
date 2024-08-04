@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.51.0 (2024-08-04)
+
+### Feature
+
+* feat: add dependency_tree_view_javascript ([`ae10f74`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ae10f74d441a3f7e918a747c2c19568b2f8f4aca))
+
 ## v0.50.2 (2024-07-12)
 
 ### Chore
