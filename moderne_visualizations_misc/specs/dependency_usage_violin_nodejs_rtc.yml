@@ -1,0 +1,7 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.DependencyUsageViolinNodejsRealTimeCommunication
+displayName: NPM package usage
+description: See the distribution of NPM packages by version.
+recipe: org.openrewrite.nodejs.search.RealTimeCommunicationInsights
+dataTable: org.openrewrite.nodejs.table.DependenciesInUse
