@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.54.1 (2024-08-05)
+
+### Fix
+
+* fix: update MANIFEST.in ([`5c3796b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/5c3796bd71101d1d485d30df1954378d77904f3a))
+
 ## v0.54.0 (2024-08-05)
 
 ### Feature
