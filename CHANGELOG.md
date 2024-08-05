@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.53.0 (2024-08-05)
+
+### Unknown
+
+* Add a separate visualization for NPM vulnerabilities (#50) ([`d8648c5`](https://github.com/moderneinc/moderne-visualizations-misc/commit/d8648c59df5cfe174e76f5c02a330ac18c8d2aaf))
+
 ## v0.52.0 (2024-08-04)
 
 ### Chore
