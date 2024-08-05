@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v0.54.0 (2024-08-05)
+
+### Feature
+
+* feat: add violins for nodejs recipes ([`22e88ba`](https://github.com/moderneinc/moderne-visualizations-misc/commit/22e88ba80d5bd6d7796535ea85443cc884f9699a))
+
+### Refactor
+
+* refactor: add resuable module ([`9be1981`](https://github.com/moderneinc/moderne-visualizations-misc/commit/9be19818409035c6e1e4016fc7ab920c03a836c5))
+
 ## v0.53.1 (2024-08-05)
 
 ### Fix
