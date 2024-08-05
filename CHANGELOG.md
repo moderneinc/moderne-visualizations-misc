@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.53.1 (2024-08-05)
+
+### Fix
+
+* fix(dependency_tree_view_javascript): remove link ([`ce1953d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ce1953d3ac899dbdbb8ff75f5552a22b55d3809a))
+
 ## v0.53.0 (2024-08-05)
 
 ### Unknown
