@@ -1,0 +1,814 @@
+repositoryOrigin,repositoryPath,repositoryBranch,cve,packageName,version,fixedVersion,fixWithVersionUpdateOnly,summary,severity,depth
+github.com,lpc3219835527/ilink,master,CVE-2022-22950,spring-expression,5.0.7.RELEASE,5.2.20,FALSE,Allocation of Resources Without Limits or Throttling in Spring Framework,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2015-7501,commons-collections,3.2.1,3.2.2,TRUE,Deserialization of Untrusted Data in Apache commons collections,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2015-6420,commons-collections,3.2.1,3.2.2,TRUE,Insecure Deserialization in Apache Commons Collection,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2018-11307,jackson-databind,2.9.5,2.9.6,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2018-14718,jackson-databind,2.9.5,2.9.7,TRUE,Arbitrary Code Execution in jackson-databind,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2018-14719,jackson-databind,2.9.5,2.9.7,TRUE,Arbitrary Code Execution in jackson-databind,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2018-14720,jackson-databind,2.9.5,2.9.7,TRUE, XML External Entity Reference (XXE) in jackson-databind,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2018-14721,jackson-databind,2.9.5,2.9.7,TRUE,Server-Side Request Forgery (SSRF) in jackson-databind,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2018-19360,jackson-databind,2.9.5,2.9.8,TRUE, Deserialization of Untrusted Data in jackson-databind due to polymorphic deserialization,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2018-19361,jackson-databind,2.9.5,2.9.8,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2019-14379,jackson-databind,2.9.5,2.9.9.2,TRUE,Deserialization of untrusted data in FasterXML jackson-databind,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2019-14540,jackson-databind,2.9.5,2.9.10,TRUE,Polymorphic Typing issue in FasterXML jackson-databind,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2019-16335,jackson-databind,2.9.5,2.9.10,TRUE,Polymorphic Typing issue in FasterXML jackson-databind,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2019-16942,jackson-databind,2.9.5,2.9.10.1,TRUE,Polymorphic Typing in FasterXML jackson-databind,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2019-16943,jackson-databind,2.9.5,2.9.10.1,TRUE,Polymorphic typing issue,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2019-17267,jackson-databind,2.9.5,2.9.10,TRUE,Improper Input Validation in jackson-databind,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2019-17531,jackson-databind,2.9.5,2.9.10.1,TRUE,Polymorphic typing issue,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2019-20330,jackson-databind,2.9.5,2.9.10.2,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2020-8840,jackson-databind,2.9.5,2.9.10.3,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2020-9546,jackson-databind,2.9.5,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2020-9547,jackson-databind,2.9.5,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2020-9548,jackson-databind,2.9.5,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2018-12022,jackson-databind,2.9.5,2.9.6,TRUE,High severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2018-12023,jackson-databind,2.9.5,2.9.6,TRUE,Deserialization of Untrusted Data,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2018-19362,jackson-databind,2.9.5,2.9.8,TRUE,High severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2019-12086,jackson-databind,2.9.5,2.9.9,TRUE,Information exposure in FasterXML jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2019-14439,jackson-databind,2.9.5,2.9.9.2,TRUE,Deserialization of untrusted data in FasterXML jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2019-14892,jackson-databind,2.9.5,2.9.10,TRUE,Polymorphic deserialization of malicious object in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2019-14893,jackson-databind,2.9.5,2.9.10,TRUE,Polymorphic deserialization of malicious object in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-10650,jackson-databind,2.9.5,2.9.10.4,TRUE,jackson-databind before 2.9.10.4 vulnerable to unsafe deserialization,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-10672,jackson-databind,2.9.5,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-10968,jackson-databind,2.9.5,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-10969,jackson-databind,2.9.5,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-11111,jackson-databind,2.9.5,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-11112,jackson-databind,2.9.5,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-11113,jackson-databind,2.9.5,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-11619,jackson-databind,2.9.5,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-11620,jackson-databind,2.9.5,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-14060,jackson-databind,2.9.5,2.9.10.5,TRUE,Deserialization of untrusted data in Jackson Databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-14061,jackson-databind,2.9.5,2.9.10.5,TRUE,Deserialization of untrusted data in Jackson Databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-14062,jackson-databind,2.9.5,2.9.10.5,TRUE,Deserialization of untrusted data in Jackson Databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-14195,jackson-databind,2.9.5,2.9.10.5,TRUE,Deserialization of untrusted data in Jackson Databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-24616,jackson-databind,2.9.5,2.9.10.6,TRUE,Code Injection in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-24750,jackson-databind,2.9.5,2.9.10.6,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-25649,jackson-databind,2.9.5,2.9.10.7,TRUE,XML External Entity (XXE) Injection in Jackson Databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-35490,jackson-databind,2.9.5,2.9.10.8,TRUE,Serialization gadgets exploit in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-35491,jackson-databind,2.9.5,2.9.10.8,TRUE,Serialization gadgets exploit in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-36179,jackson-databind,2.9.5,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-36180,jackson-databind,2.9.5,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-36181,jackson-databind,2.9.5,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-36182,jackson-databind,2.9.5,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-36183,jackson-databind,2.9.5,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-36184,jackson-databind,2.9.5,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-36185,jackson-databind,2.9.5,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-36186,jackson-databind,2.9.5,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-36187,jackson-databind,2.9.5,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-36188,jackson-databind,2.9.5,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-36189,jackson-databind,2.9.5,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-36518,jackson-databind,2.9.5,2.12.6.1,FALSE,Deeply nested json in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2021-20190,jackson-databind,2.9.5,2.9.10.7,TRUE,Deserialization of untrusted data in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2022-42003,jackson-databind,2.9.5,2.12.7.1,FALSE,Uncontrolled Resource Consumption in Jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2022-42004,jackson-databind,2.9.5,2.12.7.1,FALSE,Uncontrolled Resource Consumption in FasterXML jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,GHSA-wrr7-33fx-rcvj,jackson-databind,2.9.5,2.9.6,TRUE,Deserialization of Untrusted Data in jackson-databind,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2019-12384,jackson-databind,2.9.5,2.9.9.1,TRUE,Deserialization of Untrusted Data in FasterXML jackson-databind,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2019-12814,jackson-databind,2.9.5,2.9.9.1,TRUE,Deserialization of untrusted data in FasterXML jackson-databind,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2020-10673,jackson-databind,2.9.5,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2021-29425,commons-io,2.4,2.7,FALSE,Path Traversal and Improper Input Validation in Apache Commons IO,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2021-37533,commons-net,3.6,3.9.0,FALSE,Apache Commons Net vulnerable to information leakage via malicious server,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2017-3523,mysql-connector-java,5.1.30,5.1.41,TRUE,Improper Access Control in MySQL Connectors Java,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2018-3258,mysql-connector-java,5.1.30,8.0.13,FALSE,Improper Privilege Management in MySQL Connectors Java,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2015-2575,mysql-connector-java,5.1.30,5.1.35,TRUE,Improper Access Control in MySQL Connectors Java,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2017-3586,mysql-connector-java,5.1.30,5.1.42,TRUE,Exposure of Sensitive Information to an Unauthorized Actor in Oracle MySQL Connectors Java,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2019-2692,mysql-connector-java,5.1.30,8.0.16,FALSE,Privilege escalation in mysql-connector-jav,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2022-21363,mysql-connector-java,5.1.30,8.0.28,FALSE,Improper Handling of Insufficient Permissions or Privileges in MySQL Connectors Java,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2017-3589,mysql-connector-java,5.1.30,5.1.42,TRUE,Exposure of Sensitive Information to an Unauthorized Actor in Oracle MySQL Connectors Java,LOW,0
+github.com,lpc3219835527/ilink,master,CVE-2019-10202,jackson-mapper-asl,1.9.13,,FALSE,Deserialization of Untrusted Data in org.codehaus.jackson:jackson-mapper-asl,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2019-10172,jackson-mapper-asl,1.9.13,,FALSE,Improper Restriction of XML External Entity Reference in jackson-mapper-asl,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2022-22965,spring-webmvc,5.0.7.RELEASE,5.2.20.RELEASE,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2020-5398,spring-webmvc,5.0.7.RELEASE,5.0.16.RELEASE,TRUE,RFD attack via Content-Disposition header sourced from request input by Spring MVC or Spring WebFlux Application,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2018-15756,spring-core,5.0.7.RELEASE,5.0.10,TRUE,Denial of Service in Spring Framework,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2022-22968,spring-core,5.0.7.RELEASE,5.2.21,FALSE,Improper handling of case sensitivity in Spring Framework,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2022-22970,spring-core,5.0.7.RELEASE,5.2.22.RELEASE,FALSE,Denial of service in Spring Framework,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2022-22971,spring-core,5.0.7.RELEASE,5.2.22.RELEASE,FALSE,Allocation of Resources Without Limits or Throttling in Spring Framework,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2018-10237,guava,18.0,24.1.1,FALSE,Denial of Service in Google Guava,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2020-8908,guava,18.0,,FALSE,Information Disclosure in Guava,LOW,0
+github.com,lpc3219835527/ilink,master,CVE-2016-1000031,commons-fileupload,1.3.1,1.3.3,TRUE,Improper Access Control in commons-fileupload,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2016-3092,commons-fileupload,1.3.1,1.3.2,TRUE,High severity vulnerability that affects commons-fileupload:commons-fileupload,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2023-24998,commons-fileupload,1.3.1,1.5,FALSE,Apache Commons FileUpload denial of service vulnerability,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2016-1000027,spring-web,5.0.7.RELEASE,6.0.0,FALSE,Pivotal Spring Framework contains unsafe Java deserialization methods,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2019-17571,log4j,1.2.17,,FALSE,Deserialization of Untrusted Data in Log4j,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2022-23305,log4j,1.2.17,,FALSE,SQL Injection in Log4j 1.2.x,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2022-23307,log4j,1.2.17,,FALSE,Deserialization of Untrusted Data in Apache Log4j,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2021-4104,log4j,1.2.17,,FALSE,JMSAppender in Log4j 1.2 is vulnerable to deserialization of untrusted data,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2022-23302,log4j,1.2.17,,FALSE,Deserialization of Untrusted Data in Log4j 1.x,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2014-0114,commons-beanutils,1.8.0,1.9.2,FALSE,Arbitrary code execution in Apache Commons BeanUtils,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2019-10086,commons-beanutils,1.8.0,1.9.4,FALSE,Insecure Deserialization in Apache Commons Beanutils,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2020-26945,mybatis,3.2.6,3.5.6,FALSE,"""Deserialization errors in MyBatis""",HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2022-23596,junrar,0.7,7.4.1,FALSE,Junrar vulnerable to infinite loop via extracting carefully crafted RAR archive,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2018-12418,junrar,0.7,1.0.1,FALSE,Junrar vulnerable to Infinite Loop,MODERATE,0
+github.com,lpc3219835527/ilink,master,CVE-2022-28111,pagehelper,5.1.4,5.3.1,FALSE,MyBatis PageHelper vulnerable to time-blind SQL injection via orderBy parameter,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2017-18349,fastjson,1.1.41,1.2.31,FALSE,Improper Input Validation in alilibaba:fastjson,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2022-25845,fastjson,1.1.41,1.2.83,FALSE,Unsafe deserialization in com.alibaba:fastjson,HIGH,0
+github.com,lpc3219835527/ilink,master,CVE-2017-1000487,plexus-utils,1.5.6,3.0.16,FALSE,OS Command Injection in Plexus-utils,CRITICAL,0
+github.com,lpc3219835527/ilink,master,CVE-2022-22965,spring-beans,5.0.7.RELEASE,5.2.20.RELEASE,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,blindsidenetworks/lti,master,CVE-2019-17571,log4j,1.2.14,,FALSE,Deserialization of Untrusted Data in Log4j,CRITICAL,0
+github.com,blindsidenetworks/lti,master,CVE-2022-23305,log4j,1.2.14,,FALSE,SQL Injection in Log4j 1.2.x,CRITICAL,0
+github.com,blindsidenetworks/lti,master,CVE-2022-23307,log4j,1.2.14,,FALSE,Deserialization of Untrusted Data in Apache Log4j,CRITICAL,0
+github.com,blindsidenetworks/lti,master,CVE-2021-4104,log4j,1.2.14,,FALSE,JMSAppender in Log4j 1.2 is vulnerable to deserialization of untrusted data,HIGH,0
+github.com,blindsidenetworks/lti,master,CVE-2022-23302,log4j,1.2.14,,FALSE,Deserialization of Untrusted Data in Log4j 1.x,HIGH,0
+github.com,revapi/revapi,main,CVE-2020-36518,jackson-databind,2.12.0,2.12.6.1,TRUE,Deeply nested json in jackson-databind,HIGH,0
+github.com,revapi/revapi,main,CVE-2022-42003,jackson-databind,2.12.0,2.12.7.1,TRUE,Uncontrolled Resource Consumption in Jackson-databind,HIGH,0
+github.com,revapi/revapi,main,CVE-2022-42004,jackson-databind,2.12.0,2.12.7.1,TRUE,Uncontrolled Resource Consumption in FasterXML jackson-databind,HIGH,0
+github.com,revapi/revapi,main,CVE-2021-29425,commons-io,2.5,2.7,FALSE,Path Traversal and Improper Input Validation in Apache Commons IO,MODERATE,0
+github.com,revapi/revapi,main,CVE-2019-10086,commons-beanutils,1.7.0,1.9.4,FALSE,Insecure Deserialization in Apache Commons Beanutils,HIGH,0
+github.com,revapi/revapi,main,CVE-2020-13936,velocity,1.7,,FALSE,Sandbox Bypass in Apache Velocity Engine,HIGH,0
+github.com,revapi/revapi,main,CVE-2022-1471,snakeyaml,1.27,2.0,FALSE,SnakeYaml Constructor Deserialization Remote Code Execution,HIGH,0
+github.com,revapi/revapi,main,CVE-2022-25857,snakeyaml,1.27,1.31,FALSE,Uncontrolled Resource Consumption in snakeyaml,HIGH,0
+github.com,revapi/revapi,main,CVE-2022-38749,snakeyaml,1.27,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,revapi/revapi,main,CVE-2022-38750,snakeyaml,1.27,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,revapi/revapi,main,CVE-2022-38751,snakeyaml,1.27,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,revapi/revapi,main,CVE-2022-38752,snakeyaml,1.27,1.32,FALSE,snakeYAML before 1.32 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,revapi/revapi,main,CVE-2022-41854,snakeyaml,1.27,1.32,FALSE,Snakeyaml vulnerable to Stack overflow leading to denial of service,MODERATE,0
+github.com,revapi/revapi,main,CVE-2020-13959,velocity-tools,2.0,,FALSE,Cross-site scripting (XSS) in Apache Velocity Tools,MODERATE,0
+github.com,revapi/revapi,main,CVE-2021-44228,log4j-core,2.11.2,2.12.2,FALSE,Remote code injection in Log4j,CRITICAL,0
+github.com,revapi/revapi,main,CVE-2021-45046,log4j-core,2.11.2,2.12.2,FALSE,Incomplete fix for Apache Log4j vulnerability,CRITICAL,0
+github.com,revapi/revapi,main,CVE-2021-45105,log4j-core,2.11.2,2.12.3,FALSE,Apache Log4j2 vulnerable to Improper Input Validation and Uncontrolled Recursion,HIGH,0
+github.com,revapi/revapi,main,CVE-2021-44832,log4j-core,2.11.2,2.12.4,FALSE,Improper Input Validation and Injection in Apache Log4j2,MODERATE,0
+github.com,revapi/revapi,main,CVE-2020-9488,log4j-core,2.11.2,2.13.2,FALSE,Improper validation of certificate with host mismatch in Apache Log4j SMTP appender,LOW,0
+github.com,revapi/revapi,main,CVE-2020-13956,httpclient,4.5.6,4.5.13,TRUE,Cross-site scripting in Apache HttpClient,MODERATE,0
+github.com,revapi/revapi,main,CVE-2022-29599,maven-shared-utils,3.2.0,3.3.3,FALSE,Command injection in Apache Maven maven-shared-utils,CRITICAL,0
+github.com,revapi/revapi,main,CVE-2020-25649,jackson-databind,2.10.4,2.10.5.1,TRUE,XML External Entity (XXE) Injection in Jackson Databind,HIGH,0
+github.com,revapi/revapi,main,CVE-2020-36518,jackson-databind,2.10.4,2.12.6.1,FALSE,Deeply nested json in jackson-databind,HIGH,0
+github.com,revapi/revapi,main,CVE-2022-42003,jackson-databind,2.10.4,2.12.7.1,FALSE,Uncontrolled Resource Consumption in Jackson-databind,HIGH,0
+github.com,revapi/revapi,main,CVE-2022-42004,jackson-databind,2.10.4,2.12.7.1,FALSE,Uncontrolled Resource Consumption in FasterXML jackson-databind,HIGH,0
+github.com,revapi/revapi,main,CVE-2021-42550,logback-core,1.2.0,1.2.9,TRUE,Deserialization of Untrusted Data in logback,MODERATE,0
+github.com,revapi/revapi,main,CVE-2020-10683,dom4j,1.1,,FALSE,dom4j allows External Entities by default which might enable XXE attacks,CRITICAL,0
+github.com,revapi/revapi,main,CVE-2018-1000632,dom4j,1.1,,FALSE,Dom4j contains a XML Injection vulnerability,HIGH,0
+github.com,cjbi/weshop,master,CVE-2018-10237,guava,20.0,24.1.1,FALSE,Denial of Service in Google Guava,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2020-8908,guava,20.0,,FALSE,Information Disclosure in Guava,LOW,0
+github.com,cjbi/weshop,master,CVE-2021-29425,commons-io,2.5,2.7,FALSE,Path Traversal and Improper Input Validation in Apache Commons IO,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2020-15522,bcprov-jdk15on,1.60,1.66,FALSE,Timing based private key exposure in Bouncy Castle,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-29425,commons-io,2.4,2.7,FALSE,Path Traversal and Improper Input Validation in Apache Commons IO,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-27772,spring-boot,2.1.8.RELEASE,2.2.11.RELEASE,FALSE,Temporary Directory Hijacking to Local Privilege Escalation Vulnerability in org.springframework.boot:spring-boot,HIGH,0
+github.com,cjbi/weshop,master,CVE-2023-24998,commons-fileupload,1.4,1.5,FALSE,Apache Commons FileUpload denial of service vulnerability,HIGH,0
+github.com,cjbi/weshop,master,CVE-2019-10086,commons-beanutils,1.9.3,1.9.4,TRUE,Insecure Deserialization in Apache Commons Beanutils,HIGH,0
+github.com,cjbi/weshop,master,CVE-2017-18640,snakeyaml,1.23,1.26,FALSE,SnakeYAML Entity Expansion during load operation,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-1471,snakeyaml,1.23,2.0,FALSE,SnakeYaml Constructor Deserialization Remote Code Execution,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-25857,snakeyaml,1.23,1.31,FALSE,Uncontrolled Resource Consumption in snakeyaml,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-38749,snakeyaml,1.23,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-38750,snakeyaml,1.23,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-38751,snakeyaml,1.23,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-38752,snakeyaml,1.23,1.32,FALSE,snakeYAML before 1.32 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-41854,snakeyaml,1.23,1.32,FALSE,Snakeyaml vulnerable to Stack overflow leading to denial of service,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2020-5410,spring-cloud-config-server,2.1.4.RELEASE,2.1.9,TRUE,Directory traversal attack in Spring Cloud Config,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-5405,spring-cloud-config-server,2.1.4.RELEASE,2.1.7,TRUE,Directory traversal attack in Spring Cloud Config,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2020-10683,dom4j,2.1.1,2.1.3,TRUE,dom4j allows External Entities by default which might enable XXE attacks,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2020-26945,mybatis,3.4.6,3.5.6,FALSE,"""Deserialization errors in MyBatis""",HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-26217,xstream,1.4.11.1,1.4.14-jdk7,FALSE,XStream can be used for Remote Code Execution,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-26258,xstream,1.4.11.1,1.4.15,TRUE,Server-Side Forgery Request can be activated unmarshalling with XStream,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-21341,xstream,1.4.11.1,1.4.16,TRUE,XStream can cause a Denial of Service.,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-29505,xstream,1.4.11.1,1.4.17,TRUE,XStream is vulnerable to a Remote Command Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39139,xstream,1.4.11.1,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39141,xstream,1.4.11.1,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39144,xstream,1.4.11.1,1.4.18,TRUE,XStream is vulnerable to a Remote Command Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39145,xstream,1.4.11.1,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39146,xstream,1.4.11.1,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39147,xstream,1.4.11.1,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39148,xstream,1.4.11.1,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39149,xstream,1.4.11.1,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39150,xstream,1.4.11.1,1.4.18,TRUE,A Server-Side Forgery Request can be activated unmarshalling with XStream to access data streams from an arbitrary URL referencing a resource in an intranet or the local host,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39151,xstream,1.4.11.1,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39152,xstream,1.4.11.1,1.4.18,TRUE,A Server-Side Forgery Request can be activated unmarshalling with XStream to access data streams from an arbitrary URL referencing a resource in an intranet or the local host,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39153,xstream,1.4.11.1,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39154,xstream,1.4.11.1,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-43859,xstream,1.4.11.1,1.4.19,TRUE,Denial of Service by injecting highly recursive collections or maps in XStream,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-40151,xstream,1.4.11.1,1.4.20,TRUE,XStream can cause a Denial of Service by injecting deeply nested objects raising a stack overflow,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-41966,xstream,1.4.11.1,1.4.20,TRUE,XStream can cause Denial of Service via stack overflow,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-26259,xstream,1.4.11.1,1.4.15,TRUE,XStream vulnerable to an Arbitrary File Deletion on the local host when unmarshalling,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21342,xstream,1.4.11.1,1.4.16,TRUE,A Server-Side Forgery Request can be activated unmarshalling with XStream to access data streams from an arbitrary URL referencing a resource in an intranet or the local host,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21343,xstream,1.4.11.1,1.4.16,TRUE,XStream is vulnerable to an Arbitrary File Deletion on the local host when unmarshalling as long as the executing process has sufficient rights,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21344,xstream,1.4.11.1,1.4.16,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21345,xstream,1.4.11.1,1.4.16,TRUE,XStream is vulnerable to a Remote Command Execution attack,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21346,xstream,1.4.11.1,1.4.16,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21347,xstream,1.4.11.1,1.4.16,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21348,xstream,1.4.11.1,1.4.16,TRUE,XStream is vulnerable to an attack using Regular Expression for a Denial of Service (ReDos),MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21349,xstream,1.4.11.1,1.4.16,TRUE,A Server-Side Forgery Request can be activated unmarshalling with XStream to access data streams from an arbitrary URL referencing a resource in an intranet or the local host,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21350,xstream,1.4.11.1,1.4.16,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21351,xstream,1.4.11.1,1.4.16,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-39140,xstream,1.4.11.1,1.4.18,TRUE,XStream can cause a Denial of Service,MODERATE,0
+github.com,cjbi/weshop,master,GHSA-3mq5-fq9h-gj7j,xstream,1.4.11.1,,FALSE,Duplicate Advisory: Denial of Service due to parser crash,LOW,0
+github.com,cjbi/weshop,master,CVE-2022-40153,woodstox-core,5.0.3,5.4.0,FALSE,Denial of Service due to parser crash,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-40152,woodstox-core,5.0.3,5.4.0,FALSE,Denial of Service due to parser crash,LOW,0
+github.com,cjbi/weshop,master,CVE-2022-40154,woodstox-core,5.0.3,5.4.0,FALSE,Denial of Service via stack overflow,LOW,0
+github.com,cjbi/weshop,master,CVE-2022-40155,woodstox-core,5.0.3,5.4.0,FALSE,Denial of Service via stack overflow,LOW,0
+github.com,cjbi/weshop,master,CVE-2022-40156,woodstox-core,5.0.3,5.4.0,FALSE,Denial of Service due to parser crash,LOW,0
+github.com,cjbi/weshop,master,CVE-2021-33813,jdom,1.1,,FALSE,XML External Entity (XXE) Injection in JDOM,HIGH,0
+github.com,cjbi/weshop,master,CVE-2016-1000027,spring-web,5.1.9.RELEASE,6.0.0,FALSE,Pivotal Spring Framework contains unsafe Java deserialization methods,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2020-1938,tomcat-embed-core,9.0.24,9.0.31,TRUE,Improper Privilege Management in Tomcat,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2019-12418,tomcat-embed-core,9.0.24,9.0.29,TRUE,Insufficiently Protected Credentials in Apache Tomcat,HIGH,0
+github.com,cjbi/weshop,master,CVE-2019-17563,tomcat-embed-core,9.0.24,9.0.30,TRUE,"In Apache Tomcat, when using FORM authentication there was a narrow window where an attacker could perform a session fixation attack",HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-9484,tomcat-embed-core,9.0.24,9.0.35,TRUE,Potential remote code execution in Apache Tomcat,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-25122,tomcat-embed-core,9.0.24,9.0.43,TRUE,Exposure of Sensitive Information to an Unauthorized Actor in Apache Tomcat,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-25329,tomcat-embed-core,9.0.24,9.0.41,TRUE,Potential remote code execution in Apache Tomcat,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-1935,tomcat-embed-core,9.0.24,9.0.31,TRUE,Potential HTTP request smuggling in Apache Tomcat,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-24122,tomcat-embed-core,9.0.24,9.0.40,TRUE,Information Disclosure in Apache Tomcat,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-42550,logback-core,1.2.3,1.2.9,TRUE,Deserialization of Untrusted Data in logback,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2020-5413,spring-integration-core,5.1.7.RELEASE,5.1.12,TRUE,Code execution in Spring Integration,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2022-41852,commons-jxpath,1.3,,FALSE,JXPath vulnerable to remote code execution when interpreting untrusted XPath expressions,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2022-40157,commons-jxpath,1.3,,FALSE,JXPath Out-of-bounds Write vulnerability,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-40158,commons-jxpath,1.3,,FALSE,JXPath Out-of-bounds Write vulnerability,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-40159,commons-jxpath,1.3,,FALSE,JXPath Out-of-bounds Write vulnerability,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-40160,commons-jxpath,1.3,,FALSE,JXPath Out-of-bounds Write vulnerability,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-40161,commons-jxpath,1.3,,FALSE,JXPath Out-of-bounds Write vulnerability,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-43466,thymeleaf-spring5,3.0.11.RELEASE,3.0.13.RELEASE,TRUE,Template injection in thymeleaf-spring5,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2022-25647,gson,2.8.5,2.8.9,TRUE,Deserialization of Untrusted Data in Gson,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-22965,spring-webmvc,5.1.9.RELEASE,5.2.20.RELEASE,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2020-5398,spring-webmvc,5.1.9.RELEASE,5.1.13.RELEASE,TRUE,RFD attack via Content-Disposition header sourced from request input by Spring MVC or Spring WebFlux Application,HIGH,0
+github.com,cjbi/weshop,master,CVE-2015-7501,commons-collections,3.2.1,3.2.2,TRUE,Deserialization of Untrusted Data in Apache commons collections,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2015-6420,commons-collections,3.2.1,3.2.2,TRUE,Insecure Deserialization in Apache Commons Collection,HIGH,0
+github.com,cjbi/weshop,master,CVE-2019-17571,log4j,1.2.17,,FALSE,Deserialization of Untrusted Data in Log4j,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2022-23305,log4j,1.2.17,,FALSE,SQL Injection in Log4j 1.2.x,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2022-23307,log4j,1.2.17,,FALSE,Deserialization of Untrusted Data in Apache Log4j,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2021-4104,log4j,1.2.17,,FALSE,JMSAppender in Log4j 1.2 is vulnerable to deserialization of untrusted data,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-23302,log4j,1.2.17,,FALSE,Deserialization of Untrusted Data in Log4j 1.x,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-22963,spring-cloud-function-context,2.0.2.RELEASE,3.1.7,FALSE,Spring Cloud Function Code Injection with a specially crafted SpEL as a routing expression,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2019-14540,jackson-databind,2.9.9.3,2.9.10,TRUE,Polymorphic Typing issue in FasterXML jackson-databind,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2019-16335,jackson-databind,2.9.9.3,2.9.10,TRUE,Polymorphic Typing issue in FasterXML jackson-databind,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2019-16942,jackson-databind,2.9.9.3,2.9.10.1,TRUE,Polymorphic Typing in FasterXML jackson-databind,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2019-16943,jackson-databind,2.9.9.3,2.9.10.1,TRUE,Polymorphic typing issue,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2019-17267,jackson-databind,2.9.9.3,2.9.10,TRUE,Improper Input Validation in jackson-databind,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2019-17531,jackson-databind,2.9.9.3,2.9.10.1,TRUE,Polymorphic typing issue,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2019-20330,jackson-databind,2.9.9.3,2.9.10.2,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2020-8840,jackson-databind,2.9.9.3,2.9.10.3,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2020-9546,jackson-databind,2.9.9.3,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2020-9547,jackson-databind,2.9.9.3,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2020-9548,jackson-databind,2.9.9.3,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2019-14892,jackson-databind,2.9.9.3,2.9.10,TRUE,Polymorphic deserialization of malicious object in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2019-14893,jackson-databind,2.9.9.3,2.9.10,TRUE,Polymorphic deserialization of malicious object in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-10650,jackson-databind,2.9.9.3,2.9.10.4,TRUE,jackson-databind before 2.9.10.4 vulnerable to unsafe deserialization,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-10672,jackson-databind,2.9.9.3,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-10968,jackson-databind,2.9.9.3,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-10969,jackson-databind,2.9.9.3,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-11111,jackson-databind,2.9.9.3,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-11112,jackson-databind,2.9.9.3,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-11113,jackson-databind,2.9.9.3,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-11619,jackson-databind,2.9.9.3,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-11620,jackson-databind,2.9.9.3,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-14060,jackson-databind,2.9.9.3,2.9.10.5,TRUE,Deserialization of untrusted data in Jackson Databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-14061,jackson-databind,2.9.9.3,2.9.10.5,TRUE,Deserialization of untrusted data in Jackson Databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-14062,jackson-databind,2.9.9.3,2.9.10.5,TRUE,Deserialization of untrusted data in Jackson Databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-14195,jackson-databind,2.9.9.3,2.9.10.5,TRUE,Deserialization of untrusted data in Jackson Databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-24616,jackson-databind,2.9.9.3,2.9.10.6,TRUE,Code Injection in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-24750,jackson-databind,2.9.9.3,2.9.10.6,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-25649,jackson-databind,2.9.9.3,2.9.10.7,TRUE,XML External Entity (XXE) Injection in Jackson Databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-35490,jackson-databind,2.9.9.3,2.9.10.8,TRUE,Serialization gadgets exploit in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-35491,jackson-databind,2.9.9.3,2.9.10.8,TRUE,Serialization gadgets exploit in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-36179,jackson-databind,2.9.9.3,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-36180,jackson-databind,2.9.9.3,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-36181,jackson-databind,2.9.9.3,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-36182,jackson-databind,2.9.9.3,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-36183,jackson-databind,2.9.9.3,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-36184,jackson-databind,2.9.9.3,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-36185,jackson-databind,2.9.9.3,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-36186,jackson-databind,2.9.9.3,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-36187,jackson-databind,2.9.9.3,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-36188,jackson-databind,2.9.9.3,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-36189,jackson-databind,2.9.9.3,2.9.10.8,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-36518,jackson-databind,2.9.9.3,2.12.6.1,FALSE,Deeply nested json in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-20190,jackson-databind,2.9.9.3,2.9.10.7,TRUE,Deserialization of untrusted data in jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-42003,jackson-databind,2.9.9.3,2.12.7.1,FALSE,Uncontrolled Resource Consumption in Jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-42004,jackson-databind,2.9.9.3,2.12.7.1,FALSE,Uncontrolled Resource Consumption in FasterXML jackson-databind,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-10673,jackson-databind,2.9.9.3,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-22968,spring-core,5.1.9.RELEASE,5.2.21,FALSE,Improper handling of case sensitivity in Spring Framework,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-22970,spring-core,5.1.9.RELEASE,5.2.22.RELEASE,FALSE,Denial of service in Spring Framework,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-22971,spring-core,5.1.9.RELEASE,5.2.22.RELEASE,FALSE,Allocation of Resources Without Limits or Throttling in Spring Framework,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-22950,spring-expression,5.1.9.RELEASE,5.2.20,FALSE,Allocation of Resources Without Limits or Throttling in Spring Framework,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-40150,jettison,1.3.7,1.5.2,FALSE,Jettison memory exhaustion,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-45685,jettison,1.3.7,1.5.2,FALSE,Jettison Out-of-bounds Write vulnerability,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-45693,jettison,1.3.7,1.5.2,FALSE,Jettison Out-of-bounds Write vulnerability,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-40149,jettison,1.3.7,1.5.1,FALSE,Jettison parser crash by stackoverflow,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21290,netty-codec-http,4.1.39.Final,4.1.59.Final,TRUE,Local Information Disclosure Vulnerability in Netty on Unix-Like systems,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-43797,netty-codec-http,4.1.39.Final,4.1.71.Final,TRUE,HTTP request smuggling in io.netty:netty-codec-http,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-24823,netty-codec-http,4.1.39.Final,4.1.77.Final,TRUE,Local Information Disclosure Vulnerability in io.netty:netty-codec-http,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2020-13956,httpclient,4.5.9,4.5.13,TRUE,Cross-site scripting in Apache HttpClient,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-41853,hsqldb,2.4.1,2.7.1,FALSE,HyperSQL DataBase vulnerable to remote code execution when processing untrusted input,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2021-22113,spring-cloud-netflix-zuul,2.1.3.RELEASE,2.2.7,FALSE,Incorrect Authorization in Spring Cloud Netflix Zuul,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-2471,mysql-connector-java,8.0.17,8.0.27,TRUE,Incorrect Authorization in MySQL Connector Java,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-21363,mysql-connector-java,8.0.17,8.0.28,TRUE,Improper Handling of Insufficient Permissions or Privileges in MySQL Connectors Java,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2014-0114,commons-beanutils,1.8.0,1.9.2,FALSE,Arbitrary code execution in Apache Commons BeanUtils,HIGH,0
+github.com,cjbi/weshop,master,CVE-2019-10086,commons-beanutils,1.8.0,1.9.4,FALSE,Insecure Deserialization in Apache Commons Beanutils,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-37136,netty-codec,4.1.39.Final,4.1.68.Final,TRUE,Bzip2Decoder doesn't allow setting size restrictions for decompressed data,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-37137,netty-codec,4.1.39.Final,4.1.68.Final,TRUE, SnappyFrameDecoder doesn't restrict chunk length any may buffer skippable chunks in an unnecessary way,HIGH,0
+github.com,cjbi/weshop,master,CVE-2019-20444,netty-handler,4.1.39.Final,4.1.44,TRUE,HTTP Request Smuggling in Netty,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2020-11612,netty-handler,4.1.39.Final,4.1.46,TRUE,Denial of Service in Netty,HIGH,0
+github.com,cjbi/weshop,master,CVE-2019-20445,netty-handler,4.1.39.Final,4.1.45,TRUE,HTTP Request Smuggling in Netty,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2020-15250,junit,4.12,4.13.1,FALSE,TemporaryFolder on unix-like systems does not limit access to created files,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2019-10219,hibernate-validator,6.0.17.Final,6.0.18,TRUE,The SafeHtml annotation in Hibernate-Validator does not properly guard against XSS attacks,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2020-10693,hibernate-validator,6.0.17.Final,6.0.20.Final,TRUE,Improper Input Validation in Hibernate Validator,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2022-22965,spring-boot-starter-web,2.1.8.RELEASE,2.5.12,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2019-10173,xstream,1.4.10,1.4.11,TRUE,Deserialization of Untrusted Data and Code Injection in xstream,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2020-26217,xstream,1.4.10,1.4.14-jdk7,FALSE,XStream can be used for Remote Code Execution,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-26258,xstream,1.4.10,1.4.15,TRUE,Server-Side Forgery Request can be activated unmarshalling with XStream,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-21341,xstream,1.4.10,1.4.16,TRUE,XStream can cause a Denial of Service.,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-29505,xstream,1.4.10,1.4.17,TRUE,XStream is vulnerable to a Remote Command Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39139,xstream,1.4.10,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39141,xstream,1.4.10,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39144,xstream,1.4.10,1.4.18,TRUE,XStream is vulnerable to a Remote Command Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39145,xstream,1.4.10,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39146,xstream,1.4.10,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39147,xstream,1.4.10,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39148,xstream,1.4.10,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39149,xstream,1.4.10,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39150,xstream,1.4.10,1.4.18,TRUE,A Server-Side Forgery Request can be activated unmarshalling with XStream to access data streams from an arbitrary URL referencing a resource in an intranet or the local host,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39151,xstream,1.4.10,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39152,xstream,1.4.10,1.4.18,TRUE,A Server-Side Forgery Request can be activated unmarshalling with XStream to access data streams from an arbitrary URL referencing a resource in an intranet or the local host,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39153,xstream,1.4.10,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-39154,xstream,1.4.10,1.4.18,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-43859,xstream,1.4.10,1.4.19,TRUE,Denial of Service by injecting highly recursive collections or maps in XStream,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-40151,xstream,1.4.10,1.4.20,TRUE,XStream can cause a Denial of Service by injecting deeply nested objects raising a stack overflow,HIGH,0
+github.com,cjbi/weshop,master,CVE-2022-41966,xstream,1.4.10,1.4.20,TRUE,XStream can cause Denial of Service via stack overflow,HIGH,0
+github.com,cjbi/weshop,master,CVE-2020-26259,xstream,1.4.10,1.4.15,TRUE,XStream vulnerable to an Arbitrary File Deletion on the local host when unmarshalling,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21342,xstream,1.4.10,1.4.16,TRUE,A Server-Side Forgery Request can be activated unmarshalling with XStream to access data streams from an arbitrary URL referencing a resource in an intranet or the local host,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21343,xstream,1.4.10,1.4.16,TRUE,XStream is vulnerable to an Arbitrary File Deletion on the local host when unmarshalling as long as the executing process has sufficient rights,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21344,xstream,1.4.10,1.4.16,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21345,xstream,1.4.10,1.4.16,TRUE,XStream is vulnerable to a Remote Command Execution attack,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21346,xstream,1.4.10,1.4.16,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21347,xstream,1.4.10,1.4.16,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21348,xstream,1.4.10,1.4.16,TRUE,XStream is vulnerable to an attack using Regular Expression for a Denial of Service (ReDos),MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21349,xstream,1.4.10,1.4.16,TRUE,A Server-Side Forgery Request can be activated unmarshalling with XStream to access data streams from an arbitrary URL referencing a resource in an intranet or the local host,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21350,xstream,1.4.10,1.4.16,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-21351,xstream,1.4.10,1.4.16,TRUE,XStream is vulnerable to an Arbitrary Code Execution attack,MODERATE,0
+github.com,cjbi/weshop,master,CVE-2021-39140,xstream,1.4.10,1.4.18,TRUE,XStream can cause a Denial of Service,MODERATE,0
+github.com,cjbi/weshop,master,GHSA-3mq5-fq9h-gj7j,xstream,1.4.10,,FALSE,Duplicate Advisory: Denial of Service due to parser crash,LOW,0
+github.com,cjbi/weshop,master,CVE-2022-22965,spring-beans,5.1.9.RELEASE,5.2.20.RELEASE,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,cjbi/weshop,master,CVE-2017-8028,spring-amqp,2.1.8.RELEASE,2.3.2,FALSE,Improper Authentication in Pivotal Spring-LDAP,HIGH,0
+github.com,cjbi/weshop,master,CVE-2021-29425,commons-io,2.2,2.7,FALSE,Path Traversal and Improper Input Validation in Apache Commons IO,MODERATE,0
+github.com,google/jsontoken,master,CVE-2020-8908,guava,29.0-jre,,FALSE,Information Disclosure in Guava,LOW,0
+github.com,google/jsontoken,master,CVE-2022-25647,gson,2.8.6,2.8.9,TRUE,Deserialization of Untrusted Data in Gson,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2016-1000027,spring-web,4.3.11.RELEASE,6.0.0,FALSE,Pivotal Spring Framework contains unsafe Java deserialization methods,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2018-8014,tomcat-embed-core,8.5.20,8.5.32,TRUE,The defaults settings for the CORS filter provided in Apache Tomcat are insecure and enable 'supportsCredentials' for all origins,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2020-1938,tomcat-embed-core,8.5.20,8.5.51,TRUE,Improper Privilege Management in Tomcat,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2018-1336,tomcat-embed-core,8.5.20,8.5.31,TRUE,In Apache Tomcat there is an improper handing of overflow in the UTF-8 decoder,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2018-8034,tomcat-embed-core,8.5.20,8.5.32,TRUE,The host name verification missing in Apache Tomcat,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2019-0199,tomcat-embed-core,8.5.20,8.5.38,TRUE,Denial of Service in Tomcat,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2019-0232,tomcat-embed-core,8.5.20,8.5.40,TRUE,High severity vulnerability that affects org.apache.tomcat.embed:tomcat-embed-core,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2019-12418,tomcat-embed-core,8.5.20,8.5.49,TRUE,Insufficiently Protected Credentials in Apache Tomcat,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2019-17563,tomcat-embed-core,8.5.20,8.5.50,TRUE,"In Apache Tomcat, when using FORM authentication there was a narrow window where an attacker could perform a session fixation attack",HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-9484,tomcat-embed-core,8.5.20,8.5.55,TRUE,Potential remote code execution in Apache Tomcat,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2021-25122,tomcat-embed-core,8.5.20,8.5.63,TRUE,Exposure of Sensitive Information to an Unauthorized Actor in Apache Tomcat,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2021-25329,tomcat-embed-core,8.5.20,8.5.61,TRUE,Potential remote code execution in Apache Tomcat,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2018-11784,tomcat-embed-core,8.5.20,8.5.34,TRUE,Moderate severity vulnerability that affects org.apache.tomcat.embed:tomcat-embed-core,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2018-1304,tomcat-embed-core,8.5.20,8.5.28,TRUE,Moderate severity vulnerability that affects org.apache.tomcat.embed:tomcat-embed-core,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2018-1305,tomcat-embed-core,8.5.20,8.5.28,TRUE,Moderate severity vulnerability that affects org.apache.tomcat.embed:tomcat-embed-core,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2018-8037,tomcat-embed-core,8.5.20,8.5.32,TRUE,Moderate severity vulnerability that affects org.apache.tomcat.embed:tomcat-embed-core,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2019-0221,tomcat-embed-core,8.5.20,8.5.40,TRUE,Cross-site scripting in Apache Tomcat,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2019-10072,tomcat-embed-core,8.5.20,8.5.40,TRUE,Improper Locking in Apache Tomcat,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2020-1935,tomcat-embed-core,8.5.20,8.5.51,TRUE,Potential HTTP request smuggling in Apache Tomcat,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2021-24122,tomcat-embed-core,8.5.20,8.5.60,TRUE,Information Disclosure in Apache Tomcat,MODERATE,0
+github.com,damingerdai/web-qq,master,GHSA-r53m-pfr5-7v87,tomcat-embed-core,8.5.20,8.5.38,TRUE,Moderate severity vulnerability that affects org.apache.tomcat.embed:tomcat-embed-core,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2022-22978,spring-security-core,4.2.3.RELEASE,5.5.7,FALSE,Authorization bypass in Spring Security,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2019-11272,spring-security-core,4.2.3.RELEASE,4.2.13,TRUE,Insufficiently Protected Credentials and Improper Authentication in Spring Security,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2018-1199,spring-security-core,4.2.3.RELEASE,4.2.4,TRUE,"Improper Input Validation in org.springframework.security:spring-security-core, org.springframework.security:spring-security-core , and org.springframework:spring-core",MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2019-3795,spring-security-core,4.2.3.RELEASE,4.2.12,TRUE,Spring Security uses insufficiently random values,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2020-5408,spring-security-core,4.2.3.RELEASE,4.2.16,TRUE,Insufficient Entropy in Spring Security,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2022-22976,spring-security-core,4.2.3.RELEASE,5.5.7,FALSE,Integer overflow in BCrypt class in Spring Security,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2017-5929,logback-classic,1.1.11,1.2.0,FALSE,QOS.ch Logback vulnerable to Deserialization of Untrusted Data,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2022-22950,spring-expression,4.3.11.RELEASE,5.2.20,FALSE,Allocation of Resources Without Limits or Throttling in Spring Framework,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2017-7536,hibernate-validator,5.3.5.Final,5.3.6.Final,TRUE,Privilege Escalation in Hibernate Validator,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2017-5929,logback-core,1.1.11,1.2.0,FALSE,QOS.ch Logback vulnerable to Deserialization of Untrusted Data,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2021-42550,logback-core,1.1.11,1.2.9,FALSE,Deserialization of Untrusted Data in logback,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2018-1270,spring-core,4.3.11.RELEASE,4.3.16,TRUE,Spring Framework allows applications to expose STOMP over WebSocket endpoints,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2018-1275,spring-core,4.3.11.RELEASE,4.3.16,TRUE,Improperly Implemented Security Check for Standard in org.springframework:spring-core,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2018-1272,spring-core,4.3.11.RELEASE,4.3.15,TRUE,Possible privilege escalation in org.springframework:spring-core,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2018-15756,spring-core,4.3.11.RELEASE,4.3.20,TRUE,Denial of Service in Spring Framework,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2022-22968,spring-core,4.3.11.RELEASE,5.2.21,FALSE,Improper handling of case sensitivity in Spring Framework,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2022-22970,spring-core,4.3.11.RELEASE,5.2.22.RELEASE,FALSE,Denial of service in Spring Framework,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2018-11039,spring-core,4.3.11.RELEASE,4.3.18,TRUE,Moderate severity vulnerability that affects org.springframework:spring-core,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2018-11040,spring-core,4.3.11.RELEASE,4.3.18,TRUE,Moderate severity vulnerability that affects org.springframework:spring-core,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2018-1199,spring-core,4.3.11.RELEASE,4.3.14,TRUE,"Improper Input Validation in org.springframework.security:spring-security-core, org.springframework.security:spring-security-core , and org.springframework:spring-core",MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2018-1257,spring-core,4.3.11.RELEASE,4.3.17,TRUE,Denial of Service in org.springframework:spring-core,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2018-1271,spring-core,4.3.11.RELEASE,4.3.15,TRUE,Path Traversal in org.springframework:spring-core,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2022-22971,spring-core,4.3.11.RELEASE,5.2.22.RELEASE,FALSE,Allocation of Resources Without Limits or Throttling in Spring Framework,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2022-22965,spring-webmvc,4.3.11.RELEASE,5.2.20.RELEASE,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2018-10237,guava,23.0,24.1.1,FALSE,Denial of Service in Google Guava,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2020-8908,guava,23.0,,FALSE,Information Disclosure in Guava,LOW,0
+github.com,damingerdai/web-qq,master,CVE-2020-17521,groovy,2.4.12,2.4.21,TRUE,Information Disclosure in Apache Groovy,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2021-22112,spring-security-web,4.2.3.RELEASE,5.2.9,FALSE,Privilege escalation in spring security,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2022-27772,spring-boot,1.5.7.RELEASE,2.2.11.RELEASE,FALSE,Temporary Directory Hijacking to Local Privilege Escalation Vulnerability in org.springframework.boot:spring-boot,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2018-1196,spring-boot,1.5.7.RELEASE,1.5.10,TRUE,Moderate severity vulnerability that affects org.springframework.boot:spring-boot,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2017-15095,jackson-databind,2.8.10,2.8.11,TRUE,jackson-databind vulnerable to deserialization flaw leading to unauthenticated remote code execution,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2017-17485,jackson-databind,2.8.10,2.8.11,TRUE,jackson-databind vulnerable to remote code execution due to incorrect deserialization and blocklist bypass,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2018-11307,jackson-databind,2.8.10,2.8.11.2,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2018-14718,jackson-databind,2.8.10,2.8.11.3,TRUE,Arbitrary Code Execution in jackson-databind,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2018-14719,jackson-databind,2.8.10,2.8.11.3,TRUE,Arbitrary Code Execution in jackson-databind,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2018-14720,jackson-databind,2.8.10,2.8.11.3,TRUE, XML External Entity Reference (XXE) in jackson-databind,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2018-14721,jackson-databind,2.8.10,2.8.11.3,TRUE,Server-Side Request Forgery (SSRF) in jackson-databind,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2018-19360,jackson-databind,2.8.10,2.8.11.3,TRUE, Deserialization of Untrusted Data in jackson-databind due to polymorphic deserialization,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2018-19361,jackson-databind,2.8.10,2.8.11.3,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2018-7489,jackson-databind,2.8.10,2.8.11.1,TRUE,FasterXML jackson-databind allows unauthenticated remote code execution ,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2019-14379,jackson-databind,2.8.10,2.9.9.2,FALSE,Deserialization of untrusted data in FasterXML jackson-databind,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2019-14540,jackson-databind,2.8.10,2.9.10,FALSE,Polymorphic Typing issue in FasterXML jackson-databind,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2019-16335,jackson-databind,2.8.10,2.9.10,FALSE,Polymorphic Typing issue in FasterXML jackson-databind,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2019-16942,jackson-databind,2.8.10,2.9.10.1,FALSE,Polymorphic Typing in FasterXML jackson-databind,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2019-16943,jackson-databind,2.8.10,2.9.10.1,FALSE,Polymorphic typing issue,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2019-17267,jackson-databind,2.8.10,2.9.10,FALSE,Improper Input Validation in jackson-databind,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2019-17531,jackson-databind,2.8.10,2.9.10.1,FALSE,Polymorphic typing issue,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2019-20330,jackson-databind,2.8.10,2.8.11.5,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2020-8840,jackson-databind,2.8.10,2.8.11.5,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2020-9547,jackson-databind,2.8.10,2.9.10.4,FALSE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2020-9548,jackson-databind,2.8.10,2.9.10.4,FALSE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2018-12022,jackson-databind,2.8.10,2.8.11.2,TRUE,High severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2018-12023,jackson-databind,2.8.10,2.8.11.2,TRUE,Deserialization of Untrusted Data,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2018-19362,jackson-databind,2.8.10,2.8.11.3,TRUE,High severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2018-5968,jackson-databind,2.8.10,2.8.11,TRUE,Deserialization of Untrusted Data in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2019-12086,jackson-databind,2.8.10,2.9.9,FALSE,Information exposure in FasterXML jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2019-14439,jackson-databind,2.8.10,2.9.9.2,FALSE,Deserialization of untrusted data in FasterXML jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2019-14892,jackson-databind,2.8.10,2.8.11.5,TRUE,Polymorphic deserialization of malicious object in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-10650,jackson-databind,2.8.10,2.9.10.4,FALSE,jackson-databind before 2.9.10.4 vulnerable to unsafe deserialization,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-24616,jackson-databind,2.8.10,2.9.10.6,FALSE,Code Injection in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-24750,jackson-databind,2.8.10,2.9.10.6,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-25649,jackson-databind,2.8.10,2.9.10.7,FALSE,XML External Entity (XXE) Injection in Jackson Databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-35490,jackson-databind,2.8.10,2.9.10.8,FALSE,Serialization gadgets exploit in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-35491,jackson-databind,2.8.10,2.9.10.8,FALSE,Serialization gadgets exploit in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-36179,jackson-databind,2.8.10,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-36180,jackson-databind,2.8.10,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-36181,jackson-databind,2.8.10,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-36182,jackson-databind,2.8.10,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-36183,jackson-databind,2.8.10,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-36184,jackson-databind,2.8.10,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-36185,jackson-databind,2.8.10,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-36186,jackson-databind,2.8.10,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-36187,jackson-databind,2.8.10,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-36188,jackson-databind,2.8.10,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-36189,jackson-databind,2.8.10,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2020-36518,jackson-databind,2.8.10,2.12.6.1,FALSE,Deeply nested json in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2021-20190,jackson-databind,2.8.10,2.9.10.7,FALSE,Deserialization of untrusted data in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2022-42003,jackson-databind,2.8.10,2.12.7.1,FALSE,Uncontrolled Resource Consumption in Jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2022-42004,jackson-databind,2.8.10,2.12.7.1,FALSE,Uncontrolled Resource Consumption in FasterXML jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,GHSA-wrr7-33fx-rcvj,jackson-databind,2.8.10,2.8.11.2,TRUE,Deserialization of Untrusted Data in jackson-databind,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2019-12384,jackson-databind,2.8.10,2.9.9.1,FALSE,Deserialization of Untrusted Data in FasterXML jackson-databind,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2019-12814,jackson-databind,2.8.10,2.9.9.1,FALSE,Deserialization of untrusted data in FasterXML jackson-databind,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2020-10673,jackson-databind,2.8.10,2.9.10.4,FALSE,jackson-databind mishandles the interaction between serialization gadgets and typing,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2018-3258,mysql-connector-java,6.0.6,8.0.13,FALSE,Improper Privilege Management in MySQL Connectors Java,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2019-2692,mysql-connector-java,6.0.6,8.0.16,FALSE,Privilege escalation in mysql-connector-jav,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2022-21363,mysql-connector-java,6.0.6,8.0.28,FALSE,Improper Handling of Insufficient Permissions or Privileges in MySQL Connectors Java,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2017-18640,snakeyaml,1.17,1.26,FALSE,SnakeYAML Entity Expansion during load operation,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2022-1471,snakeyaml,1.17,2.0,FALSE,SnakeYaml Constructor Deserialization Remote Code Execution,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2022-25857,snakeyaml,1.17,1.31,FALSE,Uncontrolled Resource Consumption in snakeyaml,HIGH,0
+github.com,damingerdai/web-qq,master,CVE-2022-38749,snakeyaml,1.17,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2022-38750,snakeyaml,1.17,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2022-38751,snakeyaml,1.17,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2022-38752,snakeyaml,1.17,1.32,FALSE,snakeYAML before 1.32 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2022-41854,snakeyaml,1.17,1.32,FALSE,Snakeyaml vulnerable to Stack overflow leading to denial of service,MODERATE,0
+github.com,damingerdai/web-qq,master,CVE-2022-22965,spring-boot-starter-web,1.5.7.RELEASE,2.5.12,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,damingerdai/web-qq,master,CVE-2022-22965,spring-beans,4.3.11.RELEASE,5.2.20.RELEASE,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,UrbanCode/terraform,master,CVE-2019-10202,jackson-mapper-asl,1.7.3,,FALSE,Deserialization of Untrusted Data in org.codehaus.jackson:jackson-mapper-asl,CRITICAL,0
+github.com,UrbanCode/terraform,master,CVE-2019-10172,jackson-mapper-asl,1.7.3,,FALSE,Improper Restriction of XML External Entity Reference in jackson-mapper-asl,HIGH,0
+github.com,UrbanCode/terraform,master,CVE-2016-5725,jsch,0.1.43-1,0.1.54,TRUE,Improper Limitation of a Pathname to a Restricted Directory in JCraft JSch,MODERATE,0
+github.com,UrbanCode/terraform,master,CVE-2014-0114,commons-beanutils,1.8.3,1.9.2,FALSE,Arbitrary code execution in Apache Commons BeanUtils,HIGH,0
+github.com,UrbanCode/terraform,master,CVE-2019-10086,commons-beanutils,1.8.3,1.9.4,FALSE,Insecure Deserialization in Apache Commons Beanutils,HIGH,0
+github.com,UrbanCode/terraform,master,CVE-2012-6153,httpclient,4.2-beta1,4.2.3,TRUE,High severity vulnerability that affects org.apache.httpcomponents:httpclient,HIGH,0
+github.com,UrbanCode/terraform,master,CVE-2014-3577,httpclient,4.2-beta1,4.3.5,FALSE,Moderate severity vulnerability that affects org.apache.httpcomponents:httpclient,MODERATE,0
+github.com,UrbanCode/terraform,master,CVE-2015-5262,httpclient,4.2-beta1,4.3.6,FALSE,Denial of service vulnerability in org.apache.httpcomponents:httpclient,MODERATE,0
+github.com,UrbanCode/terraform,master,CVE-2020-13956,httpclient,4.2-beta1,4.5.13,FALSE,Cross-site scripting in Apache HttpClient,MODERATE,0
+github.com,UrbanCode/terraform,master,CVE-2019-17571,log4j,1.2.16,,FALSE,Deserialization of Untrusted Data in Log4j,CRITICAL,0
+github.com,UrbanCode/terraform,master,CVE-2022-23305,log4j,1.2.16,,FALSE,SQL Injection in Log4j 1.2.x,CRITICAL,0
+github.com,UrbanCode/terraform,master,CVE-2022-23307,log4j,1.2.16,,FALSE,Deserialization of Untrusted Data in Apache Log4j,CRITICAL,0
+github.com,UrbanCode/terraform,master,CVE-2021-4104,log4j,1.2.16,,FALSE,JMSAppender in Log4j 1.2 is vulnerable to deserialization of untrusted data,HIGH,0
+github.com,UrbanCode/terraform,master,CVE-2022-23302,log4j,1.2.16,,FALSE,Deserialization of Untrusted Data in Log4j 1.x,HIGH,0
+github.com,UrbanCode/terraform,master,CVE-2021-29425,commons-io,2.3,2.7,FALSE,Path Traversal and Improper Input Validation in Apache Commons IO,MODERATE,0
+github.com,UrbanCode/terraform,master,CVE-2020-10683,dom4j,1.6.1,,FALSE,dom4j allows External Entities by default which might enable XXE attacks,CRITICAL,0
+github.com,UrbanCode/terraform,master,CVE-2018-1000632,dom4j,1.6.1,,FALSE,Dom4j contains a XML Injection vulnerability,HIGH,0
+github.com,UrbanCode/terraform,master,CVE-2015-7501,commons-collections,3.2,3.2.2,TRUE,Deserialization of Untrusted Data in Apache commons collections,CRITICAL,0
+github.com,UrbanCode/terraform,master,CVE-2015-6420,commons-collections,3.2,3.2.2,TRUE,Insecure Deserialization in Apache Commons Collection,HIGH,0
+github.com,UrbanCode/terraform,master,CVE-2022-40150,jettison,1.1,1.5.2,FALSE,Jettison memory exhaustion,HIGH,0
+github.com,UrbanCode/terraform,master,CVE-2022-45685,jettison,1.1,1.5.2,FALSE,Jettison Out-of-bounds Write vulnerability,HIGH,0
+github.com,UrbanCode/terraform,master,CVE-2022-45693,jettison,1.1,1.5.2,FALSE,Jettison Out-of-bounds Write vulnerability,HIGH,0
+github.com,UrbanCode/terraform,master,CVE-2022-40149,jettison,1.1,1.5.1,FALSE,Jettison parser crash by stackoverflow,MODERATE,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2019-7611,elasticsearch,1.7.5,5.6.15,FALSE,Improper Access Control in Elasticsearch,HIGH,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2019-7614,elasticsearch,1.7.5,6.8.2,FALSE,Concurrent Execution using Shared Resource with Improper Synchronization in Elasticsearch,MODERATE,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2020-7021,elasticsearch,1.7.5,6.8.14,FALSE,Insertion of Sensitive Information into Log File in Elasticsearch,MODERATE,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2021-22135,elasticsearch,1.7.5,6.8.15,FALSE,API information disclosure flaw in Elasticsearch,MODERATE,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2021-22144,elasticsearch,1.7.5,6.8.17,FALSE,Denial of Service in Elasticsearch,MODERATE,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2020-7020,elasticsearch,1.7.5,6.8.13,FALSE,Privilege Context Switching Error in Elasticsearch,LOW,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2017-18640,snakeyaml,1.12,1.26,FALSE,SnakeYAML Entity Expansion during load operation,HIGH,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2022-1471,snakeyaml,1.12,2.0,FALSE,SnakeYaml Constructor Deserialization Remote Code Execution,HIGH,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2022-25857,snakeyaml,1.12,1.31,FALSE,Uncontrolled Resource Consumption in snakeyaml,HIGH,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2022-38749,snakeyaml,1.12,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2022-38750,snakeyaml,1.12,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2022-38751,snakeyaml,1.12,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2022-38752,snakeyaml,1.12,1.32,FALSE,snakeYAML before 1.32 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,algolia/elasticsearch-topk-plugin,master,CVE-2022-41854,snakeyaml,1.12,1.32,FALSE,Snakeyaml vulnerable to Stack overflow leading to denial of service,MODERATE,0
+github.com,englishand/springboot,master,CVE-2019-10219,hibernate-validator,6.0.18.Final,6.0.18,TRUE,The SafeHtml annotation in Hibernate-Validator does not properly guard against XSS attacks,MODERATE,0
+github.com,englishand/springboot,master,CVE-2020-10693,hibernate-validator,6.0.18.Final,6.0.20.Final,TRUE,Improper Input Validation in Hibernate Validator,MODERATE,0
+github.com,englishand/springboot,master,CVE-2021-2471,mysql-connector-java,8.0.18,8.0.27,TRUE,Incorrect Authorization in MySQL Connector Java,MODERATE,0
+github.com,englishand/springboot,master,CVE-2022-21363,mysql-connector-java,8.0.18,8.0.28,TRUE,Improper Handling of Insufficient Permissions or Privileges in MySQL Connectors Java,MODERATE,0
+github.com,englishand/springboot,master,CVE-2020-1938,tomcat-embed-core,9.0.27,9.0.31,TRUE,Improper Privilege Management in Tomcat,CRITICAL,0
+github.com,englishand/springboot,master,CVE-2019-12418,tomcat-embed-core,9.0.27,9.0.29,TRUE,Insufficiently Protected Credentials in Apache Tomcat,HIGH,0
+github.com,englishand/springboot,master,CVE-2019-17563,tomcat-embed-core,9.0.27,9.0.30,TRUE,"In Apache Tomcat, when using FORM authentication there was a narrow window where an attacker could perform a session fixation attack",HIGH,0
+github.com,englishand/springboot,master,CVE-2020-9484,tomcat-embed-core,9.0.27,9.0.35,TRUE,Potential remote code execution in Apache Tomcat,HIGH,0
+github.com,englishand/springboot,master,CVE-2021-25122,tomcat-embed-core,9.0.27,9.0.43,TRUE,Exposure of Sensitive Information to an Unauthorized Actor in Apache Tomcat,HIGH,0
+github.com,englishand/springboot,master,CVE-2021-25329,tomcat-embed-core,9.0.27,9.0.41,TRUE,Potential remote code execution in Apache Tomcat,HIGH,0
+github.com,englishand/springboot,master,CVE-2020-1935,tomcat-embed-core,9.0.27,9.0.31,TRUE,Potential HTTP request smuggling in Apache Tomcat,MODERATE,0
+github.com,englishand/springboot,master,CVE-2021-24122,tomcat-embed-core,9.0.27,9.0.40,TRUE,Information Disclosure in Apache Tomcat,MODERATE,0
+github.com,englishand/springboot,master,CVE-2022-22950,spring-expression,5.2.1.RELEASE,5.2.20,TRUE,Allocation of Resources Without Limits or Throttling in Spring Framework,MODERATE,0
+github.com,englishand/springboot,master,CVE-2022-25845,fastjson,1.2.60,1.2.83,TRUE,Unsafe deserialization in com.alibaba:fastjson,HIGH,0
+github.com,englishand/springboot,master,CVE-2021-22112,spring-security-web,5.2.1.RELEASE,5.2.9,TRUE,Privilege escalation in spring security,HIGH,0
+github.com,englishand/springboot,master,CVE-2020-10683,dom4j,2.1.1,2.1.3,TRUE,dom4j allows External Entities by default which might enable XXE attacks,CRITICAL,0
+github.com,englishand/springboot,master,CVE-2020-25638,hibernate-core,5.4.8.Final,5.4.24.Final,TRUE,SQL injection in hibernate-core,HIGH,0
+github.com,englishand/springboot,master,CVE-2017-18640,snakeyaml,1.25,1.26,FALSE,SnakeYAML Entity Expansion during load operation,HIGH,0
+github.com,englishand/springboot,master,CVE-2022-1471,snakeyaml,1.25,2.0,FALSE,SnakeYaml Constructor Deserialization Remote Code Execution,HIGH,0
+github.com,englishand/springboot,master,CVE-2022-25857,snakeyaml,1.25,1.31,FALSE,Uncontrolled Resource Consumption in snakeyaml,HIGH,0
+github.com,englishand/springboot,master,CVE-2022-38749,snakeyaml,1.25,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,englishand/springboot,master,CVE-2022-38750,snakeyaml,1.25,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,englishand/springboot,master,CVE-2022-38751,snakeyaml,1.25,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,englishand/springboot,master,CVE-2022-38752,snakeyaml,1.25,1.32,FALSE,snakeYAML before 1.32 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,englishand/springboot,master,CVE-2022-41854,snakeyaml,1.25,1.32,FALSE,Snakeyaml vulnerable to Stack overflow leading to denial of service,MODERATE,0
+github.com,englishand/springboot,master,CVE-2022-22965,spring-webmvc,5.2.1.RELEASE,5.2.20.RELEASE,TRUE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,englishand/springboot,master,CVE-2020-5398,spring-webmvc,5.2.1.RELEASE,5.2.3.RELEASE,TRUE,RFD attack via Content-Disposition header sourced from request input by Spring MVC or Spring WebFlux Application,HIGH,0
+github.com,englishand/springboot,master,CVE-2020-5397,spring-webmvc,5.2.1.RELEASE,5.2.3,TRUE,CSRF attack via CORS preflight requests with Spring MVC or Spring WebFlux,MODERATE,0
+github.com,englishand/springboot,master,CVE-2019-16869,netty-all,4.1.17.Final,4.1.42.Final,TRUE,HTTP Request Smuggling in Netty,HIGH,0
+github.com,englishand/springboot,master,CVE-2022-22965,spring-beans,5.2.1.RELEASE,5.2.20.RELEASE,TRUE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,englishand/springboot,master,CVE-2021-42550,logback-core,1.2.3,1.2.9,TRUE,Deserialization of Untrusted Data in logback,MODERATE,0
+github.com,englishand/springboot,master,CVE-2021-43466,thymeleaf-spring5,3.0.11.RELEASE,3.0.13.RELEASE,TRUE,Template injection in thymeleaf-spring5,CRITICAL,0
+github.com,englishand/springboot,master,CVE-2020-15522,bcprov-jdk15on,1.64,1.66,FALSE,Timing based private key exposure in Bouncy Castle,MODERATE,0
+github.com,englishand/springboot,master,CVE-2022-22978,spring-security-core,5.2.1.RELEASE,5.5.7,FALSE,Authorization bypass in Spring Security,CRITICAL,0
+github.com,englishand/springboot,master,CVE-2020-5407,spring-security-core,5.2.1.RELEASE,5.2.4,TRUE,Signature wrapping vulnerability in Spring Security,HIGH,0
+github.com,englishand/springboot,master,CVE-2021-22119,spring-security-core,5.2.1.RELEASE,5.2.11,TRUE,Resource Exhaustion in Spring Security,HIGH,0
+github.com,englishand/springboot,master,CVE-2020-5408,spring-security-core,5.2.1.RELEASE,5.2.4,TRUE,Insufficient Entropy in Spring Security,MODERATE,0
+github.com,englishand/springboot,master,CVE-2022-22976,spring-security-core,5.2.1.RELEASE,5.5.7,FALSE,Integer overflow in BCrypt class in Spring Security,MODERATE,0
+github.com,englishand/springboot,master,CVE-2020-13956,httpclient,4.5.10,4.5.13,TRUE,Cross-site scripting in Apache HttpClient,MODERATE,0
+github.com,englishand/springboot,master,CVE-2022-22965,spring-boot-starter-web,2.2.1.RELEASE,2.5.12,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,englishand/springboot,master,CVE-2020-36518,jackson-databind,2.10.0,2.12.6.1,FALSE,Deeply nested json in jackson-databind,HIGH,0
+github.com,englishand/springboot,master,CVE-2022-42003,jackson-databind,2.10.0,2.12.7.1,FALSE,Uncontrolled Resource Consumption in Jackson-databind,HIGH,0
+github.com,englishand/springboot,master,CVE-2022-42004,jackson-databind,2.10.0,2.12.7.1,FALSE,Uncontrolled Resource Consumption in FasterXML jackson-databind,HIGH,0
+github.com,englishand/springboot,master,CVE-2020-26945,mybatis,3.5.0,3.5.6,TRUE,"""Deserialization errors in MyBatis""",HIGH,0
+github.com,englishand/springboot,master,CVE-2021-22118,spring-core,5.2.1.RELEASE,5.2.15,TRUE,Improper Privilege Management in Spring Framework,HIGH,0
+github.com,englishand/springboot,master,CVE-2022-22968,spring-core,5.2.1.RELEASE,5.2.21,TRUE,Improper handling of case sensitivity in Spring Framework,HIGH,0
+github.com,englishand/springboot,master,CVE-2022-22970,spring-core,5.2.1.RELEASE,5.2.22.RELEASE,TRUE,Denial of service in Spring Framework,HIGH,0
+github.com,englishand/springboot,master,CVE-2021-22060,spring-core,5.2.1.RELEASE,5.2.19,TRUE,Log entry injection in Spring Framework,MODERATE,0
+github.com,englishand/springboot,master,CVE-2021-22096,spring-core,5.2.1.RELEASE,5.2.18,TRUE,Improper Output Neutralization for Logs in Spring Framework,MODERATE,0
+github.com,englishand/springboot,master,CVE-2022-22971,spring-core,5.2.1.RELEASE,5.2.22.RELEASE,TRUE,Allocation of Resources Without Limits or Throttling in Spring Framework,MODERATE,0
+github.com,englishand/springboot,master,CVE-2018-10237,guava,19.0,24.1.1,FALSE,Denial of Service in Google Guava,MODERATE,0
+github.com,englishand/springboot,master,CVE-2020-8908,guava,19.0,,FALSE,Information Disclosure in Guava,LOW,0
+github.com,englishand/springboot,master,CVE-2016-5725,jsch,0.1.49,0.1.54,TRUE,Improper Limitation of a Pathname to a Restricted Directory in JCraft JSch,MODERATE,0
+github.com,englishand/springboot,master,CVE-2020-15250,junit,4.12,4.13.1,FALSE,TemporaryFolder on unix-like systems does not limit access to created files,MODERATE,0
+github.com,englishand/springboot,master,CVE-2021-37533,commons-net,3.3,3.9.0,FALSE,Apache Commons Net vulnerable to information leakage via malicious server,MODERATE,0
+github.com,englishand/springboot,master,CVE-2016-1000027,spring-web,5.2.1.RELEASE,6.0.0,FALSE,Pivotal Spring Framework contains unsafe Java deserialization methods,MODERATE,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-13956,httpclient,4.5.9,4.5.13,TRUE,Cross-site scripting in Apache HttpClient,MODERATE,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2022-31159,aws-java-sdk-s3,1.11.232,1.12.261,FALSE,Partial Path Traversal in com.amazonaws:aws-java-sdk-s3,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2017-15095,jackson-databind,2.6.7.3,2.8.11,FALSE,jackson-databind vulnerable to deserialization flaw leading to unauthenticated remote code execution,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2017-17485,jackson-databind,2.6.7.3,2.8.11,FALSE,jackson-databind vulnerable to remote code execution due to incorrect deserialization and blocklist bypass,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2018-11307,jackson-databind,2.6.7.3,2.7.9.4,FALSE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2018-14718,jackson-databind,2.6.7.3,2.7.9.5,FALSE,Arbitrary Code Execution in jackson-databind,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2018-14719,jackson-databind,2.6.7.3,2.7.9.5,FALSE,Arbitrary Code Execution in jackson-databind,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2018-7489,jackson-databind,2.6.7.3,2.8.11.1,FALSE,FasterXML jackson-databind allows unauthenticated remote code execution ,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2019-14379,jackson-databind,2.6.7.3,2.9.9.2,FALSE,Deserialization of untrusted data in FasterXML jackson-databind,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2019-14540,jackson-databind,2.6.7.3,2.9.10,FALSE,Polymorphic Typing issue in FasterXML jackson-databind,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2019-16335,jackson-databind,2.6.7.3,2.9.10,FALSE,Polymorphic Typing issue in FasterXML jackson-databind,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2019-16942,jackson-databind,2.6.7.3,2.9.10.1,FALSE,Polymorphic Typing in FasterXML jackson-databind,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2019-16943,jackson-databind,2.6.7.3,2.9.10.1,FALSE,Polymorphic typing issue,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2019-17267,jackson-databind,2.6.7.3,2.9.10,FALSE,Improper Input Validation in jackson-databind,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2019-17531,jackson-databind,2.6.7.3,2.9.10.1,FALSE,Polymorphic typing issue,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2019-20330,jackson-databind,2.6.7.3,2.6.7.4,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-8840,jackson-databind,2.6.7.3,2.6.7.4,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-9547,jackson-databind,2.6.7.3,2.9.10.4,FALSE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-9548,jackson-databind,2.6.7.3,2.9.10.4,FALSE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2018-12022,jackson-databind,2.6.7.3,2.7.9.4,FALSE,High severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2018-5968,jackson-databind,2.6.7.3,2.8.11,FALSE,Deserialization of Untrusted Data in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2019-12086,jackson-databind,2.6.7.3,2.9.9,FALSE,Information exposure in FasterXML jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2019-14439,jackson-databind,2.6.7.3,2.9.9.2,FALSE,Deserialization of untrusted data in FasterXML jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-10650,jackson-databind,2.6.7.3,2.9.10.4,FALSE,jackson-databind before 2.9.10.4 vulnerable to unsafe deserialization,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-24616,jackson-databind,2.6.7.3,2.9.10.6,FALSE,Code Injection in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-24750,jackson-databind,2.6.7.3,2.6.7.5,TRUE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-25649,jackson-databind,2.6.7.3,2.6.7.4,TRUE,XML External Entity (XXE) Injection in Jackson Databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-35490,jackson-databind,2.6.7.3,2.9.10.8,FALSE,Serialization gadgets exploit in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-35491,jackson-databind,2.6.7.3,2.9.10.8,FALSE,Serialization gadgets exploit in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-36179,jackson-databind,2.6.7.3,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-36180,jackson-databind,2.6.7.3,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-36181,jackson-databind,2.6.7.3,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-36182,jackson-databind,2.6.7.3,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-36183,jackson-databind,2.6.7.3,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-36184,jackson-databind,2.6.7.3,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-36185,jackson-databind,2.6.7.3,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-36186,jackson-databind,2.6.7.3,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-36187,jackson-databind,2.6.7.3,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-36188,jackson-databind,2.6.7.3,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-36189,jackson-databind,2.6.7.3,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-36518,jackson-databind,2.6.7.3,2.12.6.1,FALSE,Deeply nested json in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2021-20190,jackson-databind,2.6.7.3,2.9.10.7,FALSE,Deserialization of untrusted data in jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2022-42003,jackson-databind,2.6.7.3,2.12.7.1,FALSE,Uncontrolled Resource Consumption in Jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2022-42004,jackson-databind,2.6.7.3,2.12.7.1,FALSE,Uncontrolled Resource Consumption in FasterXML jackson-databind,HIGH,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2019-12384,jackson-databind,2.6.7.3,2.9.9.1,FALSE,Deserialization of Untrusted Data in FasterXML jackson-databind,MODERATE,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2019-12814,jackson-databind,2.6.7.3,2.9.9.1,FALSE,Deserialization of untrusted data in FasterXML jackson-databind,MODERATE,0
+github.com,CodeShield-Security/Serverless-Goat-Java,master,CVE-2020-10673,jackson-databind,2.6.7.3,2.9.10.4,FALSE,jackson-databind mishandles the interaction between serialization gadgets and typing,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2016-6652,spring-data-jpa,1.7.3.RELEASE,1.9.6,FALSE,Improper Neutralization of Special Elements used in an SQL Command  Pivotal Spring Data JPA,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2019-3797,spring-data-jpa,1.7.3.RELEASE,1.11.20,FALSE,Exposure of Sensitive Information to an Unauthorized Actor and SQL Injection in Spring Data JPA,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2019-3802,spring-data-jpa,1.7.3.RELEASE,1.11.22,FALSE,Improper Neutralization of Wildcards or Matching Symbols,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2022-0839,liquibase-core,3.4.1,4.8.0,FALSE,Improper Restriction of XML External Entity Reference in Liquibase,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2020-25638,hibernate-core,4.3.11.Final,5.3.20.Final,FALSE,SQL injection in hibernate-core,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2021-29425,commons-io,2.4,2.7,FALSE,Path Traversal and Improper Input Validation in Apache Commons IO,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2019-10202,jackson-mapper-asl,1.9.13,,FALSE,Deserialization of Untrusted Data in org.codehaus.jackson:jackson-mapper-asl,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2019-10172,jackson-mapper-asl,1.9.13,,FALSE,Improper Restriction of XML External Entity Reference in jackson-mapper-asl,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-13692,postgresql,9.4-1203-jdbc42,42.2.13,FALSE,Improper Restriction of XML External Entity Reference,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2022-31197,postgresql,9.4-1203-jdbc42,42.2.26,FALSE,PostgreSQL JDBC Driver SQL Injection in ResultSet.refreshRow() with malicious column names,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2018-8014,tomcat-embed-core,8.0.26,8.0.53,TRUE,The defaults settings for the CORS filter provided in Apache Tomcat are insecure and enable 'supportsCredentials' for all origins,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2020-1938,tomcat-embed-core,8.0.26,8.5.51,FALSE,Improper Privilege Management in Tomcat,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2018-1336,tomcat-embed-core,8.0.26,8.0.51,TRUE,In Apache Tomcat there is an improper handing of overflow in the UTF-8 decoder,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2018-8034,tomcat-embed-core,8.0.26,8.0.53,TRUE,The host name verification missing in Apache Tomcat,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2019-0199,tomcat-embed-core,8.0.26,8.5.38,FALSE,Denial of Service in Tomcat,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2019-0232,tomcat-embed-core,8.0.26,8.5.40,FALSE,High severity vulnerability that affects org.apache.tomcat.embed:tomcat-embed-core,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2019-12418,tomcat-embed-core,8.0.26,8.5.49,FALSE,Insufficiently Protected Credentials in Apache Tomcat,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2019-17563,tomcat-embed-core,8.0.26,8.5.50,FALSE,"In Apache Tomcat, when using FORM authentication there was a narrow window where an attacker could perform a session fixation attack",HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-9484,tomcat-embed-core,8.0.26,8.5.55,FALSE,Potential remote code execution in Apache Tomcat,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2021-25329,tomcat-embed-core,8.0.26,8.5.61,FALSE,Potential remote code execution in Apache Tomcat,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2018-1304,tomcat-embed-core,8.0.26,8.0.51,TRUE,Moderate severity vulnerability that affects org.apache.tomcat.embed:tomcat-embed-core,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2019-0221,tomcat-embed-core,8.0.26,8.5.40,FALSE,Cross-site scripting in Apache Tomcat,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2020-1935,tomcat-embed-core,8.0.26,8.5.51,FALSE,Potential HTTP request smuggling in Apache Tomcat,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2017-5929,logback-classic,1.1.3,1.2.0,FALSE,QOS.ch Logback vulnerable to Deserialization of Untrusted Data,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2020-10683,dom4j,1.6.1,,FALSE,dom4j allows External Entities by default which might enable XXE attacks,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2018-1000632,dom4j,1.6.1,,FALSE,Dom4j contains a XML Injection vulnerability,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2022-22950,spring-expression,4.1.7.RELEASE,5.2.20,FALSE,Allocation of Resources Without Limits or Throttling in Spring Framework,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2018-1274,spring-data-commons,1.9.3.RELEASE,1.13.11,FALSE,Spring Data Commons contain a property path parser vulnerability caused by unlimited resource allocation,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2022-22965,spring-webmvc,4.1.7.RELEASE,5.2.20.RELEASE,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2017-5929,logback-core,1.1.3,1.2.0,FALSE,QOS.ch Logback vulnerable to Deserialization of Untrusted Data,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2021-42550,logback-core,1.1.3,1.2.9,FALSE,Deserialization of Untrusted Data in logback,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2018-1270,spring-core,4.1.7.RELEASE,4.3.16,FALSE,Spring Framework allows applications to expose STOMP over WebSocket endpoints,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2018-1275,spring-core,4.1.7.RELEASE,4.3.16,FALSE,Improperly Implemented Security Check for Standard in org.springframework:spring-core,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2015-5211,spring-core,4.1.7.RELEASE,4.1.8,TRUE,Files or Directories Accessible to External Parties in org.springframework:spring-core,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2016-5007,spring-core,4.1.7.RELEASE,4.3.1,FALSE,Spring Security and Spring Framework may not recognize certain paths that should be protected,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2018-1272,spring-core,4.1.7.RELEASE,4.3.15,FALSE,Possible privilege escalation in org.springframework:spring-core,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2018-15756,spring-core,4.1.7.RELEASE,4.3.20,FALSE,Denial of Service in Spring Framework,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2022-22968,spring-core,4.1.7.RELEASE,5.2.21,FALSE,Improper handling of case sensitivity in Spring Framework,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2022-22970,spring-core,4.1.7.RELEASE,5.2.22.RELEASE,FALSE,Denial of service in Spring Framework,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2018-1257,spring-core,4.1.7.RELEASE,4.3.17,FALSE,Denial of Service in org.springframework:spring-core,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2018-1271,spring-core,4.1.7.RELEASE,4.3.15,FALSE,Path Traversal in org.springframework:spring-core,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2022-22971,spring-core,4.1.7.RELEASE,5.2.22.RELEASE,FALSE,Allocation of Resources Without Limits or Throttling in Spring Framework,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2017-15095,jackson-databind,2.4.6,2.8.11,FALSE,jackson-databind vulnerable to deserialization flaw leading to unauthenticated remote code execution,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2017-17485,jackson-databind,2.4.6,2.8.11,FALSE,jackson-databind vulnerable to remote code execution due to incorrect deserialization and blocklist bypass,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2017-7525,jackson-databind,2.4.6,2.6.7.1,FALSE,A deserialization flaw was discovered in the jackson-databind,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2018-11307,jackson-databind,2.4.6,2.7.9.4,FALSE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2018-14718,jackson-databind,2.4.6,2.7.9.5,FALSE,Arbitrary Code Execution in jackson-databind,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2018-14719,jackson-databind,2.4.6,2.7.9.5,FALSE,Arbitrary Code Execution in jackson-databind,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2018-7489,jackson-databind,2.4.6,2.8.11.1,FALSE,FasterXML jackson-databind allows unauthenticated remote code execution ,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2019-14379,jackson-databind,2.4.6,2.9.9.2,FALSE,Deserialization of untrusted data in FasterXML jackson-databind,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2019-14540,jackson-databind,2.4.6,2.9.10,FALSE,Polymorphic Typing issue in FasterXML jackson-databind,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2019-16335,jackson-databind,2.4.6,2.9.10,FALSE,Polymorphic Typing issue in FasterXML jackson-databind,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2019-16942,jackson-databind,2.4.6,2.9.10.1,FALSE,Polymorphic Typing in FasterXML jackson-databind,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2019-16943,jackson-databind,2.4.6,2.9.10.1,FALSE,Polymorphic typing issue,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2019-17267,jackson-databind,2.4.6,2.9.10,FALSE,Improper Input Validation in jackson-databind,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2019-17531,jackson-databind,2.4.6,2.9.10.1,FALSE,Polymorphic typing issue,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2019-20330,jackson-databind,2.4.6,2.6.7.4,FALSE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2020-8840,jackson-databind,2.4.6,2.6.7.4,FALSE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2020-9547,jackson-databind,2.4.6,2.9.10.4,FALSE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2020-9548,jackson-databind,2.4.6,2.9.10.4,FALSE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2018-12022,jackson-databind,2.4.6,2.7.9.4,FALSE,High severity vulnerability that affects com.fasterxml.jackson.core:jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2018-5968,jackson-databind,2.4.6,2.8.11,FALSE,Deserialization of Untrusted Data in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2019-12086,jackson-databind,2.4.6,2.9.9,FALSE,Information exposure in FasterXML jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2019-14439,jackson-databind,2.4.6,2.9.9.2,FALSE,Deserialization of untrusted data in FasterXML jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2019-14892,jackson-databind,2.4.6,2.6.7.3,FALSE,Polymorphic deserialization of malicious object in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-10650,jackson-databind,2.4.6,2.9.10.4,FALSE,jackson-databind before 2.9.10.4 vulnerable to unsafe deserialization,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-24616,jackson-databind,2.4.6,2.9.10.6,FALSE,Code Injection in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-24750,jackson-databind,2.4.6,2.6.7.5,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-25649,jackson-databind,2.4.6,2.6.7.4,FALSE,XML External Entity (XXE) Injection in Jackson Databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-35490,jackson-databind,2.4.6,2.9.10.8,FALSE,Serialization gadgets exploit in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-35491,jackson-databind,2.4.6,2.9.10.8,FALSE,Serialization gadgets exploit in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-36179,jackson-databind,2.4.6,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-36180,jackson-databind,2.4.6,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-36181,jackson-databind,2.4.6,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-36182,jackson-databind,2.4.6,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-36183,jackson-databind,2.4.6,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-36184,jackson-databind,2.4.6,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-36185,jackson-databind,2.4.6,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-36186,jackson-databind,2.4.6,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-36187,jackson-databind,2.4.6,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-36188,jackson-databind,2.4.6,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-36189,jackson-databind,2.4.6,2.9.10.8,FALSE,Unsafe Deserialization in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-36518,jackson-databind,2.4.6,2.12.6.1,FALSE,Deeply nested json in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2021-20190,jackson-databind,2.4.6,2.9.10.7,FALSE,Deserialization of untrusted data in jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2022-42003,jackson-databind,2.4.6,2.12.7.1,FALSE,Uncontrolled Resource Consumption in Jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2022-42004,jackson-databind,2.4.6,2.12.7.1,FALSE,Uncontrolled Resource Consumption in FasterXML jackson-databind,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2019-12384,jackson-databind,2.4.6,2.9.9.1,FALSE,Deserialization of Untrusted Data in FasterXML jackson-databind,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2019-12814,jackson-databind,2.4.6,2.9.9.1,FALSE,Deserialization of untrusted data in FasterXML jackson-databind,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2020-10673,jackson-databind,2.4.6,2.9.10.4,FALSE,jackson-databind mishandles the interaction between serialization gadgets and typing,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2021-22112,spring-security-web,4.0.2.RELEASE,5.2.9,FALSE,Privilege escalation in spring security,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2017-18640,snakeyaml,1.14,1.26,FALSE,SnakeYAML Entity Expansion during load operation,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2022-1471,snakeyaml,1.14,2.0,FALSE,SnakeYaml Constructor Deserialization Remote Code Execution,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2022-25857,snakeyaml,1.14,1.31,FALSE,Uncontrolled Resource Consumption in snakeyaml,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2022-38749,snakeyaml,1.14,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2022-38750,snakeyaml,1.14,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2022-38751,snakeyaml,1.14,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2022-38752,snakeyaml,1.14,1.32,FALSE,snakeYAML before 1.32 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2022-41854,snakeyaml,1.14,1.32,FALSE,Snakeyaml vulnerable to Stack overflow leading to denial of service,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2018-10237,guava,18.0,24.1.1,FALSE,Denial of Service in Google Guava,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2020-8908,guava,18.0,,FALSE,Information Disclosure in Guava,LOW,0
+github.com,rynkowsw/oauth2,master,CVE-2022-27772,spring-boot,1.2.6.RELEASE,2.2.11.RELEASE,FALSE,Temporary Directory Hijacking to Local Privilege Escalation Vulnerability in org.springframework.boot:spring-boot,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2018-1260,spring-security-oauth2,2.0.7.RELEASE,2.0.15,TRUE,Spring Security OAuth vulnerable to remote code execution (RCE),CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2019-3778,spring-security-oauth2,2.0.7.RELEASE,2.0.17,TRUE,Critical severity vulnerability that affects org.springframework.security.oauth:spring-security-oauth and org.springframework.security.oauth:spring-security-oauth2,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2016-4977,spring-security-oauth2,2.0.7.RELEASE,2.0.10,TRUE,Spring Security OAuth vulnerable to remote code execution (RCE) via specially crafted request using whitelabel views,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2018-15758,spring-security-oauth2,2.0.7.RELEASE,2.0.16,TRUE,High severity vulnerability that affects org.springframework.security.oauth:spring-security-oauth2,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2022-22965,spring-boot-starter-web,1.2.6.RELEASE,2.5.12,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2016-1000027,spring-web,4.1.7.RELEASE,6.0.0,FALSE,Pivotal Spring Framework contains unsafe Java deserialization methods,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2022-22965,spring-beans,4.1.7.RELEASE,5.2.20.RELEASE,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2022-22978,spring-security-core,4.0.2.RELEASE,5.5.7,FALSE,Authorization bypass in Spring Security,CRITICAL,0
+github.com,rynkowsw/oauth2,master,CVE-2016-5007,spring-security-core,4.0.2.RELEASE,4.1.1,FALSE,Spring Security and Spring Framework may not recognize certain paths that should be protected,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2016-9879,spring-security-core,4.0.2.RELEASE,4.1.4,FALSE,Security Constraint Bypass in Spring Security,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2019-11272,spring-security-core,4.0.2.RELEASE,4.2.13,FALSE,Insufficiently Protected Credentials and Improper Authentication in Spring Security,HIGH,0
+github.com,rynkowsw/oauth2,master,CVE-2020-5408,spring-security-core,4.0.2.RELEASE,4.2.16,FALSE,Insufficient Entropy in Spring Security,MODERATE,0
+github.com,rynkowsw/oauth2,master,CVE-2022-22976,spring-security-core,4.0.2.RELEASE,5.5.7,FALSE,Integer overflow in BCrypt class in Spring Security,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2020-13956,httpclient,4.5.12,4.5.13,TRUE,Cross-site scripting in Apache HttpClient,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-22965,spring-webmvc,5.2.8.RELEASE,5.2.20.RELEASE,TRUE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,DataDog/openapi-generator,master,CVE-2022-27772,spring-boot,2.2.9.RELEASE,2.2.11.RELEASE,TRUE,Temporary Directory Hijacking to Local Privilege Escalation Vulnerability in org.springframework.boot:spring-boot,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2021-29425,commons-io,2.4,2.7,FALSE,Path Traversal and Improper Input Validation in Apache Commons IO,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-22965,spring-beans,5.2.8.RELEASE,5.2.20.RELEASE,TRUE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,DataDog/openapi-generator,master,CVE-2020-25649,jackson-databind,2.10.1,2.10.5.1,TRUE,XML External Entity (XXE) Injection in Jackson Databind,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2020-36518,jackson-databind,2.10.1,2.12.6.1,FALSE,Deeply nested json in jackson-databind,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-42003,jackson-databind,2.10.1,2.12.7.1,FALSE,Uncontrolled Resource Consumption in Jackson-databind,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-42004,jackson-databind,2.10.1,2.12.7.1,FALSE,Uncontrolled Resource Consumption in FasterXML jackson-databind,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2020-25649,jackson-databind,2.10.1,2.10.5.1,TRUE,XML External Entity (XXE) Injection in Jackson Databind,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2020-36518,jackson-databind,2.10.1,2.12.6.1,FALSE,Deeply nested json in jackson-databind,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-42003,jackson-databind,2.10.1,2.12.7.1,FALSE,Uncontrolled Resource Consumption in Jackson-databind,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-42004,jackson-databind,2.10.1,2.12.7.1,FALSE,Uncontrolled Resource Consumption in FasterXML jackson-databind,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2017-18640,snakeyaml,1.24,1.26,FALSE,SnakeYAML Entity Expansion during load operation,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-1471,snakeyaml,1.24,2.0,FALSE,SnakeYaml Constructor Deserialization Remote Code Execution,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-25857,snakeyaml,1.24,1.31,FALSE,Uncontrolled Resource Consumption in snakeyaml,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-38749,snakeyaml,1.24,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-38750,snakeyaml,1.24,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-38751,snakeyaml,1.24,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-38752,snakeyaml,1.24,1.32,FALSE,snakeYAML before 1.32 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-41854,snakeyaml,1.24,1.32,FALSE,Snakeyaml vulnerable to Stack overflow leading to denial of service,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2020-8908,guava,26.0-jre,,FALSE,Information Disclosure in Guava,LOW,0
+github.com,DataDog/openapi-generator,master,CVE-2017-18640,snakeyaml,1.24,1.26,FALSE,SnakeYAML Entity Expansion during load operation,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-1471,snakeyaml,1.24,2.0,FALSE,SnakeYaml Constructor Deserialization Remote Code Execution,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-25857,snakeyaml,1.24,1.31,FALSE,Uncontrolled Resource Consumption in snakeyaml,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-38749,snakeyaml,1.24,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-38750,snakeyaml,1.24,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-38751,snakeyaml,1.24,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-38752,snakeyaml,1.24,1.32,FALSE,snakeYAML before 1.32 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-41854,snakeyaml,1.24,1.32,FALSE,Snakeyaml vulnerable to Stack overflow leading to denial of service,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2021-25122,tomcat-embed-core,9.0.37,9.0.43,TRUE,Exposure of Sensitive Information to an Unauthorized Actor in Apache Tomcat,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2021-25329,tomcat-embed-core,9.0.37,9.0.41,TRUE,Potential remote code execution in Apache Tomcat,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2021-24122,tomcat-embed-core,9.0.37,9.0.40,TRUE,Information Disclosure in Apache Tomcat,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2017-18640,snakeyaml,1.25,1.26,FALSE,SnakeYAML Entity Expansion during load operation,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-1471,snakeyaml,1.25,2.0,FALSE,SnakeYaml Constructor Deserialization Remote Code Execution,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-25857,snakeyaml,1.25,1.31,FALSE,Uncontrolled Resource Consumption in snakeyaml,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-38749,snakeyaml,1.25,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-38750,snakeyaml,1.25,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-38751,snakeyaml,1.25,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-38752,snakeyaml,1.25,1.32,FALSE,snakeYAML before 1.32 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-41854,snakeyaml,1.25,1.32,FALSE,Snakeyaml vulnerable to Stack overflow leading to denial of service,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2020-8908,guava,26.0-jre,,FALSE,Information Disclosure in Guava,LOW,0
+github.com,DataDog/openapi-generator,master,CVE-2016-1000027,spring-web,5.2.8.RELEASE,6.0.0,FALSE,Pivotal Spring Framework contains unsafe Java deserialization methods,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-22950,spring-expression,5.2.8.RELEASE,5.2.20,TRUE,Allocation of Resources Without Limits or Throttling in Spring Framework,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2020-25649,jackson-databind,2.10.5,2.10.5.1,TRUE,XML External Entity (XXE) Injection in Jackson Databind,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2020-36518,jackson-databind,2.10.5,2.12.6.1,FALSE,Deeply nested json in jackson-databind,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-42003,jackson-databind,2.10.5,2.12.7.1,FALSE,Uncontrolled Resource Consumption in Jackson-databind,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-42004,jackson-databind,2.10.5,2.12.7.1,FALSE,Uncontrolled Resource Consumption in FasterXML jackson-databind,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-22965,spring-boot-starter-web,2.2.9.RELEASE,2.5.12,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,DataDog/openapi-generator,master,CVE-2021-42550,logback-core,1.2.3,1.2.9,TRUE,Deserialization of Untrusted Data in logback,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2017-1000487,plexus-utils,1.5.5,3.0.16,FALSE,OS Command Injection in Plexus-utils,CRITICAL,0
+github.com,DataDog/openapi-generator,master,CVE-2020-13956,httpclient,4.5.2,4.5.13,TRUE,Cross-site scripting in Apache HttpClient,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2021-22118,spring-core,5.2.8.RELEASE,5.2.15,TRUE,Improper Privilege Management in Spring Framework,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-22968,spring-core,5.2.8.RELEASE,5.2.21,TRUE,Improper handling of case sensitivity in Spring Framework,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2022-22970,spring-core,5.2.8.RELEASE,5.2.22.RELEASE,TRUE,Denial of service in Spring Framework,HIGH,0
+github.com,DataDog/openapi-generator,master,CVE-2021-22060,spring-core,5.2.8.RELEASE,5.2.19,TRUE,Log entry injection in Spring Framework,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2021-22096,spring-core,5.2.8.RELEASE,5.2.18,TRUE,Improper Output Neutralization for Logs in Spring Framework,MODERATE,0
+github.com,DataDog/openapi-generator,master,CVE-2022-22971,spring-core,5.2.8.RELEASE,5.2.22.RELEASE,TRUE,Allocation of Resources Without Limits or Throttling in Spring Framework,MODERATE,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2016-1000027,spring-web,5.1.8.RELEASE,6.0.0,FALSE,Pivotal Spring Framework contains unsafe Java deserialization methods,MODERATE,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-22965,spring-beans,5.1.8.RELEASE,5.2.20.RELEASE,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-22978,spring-security-core,5.1.5.RELEASE,5.5.7,FALSE,Authorization bypass in Spring Security,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2020-5408,spring-security-core,5.1.5.RELEASE,5.1.10,TRUE,Insufficient Entropy in Spring Security,MODERATE,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-22976,spring-security-core,5.1.5.RELEASE,5.5.7,FALSE,Integer overflow in BCrypt class in Spring Security,MODERATE,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2019-20444,netty-handler,4.1.36.Final,4.1.44,TRUE,HTTP Request Smuggling in Netty,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2020-11612,netty-handler,4.1.36.Final,4.1.46,TRUE,Denial of Service in Netty,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2019-20445,netty-handler,4.1.36.Final,4.1.45,TRUE,HTTP Request Smuggling in Netty,MODERATE,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2021-37136,netty-codec,4.1.36.Final,4.1.68.Final,TRUE,Bzip2Decoder doesn't allow setting size restrictions for decompressed data,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2021-37137,netty-codec,4.1.36.Final,4.1.68.Final,TRUE, SnappyFrameDecoder doesn't restrict chunk length any may buffer skippable chunks in an unnecessary way,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2017-18640,snakeyaml,1.23,1.26,FALSE,SnakeYAML Entity Expansion during load operation,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-1471,snakeyaml,1.23,2.0,FALSE,SnakeYaml Constructor Deserialization Remote Code Execution,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-25857,snakeyaml,1.23,1.31,FALSE,Uncontrolled Resource Consumption in snakeyaml,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-38749,snakeyaml,1.23,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-38750,snakeyaml,1.23,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-38751,snakeyaml,1.23,1.31,FALSE,snakeYAML before 1.31 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-38752,snakeyaml,1.23,1.32,FALSE,snakeYAML before 1.32 vulnerable to Denial of Service due to Out-of-bounds Write,MODERATE,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-41854,snakeyaml,1.23,1.32,FALSE,Snakeyaml vulnerable to Stack overflow leading to denial of service,MODERATE,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2021-22569,protobuf-java,3.6.1,3.16.1,FALSE,A potential Denial of Service issue in protobuf-java,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-3509,protobuf-java,3.6.1,3.16.3,FALSE,Protobuf Java vulnerable to Uncontrolled Resource Consumption,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-3510,protobuf-java,3.6.1,3.16.3,FALSE,Protobuf Java vulnerable to Uncontrolled Resource Consumption,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-3171,protobuf-java,3.6.1,3.16.3,FALSE,protobuf-java has a potential Denial of Service issue,MODERATE,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2020-10683,dom4j,2.1.1,2.1.3,TRUE,dom4j allows External Entities by default which might enable XXE attacks,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2021-29425,commons-io,2.6,2.7,FALSE,Path Traversal and Improper Input Validation in Apache Commons IO,MODERATE,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2021-22112,spring-security-web,5.1.5.RELEASE,5.2.9,FALSE,Privilege escalation in spring security,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2022-22965,spring-boot-starter-web,2.1.6.RELEASE,2.5.12,FALSE,Remote Code Execution in Spring Framework,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2019-14379,jackson-databind,2.9.9,2.9.9.2,TRUE,Deserialization of untrusted data in FasterXML jackson-databind,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2019-14540,jackson-databind,2.9.9,2.9.10,TRUE,Polymorphic Typing issue in FasterXML jackson-databind,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2019-16335,jackson-databind,2.9.9,2.9.10,TRUE,Polymorphic Typing issue in FasterXML jackson-databind,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2019-16942,jackson-databind,2.9.9,2.9.10.1,TRUE,Polymorphic Typing in FasterXML jackson-databind,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2019-16943,jackson-databind,2.9.9,2.9.10.1,TRUE,Polymorphic typing issue,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2019-17267,jackson-databind,2.9.9,2.9.10,TRUE,Improper Input Validation in jackson-databind,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2019-17531,jackson-databind,2.9.9,2.9.10.1,TRUE,Polymorphic typing issue,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2019-20330,jackson-databind,2.9.9,2.9.10.2,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2020-8840,jackson-databind,2.9.9,2.9.10.3,TRUE,Deserialization of Untrusted Data in jackson-databind,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2020-9546,jackson-databind,2.9.9,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2020-9547,jackson-databind,2.9.9,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2020-9548,jackson-databind,2.9.9,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,CRITICAL,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2019-14439,jackson-databind,2.9.9,2.9.9.2,TRUE,Deserialization of untrusted data in FasterXML jackson-databind,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2019-14892,jackson-databind,2.9.9,2.9.10,TRUE,Polymorphic deserialization of malicious object in jackson-databind,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2019-14893,jackson-databind,2.9.9,2.9.10,TRUE,Polymorphic deserialization of malicious object in jackson-databind,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2020-10650,jackson-databind,2.9.9,2.9.10.4,TRUE,jackson-databind before 2.9.10.4 vulnerable to unsafe deserialization,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2020-10672,jackson-databind,2.9.9,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2020-10968,jackson-databind,2.9.9,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2020-10969,jackson-databind,2.9.9,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
+github.com,francoisauxietre/climbingzone2,master,CVE-2020-11111,jackson-databind,2.9.9,2.9.10.4,TRUE,jackson-databind mishandles the interaction between serialization gadgets and typing,HIGH,0
