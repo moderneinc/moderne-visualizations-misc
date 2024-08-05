@@ -1,0 +1,11 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.FindMethodsAIYAML
+displayName: Generated pre-filled YAML recipe
+description: By following this recipe, you can utilize method patterns relevant to the provided query.
+ Simply import the YAML recipe with the specified method patterns and use a series of org.openrewrite.java.search.FindMethods.
+recipe:
+  io.moderne.ai.research.FindCodeThatResembles:
+    resembles: "*"
+    k: "*"
+dataTable: io.moderne.ai.table.SuggestedMethodPatterns

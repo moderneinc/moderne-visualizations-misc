@@ -1,0 +1,221 @@
+repositoryOrigin,repositoryPath,repositoryBranch,scmType,repositoryLink,method,methodPattern,query
+github.com,finos/spring-bot,spring-bot-master,GITHUB,"https://github.com/finos/spring-bot/blob/spring-bot-master","new Request.Builder().url(""http://localhost/"").build()","okhttp3.Request$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/spring-bot,spring-bot-master,GITHUB,"https://github.com/finos/spring-bot/blob/spring-bot-master","new Request.Builder().url(""http://localhost/"").build()","okhttp3.Request$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,apache/maven-doxia,master,GITHUB,"https://github.com/apache/maven-doxia/blob/master","URI.create(systemId)","java.net.URI create((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/photon,master,GITHUB,"https://github.com/Netflix/photon/blob/master","ByteBuffer.wrap(byteArray).order(KLVPacket.BYTE_ORDER).get()","java.nio.ByteBuffer get((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","request().withMethod(method).withPath(path)","org.mockserver.model.HttpRequest withPath((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","request().withMethod(method).withPath(path)","org.mockserver.model.HttpRequest withPath((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","request()","org.mockserver.model.HttpRequest request((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","httpRequest
+           .withMethod(""GET"")
+           .withPath(""/test-api"")
+           .withHeader(""sessionToken"", ""test-token"")
+           .withHeader(""Authorization"", ""test"")","org.mockserver.model.HttpRequest withHeader((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","httpRequest
+           .withMethod(""GET"")
+           .withPath(""/test-api"")
+           .withHeader(""sessionToken"", ""test-token"")","org.mockserver.model.HttpRequest withHeader((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","httpRequest
+           .withMethod(""GET"")
+           .withPath(""/test-api"")
+           .withHeader(""sessionToken"", ""test-token"")","org.mockserver.model.HttpRequest withHeader((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","httpRequest
+           .withMethod(""GET"")
+           .withPath(""/test-api"")
+           .withHeader(""sessionToken"", ""test-token"")","org.mockserver.model.HttpRequest withHeader((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","httpRequest
+           .withMethod(""GET"")
+           .withPath(""/test-api"")
+           .withHeader(""sessionToken"", ""test-token"")","org.mockserver.model.HttpRequest withHeader((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","httpRequest
+           .withMethod(""GET"")
+           .withPath(""/test-api"")
+           .withHeader(""sessionToken"", ""test-token"")","org.mockserver.model.HttpRequest withHeader((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","httpRequest
+            .withMethod(""GET"")
+            .withPath(""/test-api"")
+            .withQueryStringParameter(""param"", ""test-param"")
+            .withHeader(""sessionToken"", ""test-token"")","org.mockserver.model.HttpRequest withHeader((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","httpRequest
+            .withMethod(""GET"")
+            // percentage needs to be encoded by client
+            .withPath(""/test+api%25"")","org.mockserver.model.HttpRequest withPath((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","httpRequest
+            .withMethod(""GET"")
+            .withPath(""/test-api"")
+            .withBody(new JsonBody(""{\""id\"":\""test-id\"", \""content\"": \""body-content\""}"", StandardCharsets.UTF_8,
+                MatchType.STRICT))
+            .withHeader(""sessionToken"", ""test-token"")","org.mockserver.model.HttpRequest withHeader((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","httpRequest
+            .withMethod(""POST"")
+            .withPath(""/test-api"")
+            .withHeader(
+                Header.header(""Content-Type"", ""application/x-www-form-urlencoded;charset=UTF-8"")
+            )
+            .withBody(ParameterBody.params(
+                Parameter.param(""param-1"", ""test-1""),
+                Parameter.param(""param-2"", ""test-2"")
+            ))
+            .withHeader(""sessionToken"", ""test-token"")","org.mockserver.model.HttpRequest withHeader((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","httpRequest
+            .withMethod(""POST"")
+            .withPath(""/test-api"")
+            .withHeader(Header.header(""sessionToken"", ""test-token""))
+            .withBody(anyString())","org.mockserver.model.HttpRequest withBody((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","httpRequest
+           .withMethod(""GET"")
+           .withPath(""/test-api"")
+           .withHeader(""sessionToken"", ""test-token"")","org.mockserver.model.HttpRequest withHeader((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","httpRequest
+           .withMethod(""GET"")
+           .withPath(""/test-api"")
+           .withHeader(""sessionToken"", ""test-token"")","org.mockserver.model.HttpRequest withHeader((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-bdk-java,main,GITHUB,"https://github.com/finos/symphony-bdk-java/blob/main","HttpRequest.request().withMethod(""GET"").withPath(""/test"")","org.mockserver.model.HttpRequest withPath((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-data-commons",main,GITHUB,"https://github.com/spring-projects/spring-data-commons/blob/main","exchange.getRequest()","org.springframework.web.server.ServerWebExchange getRequest((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-data-commons",main,GITHUB,"https://github.com/spring-projects/spring-data-commons/blob/main","exchange.getRequest()","org.springframework.web.server.ServerWebExchange getRequest((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-data-commons",main,GITHUB,"https://github.com/spring-projects/spring-data-commons/blob/main","exchange.getRequest()","org.springframework.web.server.ServerWebExchange getRequest((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-data-commons",main,GITHUB,"https://github.com/spring-projects/spring-data-commons/blob/main","exchange.getRequest()","org.springframework.web.server.ServerWebExchange getRequest((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-wdk,master,GITHUB,"https://github.com/finos/symphony-wdk/blob/master","request.bodyString(OBJECT_MAPPER.writeValueAsString(body), ContentType.APPLICATION_JSON)","org.apache.hc.client5.http.fluent.Request bodyString((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-wdk,master,GITHUB,"https://github.com/finos/symphony-wdk/blob/master","request.bodyString(body.toString(), ContentType.parse(headerContentType))","org.apache.hc.client5.http.fluent.Request bodyString((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-wdk,master,GITHUB,"https://github.com/finos/symphony-wdk/blob/master","request.bodyString(body.toString(), ContentType.APPLICATION_JSON)","org.apache.hc.client5.http.fluent.Request bodyString((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-wdk,master,GITHUB,"https://github.com/finos/symphony-wdk/blob/master","request.bodyString(OBJECT_MAPPER.writeValueAsString(body), ContentType.APPLICATION_JSON)","org.apache.hc.client5.http.fluent.Request bodyString((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-wdk,master,GITHUB,"https://github.com/finos/symphony-wdk/blob/master","getHttpServletRequest()","com.symphony.bdk.workflow.security.AuthorizationAspect getHttpServletRequest((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-wdk,master,GITHUB,"https://github.com/finos/symphony-wdk/blob/master","((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest()","org.springframework.web.context.request.ServletRequestAttributes getRequest((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,finos/symphony-wdk,master,GITHUB,"https://github.com/finos/symphony-wdk/blob/master","request.getRequestURI()","jakarta.servlet.http.HttpServletRequest getRequestURI((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-petclinic",main,GITHUB,"https://github.com/spring-projects/spring-petclinic/blob/main","PageRequest.of(page - 1, pageSize)","org.springframework.data.domain.PageRequest of((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-petclinic",main,GITHUB,"https://github.com/spring-projects/spring-petclinic/blob/main","PageRequest.of(page - 1, pageSize)","org.springframework.data.domain.PageRequest of((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-petclinic",main,GITHUB,"https://github.com/spring-projects/spring-petclinic/blob/main","template.exchange(RequestEntity.get(""/owners/1"").build(), String.class)","org.springframework.web.client.RestTemplate exchange((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-petclinic",main,GITHUB,"https://github.com/spring-projects/spring-petclinic/blob/main","template.exchange(RequestEntity.get(""/owners/1"").build(), String.class)","org.springframework.web.client.RestTemplate exchange((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-petclinic",main,GITHUB,"https://github.com/spring-projects/spring-petclinic/blob/main","RequestEntity.get(""http://localhost:"" + port + ""/oups"")","org.springframework.http.RequestEntity get((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-petclinic",main,GITHUB,"https://github.com/spring-projects/spring-petclinic/blob/main","template.exchange(RequestEntity.get(""/owners/1"").build(), String.class)","org.springframework.web.client.RestTemplate exchange((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-petclinic",main,GITHUB,"https://github.com/spring-projects/spring-petclinic/blob/main","get(""/owners?page=1"")","org.springframework.test.web.servlet.request.MockMvcRequestBuilders get((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-petclinic",main,GITHUB,"https://github.com/spring-projects/spring-petclinic/blob/main","get(""/owners?page=1"")","org.springframework.test.web.servlet.request.MockMvcRequestBuilders get((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-petclinic",main,GITHUB,"https://github.com/spring-projects/spring-petclinic/blob/main","get(""/owners?page=1"")","org.springframework.test.web.servlet.request.MockMvcRequestBuilders get((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,"spring-projects/spring-petclinic",main,GITHUB,"https://github.com/spring-projects/spring-petclinic/blob/main","MockMvcRequestBuilders.get(""/vets.html?page=1"")","org.springframework.test.web.servlet.request.MockMvcRequestBuilders get((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","HttpRequest.newBuilder()
+               .uri(URI.create(responseUrl))
+               .setHeader(""Content-Type"", """")
+               .PUT(HttpRequest.BodyPublishers.ofString(responseBody, StandardCharsets.UTF_8))
+               .build()","java.net.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","cloudFormationCall.apply(request)","java.util.function.Function apply((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","HttpRequest.newBuilder()
+                   .version(HttpClient.Version.HTTP_1_1) // EOF reached while reading due to chunked transfer-encoding
+                   .uri(endpoint)
+                   .setHeader(""Content-Type"", ""application/x-www-form-urlencoded"")
+                   .POST(HttpRequest.BodyPublishers.ofString(body))
+                   .build()","java.net.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","HttpRequest.newBuilder()
+                   .version(HttpClient.Version.HTTP_1_1) // EOF reached while reading due to chunked transfer-encoding
+                   .uri(endpoint)
+                   .setHeader(""Authorization"", ""Bearer "" + bearerToken)
+                   .setHeader(""Content-Type"", ""application/json"")
+                   .POST(HttpRequest.BodyPublishers.ofString(Utils.toJson(realm)))
+                   .build()","java.net.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","HttpRequest.newBuilder()
+                   .version(HttpClient.Version.HTTP_1_1)
+                   .uri(endpoint)
+                   .setHeader(""Authorization"", ""Bearer "" + bearerToken)
+                   .setHeader(""Content-Type"", ""application/json"")
+                   .POST(HttpRequest.BodyPublishers.ofString(Utils.toJson(Map.of(""name"", groupName))))
+                   .build()","java.net.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","HttpRequest.newBuilder()
+                   .version(HttpClient.Version.HTTP_1_1)
+                   .uri(endpoint)
+                   .setHeader(""Authorization"", ""Bearer "" + bearerToken)
+                   .setHeader(""Content-Type"", ""application/json"")
+                   .GET()
+                   .build()","java.net.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","HttpRequest.newBuilder()
+                   .version(HttpClient.Version.HTTP_1_1)
+                   .uri(endpoint)
+                   .setHeader(""Authorization"", ""Bearer "" + bearerToken)
+                   .setHeader(""Content-Type"", ""application/json"")
+                   .GET()
+                   .build()","java.net.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","HttpRequest.newBuilder()
+                   .version(HttpClient.Version.HTTP_1_1)
+                   .uri(endpoint)
+                   .setHeader(""Authorization"", ""Bearer "" + bearerToken)
+                   .setHeader(""Content-Type"", ""application/json"")
+                   .GET()
+                   .build()","java.net.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","HttpRequest.newBuilder()
+                   .version(HttpClient.Version.HTTP_1_1)
+                   .uri(endpoint)
+                   .setHeader(""Authorization"", ""Bearer "" + bearerToken)
+                   .setHeader(""Content-Type"", ""application/json"")
+                   .GET()
+                   .build()","java.net.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","HttpRequest.newBuilder()
+                   .version(HttpClient.Version.HTTP_1_1) // EOF reached while reading due to chunked transfer-encoding
+                   .uri(endpoint)
+                   .setHeader(""Authorization"", ""Bearer "" + bearerToken)
+                   .setHeader(""Content-Type"", ""application/json"")
+                   .PUT(HttpRequest.BodyPublishers.noBody())
+                   .build()","java.net.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","HttpRequest.newBuilder()
+                   .version(HttpClient.Version.HTTP_1_1) // EOF reached while reading due to chunked transfer-encoding
+                   .uri(endpoint)
+                   .setHeader(""Authorization"", ""Bearer "" + bearerToken)
+                   .setHeader(""Content-Type"", ""application/json"")
+                   .POST(HttpRequest.BodyPublishers.ofString(body))
+                   .build()","java.net.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","requestBuilder.build()","software.amazon.awssdk.http.HttpExecuteRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","keycloakRequest(event, userEndpoint())
+                   .POST(HttpRequest.BodyPublishers.ofString(body))
+                   .build()","java.net.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","keycloakRequest(event, idEndpoint(user.getId()))
+                   .PUT(BodyPublishers.ofString(body)).build()","java.net.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","assertRequest(requestCaptor.getValue(), ""GET"", endpoint(""/users""), null)","com.amazon.aws.partners.saasfactory.saasboost.keycloak.KeycloakApiTest assertRequest((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","assertRequest(requestCaptor.getValue(), ""GET"", 
+        endpoint(""/users?exact=true&username="" + URLEncoder.encode(username, StandardCharsets.UTF_8)), null)","com.amazon.aws.partners.saasfactory.saasboost.keycloak.KeycloakApiTest assertRequest((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","assertRequest(requestCaptor.getValue(), ""GET"", 
+        endpoint(""/users?exact=true&username="" + URLEncoder.encode(username, StandardCharsets.UTF_8)), null)","com.amazon.aws.partners.saasfactory.saasboost.keycloak.KeycloakApiTest assertRequest((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","assertRequest(requestCaptor.getValue(), ""POST"", endpoint(""/users""), Utils.toJson(expected))","com.amazon.aws.partners.saasfactory.saasboost.keycloak.KeycloakApiTest assertRequest((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","assertRequest(requestCaptor.getValue(), ""PUT"", endpoint(""/users/"" + expected.getId()), Utils.toJson(expected))","com.amazon.aws.partners.saasfactory.saasboost.keycloak.KeycloakApiTest assertRequest((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","assertRequest(requestCaptor.getValue(), ""DELETE"", endpoint(""/users/"" + expected.getId()), null)","com.amazon.aws.partners.saasfactory.saasboost.keycloak.KeycloakApiTest assertRequest((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,awslabs/aws-saas-boost,main,GITHUB,"https://github.com/awslabs/aws-saas-boost/blob/main","assertRequest(requestCaptor.getValue(), ""GET"", endpoint(""/groups?search="" + adminGroupName), null)","com.amazon.aws.partners.saasfactory.saasboost.keycloak.KeycloakApiTest assertRequest((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ndbench,master,GITHUB,"https://github.com/Netflix/ndbench/blob/master","this.httpClient.execute(get)","org.apache.http.impl.client.CloseableHttpClient execute((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ndbench,master,GITHUB,"https://github.com/Netflix/ndbench/blob/master","this.httpClient.execute(post)","org.apache.http.impl.client.CloseableHttpClient execute((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ndbench,master,GITHUB,"https://github.com/Netflix/ndbench/blob/master","httpClient.execute(get)","org.apache.http.impl.client.CloseableHttpClient execute((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(server.getServerPath(""/"")).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(new URI(""/"")).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","response.getRequestedURI()","com.netflix.client.IResponse getRequestedURI((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","response.getRequestedURI()","com.netflix.client.IResponse getRequestedURI((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(new URI(""/"")).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(getUri).queryParams(""name"", ""test"").build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(getUri).queryParams(""name"", ""test"").build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(getUri).queryParams(""name"", ""test"").build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().verb(Verb.POST).uri(getUri).entity(obj).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().verb(Verb.POST).uri(postUri).entity(input).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(getUri).queryParams(""name"", ""test"").build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(getUri).queryParams(""name"", ""test"").build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(getUri).queryParams(""name"", ""test"").build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(getUri).queryParams(""name"", ""test"").build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(new URI(""http://localhost:"" + redirectingServer.getPort())).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(new URI(""http://localhost:"" + redirectingServer.getPort())).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(new URI(""/"")).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(server.getServerURI()).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(new URI(""/"")).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","response.getRequestedURI()","com.netflix.client.IResponse getRequestedURI((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(server.getServerURI()).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(new URI(""/"")).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","response.getRequestedURI()","com.netflix.client.IResponse getRequestedURI((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(server.getServerURI()).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(new URI(""/"")).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","response.getRequestedURI()","com.netflix.client.IResponse getRequestedURI((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(server.getServerURI()).verb(HttpRequest.Verb.DELETE).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(server.getServerURI()).verb(HttpRequest.Verb.DELETE).entity("""").build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(localUrl).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(localUrl).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(localUrl).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(localUrl).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(localUrl).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(localUrl).verb(Verb.POST).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(localUrl).verb(Verb.POST).setRetriable(true).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(localUrl).verb(Verb.POST).setRetriable(true).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(localUrl).queryParams(""name"", ""ribbon"").build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","t.getRequestURI()","com.sun.net.httpserver.HttpExchange getRequestURI((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","HttpRequest.newBuilder().uri(new URI(""/"")).build()","com.netflix.client.http.HttpRequest$Builder build((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","response.getRequestedURI()","com.netflix.client.IResponse getRequestedURI((([^,]+,)*([^,]+))?)","HTTP request"
+github.com,Netflix/ribbon,master,GITHUB,"https://github.com/Netflix/ribbon/blob/master","response.getRequestedURI()","com.netflix.client.IResponse getRequestedURI((([^,]+,)*([^,]+))?)","HTTP request"
