@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## v0.56.0 (2024-08-06)
+
+### Unknown
+
+* Feat next steps method search (#51)
+
+* datagrid for method patterns and generate yaml recipe
+
+* typo
+
+* add quotes around query for recipe description
+
+* temporary ipython code display ([`188df06`](https://github.com/moderneinc/moderne-visualizations-misc/commit/188df0629e4aa11bf17ee923cfea6ce68ad9de7e))
+
 ## v0.55.0 (2024-08-06)
 
 ### Chore
