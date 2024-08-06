@@ -1,0 +1,11 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.FindMethodsAI
+displayName: Find uses of method in code using AI
+description: This report shows the method patterns that could be relevant based on the provided query.
+ You can use org.openrewrite.java.search.FindMethods next with any of the following method patterns.
+recipe:
+  io.moderne.ai.research.FindCodeThatResembles:
+    resembles: "*"
+    k: "*"
+dataTable: io.moderne.ai.table.SuggestedMethodPatterns
