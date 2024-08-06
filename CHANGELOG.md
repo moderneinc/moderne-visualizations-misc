@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v0.55.0 (2024-08-06)
+
+### Chore
+
+* chore: update violin nodejs images ([`ae93ce4`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ae93ce4e176c04e3b7fc8d701c6f2f701b517f5f))
+
+### Feature
+
+* feat: add dependency_tree_view for insights ([`572880d`](https://github.com/moderneinc/moderne-visualizations-misc/commit/572880d1ce85b25adad9c1b7f2a19669236a4f00))
+
 ## v0.54.1 (2024-08-05)
 
 ### Fix
