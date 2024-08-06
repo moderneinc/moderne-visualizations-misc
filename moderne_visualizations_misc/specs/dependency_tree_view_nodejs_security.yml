@@ -1,0 +1,7 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.JavascriptDependencyInventorySecurity
+displayName: Dependency tree view
+description: Render a tree data grid to explore dependencies.
+recipe: org.openrewrite.nodejs.search.SecurityInsights
+dataTable: org.openrewrite.nodejs.table.DependenciesInUse
