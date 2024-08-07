@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v0.57.0 (2024-08-07)
+
+### Unknown
+
+* Cleanup ai code search next steps (#52)
+
+* change arguments from * to ..
+
+* change arguments to .. and rename columns + cleanup unused df columns ([`89360ca`](https://github.com/moderneinc/moderne-visualizations-misc/commit/89360ca863881aea1396af7a3e473ece828d5bf3))
+
 ## v0.56.1 (2024-08-07)
 
 ### Fix
