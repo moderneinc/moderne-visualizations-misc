@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.56.1 (2024-08-07)
+
+### Fix
+
+* fix(generate_yaml): add custom mime type ([`de23dbb`](https://github.com/moderneinc/moderne-visualizations-misc/commit/de23dbb0e7f5aaf9ce2a38ea2676048c53954aa3))
+
 ## v0.56.0 (2024-08-06)
 
 ### Unknown
