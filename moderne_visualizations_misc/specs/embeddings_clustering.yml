@@ -3,7 +3,7 @@ type: specs.moderne.io/v1beta/visualization
 name: io.moderne.GetCodeEmbedding
 displayName: Clustering methods or classes
 description: >
-  Get clusters of methods or class declarations using AI generated embeddings
+  Get clusters of method or class declarations using AI generated embeddings
 recipe: 
   io.moderne.ai.research.GetCodeEmbedding:
     codeSnippetType: "*"
