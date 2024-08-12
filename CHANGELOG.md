@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## v0.58.0 (2024-08-12)
+
+### Chore
+
+* chore: cleanup ([`63fcea6`](https://github.com/moderneinc/moderne-visualizations-misc/commit/63fcea6000a786d38b2ade58280e4bef2b18ac33))
+
+### Unknown
+
+* spelling ([`9e48a2b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/9e48a2bb102f3f6c87be335786b9d8afff74a4de))
+
+* Change name for clustering embeddings viz to include classes ([`eb5a349`](https://github.com/moderneinc/moderne-visualizations-misc/commit/eb5a3497e513051ffe19d7151f9f56518fad885d))
+
 ## v0.57.0 (2024-08-07)
 
 ### Unknown
