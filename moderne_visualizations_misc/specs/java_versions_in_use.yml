@@ -1,0 +1,7 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.JavaVersionsInUse
+displayName: Java versions in use
+description: This report shows the distribution of Java versions in use.
+recipe: org.openrewrite.java.migrate.search.FindJavaVersion
+dataTable: org.openrewrite.java.migrate.table.JavaVersionTable
