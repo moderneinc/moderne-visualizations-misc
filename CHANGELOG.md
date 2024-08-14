@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v0.59.0 (2024-08-14)
+
+### Unknown
+
+* Visualize Java versions in use as well (#53) ([`4b2e11c`](https://github.com/moderneinc/moderne-visualizations-misc/commit/4b2e11c71838dad0c9cb94e960fc7a89c16c5bef))
+
+* remove legend ([`764fb6f`](https://github.com/moderneinc/moderne-visualizations-misc/commit/764fb6fbb8d5ae4f94da9e7ff8a570140089f31f))
+
 ## v0.58.0 (2024-08-12)
 
 ### Chore
