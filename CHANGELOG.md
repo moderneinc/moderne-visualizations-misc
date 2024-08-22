@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## v0.60.0 (2024-08-22)
+
+### Chore
+
+* chore: update github actions (#57) ([`fd1076a`](https://github.com/moderneinc/moderne-visualizations-misc/commit/fd1076af1817689620eec468a09a017578ed20d5))
+
+* chore: update thumbnails for `find methods` visualizations (#56)
+
+these are now data grids and custom yaml recipes
+
+re: https://github.com/moderneinc/moderne-ui/issues/4671 ([`ae5ffbb`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ae5ffbb9c60fb9be2b565a6b0d31fea81ab6ad72))
+
+### Refactor
+
+* refactor(sankey): update color palette for sankey diagram (composite recipe results) (#55)
+
+important to have length of `colors` array match number of nodes
+
+fix https://github.com/moderneinc/moderne-ui/issues/4670 ([`2a30506`](https://github.com/moderneinc/moderne-visualizations-misc/commit/2a30506d2eeb049932819d409d1b857c76bb9d1f))
+
 ## v0.59.0 (2024-08-14)
 
 ### Unknown
