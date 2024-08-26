@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## v0.61.0 (2024-08-26)
+
+### Feature
+
+* feat: nuget dependency vulnerability visualization (#59)
+
+modeled after java and npm variant ([`0d3a19f`](https://github.com/moderneinc/moderne-visualizations-misc/commit/0d3a19fed3be2d32a0bb7c40a4436edbf22ae6d2))
+
+### Fix
+
+* fix: treat `version` as `string` and not `float` (#58)
+
+Avoid truncation of `8.10` to `8.10` when rendering plot
+
+fix https://github.com/moderneinc/moderne-visualizations-misc/issues/54 ([`bcf5ae5`](https://github.com/moderneinc/moderne-visualizations-misc/commit/bcf5ae5ffa77072173221d3e610547b2f1bfc454))
+
 ## v0.60.0 (2024-08-22)
 
 ### Chore
