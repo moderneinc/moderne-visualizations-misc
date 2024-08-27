@@ -1,0 +1,9 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.DependencyUsageViolinNuget
+displayName: C# Dependency usage
+description: >
+  See the distribution of dependencies by version.
+recipe:
+  org.openrewrite.csharp.dependencies.DependencyInsight:
+dataTable: org.openrewrite.maven.table.DependenciesInUse
