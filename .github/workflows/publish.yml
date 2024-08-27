@@ -15,7 +15,11 @@ on:
           - patch
 
 jobs:
+  check:
+    uses: ./.github/workflows/checks.yml
+    secrets: inherit
   publish:
+    needs: [check]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -29,14 +33,6 @@ jobs:
           pip install build
           pip install twine
           pip install ".[ci]"
-
-      - name: Check sentence casing
-        run: |
-          poe check-sentence-casing
-
-      - name: Check options
-        run: |
-          poe check-options
 
       - name: Bump version and commit change
         run: |
