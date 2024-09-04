@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v0.63.0 (2024-09-04)
+
+### Unknown
+
+* No longer map plain text `.py` to Python (#63)
+
+We now use the Python parser for `.py` sources and no longer want to map the plain text `.py` files (of projects which haven&#39;t been ingested recently) to the Python group. ([`1c2868f`](https://github.com/moderneinc/moderne-visualizations-misc/commit/1c2868f2649a5f0e845bf1622486118143f463f4))
+
 ## v0.62.0 (2024-08-27)
 
 ### Fix
