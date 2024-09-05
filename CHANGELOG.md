@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v0.64.0 (2024-09-05)
+
+### Unknown
+
+* add visualization to test onnx embeddings latency and deployment (#64)
+
+* add visualization to test onnx embeddings latency and deployment
+
+* fix new line issue in description ([`59d1f69`](https://github.com/moderneinc/moderne-visualizations-misc/commit/59d1f69a4692dcd8fccfb4da41f346cf8ba6095e))
+
 ## v0.63.0 (2024-09-04)
 
 ### Unknown
