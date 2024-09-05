@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.65.0 (2024-09-05)
+
+### Unknown
+
+* remove n_jobs from kmeans and add n_jobs to umap ([`2772ae3`](https://github.com/moderneinc/moderne-visualizations-misc/commit/2772ae3d1786076fd80ae7accb8675148c88f207))
+
 ## v0.64.0 (2024-09-05)
 
 ### Unknown
