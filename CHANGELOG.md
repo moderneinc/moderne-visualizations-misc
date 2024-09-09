@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.66.0 (2024-09-09)
+
+### Unknown
+
+* tsne for dimension reduc and gmm for clustering ([`9916d14`](https://github.com/moderneinc/moderne-visualizations-misc/commit/9916d14ad19d52e6124f97faac431b2c68bdcbf4))
+
 ## v0.65.0 (2024-09-05)
 
 ### Unknown
