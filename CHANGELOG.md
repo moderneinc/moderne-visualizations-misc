@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.67.0 (2024-09-09)
+
+### Unknown
+
+* fix ellipses ([`52d63ed`](https://github.com/moderneinc/moderne-visualizations-misc/commit/52d63ed89f0c658a0fd8bb0557c458a1b2872639))
+
 ## v0.66.0 (2024-09-09)
 
 ### Unknown
