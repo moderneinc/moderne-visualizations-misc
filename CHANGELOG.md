@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.68.0 (2024-09-10)
+
+### Unknown
+
+* run experimental on regular FindMethods recipe ([`d5d37ba`](https://github.com/moderneinc/moderne-visualizations-misc/commit/d5d37ba45a3545d5918fcac529e85504ab7a3921))
+
 ## v0.67.0 (2024-09-09)
 
 ### Unknown
