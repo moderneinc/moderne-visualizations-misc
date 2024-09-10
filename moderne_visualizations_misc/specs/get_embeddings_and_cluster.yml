@@ -4,7 +4,6 @@ name: io.moderne.GetEmbeddingsAndCluster
 displayName: Generate embeddings to cluster search results
 description: This is a tentative new way to generate embeddings and cluster search results, and displays the time it takes for each task.
 recipe:
-  io.moderne.ai.research.FindCodeThatResembles:
-    resembles: "*"
-    k: "*"
-dataTable: io.moderne.ai.table.SuggestedMethodPatterns
+  org.openrewrite.java.search.FindMethods:
+    methodPattern: "*"
+dataTable: org.openrewrite.java.table.MethodCalls
