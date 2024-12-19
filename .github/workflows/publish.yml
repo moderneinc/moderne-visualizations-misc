@@ -36,7 +36,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          uv sync --all-extras --python 3.9
+          uv sync --all-extras --group ci --python 3.9
 
       - name: Bump version and commit change
         run: |
