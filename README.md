@@ -18,10 +18,13 @@ jupyter notebook
 
 ## Contributing
 
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
+
 Install development requirements:
 
 ```bash
-pip install ".[dev]"
+uv sync --dev
+source .venv/bin/activate
 ```
 
 Run type checking:

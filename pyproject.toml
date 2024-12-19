@@ -8,6 +8,7 @@ authors = [
     { name = "Kyle Scully", email = "kyle@moderne.io" }
 ]
 license = { text = "Apache-2.0" }
+requires-python = ">=3.9"
 dependencies = [
     "code-data-science==2.1.2",
     "graphviz==0.20.1",
@@ -22,9 +23,9 @@ dependencies = [
     "numpy==1.24.4"
 ]
 
-[project.optional-dependencies]
-dev = ["poethepoet", "nbqa", "black", "nb_mypy"]
-ci = ["poethepoet", "python-semantic-release", "papermill"]
+[dependency-groups]
+dev = ["poethepoet", "nbqa", "ruff", "nb_mypy"]
+ci = ["poethepoet", "python-semantic-release", "papermill", "build", "twine"]
 
 [project.urls]
 "Homepage" = "https://github.com/moderneinc/visualizations-misc"
@@ -35,7 +36,9 @@ exclude = ["samples", "scripts"]
 
 [tool.poe.tasks]
 check-types = "nbqa mypy --ignore-missing-imports ./moderne_visualizations_misc"
-format = "nbqa black ./moderne_visualizations_misc"
+format = "nbqa 'ruff format' ./moderne_visualizations_misc --nbqa-shell"
+lint = "nbqa 'ruff check' ./moderne_visualizations_misc --nbqa-shell"
+fix = "nbqa 'ruff check --fix' ./moderne_visualizations_misc --nbqa-shell"
 check-options = "python3 scripts/check_options.py"
 check-sentence-casing = "python3 scripts/check_sentence_casing.py"
 check-all = ["format", "check-options", "check-sentence-casing"]
