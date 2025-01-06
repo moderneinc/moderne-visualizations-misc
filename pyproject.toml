@@ -20,11 +20,11 @@ dependencies = [
     "typing-extensions",
     "umap-learn==0.5.5",
     "networkx==3.1",
-    "numpy==1.24.4"
+    "numpy==1.24.4",
 ]
 
 [dependency-groups]
-dev = ["poethepoet", "nbqa", "ruff", "nb_mypy"]
+dev = ["poethepoet", "nbqa", "ruff", "nb_mypy", "ipykernel"]
 ci = ["poethepoet", "python-semantic-release", "papermill", "build", "twine"]
 
 [project.urls]
