@@ -13,6 +13,7 @@ pip-delete-this-directory.txt
 venv/
 dist/
 build/
+moderne_visualizations_misc/local
 
 .DS_Store
 

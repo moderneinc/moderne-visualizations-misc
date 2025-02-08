@@ -1,0 +1,7 @@
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.UI5LintRuleTreemap
+displayName: UI5 lint rule treemap
+description: >
+  Treemap of UI5 lint violations by rules.
+recipe: org.openrewrite.codemods.UI5
+dataTable: org.openrewrite.codemods.UI5Messages
