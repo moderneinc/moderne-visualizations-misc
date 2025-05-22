@@ -1,4 +1,4 @@
-repositoryOrigin,repositoryPath,repositoryBranch,scmType,repositoryLink,recipe,sourceFiles,sourceFilesChanged,scanTotalTimeNs,scanP99Ns,scanMaxNs,editTotalTimeNs,editP99Ns,editMaxNs
+repositoryOrigin,repositoryPath,repositoryBranch,scmType,repositoryLink,recipe,sourceFiles,sourceFilesChanged,scanTotalTime,scanP99,scanMax,editTotalTime,editP99,editMax
 github.com,Netflix/eureka,master,GITHUB,"https://github.com/Netflix/eureka/blob/master","org.openrewrite.java.ChangeMethodAccessLevel",5616,419,0,0.0,0,38061319,0.99,169834
 github.com,Netflix/eureka,master,GITHUB,"https://github.com/Netflix/eureka/blob/master","org.openrewrite.java.migrate.javax.AddJaxwsRuntime",1404,419,0,0.0,0,117543,0.99,280
 github.com,Netflix/eureka,master,GITHUB,"https://github.com/Netflix/eureka/blob/master","org.openrewrite.java.migrate.net.MigrateMulticastSocketGetTTLToGetTimeToLive",1404,419,0,0.0,0,57324,0.99,130
