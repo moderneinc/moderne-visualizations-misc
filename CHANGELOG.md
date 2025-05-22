@@ -1,6 +1,22 @@
 # CHANGELOG
 
 
+## v0.71.0 (2025-05-22)
+
+### Bug Fixes
+
+- **recipe_performance**: Handle new header names
+  ([`174eaea`](https://github.com/moderneinc/moderne-visualizations-misc/commit/174eaea2db655bc0860777f7f8449d706c366ca8))
+
+### Chores
+
+- Add papermill to dev group
+  ([`c749ce7`](https://github.com/moderneinc/moderne-visualizations-misc/commit/c749ce7b3fab54333971094e34b24effa34d344b))
+
+- Add vscode recommended extensions
+  ([`622b9d1`](https://github.com/moderneinc/moderne-visualizations-misc/commit/622b9d1ebae56500947fce579dc2fcf7ce6fad0f))
+
+
 ## v0.70.0 (2025-02-08)
 
 ### Chores
