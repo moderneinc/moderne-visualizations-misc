@@ -1,6 +1,15 @@
 # CHANGELOG
 
 
+## v0.71.1 (2025-06-16)
+
+### Bug Fixes
+
+- **sankey**: Handle recipe name collisions
+  ([#70](https://github.com/moderneinc/moderne-visualizations-misc/pull/70),
+  [`7e1f2c2`](https://github.com/moderneinc/moderne-visualizations-misc/commit/7e1f2c2a75fa4abad8c5c715340ea832f909044d))
+
+
 ## v0.71.0 (2025-05-22)
 
 ### Bug Fixes
