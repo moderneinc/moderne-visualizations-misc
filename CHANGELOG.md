@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.71.2 (2025-06-16)
+
+### Bug Fixes
+
+- **sankey**: Better fix for collision
+  ([`858b4ad`](https://github.com/moderneinc/moderne-visualizations-misc/commit/858b4ad0689f6f58072495256a64ca41e752651c))
+
+
 ## v0.71.1 (2025-06-16)
 
 ### Bug Fixes
