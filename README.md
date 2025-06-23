@@ -18,9 +18,11 @@ jupyter notebook
 
 ## Contributing
 
-Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
+* Install a Python version >= 3.9 and < 3.13 (3.9 recommended). [pyenv](https://github.com/pyenv/pyenv) makes this easy.
 
-Install development requirements:
+* Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
+
+* Install development requirements:
 
 ```bash
 uv sync --dev
