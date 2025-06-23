@@ -27,6 +27,8 @@ jupyter notebook
 ```bash
 uv sync --dev
 source .venv/bin/activate
+# or on Windows
+source .venv/Scripts/activate
 ```
 
 Run type checking:
