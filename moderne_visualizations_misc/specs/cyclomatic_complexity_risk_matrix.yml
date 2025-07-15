@@ -1,0 +1,30 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.CyclomaticComplexityRiskMatrix
+displayName: Cyclomatic complexity risk matrix
+description: >
+  Visualizes cyclomatic complexity as a risk matrix to help engineering leaders identify and prioritize areas for refactoring.
+  The scatter plot shows repositories positioned by their number of high-complexity methods (x-axis) and average complexity (y-axis).
+  Bubble size represents the number of classes in each repository. The plot is divided into four quadrants to categorize risk levels.
+recipe:
+  org.openrewrite.analysis.java.controlflow.search.FindCyclomaticComplexity
+dataTable: org.openrewrite.analysis.java.controlflow.table.ComplexityTable
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive). 
+         
+        Branch names are appended to the repository name with a `/` separator.
+
+        Examples:
+         - The term `moderne` could be used to include any repository with `moderne` in the name or branch.
+         - The term `moderne-test/main` could be used to filter to a repository named `moderne-test` with a branch named `main`.
+      required: false
+  - complexity_threshold:
+      displayName: Complexity threshold
+      description: >
+        The cyclomatic complexity value at or above which a method is considered "high complexity".
+        Methods with complexity greater than or equal to this value will be counted in the risk analysis.
+        Common thresholds: 10 (default), 15 (moderate), 20 (lenient).
+      required: false

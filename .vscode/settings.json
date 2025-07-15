@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["Sankey"]
+  "cSpell.words": [
+    "Sankey"
+  ],
+  "codeQL.githubDatabase.download": "never"
 }
