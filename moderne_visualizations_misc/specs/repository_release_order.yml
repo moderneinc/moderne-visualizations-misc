@@ -1,0 +1,26 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.RepositoryReleaseOrder
+displayName: Repository release order
+description: This report analyzes inter-repository dependencies to suggest an optimal release order for a release train, helping coordinate multi-repository releases.
+recipe: org.openrewrite.java.dependencies.DependencyInsight
+dataTable: org.openrewrite.maven.table.DependenciesInUse
+options:
+  - groupId_filter:
+      displayName: GroupId filter
+      description: >
+        Filter dependencies by groupId prefix (e.g., "org.openrewrite" to only show dependencies within that namespace).
+        Leave empty to show all dependencies.
+      required: false
+  - visualization_type:
+      displayName: Visualization type
+      description: >
+        Choose how to visualize the repository dependencies:
+        - network: Interactive network graph showing dependencies and release tiers
+        - hierarchy: Sankey diagram showing release tiers and flow
+        - matrix: Dependency matrix showing all relationships
+      valid:
+        - network
+        - hierarchy
+        - matrix
+      required: false

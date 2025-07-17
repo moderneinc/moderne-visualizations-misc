@@ -9,7 +9,10 @@
       "Bash(poe check-all:*)",
       "Bash(uv run:*)",
       "Bash(poe check-options:*)",
-      "Bash(sips:*)"
+      "Bash(sips:*)",
+      "Bash(cp:*)",
+      "Bash(poetry run poe:*)",
+      "Bash(cut:*)"
     ],
     "deny": []
   }
