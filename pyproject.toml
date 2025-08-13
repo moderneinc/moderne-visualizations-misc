@@ -24,7 +24,15 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["poethepoet", "nbqa", "ruff", "nb_mypy", "ipykernel", "papermill"]
+dev = [
+    "poethepoet",
+    "nbqa",
+    "ruff",
+    "nb_mypy",
+    "ipykernel",
+    "papermill",
+    "notebook>=7.4.5",
+]
 ci = ["poethepoet", "python-semantic-release", "papermill", "build", "twine"]
 
 [project.urls]

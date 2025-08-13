@@ -1,9 +1,11 @@
 import os
+
 import yaml
 
 ignore_words = [
     "ESLint",
-    "GitHub"
+    "GitHub",
+    "GroupId"
 ]
 
 def sentence_case(sentence: str):
