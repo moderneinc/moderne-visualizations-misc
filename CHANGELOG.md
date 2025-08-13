@@ -1,6 +1,15 @@
 # CHANGELOG
 
 
+## v0.74.0 (2025-08-13)
+
+### Bug Fixes
+
+- Resolve critical vulnerabilities not visually stacking with other levels
+  ([#72](https://github.com/moderneinc/moderne-visualizations-misc/pull/72),
+  [`ce8c460`](https://github.com/moderneinc/moderne-visualizations-misc/commit/ce8c460aead219c5ee02df0293916bc0c8ca4d83))
+
+
 ## v0.73.1 (2025-07-15)
 
 
