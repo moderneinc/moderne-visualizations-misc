@@ -12,7 +12,21 @@
       "Bash(sips:*)",
       "Bash(cp:*)",
       "Bash(poetry run poe:*)",
-      "Bash(cut:*)"
+      "Bash(cut:*)",
+      "Bash(uvx papermill:*)",
+      "Bash(uv sync:*)",
+      "Bash(papermill:*)",
+      "Bash(jupyter notebook:*)",
+      "Bash(pip install:*)",
+      "Bash(uv add:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_tab_select",
+      "mcp__playwright__browser_press_key",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_type"
     ],
     "deny": []
   }
