@@ -1,26 +1,26 @@
 # @see https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
 [project]
 name = "moderne_visualizations_misc"
-version = "0.75.0"
+version = "0.74.0"
 description = "Miscellaneous visualizations for the Moderne platform"
 authors = [
     { name = "Jonathan Schneider", email = "jonathan@moderne.io" },
     { name = "Kyle Scully", email = "kyle@moderne.io" }
 ]
 license = { text = "Apache-2.0" }
-requires-python = ">=3.11"
+requires-python = ">=3.9"
 dependencies = [
-    "code-data-science==2.1.3",
-    "graphviz==0.21",
-    "ipython==9.8.0",
-    "matplotlib==3.10.7",
-    "nbformat==5.10.4",
-    "pandas==2.3.3",
-    "plotly==6.5.0",
+    "code-data-science==2.1.2",
+    "graphviz==0.20.1",
+    "ipython==8.13.0",
+    "matplotlib==3.7.1",
+    "nbformat==5.9.0",
+    "pandas==2.0.3",
+    "plotly==5.14.1",
     "typing-extensions",
-    "umap-learn==0.5.9.post2",
-    "networkx==3.6.1",
-    "numpy==2.3.5",
+    "umap-learn==0.5.5",
+    "networkx==3.1",
+    "numpy==1.24.4",
 ]
 
 [dependency-groups]
