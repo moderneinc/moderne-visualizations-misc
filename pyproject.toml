@@ -13,14 +13,14 @@ dependencies = [
     "code-data-science==2.1.2",
     "graphviz==0.20.1",
     "ipython==8.13.0",
-    "matplotlib==3.7.1",
+    "matplotlib>=3.8,<4.0",
     "nbformat==5.9.0",
     "pandas==2.0.3",
     "plotly==5.14.1",
     "typing-extensions",
     "umap-learn==0.5.5",
     "networkx==3.1",
-    "numpy==1.24.4",
+    "numpy>=1.26,<2.0",
 ]
 
 [dependency-groups]
