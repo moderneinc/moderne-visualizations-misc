@@ -1,6 +1,15 @@
 # CHANGELOG
 
 
+## v1.0.0 (2026-02-04)
+
+### Features
+
+- Update from python 3.9 to 3.12
+  ([#76](https://github.com/moderneinc/moderne-visualizations-misc/pull/76),
+  [`53ab89e`](https://github.com/moderneinc/moderne-visualizations-misc/commit/53ab89e602c8df48d0a490648e2b505bbc9a0fa0))
+
+
 ## v0.76.0 (2025-12-17)
 
 
