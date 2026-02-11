@@ -1,6 +1,18 @@
 # CHANGELOG
 
 
+## v1.0.2 (2026-02-11)
+
+
+## v1.0.1 (2026-02-04)
+
+### Chores
+
+- Update to dependencies with pre-built wheels for 3.12/3.13
+  ([#79](https://github.com/moderneinc/moderne-visualizations-misc/pull/79),
+  [`4c2316b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/4c2316b5fe8c6adbc63868a606b4c2fe767c95c7))
+
+
 ## v1.0.0 (2026-02-04)
 
 ### Features
