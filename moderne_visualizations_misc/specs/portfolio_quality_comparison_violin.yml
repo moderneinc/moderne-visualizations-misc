@@ -1,0 +1,24 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.PortfolioQualityComparisonViolin
+displayName: Quality metric distributions across repositories
+description: >
+  Violin plots showing the distribution of a selected quality metric across all
+  repositories in the portfolio. Each violin represents one repository, revealing
+  the shape and spread of the metric distribution. Useful for comparing code quality
+  consistency across the organization.
+recipe: io.moderne.prethink.quality.FindMethodComplexity
+dataTable: io.moderne.prethink.table.MethodQualityMetrics
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false
+  - metric:
+      displayName: Quality metric
+      description: >
+        Which quality metric to plot. Options: cyclomaticComplexity, cognitiveComplexity,
+        lineCount, halsteadDifficulty, abcScore, parameterCount.
+      required: false

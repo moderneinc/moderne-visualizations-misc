@@ -1,0 +1,23 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.TestGapRiskHeatmap
+displayName: Test coverage gaps by risk and repository
+description: >
+  Heatmap showing untested method counts per repository, bucketed by risk score.
+  Color intensity reflects the count in each bucket. Quickly identifies which
+  repositories carry the most untested high-risk code.
+recipe: io.moderne.prethink.FindTestGaps
+dataTable: io.moderne.prethink.table.TestGaps
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false
+  - top_n_repos:
+      displayName: Number of repositories to display
+      description: >
+        The maximum number of repositories to display. Repositories are ranked
+        by total number of untested methods. Default is 30.
+      required: false
