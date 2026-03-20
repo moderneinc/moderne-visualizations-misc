@@ -7,7 +7,7 @@ description: >
   Shows Zone of Pain (high stability, low abstractness) and Zone of Uselessness
   (low stability, high abstractness). Helps identify packages that violate the
   Stable Abstractions Principle.
-recipe: io.moderne.prethink.quality.FindPackageMetrics
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAi
 dataTable: io.moderne.prethink.table.PackageQualityMetrics
 options:
   - repository_filter:

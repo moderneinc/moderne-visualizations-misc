@@ -7,7 +7,7 @@ description: >
   drill-down from repository to package to class to method. Supports filtering,
   sorting, and searching across all metric columns. Useful for detailed exploration
   of quality data beyond what chart visualizations provide.
-recipe: io.moderne.prethink.quality.FindMethodComplexity
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAi
 dataTable: io.moderne.prethink.table.MethodQualityMetrics
 options:
   - repository_filter:

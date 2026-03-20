@@ -7,7 +7,7 @@ description: >
   repositories in the portfolio. Each violin represents one repository, revealing
   the shape and spread of the metric distribution. Useful for comparing code quality
   consistency across the organization.
-recipe: io.moderne.prethink.quality.FindMethodComplexity
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAi
 dataTable: io.moderne.prethink.table.MethodQualityMetrics
 options:
   - repository_filter:

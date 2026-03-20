@@ -6,7 +6,7 @@ description: >
   Heatmap showing untested method counts per repository, bucketed by risk score.
   Color intensity reflects the count in each bucket. Quickly identifies which
   repositories carry the most untested high-risk code.
-recipe: io.moderne.prethink.FindTestGaps
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAi
 dataTable: io.moderne.prethink.table.TestGaps
 options:
   - repository_filter:

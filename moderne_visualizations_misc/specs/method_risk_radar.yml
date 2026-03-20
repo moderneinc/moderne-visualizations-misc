@@ -7,7 +7,7 @@ description: >
   Each axis represents a normalized metric (cyclomatic complexity, cognitive complexity,
   line count, Halstead difficulty, parameter count). Methods with large, irregular
   shapes indicate multi-dimensional risk.
-recipe: io.moderne.prethink.quality.FindMethodComplexity
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAi
 dataTable: io.moderne.prethink.table.MethodQualityMetrics
 options:
   - repository_filter:

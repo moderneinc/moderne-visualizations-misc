@@ -6,7 +6,7 @@ description: >
   Horizontal stacked bar chart showing code smell counts per repository,
   segmented by severity (critical, high, medium, low). Reveals which repositories
   carry the most design problems and how severe they are.
-recipe: io.moderne.prethink.quality.FindCodeSmells
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAi
 dataTable: io.moderne.prethink.table.CodeSmells
 options:
   - repository_filter:
