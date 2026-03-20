@@ -16,6 +16,12 @@ options:
         Only include data where the repository contains one of the following terms (case insensitive).
         Branch names are appended to the repository name with a `/` separator.
       required: false
+  - data_file_classes:
+      displayName: Class metrics CSV path
+      description: >
+        Path to a class quality metrics CSV file for class-level analysis
+        in the dashboard.
+      required: false
   - data_file_methods:
       displayName: Method metrics CSV path
       description: >

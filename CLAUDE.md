@@ -36,13 +36,38 @@ poe check-sentence-casing  # Validate proper naming conventions
 ```
 
 ### Running Individual Notebooks
-```bash
-# Run a specific notebook with papermill (useful for testing)
-papermill moderne_visualizations_misc/dependency_tree_view.ipynb output.ipynb -p data_file samples/dependency_tree_view.csv
 
-# Or run from within Jupyter
+**Important:** Notebooks use `dt.read_csv("../samples/file.csv")` with paths relative to the notebook directory. When running via papermill from the repo root, set `NB_DATA_TABLE` to override the primary CSV path:
+
+```bash
+# Run a notebook with its primary data table
+NB_DATA_TABLE="samples/dependency_tree_view.csv" \
+  uv run papermill moderne_visualizations_misc/dependency_tree_view.ipynb /tmp/output.ipynb
+
+# For notebooks that load multiple CSVs (e.g., executive dashboard),
+# NB_DATA_TABLE overrides the primary table; pass others as parameters:
+NB_DATA_TABLE="samples/class_quality_metrics.csv" \
+  uv run papermill moderne_visualizations_misc/code_quality_executive_dashboard.ipynb /tmp/output.ipynb \
+  -p data_file_classes "samples/class_quality_metrics.csv" \
+  -p data_file_methods "samples/method_quality_metrics.csv" \
+  -p data_file_packages "samples/package_quality_metrics.csv" \
+  -p data_file_smells "samples/code_smells.csv" \
+  -p data_file_gaps "samples/test_gaps.csv"
+
+# Convert to HTML for viewing in a browser
+uv run jupyter nbconvert --to html /tmp/output.ipynb --output /tmp/output.html
+open /tmp/output.html
+
+# Or run interactively in Jupyter
 jupyter notebook
 ```
+
+**Gotchas when running notebooks via papermill:**
+- `NB_DATA_TABLE` env var overrides ALL `dt.read_csv()` calls in the notebook. If a notebook loads multiple CSVs, use `pd.read_csv()` directly for secondary files (not `dt.read_csv()`).
+- The package must be installed in dev mode (`uv pip install -e .`) for `from moderne_visualizations_misc.reusable import ...` imports to work.
+- The `reusable/` directory needs an `__init__.py` file to be importable as a Python package.
+- String utility functions in `quality_utils.py` must handle NaN values from CSVs (use `isinstance(x, str)` guards).
+- Color values for plotly must be valid CSS colors. To convert hex to rgba: `f"rgba({int(c[1:3],16)},{int(c[3:5],16)},{int(c[5:7],16)},0.15)"`.
 
 ### Testing
 There are no traditional unit tests. Instead, the project uses:

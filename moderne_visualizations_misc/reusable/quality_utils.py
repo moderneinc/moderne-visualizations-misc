@@ -47,18 +47,24 @@ def empty_figure(message: str = "No data available for the selected filters.") -
     return fig
 
 
-def short_repo(repo_path: str) -> str:
+def short_repo(repo_path) -> str:
     """Extract short repo name from full path."""
+    if not isinstance(repo_path, str):
+        return str(repo_path)
     return repo_path.split("/")[-1] if "/" in repo_path else repo_path
 
 
-def short_class(class_name: str) -> str:
+def short_class(class_name) -> str:
     """Extract simple class name from FQN."""
+    if not isinstance(class_name, str):
+        return str(class_name)
     return class_name.split(".")[-1] if "." in class_name else class_name
 
 
-def extract_package(class_name: str) -> str:
+def extract_package(class_name) -> str:
     """Extract package name from fully qualified class name."""
+    if not isinstance(class_name, str):
+        return ""
     parts = class_name.rsplit(".", 1)
     return parts[0] if len(parts) > 1 else ""
 
