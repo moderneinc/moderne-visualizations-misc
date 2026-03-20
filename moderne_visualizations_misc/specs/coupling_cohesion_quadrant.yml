@@ -1,0 +1,31 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.CouplingCohesionQuadrant
+displayName: Class coupling vs cohesion risk matrix
+description: >
+  Scatter plot with four quadrants classifying classes by coupling and cohesion.
+  Quadrants: Spaghetti (high coupling, low cohesion), Hub (high coupling, high cohesion),
+  Island (low coupling, low cohesion), Healthy (low coupling, high cohesion).
+  Helps identify classes most in need of refactoring.
+recipe: io.moderne.prethink.quality.FindClassMetrics
+dataTable: io.moderne.prethink.table.ClassQualityMetrics
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false
+  - coupling_threshold:
+      displayName: Coupling threshold
+      description: >
+        The efferent coupling value that divides low from high coupling.
+        Default is 10.
+      required: false
+  - cohesion_threshold:
+      displayName: Cohesion threshold
+      description: >
+        The LCOM4 cohesion value that divides low from high cohesion.
+        Values closer to 0 indicate low cohesion; values closer to 1 indicate high cohesion.
+        Default is 0.5.
+      required: false

@@ -1,0 +1,22 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.CodeSmellSeverityStackedBar
+displayName: Code smell distribution by repository
+description: >
+  Horizontal stacked bar chart showing code smell counts per repository,
+  segmented by severity (critical, high, medium, low). Reveals which repositories
+  carry the most design problems and how severe they are.
+recipe: io.moderne.prethink.quality.FindCodeSmells
+dataTable: io.moderne.prethink.table.CodeSmells
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false
+  - group_by:
+      displayName: Group by
+      description: >
+        How to group the bars. Options: repository (default) or smellType.
+      required: false

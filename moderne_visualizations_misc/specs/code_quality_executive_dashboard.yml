@@ -1,0 +1,48 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.CodeQualityExecutiveDashboard
+displayName: Code quality executive dashboard
+description: >
+  Single-page executive summary combining all quality data tables. Shows portfolio
+  health score, top riskiest repositories, smell severity breakdown, test gap coverage,
+  and worst dependency cycles. Designed for engineering leadership to assess overall
+  codebase health at a glance.
+recipe: io.moderne.prethink.quality.FindClassMetrics
+dataTable: io.moderne.prethink.table.ClassQualityMetrics
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false
+  - data_file_classes:
+      displayName: Class metrics CSV path
+      description: >
+        Path to a class quality metrics CSV file for class-level analysis
+        in the dashboard.
+      required: false
+  - data_file_methods:
+      displayName: Method metrics CSV path
+      description: >
+        Path to a method quality metrics CSV file for method-level analysis
+        in the dashboard.
+      required: false
+  - data_file_packages:
+      displayName: Package metrics CSV path
+      description: >
+        Path to a package quality metrics CSV file for package-level analysis
+        in the dashboard.
+      required: false
+  - data_file_smells:
+      displayName: Code smells CSV path
+      description: >
+        Path to a code smells CSV file for smell severity breakdown
+        in the dashboard.
+      required: false
+  - data_file_gaps:
+      displayName: Test gaps CSV path
+      description: >
+        Path to a test gaps CSV file for test coverage analysis
+        in the dashboard.
+      required: false

@@ -1,0 +1,31 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.ComplexityVsTestGapsBubble
+displayName: Complexity vs test coverage risk
+description: >
+  Bubble chart joining class complexity with test gaps. X-axis shows weighted methods
+  per class (WMC), Y-axis shows untested method count, and bubble size represents
+  a composite risk score. Classes in the upper-right are high-complexity with poor
+  test coverage, representing the highest risk.
+recipe: io.moderne.prethink.quality.FindClassMetrics
+dataTable: io.moderne.prethink.table.ClassQualityMetrics
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false
+  - min_wmc:
+      displayName: Minimum WMC threshold
+      description: >
+        Only include classes with a weighted methods per class (WMC) value at or above
+        this threshold. Filters out simple classes to focus on complex ones.
+        Default is 5.
+      required: false
+  - data_file_gaps:
+      displayName: Test gaps CSV path
+      description: >
+        Path to a test gaps CSV file to join with class metrics. The file should contain
+        test coverage gap data to correlate with complexity metrics.
+      required: false

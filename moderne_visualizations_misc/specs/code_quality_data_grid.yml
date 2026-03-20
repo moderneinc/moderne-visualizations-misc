@@ -1,0 +1,18 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.CodeQualityDataGrid
+displayName: Code quality metrics data grid
+description: >
+  Interactive sortable data grid showing all quality metrics with hierarchical
+  drill-down from repository to package to class to method. Supports filtering,
+  sorting, and searching across all metric columns. Useful for detailed exploration
+  of quality data beyond what chart visualizations provide.
+recipe: io.moderne.prethink.quality.FindMethodComplexity
+dataTable: io.moderne.prethink.table.MethodQualityMetrics
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false

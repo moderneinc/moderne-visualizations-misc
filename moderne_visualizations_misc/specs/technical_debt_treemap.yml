@@ -1,0 +1,23 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.TechnicalDebtTreemap
+displayName: Technical debt hotspot treemap
+description: >
+  Treemap of methods sized by code volume and colored by composite debt score.
+  Hierarchy drills from repository to class to method. The largest, reddest blocks
+  represent the highest-return refactoring targets.
+recipe: io.moderne.prethink.quality.FindMethodComplexity
+dataTable: io.moderne.prethink.table.MethodQualityMetrics
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false
+  - top_n_methods:
+      displayName: Number of methods to display
+      description: >
+        The maximum number of methods to include. Methods are ranked by composite debt score.
+        Default is 200.
+      required: false
