@@ -9,6 +9,8 @@ description: >
   test coverage, representing the highest risk.
 recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
 dataTable: io.moderne.prethink.table.ClassQualityMetrics
+additionalDataTables:
+  data_file_gaps: io.moderne.prethink.table.TestGaps
 options:
   - repository_filter:
       displayName: Repository filter
@@ -22,10 +24,4 @@ options:
         Only include classes with a weighted methods per class (WMC) value at or above
         this threshold. Filters out simple classes to focus on complex ones.
         Default is 5.
-      required: false
-  - data_file_gaps:
-      displayName: Test gaps CSV path
-      description: >
-        Path to a test gaps CSV file to join with class metrics. The file should contain
-        test coverage gap data to correlate with complexity metrics.
       required: false
