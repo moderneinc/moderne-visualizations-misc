@@ -7,7 +7,7 @@ description: >
   per class (WMC), Y-axis shows untested method count, and bubble size represents
   a composite risk score. Classes in the upper-right are high-complexity with poor
   test coverage, representing the highest risk.
-recipe: io.moderne.prethink.UpdatePrethinkContextNoAi
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
 dataTable: io.moderne.prethink.table.ClassQualityMetrics
 options:
   - repository_filter:

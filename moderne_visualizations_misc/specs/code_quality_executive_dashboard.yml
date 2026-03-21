@@ -7,7 +7,7 @@ description: >
   health score, top riskiest repositories, smell severity breakdown, test gap coverage,
   and worst dependency cycles. Designed for engineering leadership to assess overall
   codebase health at a glance.
-recipe: io.moderne.prethink.UpdatePrethinkContextNoAi
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
 dataTable: io.moderne.prethink.table.ClassQualityMetrics
 options:
   - repository_filter:

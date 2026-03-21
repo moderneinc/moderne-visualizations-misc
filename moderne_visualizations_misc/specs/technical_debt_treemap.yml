@@ -6,7 +6,7 @@ description: >
   Treemap of methods sized by code volume and colored by composite debt score.
   Hierarchy drills from repository to class to method. The largest, reddest blocks
   represent the highest-return refactoring targets.
-recipe: io.moderne.prethink.UpdatePrethinkContextNoAi
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
 dataTable: io.moderne.prethink.table.MethodQualityMetrics
 options:
   - repository_filter:

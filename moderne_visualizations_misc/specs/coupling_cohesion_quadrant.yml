@@ -7,7 +7,7 @@ description: >
   Quadrants: Spaghetti (high coupling, low cohesion), Hub (high coupling, high cohesion),
   Island (low coupling, low cohesion), Healthy (low coupling, high cohesion).
   Helps identify classes most in need of refactoring.
-recipe: io.moderne.prethink.UpdatePrethinkContextNoAi
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
 dataTable: io.moderne.prethink.table.ClassQualityMetrics
 options:
   - repository_filter:

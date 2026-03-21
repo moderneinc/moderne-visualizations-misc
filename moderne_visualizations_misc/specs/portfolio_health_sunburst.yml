@@ -6,7 +6,7 @@ description: >
   Hierarchical sunburst showing code health across the portfolio.
   Drill from repository to package to class. Color represents maintainability
   (green = healthy, red = needs attention). Size represents code volume.
-recipe: io.moderne.prethink.UpdatePrethinkContextNoAi
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
 dataTable: io.moderne.prethink.table.ClassQualityMetrics
 options:
   - repository_filter:
