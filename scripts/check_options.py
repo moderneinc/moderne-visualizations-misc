@@ -16,6 +16,9 @@ def check_notebook_options(notebook_filename):
             spec = yaml.safe_load(stream)
             options = spec.get("options", [])
             result = [list(item.keys())[0] for item in options]
+            additional = spec.get("additionalDataTables", {})
+            if additional:
+                result += list(additional.keys())
         except yaml.YAMLError as exc:
             print(exc)
 
