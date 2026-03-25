@@ -54,10 +54,12 @@ def short_repo(repo_path) -> str:
     return repo_path.split("/")[-1] if "/" in repo_path else repo_path
 
 
-def short_class(class_name) -> str:
-    """Extract simple class name from FQN."""
-    if not isinstance(class_name, str):
-        return str(class_name)
+def short_class(class_name, source_path=None) -> str:
+    """Extract simple class name from FQN, falling back to source file name."""
+    if not isinstance(class_name, str) or class_name == "":
+        if isinstance(source_path, str):
+            return source_path.rsplit("/", 1)[-1]
+        return str(class_name) if isinstance(class_name, str) else "(unknown)"
     return class_name.split(".")[-1] if "." in class_name else class_name
 
 
@@ -147,6 +149,11 @@ def add_class_short(df: pd.DataFrame) -> pd.DataFrame:
     """Add 'classShort' and 'package' columns derived from className."""
     if "className" in df.columns:
         df = df.copy()
-        df["classShort"] = df["className"].apply(short_class)
+        if "sourcePath" in df.columns:
+            df["classShort"] = df.apply(
+                lambda r: short_class(r["className"], r["sourcePath"]), axis=1
+            )
+        else:
+            df["classShort"] = df["className"].apply(short_class)
         df["package"] = df["className"].apply(extract_package)
     return df
