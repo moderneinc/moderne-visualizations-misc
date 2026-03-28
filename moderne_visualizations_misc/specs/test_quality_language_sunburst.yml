@@ -1,0 +1,17 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.TestQualityLanguageSunburst
+displayName: Test quality issues language sunburst
+description: >
+  Sunburst chart showing test quality issues organized by language, severity,
+  and issue type. Inner ring shows languages, middle ring shows severity levels,
+  and outer ring shows specific issue types.
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+dataTable: io.moderne.prethink.table.TestQualityIssues
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false

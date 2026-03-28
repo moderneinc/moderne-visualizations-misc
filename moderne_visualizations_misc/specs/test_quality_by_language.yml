@@ -1,0 +1,17 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.TestQualityByLanguage
+displayName: Test quality issues by language
+description: >
+  Grouped bar chart showing test quality issue counts by issue type and
+  programming language. Reveals which languages have the most issues in
+  each category.
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+dataTable: io.moderne.prethink.table.TestQualityIssues
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false

@@ -1,0 +1,57 @@
+sourcePath,className,methodName,issueType,severity,language,evidence,repositoryPath
+src/test/java/com/example/SlowTest.java,com.example.SlowTest,testLogin,static wait,high,java,"Thread.sleep(5000) in testLogin(). Static waits cause flakiness on slow CI machines.",github.com/acme/billing-service
+src/test/java/com/example/SlowTest.java,com.example.SlowTest,testRetry,static wait,high,java,"Thread.sleep(3000) in testRetry(). Static waits cause flakiness on slow CI machines.",github.com/acme/billing-service
+src/test/java/com/example/SharedStateTest.java,com.example.SharedStateTest,,shared mutable state,high,java,"Static mutable field 'cache' (type: Map) in SharedStateTest.",github.com/acme/billing-service
+src/test/java/com/example/ApiTest.java,com.example.ApiTest,testGetUser,unmocked http,high,java,"Direct RestTemplate.getForObject() call in unit test.",github.com/acme/billing-service
+src/test/java/com/example/DbTest.java,com.example.DbTest,testSave,unmocked db,high,java,"Direct JdbcTemplate.query() call in unit test.",github.com/acme/billing-service
+src/test/java/com/example/SilentTest.java,com.example.SilentTest,testParse,swallowed exception,high,java,"try/catch in test method testParse() swallows exceptions without fail().",github.com/acme/billing-service
+src/test/java/com/example/SilentTest.java,com.example.SilentTest,testValidate,java assert in test,high,java,"Java assert keyword in test method testValidate().",github.com/acme/billing-service
+src/test/java/com/example/EmptyTest.java,com.example.EmptyTest,testNothing,missing assertion,medium,java,"Test method testNothing() has no assertions.",github.com/acme/billing-service
+src/test/java/com/example/DateTest.java,com.example.DateTest,testExpiry,hardcoded date,medium,java,"Hardcoded date LocalDate.of(2023, 1, 15) in test.",github.com/acme/billing-service
+src/test/java/com/example/TimingTest.java,com.example.TimingTest,testPerf,timing assertion,medium,java,"Timing-dependent assertion using System.currentTimeMillis().",github.com/acme/billing-service
+src/test/java/com/example/PortTest.java,com.example.PortTest,testConnect,hardcoded port/path,low,java,"Hardcoded port/path 'localhost:8080' in test.",github.com/acme/billing-service
+src/test/java/com/example/GhostTest.java,com.example.GhostTest,testFoo,missing annotation,medium,java,"Method testFoo() looks like a test but has no @Test annotation.",github.com/acme/billing-service
+src/test/java/com/example/SkipTest.java,com.example.SkipTest,testOld,skipped without reason,medium,java,"@Disabled without reason on testOld().",github.com/acme/billing-service
+src/test/java/com/example/MockTest.java,com.example.MockTest,testAll,broad matcher,medium,java,"call(any(), any(), any()) uses 3 any() matchers.",github.com/acme/billing-service
+src/test/java/com/example/CatchTest.java,com.example.CatchTest,,ignored error,low,java,"Empty catch block in test file.",github.com/acme/billing-service
+src/test/java/com/example/OldApiTest.java,com.example.OldApiTest,testDate,deprecated test api,low,java,"Deprecated Date(int, int, int) constructor.",github.com/acme/billing-service
+src/test/java/com/example/MagicTest.java,com.example.MagicTest,testTimeout,magic number,low,java,"Magic number 86400 in test (likely seconds-in-a-day).",github.com/acme/billing-service
+src/test/java/com/example/BadNameTest.java,com.example.BadNameTest,test1,poor test name,low,java,"Test method test1() has a non-descriptive name.",github.com/acme/billing-service
+src/test/java/com/acme/auth/LoginTest.java,com.acme.auth.LoginTest,testAuth,static wait,high,java,"Thread.sleep(2000) in testAuth().",github.com/acme/auth-service
+src/test/java/com/acme/auth/LoginTest.java,com.acme.auth.LoginTest,testTimeout,static wait,high,java,"Thread.sleep(10000) in testTimeout().",github.com/acme/auth-service
+src/test/java/com/acme/auth/SessionTest.java,com.acme.auth.SessionTest,,shared mutable state,high,java,"Static mutable field 'sessions' (type: List).",github.com/acme/auth-service
+src/test/java/com/acme/auth/TokenTest.java,com.acme.auth.TokenTest,testRefresh,unmocked http,high,java,"Direct HttpClient.send() call in unit test.",github.com/acme/auth-service
+src/test/java/com/acme/auth/TokenTest.java,com.acme.auth.TokenTest,testValidate,missing assertion,medium,java,"Test method testValidate() has no assertions.",github.com/acme/auth-service
+src/test/java/com/acme/auth/CryptoTest.java,com.acme.auth.CryptoTest,testEncrypt,hardcoded date,medium,java,"Hardcoded date LocalDate.of(2024, 6, 1) in test.",github.com/acme/auth-service
+src/test/java/com/acme/auth/ConfigTest.java,com.acme.auth.ConfigTest,testLoad,hardcoded port/path,low,java,"Hardcoded port/path '/usr/local/config' in test.",github.com/acme/auth-service
+src/test/java/com/acme/auth/UtilTest.java,com.acme.auth.UtilTest,test2,poor test name,low,java,"Test method test2() has a non-descriptive name.",github.com/acme/auth-service
+src/test/js/login.test.js,login.test.js,should authenticate,static wait,high,javascript,"setTimeout in test file.",github.com/acme/frontend-app
+src/test/js/login.test.js,login.test.js,,prototype mutation,high,javascript,"Object.prototype assignment without afterEach restore.",github.com/acme/frontend-app
+src/test/js/api.test.js,api.test.js,should fetch data,unmocked http,high,javascript,"fetch() call in test file.",github.com/acme/frontend-app
+src/test/js/form.test.js,form.test.js,should validate,missing assertion,medium,javascript,"Test has no expect() calls.",github.com/acme/frontend-app
+src/test/js/utils.test.js,utils.test.js,,ignored error,low,javascript,"Empty .catch(() => {}) in test file.",github.com/acme/frontend-app
+src/test/js/config.test.js,config.test.js,should load config,hardcoded port/path,low,javascript,"Hardcoded port/path 'localhost:3000' in test.",github.com/acme/frontend-app
+src/test/js/old.test.js,old.test.js,,skipped without reason,medium,javascript,"xit() without TODO or issue reference.",github.com/acme/frontend-app
+tests/test_api.py,test_api,test_get_users,unmocked http,high,python,"Direct requests.get() call in test.",github.com/acme/data-pipeline
+tests/test_api.py,test_api,test_post_data,unmocked http,high,python,"Direct requests.post() call in test.",github.com/acme/data-pipeline
+tests/test_db.py,test_db,test_connect,unmocked db,high,python,"Direct psycopg2.connect() call in test.",github.com/acme/data-pipeline
+tests/test_worker.py,test_worker,test_process,static wait,high,python,"time.sleep(5) in test_process().",github.com/acme/data-pipeline
+tests/test_worker.py,test_worker,test_retry,swallowed exception,high,python,"bare except: pass in test method.",github.com/acme/data-pipeline
+tests/test_dates.py,test_dates,test_expiry,hardcoded date,medium,python,"Hardcoded date datetime.datetime(2023, 6, 15) in test.",github.com/acme/data-pipeline
+tests/test_config.py,test_config,test_port,hardcoded port/path,low,python,"Hardcoded port/path 'localhost:5432' in test.",github.com/acme/data-pipeline
+tests/test_utils.py,test_utils,test1,poor test name,low,python,"Test method test1() has a non-descriptive name.",github.com/acme/data-pipeline
+src/test/java/com/payments/ChargeTest.java,com.payments.ChargeTest,testCharge,unmocked http,high,java,"Direct OkHttpClient.newCall() in unit test.",github.com/acme/payment-gateway
+src/test/java/com/payments/ChargeTest.java,com.payments.ChargeTest,testRefund,unmocked http,high,java,"Direct OkHttpClient.newCall() in unit test.",github.com/acme/payment-gateway
+src/test/java/com/payments/ChargeTest.java,com.payments.ChargeTest,,shared mutable state,high,java,"Static mutable field 'client' (type: OkHttpClient).",github.com/acme/payment-gateway
+src/test/java/com/payments/DbTest.java,com.payments.DbTest,testSave,unmocked db,high,java,"Direct DataSource.getConnection() in unit test.",github.com/acme/payment-gateway
+src/test/java/com/payments/SlowTest.java,com.payments.SlowTest,testWebhook,static wait,high,java,"Thread.sleep(5000) in testWebhook().",github.com/acme/payment-gateway
+src/test/java/com/payments/RetryTest.java,com.payments.RetryTest,testRetry,swallowed exception,high,java,"try/catch swallows exceptions without fail().",github.com/acme/payment-gateway
+src/test/java/com/payments/MockTest.java,com.payments.MockTest,testAll,broad matcher,medium,java,"call(any(), any(), any(), any()) uses 4 any() matchers.",github.com/acme/payment-gateway
+src/test/java/com/payments/OldTest.java,com.payments.OldTest,testDate,deprecated test api,low,java,"Deprecated Date(int, int, int) constructor.",github.com/acme/payment-gateway
+src/test/java/com/search/IndexTest.java,com.search.IndexTest,testIndex,static wait,high,java,"Thread.sleep(3000) in testIndex().",github.com/acme/search-service
+src/test/java/com/search/IndexTest.java,com.search.IndexTest,testReindex,static wait,high,java,"Thread.sleep(8000) in testReindex().",github.com/acme/search-service
+src/test/java/com/search/QueryTest.java,com.search.QueryTest,testSearch,unmocked http,high,java,"Direct RestTemplate.exchange() in unit test.",github.com/acme/search-service
+src/test/java/com/search/CacheTest.java,com.search.CacheTest,,shared mutable state,high,java,"Static mutable field 'cache' (type: ConcurrentHashMap).",github.com/acme/search-service
+src/test/java/com/search/ScoreTest.java,com.search.ScoreTest,testRank,missing assertion,medium,java,"Test method testRank() has no assertions.",github.com/acme/search-service
+src/test/java/com/search/DateTest.java,com.search.DateTest,testFilter,hardcoded date,medium,java,"Hardcoded date LocalDate.of(2023, 12, 25) in test.",github.com/acme/search-service
+src/test/java/com/search/ConfigTest.java,com.search.ConfigTest,testPort,magic number,low,java,"Magic number 9200 in test (likely Elasticsearch port).",github.com/acme/search-service

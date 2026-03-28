@@ -1,0 +1,24 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.TestQualityExecutiveDashboard
+displayName: Test quality executive dashboard
+description: >
+  Multi-panel dashboard summarizing test quality issues across the portfolio.
+  Includes worst repositories, severity distribution, issue type breakdown,
+  and top fix priorities.
+recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+dataTable: io.moderne.prethink.table.TestQualityIssues
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false
+  - top_n_repos:
+      displayName: Number of repositories to display
+      description: >
+        The maximum number of repositories to display in the worst repositories
+        panel. Repositories are ranked by total number of test quality issues.
+        Default is 20.
+      required: false
