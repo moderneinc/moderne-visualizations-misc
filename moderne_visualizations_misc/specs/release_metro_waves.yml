@@ -7,10 +7,10 @@ description: >
   Wave 0 contains repositories with no internal dependencies that can release first.
   Each subsequent wave depends only on earlier waves, enabling parallel releases within a wave.
 recipe: io.moderne.recipe.releasemetro.ReleaseMetroPlan
-dataTable: io.moderne.recipe.releasemetro.ProjectCoordinates
+dataTable: io.moderne.recipe.releasemetro.table.ProjectCoordinates
 additionalDataTables:
   data_file_dependencies: org.openrewrite.maven.table.DependenciesInUse
-  data_file_parents: io.moderne.recipe.releasemetro.ParentRelationships
+  data_file_parents: io.moderne.recipe.releasemetro.table.ParentRelationships
 options:
   - repository_filter:
       displayName: Repository filter
