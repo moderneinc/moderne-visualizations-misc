@@ -1,6 +1,20 @@
 # CHANGELOG
 
 
+## v1.5.1 (2026-04-14)
+
+### Bug Fixes
+
+- Add missing .table. package segment to dataTable references
+  ([#93](https://github.com/moderneinc/moderne-visualizations-misc/pull/93),
+  [`2b61455`](https://github.com/moderneinc/moderne-visualizations-misc/commit/2b6145572359e221a4e225dc6d7b59df9c4d9981))
+
+The spec files referenced io.moderne.recipe.releasemetro.ProjectCoordinates and
+  io.moderne.recipe.releasemetro.ParentRelationships, but the actual Java classes live under the
+  .table sub-package. This mismatch caused the UI to show "required data is currently unavailable"
+  for all three release metro visualizations.
+
+
 ## v1.5.0 (2026-04-14)
 
 
