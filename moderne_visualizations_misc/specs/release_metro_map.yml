@@ -7,10 +7,10 @@ description: >
   Nodes represent repositories and edges show dependency and parent relationships.
   Helps visualize the dependency structure to plan coordinated multi-repository releases.
 recipe: io.moderne.recipe.releasemetro.ReleaseMetroPlan
-dataTable: io.moderne.recipe.releasemetro.ProjectCoordinates
+dataTable: io.moderne.recipe.releasemetro.table.ProjectCoordinates
 additionalDataTables:
   data_file_dependencies: org.openrewrite.maven.table.DependenciesInUse
-  data_file_parents: io.moderne.recipe.releasemetro.ParentRelationships
+  data_file_parents: io.moderne.recipe.releasemetro.table.ParentRelationships
 options:
   - repository_filter:
       displayName: Repository filter
