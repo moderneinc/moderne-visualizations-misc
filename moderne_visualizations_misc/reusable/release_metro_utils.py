@@ -13,31 +13,39 @@ def build_release_graph(
     repo that depends on it).  This matches the convention in repository_release_order.
     """
     # Map groupId:artifactId -> repositoryPath for all known project artifacts
-    artifact_to_repo: dict[str, str] = {}
-    for _, row in coords_df.iterrows():
-        key = f"{row['groupId']}:{row['artifactId']}"
-        repo = str(row["repositoryPath"])
-        if key not in artifact_to_repo:
-            artifact_to_repo[key] = repo
+    coords = coords_df.copy()
+    coords["_key"] = coords["groupId"].astype(str) + ":" + coords["artifactId"].astype(str)
+    artifact_to_repo: dict[str, str] = (
+        coords.drop_duplicates(subset="_key", keep="first")
+        .set_index("_key")["repositoryPath"]
+        .astype(str)
+        .to_dict()
+    )
 
     # Collect edges keyed by (producer_repo, consumer_repo) -> edge_type
     edges: dict[tuple[str, str], str] = {}
 
     # --- dependency edges ---
-    for _, row in deps_df.iterrows():
-        consumer_repo = str(row["repositoryPath"])
-        dep_key = f"{row['groupId']}:{row['artifactId']}"
-        producer_repo = artifact_to_repo.get(dep_key)
-        if producer_repo and producer_repo != consumer_repo:
-            edges.setdefault((producer_repo, consumer_repo), "dependency")
+    if len(deps_df) > 0:
+        deps = deps_df.copy()
+        deps["_key"] = deps["groupId"].astype(str) + ":" + deps["artifactId"].astype(str)
+        deps["_producer"] = deps["_key"].map(artifact_to_repo)
+        deps["_consumer"] = deps["repositoryPath"].astype(str)
+        internal = deps.dropna(subset=["_producer"])
+        internal = internal[internal["_producer"] != internal["_consumer"]]
+        for pair in internal[["_producer", "_consumer"]].drop_duplicates().itertuples(index=False):
+            edges.setdefault((pair[0], pair[1]), "dependency")
 
     # --- parent edges (override dependency if both exist) ---
-    for _, row in parents_df.iterrows():
-        child_repo = str(row["repositoryPath"])
-        parent_key = f"{row['parentGroupId']}:{row['parentArtifactId']}"
-        parent_repo = artifact_to_repo.get(parent_key)
-        if parent_repo and parent_repo != child_repo:
-            edges[(parent_repo, child_repo)] = "parent"
+    if len(parents_df) > 0:
+        par = parents_df.copy()
+        par["_key"] = par["parentGroupId"].astype(str) + ":" + par["parentArtifactId"].astype(str)
+        par["_parent"] = par["_key"].map(artifact_to_repo)
+        par["_child"] = par["repositoryPath"].astype(str)
+        internal_par = par.dropna(subset=["_parent"])
+        internal_par = internal_par[internal_par["_parent"] != internal_par["_child"]]
+        for pair in internal_par[["_parent", "_child"]].drop_duplicates().itertuples(index=False):
+            edges[(pair[0], pair[1])] = "parent"
 
     # Build NetworkX graph
     G = nx.DiGraph()
