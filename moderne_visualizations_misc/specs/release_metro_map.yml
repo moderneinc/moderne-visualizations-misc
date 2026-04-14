@@ -1,0 +1,20 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.ReleaseMetroMap
+displayName: Release metro map
+description: >
+  Interactive network graph showing inter-repository dependencies within a release train.
+  Nodes represent repositories and edges show dependency and parent relationships.
+  Helps visualize the dependency structure to plan coordinated multi-repository releases.
+recipe: io.moderne.recipe.releasemetro.ReleaseMetroPlan
+dataTable: io.moderne.recipe.releasemetro.ProjectCoordinates
+additionalDataTables:
+  data_file_dependencies: org.openrewrite.maven.table.DependenciesInUse
+  data_file_parents: io.moderne.recipe.releasemetro.ParentRelationships
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false
