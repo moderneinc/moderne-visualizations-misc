@@ -1,0 +1,20 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.ReleaseMetroPlan
+displayName: Release metro plan
+description: >
+  Combined dependency diagram and release plan. Repositories are arranged in wave columns
+  from left to right, with directed edges showing dependency flow. Visualizes both the
+  dependency complexity and the sequential release order in a single view.
+recipe: io.moderne.recipe.releasemetro.ReleaseMetroPlan
+dataTable: io.moderne.recipe.releasemetro.ProjectCoordinates
+additionalDataTables:
+  data_file_dependencies: org.openrewrite.maven.table.DependenciesInUse
+  data_file_parents: io.moderne.recipe.releasemetro.ParentRelationships
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false
