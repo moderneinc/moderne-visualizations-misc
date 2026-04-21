@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ESLint Problems Treemap</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>ESLint problems treemap</h1>
+  <p class="sub">Drop an ESLint problems CSV to render a treemap of rule ID &rarr; repository (rule-first view).</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop"><input type="file" id="file" accept=".csv" /><div id="drop-text"><strong>Drop a CSV here</strong> or click to choose a file.<br><span style="color:#606770; font-size: 13px;">Expected columns: ruleId, repositoryOrigin, repositoryPath, repositoryBranch</span></div></div>
+  <div class="controls" style="margin-top: 16px;"><button id="run" disabled>Generate chart</button></div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header"><h2 id="chart-title">ESLint Problems</h2><button class="secondary" id="download">Download HTML</button></div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+const PALETTE = ['#2E86AB','#A23B72','#F18F01','#C73E1D','#3B8686','#79BD8F','#A8DBA8','#CFF09E','#FF6B6B','#4ECDC4','#45B7D1','#FFA07A','#98D8C8','#F7DC6F','#BB8FCE'];
+
+let loadedRows = null;
+const runBtn = document.getElementById('run'), statusEl = document.getElementById('status');
+wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows; runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const rows = loadedRows.filter(r => r.ruleId);
+  if (rows.length === 0) { statusEl.innerHTML = '<span class="error">No rows with ruleId.</span>'; document.getElementById('chart-card').classList.add('hidden'); return; }
+
+  // path = [ruleId, repository]
+  const agg = new Map();
+  for (const r of rows) {
+    const repo = `${r.repositoryOrigin}:${r.repositoryPath}:${r.repositoryBranch}`;
+    const k = `${r.ruleId}\u0001${repo}`;
+    agg.set(k, (agg.get(k) || 0) + 1);
+  }
+  const pairs = [...agg.entries()].map(([k, c]) => { const [rule, repo] = k.split('\u0001'); return { rule, repo, count: c }; });
+
+  const ruleCounts = new Map();
+  for (const p of pairs) ruleCounts.set(p.rule, (ruleCounts.get(p.rule) || 0) + p.count);
+  const rules = [...ruleCounts.keys()];
+  const colorFor = Object.fromEntries(rules.map((r, i) => [r, PALETTE[i % PALETTE.length]]));
+
+  const ids = [], labels = [], parents = [], values = [], colors = [];
+  for (const rule of rules) {
+    ids.push(rule); labels.push(rule); parents.push(''); values.push(ruleCounts.get(rule)); colors.push(colorFor[rule]);
+  }
+  for (const p of pairs) {
+    ids.push(`${p.rule}/${p.repo}`); labels.push(p.repo); parents.push(p.rule); values.push(p.count); colors.push(colorFor[p.rule]);
+  }
+
+  document.getElementById('chart-card').classList.remove('hidden');
+  Plotly.newPlot('chart', [{
+    type: 'treemap', ids, labels, parents, values, marker: { colors, cornerradius: 3 },
+    branchvalues: 'total', textinfo: 'label+value',
+    hovertemplate: '<b>%{label}</b><br>Count: %{value}<extra></extra>'
+  }], {
+    title: { text: `ESLint problems (total: ${rows.length.toLocaleString()})`, font: { size: 18 } },
+    height: 700, margin: { t: 50, l: 0, r: 0, b: 0 }
+  }, { responsive: true });
+
+  statusEl.textContent = `Rendered ${rules.length} rules across ${new Set(pairs.map(p => p.repo)).size} repositories.`;
+});
+
+document.getElementById('download').addEventListener('click', () => downloadStandaloneChart('chart', 'eslint_problems.html'));
+</script>
+</body>
+</html>

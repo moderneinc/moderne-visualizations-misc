@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cyclomatic Complexity Heatmap</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Cyclomatic complexity heatmap</h1>
+  <p class="sub">Drop a cyclomatic-complexity CSV (method-level) to render a heatmap of the top N classes by total complexity across four metrics.</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop">
+    <input type="file" id="file" accept=".csv" />
+    <div id="drop-text">
+      <strong>Drop a CSV here</strong> or click to choose a file.<br>
+      <span style="color:#606770; font-size: 13px;">Expected columns: repositoryPath, className, complexity</span>
+    </div>
+  </div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field">
+      <label for="repo-filter">Repository filter (comma-separated, case-insensitive)</label>
+      <input type="text" id="repo-filter" placeholder="e.g. spring,netflix" />
+    </div>
+    <div class="field">
+      <label for="top-n">Top N classes by total complexity</label>
+      <input type="number" id="top-n" value="50" min="1" max="500" />
+    </div>
+    <button id="run" disabled>Generate chart</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header">
+    <h2 id="chart-title">Cyclomatic Complexity Heatmap</h2>
+    <button class="secondary" id="download">Download HTML</button>
+  </div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+const COLORSCALE = [
+  [0.0, '#E8F5E9'], [0.2, '#A5D6A7'], [0.4, '#FFE082'],
+  [0.6, '#FFB74D'], [0.8, '#FF8A65'], [1.0, '#EF5350']
+];
+
+let loadedRows = null;
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+
+wireFileDrop({
+  dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
+  onRows: (rows) => {
+    loadedRows = rows;
+    runBtn.disabled = false;
+    statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
+  }
+});
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const filterStr = document.getElementById('repo-filter').value;
+  const topN = Math.max(1, parseInt(document.getElementById('top-n').value, 10) || 50);
+
+  const rows = loadedRows.filter(r => matchesRepoFilter(r.repositoryPath, filterStr));
+  if (rows.length === 0) {
+    statusEl.innerHTML = '<span class="error">No rows match the filter.</span>';
+    document.getElementById('chart-card').classList.add('hidden');
+    return;
+  }
+
+  // Aggregate by (repositoryPath, className)
+  const agg = new Map();
+  for (const r of rows) {
+    const key = `${r.repositoryPath}\u0001${r.className}`;
+    const cur = agg.get(key) || {
+      repoShort: shortRepo(r.repositoryPath),
+      classShort: shortClass(r.className),
+      total: 0, max: 0, count: 0, sum: 0
+    };
+    const c = parseNum(r.complexity);
+    cur.total += c;
+    cur.sum += c;
+    cur.max = Math.max(cur.max, c);
+    cur.count += 1;
+    agg.set(key, cur);
+  }
+  const classes = [...agg.values()].map(v => ({
+    label: `${v.repoShort}::${v.classShort}`,
+    total: v.total,
+    avg: v.count ? v.sum / v.count : 0,
+    max: v.max,
+    methods: v.count
+  }));
+  classes.sort((a, b) => b.total - a.total);
+  const top = classes.slice(0, Math.min(topN, classes.length));
+
+  const metrics = ['Method Count', 'Avg Complexity', 'Max Complexity', 'Total Complexity'];
+  const mKey = [ 'methods', 'avg', 'max', 'total' ];
+
+  // Raw values per (row, col)
+  const rawZ = top.map(c => mKey.map(k => c[k]));
+  // Normalize per column
+  const normZ = rawZ.map(row => row.slice());
+  for (let j = 0; j < metrics.length; j++) {
+    let min = Infinity, max = -Infinity;
+    for (let i = 0; i < top.length; i++) {
+      min = Math.min(min, rawZ[i][j]);
+      max = Math.max(max, rawZ[i][j]);
+    }
+    for (let i = 0; i < top.length; i++) {
+      normZ[i][j] = max > min ? (rawZ[i][j] - min) / (max - min) : 0;
+    }
+  }
+  const text = rawZ.map(row => row.map((v, j) => (j === 1 ? v.toFixed(1) : Math.round(v).toLocaleString())));
+  const hoverText = top.map((c, i) => mKey.map((k, j) => {
+    const label = metrics[j];
+    return label === 'Avg Complexity'
+      ? `${label}: ${c[k].toFixed(1)}`
+      : `${label}: ${Math.round(c[k]).toLocaleString()}`;
+  }));
+
+  // Annotations with adaptive text color
+  const annotations = [];
+  for (let i = 0; i < top.length; i++) {
+    for (let j = 0; j < metrics.length; j++) {
+      annotations.push({
+        x: metrics[j], y: top[i].label, xref: 'x', yref: 'y',
+        text: text[i][j], showarrow: false,
+        font: { size: 10, color: normZ[i][j] < 0.6 ? 'black' : 'white' }
+      });
+    }
+  }
+
+  const title = `Cyclomatic Complexity Heatmap by Class (Top ${top.length} by total complexity)`;
+  document.getElementById('chart-title').textContent = title;
+  document.getElementById('chart-card').classList.remove('hidden');
+
+  Plotly.newPlot('chart', [{
+    type: 'heatmap',
+    z: normZ,
+    x: metrics,
+    y: top.map(c => c.label),
+    text: hoverText,
+    colorscale: COLORSCALE,
+    colorbar: { title: { text: 'Normalized<br>Complexity' }, thickness: 15, len: 0.7 },
+    hovertemplate: '<b>%{y}</b><br>%{text}<extra></extra>'
+  }], {
+    title: { text: title, font: { size: 16 } },
+    xaxis: { title: 'Complexity Metrics', showgrid: false, side: 'bottom' },
+    yaxis: { title: 'Repository::Class', autorange: 'reversed', showgrid: false, automargin: true, tickfont: { size: 10 } },
+    annotations,
+    margin: { l: 260, r: 50, t: 80, b: 60 },
+    height: Math.max(600, top.length * 25 + 200),
+    plot_bgcolor: 'white'
+  }, { responsive: true });
+
+  statusEl.textContent = `Rendered ${top.length} classes.`;
+});
+
+document.getElementById('download').addEventListener('click', () => {
+  downloadStandaloneChart('chart', 'cyclomatic_complexity_heatmap.html');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Test Quality Issue Heatmap</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Test quality issue heatmap</h1>
+  <p class="sub">Drop a TestQualityIssues CSV to see a heatmap of test-quality issue types across the top-N repositories (by total issue count).</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop">
+    <input type="file" id="file" accept=".csv" />
+    <div id="drop-text">
+      <strong>Drop a CSV here</strong> or click to choose a file.<br>
+      <span style="color:#606770; font-size: 13px;">Expected columns: repositoryPath, issueType</span>
+    </div>
+  </div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field">
+      <label for="repo-filter">Repository filter (comma-separated, case-insensitive)</label>
+      <input type="text" id="repo-filter" placeholder="e.g. acme" />
+    </div>
+    <div class="field">
+      <label for="top-n">Top N repositories</label>
+      <input type="number" id="top-n" value="20" min="1" max="100" />
+    </div>
+    <button id="run" disabled>Generate chart</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header">
+    <h2 id="chart-title">Test Quality Issues</h2>
+    <button class="secondary" id="download">Download HTML</button>
+  </div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+let loadedRows = null;
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+
+wireFileDrop({
+  dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
+  onRows: (rows) => {
+    loadedRows = rows;
+    runBtn.disabled = false;
+    statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
+  }
+});
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const filterStr = document.getElementById('repo-filter').value;
+  const topN = Math.max(1, parseInt(document.getElementById('top-n').value, 10) || 20);
+
+  const rows = loadedRows
+    .filter(r => matchesRepoFilter(r.repositoryPath, filterStr))
+    .filter(r => r.issueType)
+    .map(r => ({ ...r, repoShort: shortRepo(r.repositoryPath) }));
+
+  if (rows.length === 0) {
+    statusEl.innerHTML = '<span class="error">No rows remain after filter.</span>';
+    document.getElementById('chart-card').classList.add('hidden');
+    return;
+  }
+
+  // Issue type order matches first-seen order (matches pandas unique())
+  const issueTypes = [];
+  const seenIssue = new Set();
+  for (const r of rows) {
+    if (!seenIssue.has(r.issueType)) { seenIssue.add(r.issueType); issueTypes.push(r.issueType); }
+  }
+
+  // Repo totals; top N by count
+  const repoTotals = new Map();
+  for (const r of rows) repoTotals.set(r.repoShort, (repoTotals.get(r.repoShort) || 0) + 1);
+  const totalRepos = repoTotals.size;
+  const topRepos = [...repoTotals.entries()].sort((a, b) => b[1] - a[1]).slice(0, topN).map(e => e[0]);
+  const topSet = new Set(topRepos);
+  const elided = totalRepos - topRepos.length;
+  const filtered = rows.filter(r => topSet.has(r.repoShort));
+
+  // pivot[repo][issueType] = count
+  const pivot = Object.fromEntries(topRepos.map(repo => [repo, Object.fromEntries(issueTypes.map(it => [it, 0]))]));
+  for (const r of filtered) {
+    if (pivot[r.repoShort] && issueTypes.includes(r.issueType)) pivot[r.repoShort][r.issueType] += 1;
+  }
+
+  const z = topRepos.map(repo => issueTypes.map(it => pivot[repo][it]));
+  const text = z.map(row => row.map(v => String(v)));
+
+  const title = 'Test Quality Issues by Repository and Type';
+  document.getElementById('chart-title').textContent = title;
+  document.getElementById('chart-card').classList.remove('hidden');
+
+  const annotations = [];
+  if (elided > 0) {
+    annotations.push({
+      xref: 'paper', yref: 'paper', x: 0.5, y: -0.08,
+      text: `Showing top ${topRepos.length} of ${totalRepos} repositories. ${elided} additional repositories with issues not shown.`,
+      showarrow: false, font: { size: 11, color: '#888' }
+    });
+  }
+
+  Plotly.newPlot('chart', [{
+    type: 'heatmap',
+    z, x: issueTypes, y: topRepos, text, texttemplate: '%{text}',
+    colorscale: [
+      [0, '#FFFFFF'], [0.33, '#FFE082'], [0.66, '#FF8A65'], [1, '#EF5350']
+    ],
+    colorbar: { title: { text: 'Issue count' } },
+    hovertemplate: '<b>%{y}</b><br>Issue: %{x}<br>Count: %{text}<extra></extra>'
+  }], {
+    title: { text: title, font: { size: 18 } },
+    xaxis: { title: 'Issue type', tickangle: -30, automargin: true },
+    yaxis: { title: '', autorange: 'reversed', automargin: true },
+    height: Math.max(500, topRepos.length * 28 + 150),
+    margin: { l: 220, r: 50, t: 60, b: 80 },
+    annotations
+  }, { responsive: true });
+
+  statusEl.textContent = `Rendered ${filtered.length.toLocaleString()} issues across ${topRepos.length} repositories and ${issueTypes.length} issue types.`;
+});
+
+document.getElementById('download').addEventListener('click', () => {
+  downloadStandaloneChart('chart', 'test_quality_issue_heatmap.html');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Release Metro Waves</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<style>
+  .dropgrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  @media (max-width: 1000px) { .dropgrid { grid-template-columns: 1fr; } }
+  .file-drop .hint { color: #606770; font-size: 12px; display: block; margin-top: 4px; }
+  details.wave { margin-bottom: 8px; border: 1px solid #e4e6eb; border-radius: 6px; background: #fff; }
+  details.wave > summary { cursor: pointer; padding: 10px 14px; font-weight: 600; font-size: 14px; color: #1c1e21; }
+  details.wave[open] > summary { background: #eef2f6; border-bottom: 1px solid #e4e6eb; }
+  details.wave table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  details.wave td { padding: 6px 14px; border-top: 1px solid #f0f2f5; }
+  details.wave td.name { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  details.wave td.count { color: #606770; text-align: right; width: 100px; }
+  details.wave.circular > summary { color: #c0392b; }
+  .summary-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 14px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Release metro waves</h1>
+  <p class="sub">Drop the three ReleaseMetroPlan CSVs to compute release waves and produce a collapsible wave-by-wave list. (The Python notebook renders a Moderne-platform tree grid; this browser-only port shows the same data as plain HTML.)</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="dropgrid">
+    <div class="file-drop" id="drop-coords"><input type="file" id="file-coords" accept=".csv" /><div id="drop-coords-text"><strong>Drop ProjectCoordinates CSV</strong><span class="hint">Columns: repositoryPath, groupId, artifactId</span></div></div>
+    <div class="file-drop" id="drop-deps"><input type="file" id="file-deps" accept=".csv" /><div id="drop-deps-text"><strong>Drop DependenciesInUse CSV</strong><span class="hint">Columns: repositoryPath, groupId, artifactId</span></div></div>
+    <div class="file-drop" id="drop-parents"><input type="file" id="file-parents" accept=".csv" /><div id="drop-parents-text"><strong>Drop ParentRelationships CSV (optional)</strong><span class="hint">Columns: repositoryPath, parentGroupId, parentArtifactId</span></div></div>
+  </div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field">
+      <label for="repo-filter">Repository filter (comma-separated, case-insensitive)</label>
+      <input type="text" id="repo-filter" placeholder="optional" />
+    </div>
+    <button id="run" disabled>Compute waves</button>
+    <button class="secondary" id="skip-parents">I don't have a parents CSV</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="summary-card">
+  <h2 style="margin:0 0 10px; font-size: 16px;" id="summary-title">Release waves</h2>
+  <div class="summary-tiles" id="summary"></div>
+</div>
+
+<div class="card hidden" id="waves-card">
+  <div id="waves"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+let coords = null, deps = null, parents = null, parentsProvided = false;
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+
+function maybeEnable() {
+  runBtn.disabled = !(coords && deps);
+  if (coords && deps) {
+    statusEl.textContent = `Ready. ${coords.length} coordinate rows, ${deps.length} dependency rows${parentsProvided ? `, ${parents.length} parent rows` : ', no parent CSV'}.`;
+  }
+}
+
+wireFileDrop({ dropId: 'drop-coords', inputId: 'file-coords', dropTextId: 'drop-coords-text', onRows: rows => { coords = rows; maybeEnable(); } });
+wireFileDrop({ dropId: 'drop-deps', inputId: 'file-deps', dropTextId: 'drop-deps-text', onRows: rows => { deps = rows; maybeEnable(); } });
+wireFileDrop({ dropId: 'drop-parents', inputId: 'file-parents', dropTextId: 'drop-parents-text', onRows: rows => { parents = rows; parentsProvided = true; maybeEnable(); } });
+document.getElementById('skip-parents').addEventListener('click', () => {
+  parents = []; parentsProvided = false;
+  document.getElementById('drop-parents-text').innerHTML = '<strong>No parents CSV</strong><span class="hint">Continuing without parent edges.</span>';
+  maybeEnable();
+});
+
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+runBtn.addEventListener('click', () => {
+  if (!coords || !deps) return;
+  const filterStr = document.getElementById('repo-filter').value;
+  const coordsF = coords.filter(r => matchesRepoFilter(r.repositoryPath, filterStr));
+  const depsF = deps.filter(r => matchesRepoFilter(r.repositoryPath, filterStr));
+  const parentsF = (parents || []).filter(r => matchesRepoFilter(r.repositoryPath, filterStr));
+
+  if (coordsF.length === 0) {
+    statusEl.innerHTML = '<span class="error">No project coordinate rows after filter.</span>';
+    return;
+  }
+
+  const { nodes, edges } = buildReleaseGraph(coordsF, depsF, parentsF);
+  const { waves, circular } = computeReleaseWaves(nodes, edges.map(([u, v]) => [u, v]));
+  const totalModules = nodes.length;
+  const releasable = waves.reduce((s, w) => s + w.length, 0);
+
+  const inDeg = new Map(nodes.map(n => [n, 0]));
+  const outDeg = new Map(nodes.map(n => [n, 0]));
+  for (const [u, v] of edges) { outDeg.set(u, outDeg.get(u) + 1); inDeg.set(v, inDeg.get(v) + 1); }
+
+  document.getElementById('summary-title').textContent = `Release Waves — ${releasable} of ${totalModules} modules in ${waves.length} waves${circular.length ? ` (+ ${circular.length} circular)` : ''}`;
+  document.getElementById('summary').innerHTML = [
+    ['Modules', totalModules],
+    ['Releasable', releasable],
+    ['Waves', waves.length],
+    ['Circular', circular.length]
+  ].map(([l, v]) => `<div class="stat"><div class="label">${l}</div><div class="value">${v}</div></div>`).join('');
+  document.getElementById('summary-card').classList.remove('hidden');
+
+  const html = [];
+  waves.forEach((wave, i) => {
+    const sorted = [...wave].sort();
+    html.push(`<details class="wave"${i === 0 ? ' open' : ''}><summary>Wave ${i} (${wave.length} modules)</summary><table><tbody>`);
+    for (const r of sorted) {
+      html.push(`<tr><td class="name">${esc(shortRepo(r))}</td><td class="count">↓ ${inDeg.get(r)} · ↑ ${outDeg.get(r)}</td></tr>`);
+    }
+    html.push('</tbody></table></details>');
+  });
+  if (circular.length) {
+    html.push(`<details class="wave circular"><summary>Circular (${circular.length} modules)</summary><table><tbody>`);
+    for (const r of circular) {
+      html.push(`<tr><td class="name">${esc(shortRepo(r))}</td><td class="count">↓ ${inDeg.get(r)} · ↑ ${outDeg.get(r)}</td></tr>`);
+    }
+    html.push('</tbody></table></details>');
+  }
+  document.getElementById('waves').innerHTML = html.join('');
+  document.getElementById('waves-card').classList.remove('hidden');
+  statusEl.textContent = `Computed ${waves.length} waves covering ${releasable} modules.`;
+});
+</script>
+</body>
+</html>

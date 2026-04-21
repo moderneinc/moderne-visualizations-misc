@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Test Gap Risk Heatmap</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Test gap risk heatmap</h1>
+  <p class="sub">Drop a TestGaps CSV to see each repository's untested methods bucketed by risk score (0-25 Low, 25-50 Medium, 50-75 High, 75-100 Critical).</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop">
+    <input type="file" id="file" accept=".csv" />
+    <div id="drop-text">
+      <strong>Drop a CSV here</strong> or click to choose a file.<br>
+      <span style="color:#606770; font-size: 13px;">Expected columns: repositoryPath, riskScore</span>
+    </div>
+  </div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field"><label for="repo-filter">Repository filter</label><input type="text" id="repo-filter" placeholder="comma-separated" /></div>
+    <div class="field"><label for="top-n">Top N repositories</label><input type="number" id="top-n" value="30" min="1" max="200" /></div>
+    <button id="run" disabled>Generate chart</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header"><h2 id="chart-title">Test Gap Risk Heatmap</h2><button class="secondary" id="download">Download HTML</button></div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+const LABELS = ['Low', 'Medium', 'High', 'Critical'];
+const BINS = [0, 25, 50, 75, 100];
+let loadedRows = null;
+const runBtn = document.getElementById('run'), statusEl = document.getElementById('status');
+
+wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows; runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
+
+function bucketFor(score) {
+  if (score <= BINS[1]) return LABELS[0];
+  if (score <= BINS[2]) return LABELS[1];
+  if (score <= BINS[3]) return LABELS[2];
+  return LABELS[3];
+}
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const filterStr = document.getElementById('repo-filter').value;
+  const topN = Math.max(1, parseInt(document.getElementById('top-n').value, 10) || 30);
+
+  const rows = loadedRows
+    .filter(r => matchesRepoFilter(r.repositoryPath, filterStr))
+    .map(r => ({ repoShort: shortRepo(r.repositoryPath), bucket: bucketFor(parseNum(r.riskScore)) }));
+  if (rows.length === 0) { statusEl.innerHTML = '<span class="error">No rows remain after filter.</span>'; document.getElementById('chart-card').classList.add('hidden'); return; }
+
+  const repoTotals = new Map();
+  for (const r of rows) repoTotals.set(r.repoShort, (repoTotals.get(r.repoShort) || 0) + 1);
+  const topRepos = [...repoTotals.entries()].sort((a, b) => b[1] - a[1]).slice(0, topN).map(e => e[0]);
+  const topSet = new Set(topRepos);
+  const filtered = rows.filter(r => topSet.has(r.repoShort));
+
+  const pivot = Object.fromEntries(topRepos.map(repo => [repo, Object.fromEntries(LABELS.map(l => [l, 0]))]));
+  for (const r of filtered) pivot[r.repoShort][r.bucket] += 1;
+  const z = topRepos.map(repo => LABELS.map(l => pivot[repo][l]));
+  const text = z.map(row => row.map(v => String(v)));
+
+  const title = `Test Gap Risk Heatmap (top ${topRepos.length} repositories)`;
+  document.getElementById('chart-title').textContent = title;
+  document.getElementById('chart-card').classList.remove('hidden');
+  Plotly.newPlot('chart', [{
+    type: 'heatmap', z, x: LABELS, y: topRepos, text, texttemplate: '%{text}',
+    colorscale: [[0, '#E8F5E9'], [0.33, '#FFE082'], [0.66, '#FF8A65'], [1, '#EF5350']],
+    colorbar: { title: { text: 'Gap count' } },
+    hovertemplate: '<b>%{y}</b><br>Risk: %{x}<br>Count: %{text}<extra></extra>'
+  }], {
+    title: { text: title, font: { size: 18 } },
+    xaxis: { title: 'Risk level' }, yaxis: { title: '', autorange: 'reversed', automargin: true },
+    height: Math.max(500, topRepos.length * 28 + 150),
+    margin: { l: 220, r: 50, t: 60, b: 60 }
+  }, { responsive: true });
+
+  statusEl.textContent = `Rendered ${filtered.length.toLocaleString()} test gaps across ${topRepos.length} repositories.`;
+});
+
+document.getElementById('download').addEventListener('click', () => downloadStandaloneChart('chart', 'test_gap_risk_heatmap.html'));
+</script>
+</body>
+</html>

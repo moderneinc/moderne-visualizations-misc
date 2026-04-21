@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Test Quality Treemap</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Test quality treemap</h1>
+  <p class="sub">Drop a TestQualityIssues CSV to render a treemap of repositories &rarr; classes &rarr; issue types, colored by severity.</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop">
+    <input type="file" id="file" accept=".csv" />
+    <div id="drop-text">
+      <strong>Drop a CSV here</strong> or click to choose a file.<br>
+      <span style="color:#606770; font-size: 13px;">Expected columns: repositoryPath, className, issueType, severity</span>
+    </div>
+  </div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field">
+      <label for="repo-filter">Repository filter (comma-separated, case-insensitive)</label>
+      <input type="text" id="repo-filter" placeholder="e.g. acme" />
+    </div>
+    <div class="field">
+      <label for="top-n">Top N repositories</label>
+      <input type="number" id="top-n" value="20" min="1" max="100" />
+    </div>
+    <button id="run" disabled>Generate chart</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header">
+    <h2 id="chart-title">Test Quality Issue Treemap</h2>
+    <button class="secondary" id="download">Download HTML</button>
+  </div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+const SEV_RANK = { low: 1, medium: 2, high: 3 };
+const SEV_COLORSCALE = [[0.0, '#4CAF50'], [0.5, '#FFE082'], [1.0, '#EF5350']];
+
+let loadedRows = null;
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+
+wireFileDrop({
+  dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
+  onRows: (rows) => {
+    loadedRows = rows;
+    runBtn.disabled = false;
+    statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
+  }
+});
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const filterStr = document.getElementById('repo-filter').value;
+  const topN = Math.max(1, parseInt(document.getElementById('top-n').value, 10) || 20);
+
+  const rows = loadedRows
+    .filter(r => matchesRepoFilter(r.repositoryPath, filterStr))
+    .filter(r => r.className && r.issueType)
+    .map(r => ({
+      repoShort: shortRepo(r.repositoryPath),
+      classShort: shortClass(r.className),
+      issueType: r.issueType,
+      sev: String(r.severity || '').toLowerCase()
+    }));
+  if (rows.length === 0) {
+    statusEl.innerHTML = '<span class="error">No rows remain after filter.</span>';
+    document.getElementById('chart-card').classList.add('hidden');
+    return;
+  }
+
+  const repoTotals = new Map();
+  for (const r of rows) repoTotals.set(r.repoShort, (repoTotals.get(r.repoShort) || 0) + 1);
+  const totalRepos = repoTotals.size;
+  const topRepos = new Set([...repoTotals.entries()].sort((a, b) => b[1] - a[1]).slice(0, topN).map(e => e[0]));
+  const elided = totalRepos - topRepos.size;
+  const filtered = rows.filter(r => topRepos.has(r.repoShort));
+
+  // Group by (repoShort, classShort, issueType): count + max severity rank
+  const agg = new Map();
+  for (const r of filtered) {
+    const k = `${r.repoShort}\u0001${r.classShort}\u0001${r.issueType}`;
+    const cur = agg.get(k) || { repoShort: r.repoShort, classShort: r.classShort, issueType: r.issueType, count: 0, sevMax: 0 };
+    cur.count += 1;
+    cur.sevMax = Math.max(cur.sevMax, SEV_RANK[r.sev] || 0);
+    agg.set(k, cur);
+  }
+  const leaves = [...agg.values()];
+
+  // Build treemap: repo > class > issue
+  const nodes = new Map();
+  const upsert = (id, label, parent, value, sev) => {
+    const n = nodes.get(id) || { id, label, parent, value: 0, sevSum: 0, sevCount: 0 };
+    n.value += value;
+    if (sev > 0) { n.sevSum += sev * value; n.sevCount += value; }
+    nodes.set(id, n);
+  };
+  for (const l of leaves) {
+    const repoId = l.repoShort;
+    const classId = `${repoId}\u0001${l.classShort}`;
+    const issueId = `${classId}\u0001${l.issueType}`;
+    upsert(repoId, l.repoShort, '', l.count, l.sevMax);
+    upsert(classId, l.classShort, repoId, l.count, l.sevMax);
+    upsert(issueId, l.issueType, classId, l.count, l.sevMax);
+  }
+  const list = [...nodes.values()];
+
+  const title = 'Test Quality Issue Treemap';
+  document.getElementById('chart-title').textContent = title;
+  document.getElementById('chart-card').classList.remove('hidden');
+
+  const annotations = [];
+  if (elided > 0) {
+    annotations.push({
+      xref: 'paper', yref: 'paper', x: 0.5, y: -0.08,
+      text: `Showing top ${topRepos.size} of ${totalRepos} repositories. ${elided} additional repositories with issues not shown.`,
+      showarrow: false, font: { size: 11, color: '#888' }
+    });
+  }
+
+  Plotly.newPlot('chart', [{
+    type: 'treemap',
+    ids: list.map(n => n.id),
+    labels: list.map(n => n.label),
+    parents: list.map(n => n.parent),
+    values: list.map(n => n.value),
+    branchvalues: 'total',
+    marker: {
+      colors: list.map(n => n.sevCount > 0 ? n.sevSum / n.sevCount : 1),
+      colorscale: SEV_COLORSCALE,
+      cmin: 1, cmax: 3,
+      colorbar: { title: { text: 'Severity' }, tickvals: [1, 2, 3], ticktext: ['low', 'medium', 'high'] }
+    },
+    hovertemplate: '<b>%{label}</b><br>Count: %{value}<extra></extra>'
+  }], {
+    title: { text: title, font: { size: 18 } },
+    height: 700,
+    margin: { l: 20, r: 20, t: 60, b: 60 },
+    annotations
+  }, { responsive: true });
+
+  statusEl.textContent = `Rendered ${filtered.length.toLocaleString()} issues in ${topRepos.size} repositories.`;
+});
+
+document.getElementById('download').addEventListener('click', () => {
+  downloadStandaloneChart('chart', 'test_quality_treemap.html');
+});
+</script>
+</body>
+</html>

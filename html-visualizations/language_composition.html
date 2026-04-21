@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Language Composition Treemap</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Language composition</h1>
+  <p class="sub">Drop a language-composition CSV to render a treemap of languages and file types.</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop">
+    <input type="file" id="file" accept=".csv" />
+    <div id="drop-text">
+      <strong>Drop a CSV here</strong> or click to choose a file.<br>
+      <span style="color:#606770; font-size: 13px;">Expected columns: language, sourcePath, linesOfText, hasParseFailures</span>
+    </div>
+  </div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field">
+      <label for="unit">Unit</label>
+      <select id="unit">
+        <option value="files">Files</option>
+        <option value="linesOfText">Lines of text</option>
+      </select>
+    </div>
+    <button id="run" disabled>Generate chart</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="summary-card">
+  <h2 style="margin:0 0 10px; font-size: 16px;">Summary</h2>
+  <div class="summary" id="summary"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header">
+    <h2 id="chart-title">Language Composition</h2>
+    <button class="secondary" id="download">Download HTML</button>
+  </div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+const PALETTE = [
+  '#2E86AB', '#A23B72', '#F18F01', '#C73E1D', '#3B8686',
+  '#79BD8F', '#A8DBA8', '#CFF09E', '#FF6B6B', '#4ECDC4',
+  '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE'
+];
+
+let loadedRows = null;
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+
+wireFileDrop({
+  dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
+  onRows: (rows) => {
+    loadedRows = rows;
+    runBtn.disabled = false;
+    statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
+  }
+});
+
+function fileTypeOf(path) {
+  const s = String(path || '');
+  const dot = s.lastIndexOf('.');
+  return dot < 0 ? '' : s.slice(dot + 1);
+}
+
+// Re-map the "Plain text" language by file extension (matches the Python notebook)
+function remapLanguage(row, fileType) {
+  if (row.language !== 'Plain text') return row.language;
+  if (['ts', 'tsx'].includes(fileType)) return 'Typescript';
+  if (['js', 'jsx'].includes(fileType)) return 'Javascript';
+  if (['kts'].includes(fileType)) return 'Kotlin';
+  return row.language;
+}
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const unit = document.getElementById('unit').value;
+
+  const enriched = loadedRows.map(r => {
+    const ft = fileTypeOf(r.sourcePath);
+    const lang = remapLanguage(r, ft);
+    return {
+      language: lang || '(unknown)',
+      fileType: ft || '(none)',
+      linesOfText: parseNum(r.linesOfText),
+      hasParseFailures: String(r.hasParseFailures).toLowerCase() === 'true'
+    };
+  });
+
+  // Summary stats
+  const total = enriched.length;
+  const unparseable = enriched.filter(r => r.language === 'Other/unknown/unparseable').length;
+  const javaUnparseable = enriched.filter(r => r.language === 'Other/unknown/unparseable' && r.fileType === 'java').length;
+  const parseFails = enriched.filter(r => r.hasParseFailures).length;
+  const javaParseFails = enriched.filter(r => r.hasParseFailures && r.fileType === 'java').length;
+
+  renderSummary([
+    ['Files', total.toLocaleString()],
+    ['Languages', new Set(enriched.map(r => r.language)).size.toLocaleString()],
+    ['File types', new Set(enriched.map(r => r.fileType)).size.toLocaleString()],
+    ['Unparseable', unparseable.toLocaleString()],
+    ['Java unparseable', javaUnparseable.toLocaleString()],
+    ['Parse failures', parseFails.toLocaleString()],
+    ['Java parse failures', javaParseFails.toLocaleString()]
+  ]);
+  document.getElementById('summary-card').classList.remove('hidden');
+
+  // Group by (language, fileType) summing the chosen measure
+  const key = (r) => `${r.language}\u0001${r.fileType}`;
+  const agg = new Map();
+  for (const r of enriched) {
+    const k = key(r);
+    const cur = agg.get(k) || { language: r.language, fileType: r.fileType, value: 0 };
+    cur.value += (unit === 'files' ? 1 : r.linesOfText);
+    agg.set(k, cur);
+  }
+  const rows = [...agg.values()].filter(r => r.value > 0);
+
+  // Build treemap ids/parents/values (two-level hierarchy: language > fileType)
+  const languages = [...new Set(rows.map(r => r.language))];
+  const langColor = {};
+  languages.forEach((l, i) => { langColor[l] = PALETTE[i % PALETTE.length]; });
+
+  const ids = [], labels = [], parents = [], values = [], colors = [];
+  // language-level nodes
+  for (const lang of languages) {
+    const sum = rows.filter(r => r.language === lang).reduce((a, b) => a + b.value, 0);
+    ids.push(lang);
+    labels.push(lang);
+    parents.push('');
+    values.push(sum);
+    colors.push(langColor[lang]);
+  }
+  // fileType-level nodes
+  for (const r of rows) {
+    ids.push(`${r.language}/${r.fileType}`);
+    labels.push(r.fileType);
+    parents.push(r.language);
+    values.push(r.value);
+    colors.push(langColor[r.language]);
+  }
+
+  const title = `Language composition by ${unit === 'files' ? 'files' : 'lines of text'}`;
+  document.getElementById('chart-title').textContent = title;
+  document.getElementById('chart-card').classList.remove('hidden');
+
+  Plotly.newPlot('chart', [{
+    type: 'treemap',
+    ids, labels, parents, values,
+    branchvalues: 'total',
+    marker: { colors, cornerradius: 3 },
+    textinfo: 'label+value+percent parent',
+    hovertemplate: '<b>%{label}</b><br>%{value:,}<br>%{percentParent} of %{parent}<extra></extra>'
+  }], {
+    title: { text: title, font: { size: 18 } },
+    margin: { t: 50, l: 0, r: 0, b: 0 },
+    height: 700
+  }, { responsive: true });
+
+  statusEl.textContent = 'Rendered.';
+});
+
+function renderSummary(stats) {
+  document.getElementById('summary').innerHTML = stats
+    .map(([l, v]) => `<div class="stat"><div class="label">${l}</div><div class="value">${v}</div></div>`)
+    .join('');
+}
+
+document.getElementById('download').addEventListener('click', () => {
+  downloadStandaloneChart('chart', 'language_composition.html');
+});
+</script>
+</body>
+</html>

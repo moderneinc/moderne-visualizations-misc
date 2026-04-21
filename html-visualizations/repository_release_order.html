@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Repository Release Order</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<style>
+  pre.order {
+    background: #f6f8fa; border: 1px solid #e4e6eb; border-radius: 6px;
+    padding: 12px; overflow: auto; font-size: 12px; max-height: 400px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Repository release order</h1>
+  <p class="sub">Drop a DependenciesInUse CSV to infer inter-repository dependencies and compute a safe release order (network / hierarchy / matrix view).</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop">
+    <input type="file" id="file" accept=".csv" />
+    <div id="drop-text">
+      <strong>Drop a CSV here</strong> or click to choose a file.<br>
+      <span style="color:#606770; font-size: 13px;">Expected columns: repositoryOrigin, repositoryPath, projectName, groupId, artifactId</span>
+    </div>
+  </div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field">
+      <label for="gid-filter">Group ID prefix filter</label>
+      <input type="text" id="gid-filter" placeholder="e.g. org.openrewrite" />
+    </div>
+    <div class="field">
+      <label for="viz-type">Visualization</label>
+      <select id="viz-type">
+        <option value="network">Network</option>
+        <option value="hierarchy">Hierarchy (Sankey)</option>
+        <option value="matrix">Matrix (heatmap)</option>
+      </select>
+    </div>
+    <button id="run" disabled>Generate chart</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header">
+    <h2 id="chart-title">Repository Dependency Network</h2>
+    <button class="secondary" id="download">Download HTML</button>
+  </div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<div class="card hidden" id="order-card">
+  <h2 style="margin:0 0 10px; font-size: 16px;">Suggested release order</h2>
+  <p class="sub" id="order-note"></p>
+  <pre class="order" id="order"></pre>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+let loadedRows = null;
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+
+wireFileDrop({
+  dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
+  onRows: (rows) => {
+    loadedRows = rows;
+    runBtn.disabled = false;
+    statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
+  }
+});
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const gidFilter = document.getElementById('gid-filter').value.trim();
+  const viz = document.getElementById('viz-type').value;
+
+  let rows = loadedRows.slice();
+  rows.forEach(r => { r._repo = `${r.repositoryOrigin}/${r.repositoryPath}`; });
+  if (gidFilter) rows = rows.filter(r => String(r.groupId || '').startsWith(gidFilter));
+
+  // Map groupId:artifactId -> producer repo (only where projectName is set)
+  const artifactToRepo = new Map();
+  for (const r of rows) {
+    const key = `${r.groupId}:${r.artifactId}`;
+    if (r.projectName && !artifactToRepo.has(key)) artifactToRepo.set(key, r._repo);
+  }
+
+  // Build repo-level edges
+  const edgeWeights = new Map();
+  for (const dep of rows) {
+    const key = `${dep.groupId}:${dep.artifactId}`;
+    const producer = artifactToRepo.get(key);
+    if (!producer || producer === dep._repo) continue;
+    const ek = `${producer}\u0001${dep._repo}`;
+    edgeWeights.set(ek, (edgeWeights.get(ek) || 0) + 1);
+  }
+
+  const nodeSet = new Set();
+  const edges = [];
+  for (const [ek, w] of edgeWeights) {
+    const [u, v] = ek.split('\u0001');
+    nodeSet.add(u); nodeSet.add(v);
+    edges.push([u, v, w]);
+  }
+  const nodes = [...nodeSet];
+
+  if (nodes.length === 0) {
+    statusEl.innerHTML = '<span class="error">No inter-repository dependencies found. Check that projectName is populated and groupId:artifactId match repositories.</span>';
+    document.getElementById('chart-card').classList.add('hidden');
+    document.getElementById('order-card').classList.add('hidden');
+    return;
+  }
+
+  const topo = topologicalSort(nodes, edges.map(([u, v]) => [u, v]));
+  const releaseOrder = topo.order;
+  const hasCycles = topo.cycles.length > 0;
+
+  // Compute release tiers (max predecessor tier + 1)
+  const inEdgesByNode = new Map(nodes.map(id => [id, []]));
+  const outEdgesByNode = new Map(nodes.map(id => [id, []]));
+  for (const [u, v, w] of edges) {
+    outEdgesByNode.get(u).push([v, w]);
+    inEdgesByNode.get(v).push([u, w]);
+  }
+  const tiers = new Map();
+  for (const n of releaseOrder) {
+    const preds = inEdgesByNode.get(n).map(([p]) => p).filter(p => tiers.has(p));
+    const tier = preds.length ? Math.max(...preds.map(p => tiers.get(p))) + 1 : 0;
+    tiers.set(n, tier);
+  }
+
+  let trace, layout;
+  if (viz === 'network') {
+    const pos = computeSpringLayout(nodes, edges.map(([u, v]) => [u, v]), { iterations: 120, k: 0.2 });
+    const edgeTraces = edges.map(([u, v, w]) => ({
+      type: 'scatter', mode: 'lines',
+      x: [pos.get(u).x, pos.get(v).x],
+      y: [pos.get(u).y, pos.get(v).y],
+      line: { width: Math.min(Math.max(w * 0.5, 0.5), 6), color: 'rgba(125,125,125,0.5)' },
+      hoverinfo: 'text', text: `${u} → ${v} (${w} deps)`, showlegend: false
+    }));
+    const nodeTrace = {
+      type: 'scatter', mode: 'markers+text',
+      x: nodes.map(n => pos.get(n).x),
+      y: nodes.map(n => pos.get(n).y),
+      text: nodes.map(n => n.split('/').pop()),
+      textposition: 'top center',
+      hovertext: nodes.map(n =>
+        `<b>${n}</b><br>Tier: ${(tiers.get(n) ?? 0) + 1}<br>Depends on: ${inEdgesByNode.get(n).length}<br>Required by: ${outEdgesByNode.get(n).length}`
+      ),
+      hoverinfo: 'text',
+      marker: {
+        size: 20,
+        color: nodes.map(n => tiers.get(n) ?? 0),
+        colorscale: 'Viridis',
+        showscale: true,
+        colorbar: { title: { text: 'Release<br>tier' }, thickness: 15, len: 0.7 },
+        line: { width: 2, color: 'white' }
+      },
+      showlegend: false
+    };
+    const title = 'Repository Dependency Network & Release Order' + (hasCycles ? ' (⚠ circular dependencies detected)' : '');
+    document.getElementById('chart-title').textContent = title;
+    Plotly.newPlot('chart', [...edgeTraces, nodeTrace], {
+      title: { text: title, font: { size: 16 } },
+      xaxis: { visible: false, range: [-1.2, 1.2] },
+      yaxis: { visible: false, range: [-1.2, 1.2] },
+      margin: { l: 10, r: 10, t: 60, b: 10 },
+      plot_bgcolor: 'white',
+      height: 700, hovermode: 'closest'
+    }, { responsive: true });
+  } else if (viz === 'hierarchy') {
+    const tierGroups = new Map();
+    for (const [n, t] of tiers) {
+      if (!tierGroups.has(t)) tierGroups.set(t, []);
+      tierGroups.get(t).push(n);
+    }
+    const nodeOrder = [];
+    [...tierGroups.keys()].sort((a, b) => a - b).forEach(t => {
+      tierGroups.get(t).forEach(n => nodeOrder.push([t, n]));
+    });
+    const nodeIdx = new Map(nodeOrder.map(([, n], i) => [n, i]));
+    const labels = nodeOrder.map(([t, n]) => `Tier ${t + 1}: ${n.split('/').pop()}`);
+    const source = [], target = [], value = [];
+    for (const [u, v, w] of edges) {
+      if (nodeIdx.has(u) && nodeIdx.has(v)) {
+        source.push(nodeIdx.get(u)); target.push(nodeIdx.get(v)); value.push(w);
+      }
+    }
+    document.getElementById('chart-title').textContent = 'Repository Release Tiers';
+    Plotly.newPlot('chart', [{
+      type: 'sankey',
+      node: { pad: 15, thickness: 20, line: { color: 'black', width: 0.5 }, label: labels },
+      link: { source, target, value }
+    }], {
+      title: { text: 'Repository Release Tiers', font: { size: 16 } },
+      font: { size: 10 },
+      height: Math.max(500, nodeOrder.length * 12 + 200),
+      margin: { l: 10, r: 10, t: 60, b: 10 }
+    }, { responsive: true });
+  } else {
+    // matrix
+    const sorted = nodes.slice().sort();
+    const edgeMap = new Map(edges.map(([u, v, w]) => [`${u}\u0001${v}`, w]));
+    const matrix = sorted.map(tgt => sorted.map(src => edgeMap.get(`${src}\u0001${tgt}`) || 0));
+    const text = matrix.map(row => row.map(v => v > 0 ? String(v) : ''));
+    document.getElementById('chart-title').textContent = 'Repository Dependency Matrix';
+    Plotly.newPlot('chart', [{
+      type: 'heatmap',
+      z: matrix,
+      x: sorted.map(r => r.split('/').pop()),
+      y: sorted.map(r => r.split('/').pop()),
+      text, texttemplate: '%{text}', textfont: { size: 10 },
+      colorscale: 'Blues',
+      hovertemplate: '%{y} depends on %{x}<br>Dependencies: %{z}<extra></extra>'
+    }], {
+      title: { text: 'Repository Dependency Matrix', font: { size: 16 } },
+      xaxis: { title: 'Dependency (producer)', side: 'bottom', automargin: true, tickangle: -45 },
+      yaxis: { title: 'Dependent (consumer)', autorange: 'reversed', automargin: true },
+      height: Math.max(500, sorted.length * 22 + 200),
+      margin: { l: 180, r: 20, t: 60, b: 180 }
+    }, { responsive: true });
+  }
+  document.getElementById('chart-card').classList.remove('hidden');
+
+  // Release order sidebar
+  let orderText = releaseOrder.map((r, i) => `${i + 1}. ${r}`).join('\n');
+  orderText += '\n\nCOMMA-SEPARATED:\n' + releaseOrder.join(',');
+  const tierList = [...tiers.entries()].reduce((acc, [n, t]) => {
+    (acc[t] = acc[t] || []).push(n); return acc;
+  }, []);
+  orderText += '\n\nBY TIER:';
+  tierList.forEach((list, t) => {
+    if (!list) return;
+    orderText += `\nTier ${t + 1}: ${list.join(', ')}`;
+  });
+  document.getElementById('order').textContent = orderText;
+  document.getElementById('order-note').textContent = hasCycles
+    ? `⚠ ${topo.cycles.length} node(s) participate in circular dependencies and are listed at the end of the order.`
+    : `Safe release order covers ${releaseOrder.length} repositories.`;
+  document.getElementById('order-card').classList.remove('hidden');
+  statusEl.textContent = `Rendered ${nodes.length} repositories with ${edges.length} inter-repo dependency edges.`;
+});
+
+document.getElementById('download').addEventListener('click', () => {
+  downloadStandaloneChart('chart', 'repository_release_order.html');
+});
+</script>
+</body>
+</html>

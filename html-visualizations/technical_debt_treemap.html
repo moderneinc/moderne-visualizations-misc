@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Technical Debt Hotspot Treemap</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Technical debt hotspot treemap</h1>
+  <p class="sub">Drop a method-quality-metrics CSV to surface the top methods by weighted debt score (cyclomatic + cognitive complexity, nesting, Halstead bug estimate).</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop">
+    <input type="file" id="file" accept=".csv" />
+    <div id="drop-text">
+      <strong>Drop a CSV here</strong> or click to choose a file.<br>
+      <span style="color:#606770; font-size: 13px;">Expected columns: repositoryPath, className, methodName, sourcePath, cyclomaticComplexity, cognitiveComplexity, maxNestingDepth, halsteadEstimatedBugs, lineCount</span>
+    </div>
+  </div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field">
+      <label for="repo-filter">Repository filter (comma-separated, case-insensitive)</label>
+      <input type="text" id="repo-filter" placeholder="e.g. spring,netflix" />
+    </div>
+    <div class="field">
+      <label for="top-n">Top N methods by debt score</label>
+      <input type="number" id="top-n" value="200" min="10" max="2000" />
+    </div>
+    <button id="run" disabled>Generate chart</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="summary-card">
+  <h2 style="margin:0 0 10px; font-size: 16px;">Top hotspots</h2>
+  <div class="summary" id="summary"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header">
+    <h2 id="chart-title">Technical Debt Treemap</h2>
+    <button class="secondary" id="download">Download HTML</button>
+  </div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+// Weights match the compute_debt_score function in reusable/quality_utils.py.
+const DEBT_WEIGHTS = {
+  cyclomaticComplexity: 0.4,
+  cognitiveComplexity: 0.3,
+  maxNestingDepth: 0.2,
+  halsteadEstimatedBugs: 0.1
+};
+
+// Reversed HEALTH_COLORSCALE (green = low debt, red = high debt)
+const DEBT_COLORSCALE = [
+  [0.0, '#4CAF50'], [0.25, '#A5D6A7'], [0.5, '#FFE082'],
+  [0.75, '#FF8A65'], [1.0, '#EF5350']
+];
+
+let loadedRows = null;
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+
+wireFileDrop({
+  dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
+  onRows: (rows) => {
+    loadedRows = rows;
+    runBtn.disabled = false;
+    statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
+  }
+});
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const filterStr = document.getElementById('repo-filter').value;
+  const topN = Math.max(10, parseInt(document.getElementById('top-n').value, 10) || 200);
+
+  const enriched = loadedRows
+    .filter(r => matchesRepoFilter(r.repositoryPath, filterStr))
+    .map(r => ({
+      raw: r,
+      repoShort: shortRepo(r.repositoryPath),
+      classShort: shortClass(r.className),
+      methodName: r.methodName || '',
+      sourcePath: r.sourcePath || '',
+      lineCount: Math.max(1, parseNum(r.lineCount)),
+      cyclomaticComplexity: parseNum(r.cyclomaticComplexity),
+      cognitiveComplexity: parseNum(r.cognitiveComplexity),
+      maxNestingDepth: parseNum(r.maxNestingDepth),
+      halsteadEstimatedBugs: parseNum(r.halsteadEstimatedBugs)
+    }));
+
+  if (enriched.length === 0) {
+    statusEl.innerHTML = '<span class="error">No rows match the filter.</span>';
+    document.getElementById('chart-card').classList.add('hidden');
+    document.getElementById('summary-card').classList.add('hidden');
+    return;
+  }
+
+  // Per-column max for normalization
+  const maxes = {};
+  for (const col of Object.keys(DEBT_WEIGHTS)) {
+    maxes[col] = Math.max(...enriched.map(r => r[col]));
+  }
+  enriched.forEach(r => {
+    let s = 0;
+    for (const [col, w] of Object.entries(DEBT_WEIGHTS)) {
+      if (maxes[col] > 0) s += w * (r[col] / maxes[col]);
+    }
+    r.debtScore = s;
+  });
+
+  enriched.sort((a, b) => b.debtScore - a.debtScore);
+  const top = enriched.slice(0, Math.min(topN, enriched.length))
+    // Fill empty classShort with source file basename, matching the notebook.
+    .map(r => {
+      if (!r.classShort || r.classShort === 'nan') {
+        r.classShort = r.sourcePath ? r.sourcePath.split('/').pop() : '(unknown)';
+      }
+      return r;
+    })
+    .filter(r => r.classShort && r.methodName && r.methodName.trim() !== '');
+
+  // Build treemap nodes: repo > class > method.
+  const nodes = new Map();
+  function upsert(id, label, parent, value, debtSum, debtCount) {
+    const n = nodes.get(id) || { id, label, parent, value: 0, debtSum: 0, debtCount: 0 };
+    n.value += value;
+    n.debtSum += debtSum;
+    n.debtCount += debtCount;
+    nodes.set(id, n);
+  }
+
+  for (const r of top) {
+    const repoId = r.repoShort;
+    const classId = `${repoId}\u0001${r.classShort}`;
+    // Disambiguate identical method names (overloads) with a counter suffix.
+    let methodId = `${classId}\u0001${r.methodName}`;
+    let n = 2;
+    while (nodes.has(methodId)) {
+      methodId = `${classId}\u0001${r.methodName}#${n++}`;
+    }
+    upsert(repoId, r.repoShort, '', r.lineCount, r.debtScore * r.lineCount, r.lineCount);
+    upsert(classId, r.classShort, repoId, r.lineCount, r.debtScore * r.lineCount, r.lineCount);
+    // leaf (method)
+    nodes.set(methodId, {
+      id: methodId, label: r.methodName, parent: classId,
+      value: r.lineCount, debtSum: r.debtScore * r.lineCount, debtCount: r.lineCount,
+      _hover: `Cyclomatic: ${r.cyclomaticComplexity}<br>Cognitive: ${r.cognitiveComplexity}<br>Max nesting: ${r.maxNestingDepth}<br>Est. bugs: ${r.halsteadEstimatedBugs.toFixed(2)}`
+    });
+  }
+
+  const list = [...nodes.values()];
+  const ids = list.map(n => n.id);
+  const labels = list.map(n => n.label);
+  const parents = list.map(n => n.parent);
+  const values = list.map(n => n.value);
+  const colors = list.map(n => n.debtCount > 0 ? n.debtSum / n.debtCount : 0);
+  const hover = list.map(n => n._hover || '');
+
+  // Summary stats
+  const summary = [
+    ['Methods shown', top.length.toLocaleString()],
+    ['Methods total', enriched.length.toLocaleString()],
+    ['Max debt score', top[0]?.debtScore.toFixed(3) || '0'],
+    ['Top repo', top[0]?.repoShort || '(none)'],
+    ['Top method', top[0] ? `${top[0].classShort}::${top[0].methodName}` : '(none)']
+  ];
+  document.getElementById('summary').innerHTML = summary
+    .map(([l, v]) => `<div class="stat"><div class="label">${l}</div><div class="value" style="font-size:14px">${v}</div></div>`)
+    .join('');
+  document.getElementById('summary-card').classList.remove('hidden');
+
+  const title = `Technical Debt Hotspot Treemap (top ${top.length} methods by debt score)`;
+  document.getElementById('chart-title').textContent = title;
+  document.getElementById('chart-card').classList.remove('hidden');
+
+  Plotly.newPlot('chart', [{
+    type: 'treemap',
+    ids, labels, parents, values,
+    branchvalues: 'total',
+    marker: {
+      colors,
+      colorscale: DEBT_COLORSCALE,
+      cmin: 0, cmax: Math.max(0.001, Math.max(...top.map(r => r.debtScore))),
+      colorbar: { title: { text: 'Debt score' }, thickness: 15 },
+      showscale: true,
+      cornerradius: 3
+    },
+    text: hover,
+    customdata: list.map(n => n.debtCount > 0 ? (n.debtSum / n.debtCount).toFixed(3) : '0'),
+    hovertemplate: '<b>%{label}</b><br>Lines: %{value:,}<br>Avg debt score: %{customdata}<br>%{text}<extra></extra>'
+  }], {
+    title: { text: title, font: { size: 18 } },
+    margin: { t: 50, l: 0, r: 0, b: 0 },
+    height: 800
+  }, { responsive: true });
+
+  statusEl.textContent = `Rendered top ${top.length} methods by debt score.`;
+});
+
+document.getElementById('download').addEventListener('click', () => {
+  downloadStandaloneChart('chart', 'technical_debt_treemap.html');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Release Metro Map</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<style>
+  .dropgrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  @media (max-width: 1000px) { .dropgrid { grid-template-columns: 1fr; } }
+  .file-drop .hint { color: #606770; font-size: 12px; display: block; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Release metro map</h1>
+  <p class="sub">Drop three ReleaseMetroPlan CSVs (ProjectCoordinates + DependenciesInUse + ParentRelationships) to render a force-directed map of inter-repo dependency / parent edges, with nodes colored by release wave.</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="dropgrid">
+    <div class="file-drop" id="drop-coords">
+      <input type="file" id="file-coords" accept=".csv" />
+      <div id="drop-coords-text">
+        <strong>Drop ProjectCoordinates CSV</strong>
+        <span class="hint">Columns: repositoryPath, groupId, artifactId</span>
+      </div>
+    </div>
+    <div class="file-drop" id="drop-deps">
+      <input type="file" id="file-deps" accept=".csv" />
+      <div id="drop-deps-text">
+        <strong>Drop DependenciesInUse CSV</strong>
+        <span class="hint">Columns: repositoryPath, groupId, artifactId</span>
+      </div>
+    </div>
+    <div class="file-drop" id="drop-parents">
+      <input type="file" id="file-parents" accept=".csv" />
+      <div id="drop-parents-text">
+        <strong>Drop ParentRelationships CSV (optional)</strong>
+        <span class="hint">Columns: repositoryPath, parentGroupId, parentArtifactId</span>
+      </div>
+    </div>
+  </div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field">
+      <label for="repo-filter">Repository filter (comma-separated, case-insensitive)</label>
+      <input type="text" id="repo-filter" placeholder="optional" />
+    </div>
+    <button id="run" disabled>Generate chart</button>
+    <button class="secondary" id="skip-parents">I don't have a parents CSV</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header">
+    <h2 id="chart-title">Release Metro Map</h2>
+    <button class="secondary" id="download">Download HTML</button>
+  </div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+const PERIWINKLE = '#7C88F0';
+const MAGENTA = '#E054A3';
+const GREEN = '#52BBA0';
+
+let coords = null, deps = null, parents = null, parentsProvided = false;
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+
+function maybeEnable() {
+  runBtn.disabled = !(coords && deps);
+  if (coords && deps) {
+    statusEl.textContent = `Ready. ${coords.length} coordinate rows, ${deps.length} dependency rows${parentsProvided ? `, ${parents.length} parent rows` : ', no parent CSV'}.`;
+  }
+}
+
+wireFileDrop({ dropId: 'drop-coords', inputId: 'file-coords', dropTextId: 'drop-coords-text', onRows: rows => { coords = rows; maybeEnable(); } });
+wireFileDrop({ dropId: 'drop-deps', inputId: 'file-deps', dropTextId: 'drop-deps-text', onRows: rows => { deps = rows; maybeEnable(); } });
+wireFileDrop({ dropId: 'drop-parents', inputId: 'file-parents', dropTextId: 'drop-parents-text', onRows: rows => { parents = rows; parentsProvided = true; maybeEnable(); } });
+document.getElementById('skip-parents').addEventListener('click', () => {
+  parents = []; parentsProvided = false;
+  document.getElementById('drop-parents-text').innerHTML = '<strong>No parents CSV</strong><span class="hint">Continuing without parent edges.</span>';
+  maybeEnable();
+});
+
+runBtn.addEventListener('click', () => {
+  if (!coords || !deps) return;
+  const filterStr = document.getElementById('repo-filter').value;
+  const coordsF = coords.filter(r => matchesRepoFilter(r.repositoryPath, filterStr));
+  const depsF = deps.filter(r => matchesRepoFilter(r.repositoryPath, filterStr));
+  const parentsF = (parents || []).filter(r => matchesRepoFilter(r.repositoryPath, filterStr));
+
+  if (coordsF.length === 0) {
+    statusEl.innerHTML = '<span class="error">No project coordinate rows after filter.</span>';
+    document.getElementById('chart-card').classList.add('hidden');
+    return;
+  }
+
+  const { nodes, edges } = buildReleaseGraph(coordsF, depsF, parentsF);
+  if (nodes.length === 0) {
+    statusEl.innerHTML = '<span class="error">No nodes in graph.</span>';
+    document.getElementById('chart-card').classList.add('hidden');
+    return;
+  }
+
+  const { waves, circular } = computeReleaseWaves(nodes, edges.map(([u, v]) => [u, v]));
+  const nodeWave = new Map();
+  waves.forEach((w, i) => w.forEach(n => nodeWave.set(n, i)));
+  circular.forEach(n => nodeWave.set(n, waves.length));
+
+  const pos = computeSpringLayout(nodes, edges.map(([u, v]) => [u, v]), { iterations: 120, k: 0.2 });
+
+  // Node sizes by degree
+  const inDeg = new Map(nodes.map(n => [n, 0]));
+  const outDeg = new Map(nodes.map(n => [n, 0]));
+  for (const [u, v] of edges) { outDeg.set(u, outDeg.get(u) + 1); inDeg.set(v, inDeg.get(v) + 1); }
+  const nodeSize = n => Math.max(20, 10 + (inDeg.get(n) + outDeg.get(n)) * 3);
+
+  // Edge traces split by type
+  const depXs = [], depYs = [], parXs = [], parYs = [];
+  const arrowAnnotations = [];
+  for (const [u, v, data] of edges) {
+    const a = pos.get(u), b = pos.get(v);
+    const isParent = data.edge_type === 'parent';
+    const arr = isParent ? [parXs, parYs] : [depXs, depYs];
+    arr[0].push(a.x, b.x, null);
+    arr[1].push(a.y, b.y, null);
+    arrowAnnotations.push({
+      ax: a.x, ay: a.y, x: b.x, y: b.y,
+      xref: 'x', yref: 'y', axref: 'x', ayref: 'y',
+      showarrow: true, arrowhead: 2, arrowsize: 1.5, arrowwidth: 1.5,
+      arrowcolor: isParent ? MAGENTA : PERIWINKLE, opacity: 0.7,
+      standoff: nodeSize(v) / 2 + 2, startstandoff: nodeSize(u) / 2 + 2
+    });
+  }
+
+  // Legend-only markers
+  const depLegend = { type: 'scatter', mode: 'lines', x: [null], y: [null], line: { width: 2, color: PERIWINKLE }, name: 'Dependency', showlegend: true };
+  const parLegend = { type: 'scatter', mode: 'lines', x: [null], y: [null], line: { width: 2, color: MAGENTA }, name: 'Parent', showlegend: true };
+
+  const nodeTrace = {
+    type: 'scatter', mode: 'markers+text',
+    x: nodes.map(n => pos.get(n).x),
+    y: nodes.map(n => pos.get(n).y),
+    text: nodes.map(n => shortRepo(n)),
+    textposition: 'top center',
+    textfont: { size: 10 },
+    marker: {
+      size: nodes.map(n => nodeSize(n)),
+      color: GREEN,
+      line: { width: 2, color: 'white' }
+    },
+    hoverinfo: 'text',
+    hovertext: nodes.map(n => {
+      const wave = nodeWave.get(n);
+      return `<b>${n}</b><br>Wave: ${wave}<br>Depends on: ${inDeg.get(n)} repos<br>Required by: ${outDeg.get(n)} repos`;
+    }),
+    name: 'Repository', showlegend: true
+  };
+
+  let title = 'Release Metro Map';
+  if (circular.length) title += ` (${circular.length} circular dependencies)`;
+  document.getElementById('chart-title').textContent = title;
+  document.getElementById('chart-card').classList.remove('hidden');
+
+  Plotly.newPlot('chart', [depLegend, parLegend, nodeTrace], {
+    title: { text: title, x: 0.5, xanchor: 'center', font: { size: 16 } },
+    hovermode: 'closest',
+    margin: { b: 40, l: 5, r: 5, t: 60 },
+    xaxis: { showgrid: false, zeroline: false, showticklabels: false, range: [-1.2, 1.2] },
+    yaxis: { showgrid: false, zeroline: false, showticklabels: false, range: [-1.2, 1.2] },
+    plot_bgcolor: 'white',
+    legend: { orientation: 'h', yanchor: 'top', y: -0.02, xanchor: 'center', x: 0.5 },
+    height: 750,
+    annotations: arrowAnnotations
+  }, { responsive: true });
+
+  statusEl.textContent = `Rendered ${nodes.length} repos, ${edges.length} edges, ${waves.length} release waves${circular.length ? ` + ${circular.length} in cycles` : ''}.`;
+});
+
+document.getElementById('download').addEventListener('click', () => {
+  downloadStandaloneChart('chart', 'release_metro_map.html');
+});
+</script>
+</body>
+</html>

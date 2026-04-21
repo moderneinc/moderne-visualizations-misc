@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maven Parent POMs</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Maven parent POMs</h1>
+  <p class="sub">Drop a MavenParentPOMs CSV to see a stacked bar of parent artifactIds split by version.</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop"><input type="file" id="file" accept=".csv" /><div id="drop-text"><strong>Drop a CSV here</strong> or click to choose a file.<br><span style="color:#606770; font-size: 13px;">Expected columns: artifactId, version</span></div></div>
+  <div class="controls" style="margin-top: 16px;"><button id="run" disabled>Generate chart</button></div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header"><h2 id="chart-title">Maven Parent POMs</h2><button class="secondary" id="download">Download HTML</button></div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+const PALETTE = ['#2E86AB','#A23B72','#F18F01','#C73E1D','#3B8686','#79BD8F','#A8DBA8','#CFF09E','#FF6B6B','#4ECDC4','#45B7D1','#FFA07A','#98D8C8','#F7DC6F','#BB8FCE'];
+
+let loadedRows = null;
+const runBtn = document.getElementById('run'), statusEl = document.getElementById('status');
+wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows; runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const rows = loadedRows.filter(r => r.artifactId && r.version !== undefined);
+  if (rows.length === 0) { statusEl.innerHTML = '<span class="error">No rows with artifactId.</span>'; document.getElementById('chart-card').classList.add('hidden'); return; }
+
+  const agg = new Map();
+  for (const r of rows) {
+    const k = `${r.artifactId}\u0001${r.version}`; agg.set(k, (agg.get(k) || 0) + 1);
+  }
+  const artifactTotals = new Map();
+  for (const r of rows) artifactTotals.set(r.artifactId, (artifactTotals.get(r.artifactId) || 0) + 1);
+  const artifacts = [...artifactTotals.entries()].sort((a, b) => b[1] - a[1]).map(e => e[0]);
+  const versions = [...new Set(rows.map(r => String(r.version)))].sort(compareVersions);
+
+  const traces = versions.map((v, i) => ({
+    type: 'bar', name: v,
+    x: artifacts, y: artifacts.map(a => agg.get(`${a}\u0001${v}`) || 0),
+    marker: { color: PALETTE[i % PALETTE.length] },
+    hovertemplate: `<b>%{x}</b><br>Version ${v}<br>Count: %{y}<extra></extra>`
+  }));
+
+  document.getElementById('chart-card').classList.remove('hidden');
+  Plotly.newPlot('chart', traces, {
+    title: { text: `Maven parent POMs (${rows.length.toLocaleString()} entries)`, font: { size: 18 } },
+    xaxis: { title: 'Parent artifactId', tickangle: -45, automargin: true },
+    yaxis: { title: 'Count' },
+    barmode: 'stack', height: 600, margin: { l: 60, r: 30, t: 60, b: 160 }
+  }, { responsive: true });
+
+  statusEl.textContent = `Rendered ${artifacts.length} artifacts × ${versions.length} versions.`;
+});
+
+document.getElementById('download').addEventListener('click', () => downloadStandaloneChart('chart', 'maven_parent_poms.html'));
+</script>
+</body>
+</html>

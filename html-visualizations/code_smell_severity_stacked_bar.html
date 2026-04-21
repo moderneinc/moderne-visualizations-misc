@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Code Smell Severity Stacked Bar</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Code smell distribution by repository</h1>
+  <p class="sub">Drop a code-smells CSV (from the <code>io.moderne.prethink.table.CodeSmells</code> data table) to render a stacked horizontal bar by severity.</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop">
+    <input type="file" id="file" accept=".csv" />
+    <div id="drop-text">
+      <strong>Drop a CSV here</strong> or click to choose a file.<br>
+      <span style="color:#606770; font-size: 13px;">Expected columns: repositoryPath, severity, smellType</span>
+    </div>
+  </div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field">
+      <label for="repo-filter">Repository filter (comma-separated, case-insensitive)</label>
+      <input type="text" id="repo-filter" placeholder="e.g. moderne,spring" />
+    </div>
+    <div class="field">
+      <label for="group-by">Group by</label>
+      <select id="group-by">
+        <option value="repository">Repository</option>
+        <option value="smellType">Smell type</option>
+      </select>
+    </div>
+    <button id="run" disabled>Generate chart</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header">
+    <h2 id="chart-title">Code Smell Severity</h2>
+    <button class="secondary" id="download">Download HTML</button>
+  </div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+const SEVERITY_ORDER = ['LOW', 'MEDIUM', 'HIGH', 'CRITICAL'];
+const SEVERITY_COLORS = {
+  LOW: '#A5D6A7', MEDIUM: '#FFE082', HIGH: '#FF8A65', CRITICAL: '#EF5350'
+};
+
+let loadedRows = null;
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+
+wireFileDrop({
+  dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
+  onRows: (rows) => {
+    loadedRows = rows;
+    runBtn.disabled = false;
+    statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
+  }
+});
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const filterStr = document.getElementById('repo-filter').value;
+  const groupBy = document.getElementById('group-by').value;
+
+  const filtered = loadedRows.filter(r => matchesRepoFilter(r.repositoryPath, filterStr));
+  if (filtered.length === 0) {
+    statusEl.innerHTML = '<span class="error">No rows match the filter.</span>';
+    document.getElementById('chart-card').classList.add('hidden');
+    return;
+  }
+
+  // Annotate with repoShort so the group key is available
+  filtered.forEach(r => { r._repoShort = shortRepo(r.repositoryPath); });
+  const groupKey = groupBy === 'repository' ? '_repoShort' : 'smellType';
+
+  // Totals per group (sorted ascending so largest is at top with autorange reversed)
+  const totals = new Map();
+  filtered.forEach(r => {
+    const k = r[groupKey] || '(unknown)';
+    totals.set(k, (totals.get(k) || 0) + 1);
+  });
+  const orderedGroups = [...totals.entries()]
+    .sort((a, b) => a[1] - b[1])
+    .map(e => e[0]);
+
+  // Counts per (group, severity)
+  const counts = {};
+  SEVERITY_ORDER.forEach(s => { counts[s] = Object.fromEntries(orderedGroups.map(g => [g, 0])); });
+  filtered.forEach(r => {
+    const sev = (r.severity || '').toUpperCase();
+    if (!counts[sev]) return;
+    const g = r[groupKey] || '(unknown)';
+    counts[sev][g] = (counts[sev][g] || 0) + 1;
+  });
+
+  const traces = SEVERITY_ORDER.map(sev => ({
+    type: 'bar',
+    orientation: 'h',
+    name: sev,
+    y: orderedGroups,
+    x: orderedGroups.map(g => counts[sev][g] || 0),
+    marker: { color: SEVERITY_COLORS[sev] },
+    hovertemplate: `<b>%{y}</b><br>${sev}: %{x}<extra></extra>`
+  }));
+
+  const title = 'Code Smell Severity by ' + (groupBy === 'repository' ? 'Repository' : 'Smell Type');
+  const layout = {
+    barmode: 'stack',
+    title: { text: title, font: { size: 18 } },
+    xaxis: { title: 'Count' },
+    yaxis: { title: '', automargin: true },
+    height: Math.max(400, orderedGroups.length * 28 + 120),
+    margin: { l: 220, r: 20, t: 60, b: 50 },
+    legend: { title: { text: 'Severity' } }
+  };
+
+  document.getElementById('chart-card').classList.remove('hidden');
+  document.getElementById('chart-title').textContent = title;
+  Plotly.newPlot('chart', traces, layout, { responsive: true });
+  statusEl.textContent = `Rendered ${filtered.length.toLocaleString()} smells across ${orderedGroups.length} ${groupBy === 'repository' ? 'repositories' : 'smell types'}.`;
+});
+
+document.getElementById('download').addEventListener('click', () => {
+  downloadStandaloneChart('chart', 'code_smell_severity_stacked_bar.html');
+});
+</script>
+</body>
+</html>

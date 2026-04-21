@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Language Composition by Folder</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Language composition by folder</h1>
+  <p class="sub">Drop a LanguageCompositionByFolder CSV to render a treemap of folders &rarr; languages, sized by file count.</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop"><input type="file" id="file" accept=".csv" /><div id="drop-text"><strong>Drop a CSV here</strong> or click to choose a file.<br><span style="color:#606770; font-size: 13px;">Expected columns: folderPath, language, fileCount, lineCount</span></div></div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field"><label for="unit">Unit</label><select id="unit"><option value="fileCount">Files</option><option value="lineCount">Lines</option></select></div>
+    <button id="run" disabled>Generate chart</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header"><h2 id="chart-title">Language Composition by Folder</h2><button class="secondary" id="download">Download HTML</button></div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+const PALETTE = ['#2E86AB','#A23B72','#F18F01','#C73E1D','#3B8686','#79BD8F','#A8DBA8','#CFF09E','#FF6B6B','#4ECDC4','#45B7D1','#FFA07A','#98D8C8','#F7DC6F','#BB8FCE'];
+
+let loadedRows = null;
+const runBtn = document.getElementById('run'), statusEl = document.getElementById('status');
+wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows; runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const unit = document.getElementById('unit').value;
+  const rows = loadedRows.filter(r => r.language && r.folderPath !== undefined);
+  if (rows.length === 0) { statusEl.innerHTML = '<span class="error">No rows after filter.</span>'; document.getElementById('chart-card').classList.add('hidden'); return; }
+
+  const agg = new Map();
+  for (const r of rows) {
+    const folder = String(r.folderPath || '(root)');
+    const k = `${folder}\u0001${r.language}`;
+    const cur = agg.get(k) || { folder, language: r.language, fileCount: 0, lineCount: 0 };
+    cur.fileCount += parseNum(r.fileCount); cur.lineCount += parseNum(r.lineCount);
+    agg.set(k, cur);
+  }
+  const leaves = [...agg.values()].filter(e => e[unit] > 0);
+
+  const folderTotals = new Map();
+  for (const e of leaves) folderTotals.set(e.folder, (folderTotals.get(e.folder) || 0) + e[unit]);
+  const folders = [...folderTotals.keys()];
+  const folderColor = Object.fromEntries(folders.map((f, i) => [f, PALETTE[i % PALETTE.length]]));
+
+  const ids = [], labels = [], parents = [], values = [], colors = [];
+  for (const f of folders) { ids.push(f); labels.push(f || '(root)'); parents.push(''); values.push(folderTotals.get(f)); colors.push(folderColor[f]); }
+  for (const e of leaves) {
+    ids.push(`${e.folder}/${e.language}`); labels.push(e.language);
+    parents.push(e.folder); values.push(e[unit]); colors.push(folderColor[e.folder]);
+  }
+
+  document.getElementById('chart-card').classList.remove('hidden');
+  Plotly.newPlot('chart', [{
+    type: 'treemap', ids, labels, parents, values,
+    marker: { colors, cornerradius: 3 },
+    branchvalues: 'total', textinfo: 'label+value',
+    hovertemplate: '<b>%{label}</b><br>%{value:,}<extra></extra>'
+  }], {
+    title: { text: `Language composition by folder (${unit === 'fileCount' ? 'files' : 'lines'})`, font: { size: 18 } },
+    height: 700, margin: { t: 50, l: 0, r: 0, b: 0 }
+  }, { responsive: true });
+
+  statusEl.textContent = `Rendered ${folders.length} folders × ${new Set(leaves.map(l => l.language)).size} languages.`;
+});
+
+document.getElementById('download').addEventListener('click', () => downloadStandaloneChart('chart', 'language_composition_by_folder.html'));
+</script>
+</body>
+</html>

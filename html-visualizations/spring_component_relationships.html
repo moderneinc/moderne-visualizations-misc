@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spring Component Relationships</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Spring component relationships</h1>
+  <p class="sub">Drop a Spring component-relationships CSV to render a directed graph of <code>dependantType</code> &rarr; <code>dependencyType</code>. Optionally filter to a focus type plus its ancestors and descendants. Layout is force-directed (the Python notebook uses Graphviz; topology is identical).</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop">
+    <input type="file" id="file" accept=".csv" />
+    <div id="drop-text">
+      <strong>Drop a CSV here</strong> or click to choose a file.<br>
+      <span style="color:#606770; font-size: 13px;">Expected columns: dependantType, dependencyType</span>
+    </div>
+  </div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field">
+      <label for="focus">Focus type substring (optional)</label>
+      <input type="text" id="focus" placeholder="e.g. KafkaBinder" />
+    </div>
+    <div class="field">
+      <label for="max-nodes">Max nodes</label>
+      <input type="number" id="max-nodes" value="150" min="10" max="1000" />
+    </div>
+    <button id="run" disabled>Generate chart</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header">
+    <h2 id="chart-title">Spring component relationships</h2>
+    <button class="secondary" id="download">Download HTML</button>
+  </div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+let loadedRows = null;
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+
+wireFileDrop({
+  dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
+  onRows: (rows) => {
+    loadedRows = rows;
+    runBtn.disabled = false;
+    statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
+  }
+});
+
+function computeReachable(edges, startNodes, direction) {
+  // direction: 'down' follows edges forward; 'up' follows backward.
+  const adj = new Map();
+  for (const [u, v] of edges) {
+    const key = direction === 'down' ? u : v;
+    const other = direction === 'down' ? v : u;
+    if (!adj.has(key)) adj.set(key, []);
+    adj.get(key).push(other);
+  }
+  const seen = new Set();
+  const stack = [...startNodes];
+  while (stack.length) {
+    const n = stack.pop();
+    if (seen.has(n)) continue;
+    seen.add(n);
+    for (const m of (adj.get(n) || [])) if (!seen.has(m)) stack.push(m);
+  }
+  for (const s of startNodes) seen.delete(s); // match networkx descendants/ancestors (excludes source)
+  return seen;
+}
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const focus = document.getElementById('focus').value.trim();
+  const maxNodes = Math.max(10, parseInt(document.getElementById('max-nodes').value, 10) || 150);
+
+  const rawEdges = loadedRows
+    .filter(r => r.dependantType && r.dependencyType)
+    .map(r => [r.dependantType, r.dependencyType]);
+
+  if (rawEdges.length === 0) {
+    statusEl.innerHTML = '<span class="error">No edges with dependantType + dependencyType found.</span>';
+    document.getElementById('chart-card').classList.add('hidden');
+    return;
+  }
+
+  const allNodes = new Set(rawEdges.flat());
+  let keep = null, relevant = new Set(), ancestors = new Set(), descendants = new Set();
+  if (focus) {
+    relevant = new Set([...allNodes].filter(n => n.toLowerCase().includes(focus.toLowerCase())));
+    if (relevant.size === 0) {
+      statusEl.innerHTML = `<span class="error">No nodes match focus "${focus}".</span>`;
+      document.getElementById('chart-card').classList.add('hidden');
+      return;
+    }
+    descendants = computeReachable(rawEdges, relevant, 'down');
+    ancestors = computeReachable(rawEdges, relevant, 'up');
+    keep = new Set([...relevant, ...ancestors, ...descendants]);
+  }
+
+  let edges = rawEdges.filter(([u, v]) => keep ? (keep.has(u) && keep.has(v)) : true);
+  // De-duplicate edges
+  const edgeSet = new Set();
+  edges = edges.filter(([u, v]) => {
+    const k = `${u}\u0001${v}`;
+    if (edgeSet.has(k)) return false;
+    edgeSet.add(k); return true;
+  });
+
+  let nodes = [...new Set(edges.flat())];
+  if (nodes.length > maxNodes) {
+    // Keep top-degree nodes
+    const degree = new Map(nodes.map(n => [n, 0]));
+    for (const [u, v] of edges) {
+      degree.set(u, degree.get(u) + 1);
+      degree.set(v, degree.get(v) + 1);
+    }
+    const kept = new Set([...degree.entries()].sort((a, b) => b[1] - a[1]).slice(0, maxNodes).map(e => e[0]));
+    nodes = [...kept];
+    edges = edges.filter(([u, v]) => kept.has(u) && kept.has(v));
+  }
+
+  if (nodes.length === 0) {
+    statusEl.innerHTML = '<span class="error">No nodes survive the filters.</span>';
+    document.getElementById('chart-card').classList.add('hidden');
+    return;
+  }
+
+  const pos = computeSpringLayout(nodes, edges, { iterations: 180, k: 0.25 });
+
+  // Build edge trace (use one big line trace with None-separated segments for efficiency)
+  const ex = [], ey = [];
+  for (const [u, v] of edges) {
+    const a = pos.get(u), b = pos.get(v);
+    if (!a || !b) continue;
+    ex.push(a.x, b.x, null);
+    ey.push(a.y, b.y, null);
+  }
+  const edgeTrace = {
+    type: 'scatter', mode: 'lines',
+    x: ex, y: ey,
+    line: { width: 0.8, color: 'rgba(120,120,120,0.45)' },
+    hoverinfo: 'none', showlegend: false
+  };
+
+  // Node coloring: relevant = red, ancestors = blue, descendants = blue (match the notebook)
+  const colorFor = n => {
+    if (focus) {
+      if (relevant.has(n)) return '#EF9A9A'; // red[200]
+      return '#90CAF9'; // blue[200]
+    }
+    return '#90CAF9';
+  };
+
+  const nodeTrace = {
+    type: 'scatter', mode: 'markers+text',
+    x: nodes.map(n => pos.get(n).x),
+    y: nodes.map(n => pos.get(n).y),
+    text: nodes.map(n => n.split('.').pop()),
+    textposition: 'top center',
+    textfont: { size: 10 },
+    hovertext: nodes.map(n => `<b>${n}</b>` + (focus
+      ? (relevant.has(n) ? '<br>Focus match' : ancestors.has(n) ? '<br>Ancestor of focus' : '<br>Descendant of focus')
+      : '')),
+    hoverinfo: 'text',
+    marker: {
+      size: 14,
+      color: nodes.map(colorFor),
+      line: { width: 1, color: '#666' }
+    },
+    showlegend: false
+  };
+
+  const title = focus
+    ? `Spring component relationships (focus: "${focus}", ${nodes.length} nodes)`
+    : `Spring component relationships (${nodes.length} nodes)`;
+  document.getElementById('chart-title').textContent = title;
+  document.getElementById('chart-card').classList.remove('hidden');
+
+  Plotly.newPlot('chart', [edgeTrace, nodeTrace], {
+    title: { text: title, font: { size: 16 } },
+    xaxis: { visible: false, range: [-1.2, 1.2] },
+    yaxis: { visible: false, range: [-1.2, 1.2], scaleanchor: 'x', scaleratio: 1 },
+    margin: { l: 10, r: 10, t: 60, b: 10 },
+    plot_bgcolor: 'white',
+    height: 800, hovermode: 'closest'
+  }, { responsive: true });
+
+  statusEl.textContent = `Rendered ${nodes.length} types with ${edges.length} relationships.`;
+});
+
+document.getElementById('download').addEventListener('click', () => {
+  downloadStandaloneChart('chart', 'spring_component_relationships.html');
+});
+</script>
+</body>
+</html>

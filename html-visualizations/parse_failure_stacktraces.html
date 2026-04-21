@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Parse Failure Stacktraces</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<style>
+  table.stack { border-collapse: collapse; width: 100%; font-size: 12px; }
+  table.stack th { text-align: left; padding: 8px; background: #f0f2f5; font-weight: 600; }
+  table.stack td { padding: 8px; border-top: 1px solid #e4e6eb; vertical-align: top; }
+  table.stack td pre { margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Parse failure stacktraces</h1>
+  <p class="sub">Drop a parse-failure-stacktraces CSV to cluster failures by parser + the first 3 exception-location frames, visualized as a treemap plus a top-10 table per parser.</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop">
+    <input type="file" id="file" accept=".csv" />
+    <div id="drop-text">
+      <strong>Drop a CSV here</strong> or click to choose a file.<br>
+      <span style="color:#606770; font-size: 13px;">Expected columns: parser, stackTrace</span>
+    </div>
+  </div>
+  <div class="controls" style="margin-top: 16px;">
+    <button id="run" disabled>Generate chart</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header">
+    <h2 id="chart-title">TreeMap of Stack Trace Counts</h2>
+    <button class="secondary" id="download">Download HTML</button>
+  </div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<div class="card hidden" id="table-card">
+  <h2 style="margin:0 0 10px; font-size: 16px;">Top 10 Stack Traces per Parser</h2>
+  <table class="stack" id="table"></table>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+const PALETTE = [
+  '#2E86AB','#A23B72','#F18F01','#C73E1D','#3B8686',
+  '#79BD8F','#A8DBA8','#CFF09E','#FF6B6B','#4ECDC4',
+  '#45B7D1','#FFA07A','#98D8C8','#F7DC6F','#BB8FCE'
+];
+
+let loadedRows = null;
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+
+wireFileDrop({
+  dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
+  onRows: (rows) => {
+    loadedRows = rows;
+    runBtn.disabled = false;
+    statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
+  }
+});
+
+// Pull the first three "(x.y.z)" parentheses groups from a stack trace; these are
+// typically the Source.java:N call sites that identify the failure location.
+const PAREN_RE = /\(([^)]*)\)/g;
+function firstThreeCallSites(stackTrace) {
+  if (!stackTrace) return '';
+  const lines = String(stackTrace).split('\n');
+  const sites = [];
+  for (const line of lines) {
+    if (sites.length >= 3) break;
+    PAREN_RE.lastIndex = 0;
+    const m = PAREN_RE.exec(line);
+    if (m) sites.push(m[1]);
+  }
+  return sites.join('\n');
+}
+
+function firstNLines(s, n) {
+  if (!s) return '';
+  return String(s).split('\n').slice(0, n).join('\n');
+}
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const rows = loadedRows
+    .filter(r => r.stackTrace && r.parser)
+    .map(r => ({
+      parser: r.parser,
+      stackTrace: r.stackTrace,
+      formatted: firstThreeCallSites(r.stackTrace),
+      first5: firstNLines(r.stackTrace, 5)
+    }));
+  if (rows.length === 0) {
+    statusEl.innerHTML = '<span class="error">No rows with parser + stackTrace found.</span>';
+    return;
+  }
+
+  // Group by (parser, formattedStackTrace)
+  const agg = new Map();
+  for (const r of rows) {
+    const k = `${r.parser}\u0001${r.formatted}`;
+    const cur = agg.get(k) || { parser: r.parser, formatted: r.formatted, count: 0, first5: r.first5 };
+    cur.count += 1;
+    agg.set(k, cur);
+  }
+  const groups = [...agg.values()];
+
+  // Build treemap nodes: parser > " Count: N, Stack Trace Position: <formatted>"
+  const parsers = [...new Set(groups.map(g => g.parser))];
+  const parserColor = Object.fromEntries(parsers.map((p, i) => [p, PALETTE[i % PALETTE.length]]));
+
+  const ids = [], labels = [], parents = [], values = [], colors = [];
+  // parser roots
+  for (const p of parsers) {
+    const sum = groups.filter(g => g.parser === p).reduce((a, g) => a + g.count, 0);
+    ids.push(p); labels.push(p); parents.push(''); values.push(sum); colors.push(parserColor[p]);
+  }
+  // leaves
+  for (const g of groups) {
+    const leafId = `${g.parser}\u0001${g.formatted}`;
+    const label = ` Count: ${g.count}, Stack Trace Position: ${g.formatted.replace(/\n/g, ' / ')}`;
+    ids.push(leafId); labels.push(label); parents.push(g.parser); values.push(g.count); colors.push(parserColor[g.parser]);
+  }
+
+  document.getElementById('chart-card').classList.remove('hidden');
+  Plotly.newPlot('chart', [{
+    type: 'treemap',
+    ids, labels, parents, values,
+    branchvalues: 'total',
+    marker: { colors, cornerradius: 3 },
+    textfont: { size: 12 },
+    hovertemplate: '<b>%{label}</b><br>Count: %{value}<extra></extra>'
+  }], {
+    title: { text: 'TreeMap of Stack Trace Counts', font: { size: 18 } },
+    height: 700,
+    margin: { t: 60, l: 0, r: 0, b: 0 }
+  }, { responsive: true });
+
+  // Top 10 per parser
+  const byParser = new Map();
+  for (const g of groups) {
+    if (!byParser.has(g.parser)) byParser.set(g.parser, []);
+    byParser.get(g.parser).push(g);
+  }
+  const rowsHtml = [];
+  rowsHtml.push('<tr><th>Parser</th><th>Count</th><th>Stack trace (first 5 lines)</th></tr>');
+  for (const [parser, list] of byParser) {
+    list.sort((a, b) => b.count - a.count);
+    for (const g of list.slice(0, 10)) {
+      rowsHtml.push(`<tr><td>${escapeHtml(parser)}</td><td>${g.count}</td><td><pre>${escapeHtml(g.first5)}</pre></td></tr>`);
+    }
+  }
+  document.getElementById('table').innerHTML = rowsHtml.join('');
+  document.getElementById('table-card').classList.remove('hidden');
+  statusEl.textContent = `Rendered ${groups.length} unique stack-trace clusters across ${parsers.length} parsers.`;
+});
+
+document.getElementById('download').addEventListener('click', () => {
+  downloadStandaloneChart('chart', 'parse_failure_stacktraces.html');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Moderne HTML Visualizations</title>
+<link rel="stylesheet" href="_shared/styles.css">
+</head>
+<body>
+
+<header>
+  <h1>Moderne HTML visualizations</h1>
+  <p class="sub">Single-file, browser-only tools that let you drop a Moderne data-table CSV and get an interactive chart. No Python or server needed &mdash; open the HTML file in any modern browser.</p>
+  <p class="sub">Each tool runs all processing locally; CSV data never leaves your machine (except the optional EPSS lookup in the vulnerability tool, which queries <code>api.first.org</code>).</p>
+</header>
+
+<div class="card">
+  <h2 style="margin:0 0 8px; font-size: 16px;">Implemented</h2>
+  <p class="sub" style="margin:0">Click any card to open the tool. Use the in-tool download button to export a single-chart HTML you can email.</p>
+  <div class="catalog">
+
+    <div class="cat-card">
+      <div class="name">Dependency vulnerabilities <span class="tag done">ready</span></div>
+      <div class="desc">Fix-type bar + EPSS risk heatmap + quick-wins heatmap. Optional EPSS lookup from FIRST.org.</div>
+      <div class="footer"><span class="sub">Data: Dependency Vulnerability Check CSV</span><a class="open" href="dependency_vulnerabilities.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Technical debt hotspots <span class="tag done">ready</span></div>
+      <div class="desc">Treemap of top methods by weighted debt score (cyclomatic + cognitive complexity, nesting, Halstead bugs).</div>
+      <div class="footer"><span class="sub">Data: MethodQualityMetrics CSV</span><a class="open" href="technical_debt_treemap.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Repository category heatmap <span class="tag done">ready</span></div>
+      <div class="desc">Top-N repositories &times; four static-analysis impact categories (Security &amp; Stability, Performance, Code Quality, Modernization). An "Other" column appears only if any recipe falls outside the map.</div>
+      <div class="footer"><span class="sub">Data: CommonStaticAnalysis or CompositeRecipeResults CSV (<code>repositoryPath</code> + <code>recipe</code>)</span><a class="open" href="repository_category_heatmap.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Code smell severity <span class="tag done">ready</span></div>
+      <div class="desc">Horizontal stacked bar of code smells per repository by severity. Group by repository or smell type.</div>
+      <div class="footer"><span class="sub">Data: CodeSmells CSV</span><a class="open" href="code_smell_severity_stacked_bar.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Language composition <span class="tag done">ready</span></div>
+      <div class="desc">Treemap of languages and file types across a portfolio, sized by files or lines of text.</div>
+      <div class="footer"><span class="sub">Data: FindSourceFiles CSV</span><a class="open" href="language_composition.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Cyclomatic complexity heatmap <span class="tag done">ready</span></div>
+      <div class="desc">Heatmap of the top N classes by total complexity across method count / avg / max / total complexity.</div>
+      <div class="footer"><span class="sub">Data: CyclomaticComplexity CSV</span><a class="open" href="cyclomatic_complexity_heatmap.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Dependency usage violin <span class="tag done">ready</span></div>
+      <div class="desc">Scatter + violin of artifact versions in use, grouped by artifact ID. Works for Maven / Gradle / Jackson / NuGet data.</div>
+      <div class="footer"><span class="sub">Data: DependenciesInUse CSV</span><a class="open" href="dependency_usage_violin.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Portfolio health sunburst <span class="tag done">ready</span></div>
+      <div class="desc">Sunburst of repository &rarr; package &rarr; class, sized by line count, colored by maintainability index.</div>
+      <div class="footer"><span class="sub">Data: ClassQualityMetrics CSV</span><a class="open" href="portfolio_health_sunburst.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Repository release order <span class="tag done">ready</span></div>
+      <div class="desc">Infer inter-repo dependency graph from DependenciesInUse and compute a safe release order. Network / Sankey / matrix views.</div>
+      <div class="footer"><span class="sub">Data: DependenciesInUse CSV</span><a class="open" href="repository_release_order.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Composite recipe sankey <span class="tag done">ready</span></div>
+      <div class="desc">Sankey showing which sub-recipes ran under which parent composite, weighted by change counts.</div>
+      <div class="footer"><span class="sub">Data: CompositeRecipeResults CSV</span><a class="open" href="composite_recipe_results_sankey.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">LST provenance <span class="tag done">ready</span></div>
+      <div class="desc">Stacked bar of build tool + version distribution across repositories.</div>
+      <div class="footer"><span class="sub">Data: LstProvenance CSV</span><a class="open" href="lst_provenance.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Complexity vs test gaps bubble <span class="tag done">ready</span></div>
+      <div class="desc">Two-CSV bubble chart: class complexity (WMC) vs untested methods, sized by risk, colored by maintainability.</div>
+      <div class="footer"><span class="sub">Data: ClassQualityMetrics + TestGaps CSVs</span><a class="open" href="complexity_vs_test_gaps_bubble.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Spring component relationships <span class="tag done">ready</span></div>
+      <div class="desc">Force-directed graph of Spring type &rarr; type dependencies, with optional focus filter pulling in ancestors + descendants.</div>
+      <div class="footer"><span class="sub">Data: SpringComponentRelationships CSV</span><a class="open" href="spring_component_relationships.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Architectural stability scatter <span class="tag done">ready</span></div>
+      <div class="desc">Packages plotted by instability vs abstractness with Zone of Pain / Zone of Uselessness and the main sequence diagonal. In-cycle packages as stars.</div>
+      <div class="footer"><span class="sub">Data: PackageQualityMetrics CSV</span><a class="open" href="architectural_stability_scatter.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Method risk radar <span class="tag done">ready</span></div>
+      <div class="desc">Overlaid radar plots of the top-N riskiest methods across 5 normalized metrics (cyclomatic, cognitive, nesting, params, Halstead bugs).</div>
+      <div class="footer"><span class="sub">Data: MethodQualityMetrics CSV</span><a class="open" href="method_risk_radar.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Coupling vs cohesion quadrant <span class="tag done">ready</span></div>
+      <div class="desc">Classes as CBO vs TCC with Healthy / Spaghetti / Hub / Island quadrants, sized by WMC, colored by maintainability.</div>
+      <div class="footer"><span class="sub">Data: ClassQualityMetrics CSV</span><a class="open" href="coupling_cohesion_quadrant.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Cyclomatic complexity risk matrix <span class="tag done">ready</span></div>
+      <div class="desc">Per-repo quadrant plot of average complexity vs high-complexity method count, with bubble size = number of classes.</div>
+      <div class="footer"><span class="sub">Data: CyclomaticComplexity CSV</span><a class="open" href="cyclomatic_complexity_risk_matrix.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Test quality issue heatmap <span class="tag done">ready</span></div>
+      <div class="desc">Heatmap of test-quality issue types across the top-N repositories by total issue count.</div>
+      <div class="footer"><span class="sub">Data: TestQualityIssues CSV</span><a class="open" href="test_quality_issue_heatmap.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Test quality treemap <span class="tag done">ready</span></div>
+      <div class="desc">Treemap of repositories &rarr; classes &rarr; issue types, colored by max severity.</div>
+      <div class="footer"><span class="sub">Data: TestQualityIssues CSV</span><a class="open" href="test_quality_treemap.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">NPM package usage violin <span class="tag done">ready</span></div>
+      <div class="desc">Scatter + violin of NPM package versions in use. Serves all 12 nodejs-insight variants (build tools / db / forms / lint / rtc / security / ss / state / testing / ui / utility).</div>
+      <div class="footer"><span class="sub">Data: NPM DependenciesInUse CSV</span><a class="open" href="dependency_usage_violin_nodejs.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">NPM / NuGet vulnerabilities <span class="tag done">ready</span></div>
+      <div class="desc">Stacked bar of vulnerability counts by fix-type and severity. Single tool handles both the npm and NuGet variants (identical schema and logic).</div>
+      <div class="footer"><span class="sub">Data: NPM or NuGet DependencyVulnerabilityCheck CSV</span><a class="open" href="dependency_vulnerabilities_npm.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Parse failure stacktraces <span class="tag done">ready</span></div>
+      <div class="desc">Cluster parse-failure stack traces by parser + first 3 call sites; treemap of cluster sizes + top-10 table per parser.</div>
+      <div class="footer"><span class="sub">Data: ParseFailures CSV</span><a class="open" href="parse_failure_stacktraces.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Release metro map <span class="tag done">ready</span></div>
+      <div class="desc">Three-CSV force-directed map of release waves across a portfolio. Distinguishes dependency and parent edges.</div>
+      <div class="footer"><span class="sub">Data: ProjectCoordinates + DependenciesInUse + ParentRelationships CSVs</span><a class="open" href="release_metro_map.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Release metro plan <span class="tag done">ready</span></div>
+      <div class="desc">Columnar wave-by-wave release plan with Bezier curves between repo boxes. Circular dependencies surface in a trailing "Circular" column.</div>
+      <div class="footer"><span class="sub">Data: ProjectCoordinates + DependenciesInUse + ParentRelationships CSVs</span><a class="open" href="release_metro_plan.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Release metro waves <span class="tag done">ready</span></div>
+      <div class="desc">Collapsible wave-by-wave list (browser alternative to the Moderne-platform tree-data-grid the notebook produces).</div>
+      <div class="footer"><span class="sub">Data: ProjectCoordinates + DependenciesInUse + ParentRelationships CSVs</span><a class="open" href="release_metro_waves.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Test gap risk heatmap <span class="tag done">ready</span></div>
+      <div class="desc">Top-N repos &times; risk-score bucket (Low/Medium/High/Critical) heatmap of test gaps.</div>
+      <div class="footer"><span class="sub">Data: TestGaps CSV</span><a class="open" href="test_gap_risk_heatmap.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Test quality by language <span class="tag done">ready</span></div>
+      <div class="desc">Grouped bar of test-quality issue types split by language.</div>
+      <div class="footer"><span class="sub">Data: TestQualityIssues CSV</span><a class="open" href="test_quality_by_language.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Test quality language sunburst <span class="tag done">ready</span></div>
+      <div class="desc">Sunburst of language &rarr; severity &rarr; issue type.</div>
+      <div class="footer"><span class="sub">Data: TestQualityIssues CSV</span><a class="open" href="test_quality_language_sunburst.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Test quality risk matrix <span class="tag done">ready</span></div>
+      <div class="desc">Scatter of issue type &times; severity, sized by occurrence count.</div>
+      <div class="footer"><span class="sub">Data: TestQualityIssues CSV</span><a class="open" href="test_quality_risk_matrix.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Test quality executive dashboard <span class="tag done">ready</span></div>
+      <div class="desc">4-panel dashboard: worst repos, severity distribution, issue-type distribution, top-15 fix priorities.</div>
+      <div class="footer"><span class="sub">Data: TestQualityIssues CSV</span><a class="open" href="test_quality_executive_dashboard.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Code quality executive dashboard <span class="tag done">ready</span></div>
+      <div class="desc">Executive dashboard: code health per repo (with best/worst elision) + top-15 refactoring targets.</div>
+      <div class="footer"><span class="sub">Data: ClassQualityMetrics CSV</span><a class="open" href="code_quality_executive_dashboard.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Portfolio quality comparison violin <span class="tag done">ready</span></div>
+      <div class="desc">Per-repo violins for a chosen metric. Auto-selects worst + most-variable + healthiest when the portfolio has more than 25 repos.</div>
+      <div class="footer"><span class="sub">Data: MethodQualityMetrics CSV</span><a class="open" href="portfolio_quality_comparison_violin.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Dependency cycle network <span class="tag done">ready</span></div>
+      <div class="desc">Force-directed network of packages flagged as in-cycle, sized by total coupling, colored by instability.</div>
+      <div class="footer"><span class="sub">Data: PackageQualityMetrics CSV</span><a class="open" href="dependency_cycle_network.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">ESLint problems treemap <span class="tag done">ready</span></div>
+      <div class="desc">Treemap of rule ID &rarr; repository (rule-first view).</div>
+      <div class="footer"><span class="sub">Data: ESLintProblems CSV</span><a class="open" href="eslint_problems.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">ESLint problems by repo <span class="tag done">ready</span></div>
+      <div class="desc">Treemap of repository &rarr; severity &rarr; rule ID (repo-first view).</div>
+      <div class="footer"><span class="sub">Data: ESLintProblems CSV</span><a class="open" href="eslint_problems_by_repo.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">UI5Lint rule treemap <span class="tag done">ready</span></div>
+      <div class="desc">Treemap of UI5Lint rule ID &rarr; repository.</div>
+      <div class="footer"><span class="sub">Data: UI5Lint CSV</span><a class="open" href="ui5lint_rule_treemap.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">UI5Lint violations heatmap <span class="tag done">ready</span></div>
+      <div class="desc">Heatmap of repository &times; rule-id counts.</div>
+      <div class="footer"><span class="sub">Data: UI5Lint CSV</span><a class="open" href="ui5lint_violations_heatmap.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Comment language distribution <span class="tag done">ready</span></div>
+      <div class="desc">Pie chart of natural languages detected in source comments (under-5% buckets folded into "other").</div>
+      <div class="footer"><span class="sub">Data: CommentsLanguage CSV</span><a class="open" href="comment_language_distribution.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Find source files <span class="tag done">ready</span></div>
+      <div class="desc">Horizontal bar of LST node-types found across the portfolio.</div>
+      <div class="footer"><span class="sub">Data: FindSourceFiles CSV</span><a class="open" href="find_source_files.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Java versions in use <span class="tag done">ready</span></div>
+      <div class="desc">Stacked bar of source + target Java versions across repositories.</div>
+      <div class="footer"><span class="sub">Data: JavaVersionsInUse CSV</span><a class="open" href="java_versions_in_use.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Java versions by source set <span class="tag done">ready</span></div>
+      <div class="desc">Stacked bar of major source-compatibility versions split by source set name.</div>
+      <div class="footer"><span class="sub">Data: JavaVersionsBySourceSet CSV</span><a class="open" href="java_versions_by_sourceset.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Gradle wrappers <span class="tag done">ready</span></div>
+      <div class="desc">Stacked bar of Gradle wrapper versions by distribution (all/bin).</div>
+      <div class="footer"><span class="sub">Data: GradleWrappers CSV</span><a class="open" href="gradle_wrappers.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Maven parent POMs <span class="tag done">ready</span></div>
+      <div class="desc">Stacked bar of parent artifact IDs split by version.</div>
+      <div class="footer"><span class="sub">Data: MavenParentPOMs CSV</span><a class="open" href="maven_parent_poms.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Recipe performance <span class="tag done">ready</span></div>
+      <div class="desc">Top-N recipes by total scan or edit time. Columns may be *Ns (nanoseconds) or *Time; both are handled.</div>
+      <div class="footer"><span class="sub">Data: RecipePerformance CSV</span><a class="open" href="recipe_performance.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Language composition by folder <span class="tag done">ready</span></div>
+      <div class="desc">Treemap of folder &rarr; language, sized by file count or line count.</div>
+      <div class="footer"><span class="sub">Data: LanguageCompositionByFolder CSV</span><a class="open" href="language_composition_by_folder.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">Language composition by repo <span class="tag done">ready</span></div>
+      <div class="desc">Treemap of repository &rarr; language &rarr; file type.</div>
+      <div class="footer"><span class="sub">Data: FindSourceFiles CSV (language + sourcePath)</span><a class="open" href="language_composition_by_repo.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">COBOL relationships <span class="tag done">ready</span></div>
+      <div class="desc">Force-directed graph of COBOL resource relationships (programs, copybooks, linkedit, bind package/plan, SQL). Missing dependencies in red.</div>
+      <div class="footer"><span class="sub">Data: CobolRelationships CSV</span><a class="open" href="cobol_relationships.html">Open &rarr;</a></div>
+    </div>
+
+    <div class="cat-card">
+      <div class="name">COBOL find copybook <span class="tag done">ready</span></div>
+      <div class="desc">Force-directed graph of source file &rarr; copybook relationships, with missing copybooks highlighted.</div>
+      <div class="footer"><span class="sub">Data: CobolFindCopybook CSV</span><a class="open" href="cobol_find_copybook.html">Open &rarr;</a></div>
+    </div>
+
+  </div>
+</div>
+
+<footer style="max-width:1200px; margin: 24px auto 0; color:#606770; font-size:12px;">
+  See <a href="README.md">README.md</a> for usage instructions and notes on porting additional notebooks.
+</footer>
+
+</body>
+</html>

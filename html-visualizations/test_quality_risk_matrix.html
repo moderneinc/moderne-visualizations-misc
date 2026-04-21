@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Test Quality Risk Matrix</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Test quality risk matrix</h1>
+  <p class="sub">Drop a TestQualityIssues CSV to see issue types plotted against severity, sized by count.</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop"><input type="file" id="file" accept=".csv" /><div id="drop-text"><strong>Drop a CSV here</strong> or click to choose a file.<br><span style="color:#606770; font-size: 13px;">Expected columns: repositoryPath, issueType, severity</span></div></div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field"><label for="repo-filter">Repository filter</label><input type="text" id="repo-filter" placeholder="comma-separated" /></div>
+    <button id="run" disabled>Generate chart</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header"><h2 id="chart-title">Test Quality Risk Matrix</h2><button class="secondary" id="download">Download HTML</button></div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+const SEV_COLORS = { low: '#A5D6A7', medium: '#FFE082', high: '#FF8A65' };
+const SEV_ORDER = ['low', 'medium', 'high'];
+
+let loadedRows = null;
+const runBtn = document.getElementById('run'), statusEl = document.getElementById('status');
+wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows; runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const filterStr = document.getElementById('repo-filter').value;
+  const rows = loadedRows.filter(r => matchesRepoFilter(r.repositoryPath, filterStr)).filter(r => r.issueType && r.severity);
+  if (rows.length === 0) { statusEl.innerHTML = '<span class="error">No rows after filter.</span>'; document.getElementById('chart-card').classList.add('hidden'); return; }
+
+  const agg = new Map();
+  for (const r of rows) {
+    const sev = String(r.severity || '').toLowerCase();
+    if (!SEV_ORDER.includes(sev)) continue;
+    const k = `${r.issueType}\u0001${sev}`;
+    agg.set(k, (agg.get(k) || 0) + 1);
+  }
+
+  const traces = SEV_ORDER.map(sev => {
+    const entries = [...agg.entries()].filter(([k]) => k.endsWith(`\u0001${sev}`));
+    if (entries.length === 0) return null;
+    return {
+      type: 'scatter', mode: 'markers+text',
+      name: sev,
+      x: entries.map(([k]) => k.split('\u0001')[0]),
+      y: entries.map(() => sev),
+      marker: { size: entries.map(([, v]) => v * 5 + 15), color: SEV_COLORS[sev], line: { width: 1, color: '#666' } },
+      text: entries.map(([, v]) => String(v)),
+      textposition: 'middle center', textfont: { size: 11, color: '#333' },
+      hovertemplate: '<b>%{x}</b><br>Severity: %{y}<br>Count: %{text}<extra></extra>'
+    };
+  }).filter(Boolean);
+
+  document.getElementById('chart-card').classList.remove('hidden');
+  Plotly.newPlot('chart', traces, {
+    title: { text: 'Test Quality Risk Matrix', font: { size: 18 } },
+    xaxis: { title: 'Issue type', tickangle: -45 },
+    yaxis: { title: 'Severity', categoryorder: 'array', categoryarray: SEV_ORDER },
+    height: 500, margin: { l: 100, r: 50, t: 60, b: 140 }, showlegend: true
+  }, { responsive: true });
+
+  statusEl.textContent = `Rendered ${agg.size} issue-type × severity combinations.`;
+});
+
+document.getElementById('download').addEventListener('click', () => downloadStandaloneChart('chart', 'test_quality_risk_matrix.html'));
+</script>
+</body>
+</html>

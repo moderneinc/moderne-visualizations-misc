@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dependency Vulnerability Visualization Tool</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<style>
+  .progress { height: 6px; background: #e4e6eb; border-radius: 3px; overflow: hidden; margin-top: 8px; }
+  .progress-bar { height: 100%; background: #2E86AB; width: 0%; transition: width 0.2s; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Dependency vulnerability tool</h1>
+  <p class="sub">Drop a Dependency Vulnerability Check CSV and render the fix-type bar, EPSS risk heatmap, and quick-wins heatmap. All processing happens in your browser; EPSS scores are fetched from api.first.org when enabled.</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop">
+    <input type="file" id="file" accept=".csv" />
+    <div id="drop-text">
+      <strong>Drop a CSV here</strong> or click to choose a file.<br>
+      <span style="color:#606770; font-size: 13px;">Expected columns: cve, version, fixedVersion, repositoryPath, severity, depth</span>
+    </div>
+  </div>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field">
+      <label for="client">Client name (for chart titles)</label>
+      <input type="text" id="client" placeholder="e.g. Ford" />
+    </div>
+    <div class="field">
+      <label for="top-n">Top N repos for heatmaps</label>
+      <input type="number" id="top-n" value="10" min="1" max="50" />
+    </div>
+    <div class="field">
+      <label style="font-weight:400"><input type="checkbox" id="fetch-epss" checked /> Fetch EPSS scores from FIRST.org</label>
+    </div>
+    <button id="run" disabled>Generate charts</button>
+  </div>
+  <div class="status" id="status"></div>
+  <div class="progress hidden" id="progress"><div class="progress-bar" id="progress-bar"></div></div>
+</div>
+
+<div class="card hidden" id="summary-card">
+  <h2 style="margin:0 0 10px; font-size: 16px;">Dataset summary</h2>
+  <div class="summary" id="summary"></div>
+</div>
+
+<div class="card hidden" id="bar-card">
+  <div class="chart-header">
+    <h2>Vulnerabilities by fix type and dependency type</h2>
+    <button class="secondary" data-download="bar">Download HTML</button>
+  </div>
+  <div class="chart" id="bar"></div>
+</div>
+
+<div class="card hidden" id="heatmap-card">
+  <div class="chart-header">
+    <h2>EPSS risk heatmap (top repositories)</h2>
+    <button class="secondary" data-download="heatmap">Download HTML</button>
+  </div>
+  <div class="chart" id="heatmap"></div>
+</div>
+
+<div class="card hidden" id="quickwins-card">
+  <div class="chart-header">
+    <h2>Quick wins: Patch/Minor fixes by EPSS risk</h2>
+    <button class="secondary" data-download="quickwins">Download HTML</button>
+  </div>
+  <div class="chart" id="quickwins"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+// Explicit RGB ramps matching Plotly/matplotlib's YlOrRd + Greens so the
+// output stays stable across Plotly versions and can be reproduced outside
+// Plotly (e.g. for screenshots in slides).
+const YLORRD_SCALE = [
+  [0.000, 'rgb(255,255,204)'], [0.125, 'rgb(255,237,160)'],
+  [0.250, 'rgb(254,217,118)'], [0.375, 'rgb(254,178,76)'],
+  [0.500, 'rgb(253,141,60)'],  [0.625, 'rgb(252,78,42)'],
+  [0.750, 'rgb(227,26,28)'],   [0.875, 'rgb(189,0,38)'],
+  [1.000, 'rgb(128,0,38)']
+];
+const GREENS_SCALE = [
+  [0.000, 'rgb(247,252,245)'], [0.125, 'rgb(229,245,224)'],
+  [0.250, 'rgb(199,233,192)'], [0.375, 'rgb(161,217,155)'],
+  [0.500, 'rgb(116,196,118)'], [0.625, 'rgb(65,171,93)'],
+  [0.750, 'rgb(35,139,69)'],   [0.875, 'rgb(0,109,44)'],
+  [1.000, 'rgb(0,68,27)']
+];
+
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+const progress = document.getElementById('progress');
+const progressBar = document.getElementById('progress-bar');
+const clientInput = document.getElementById('client');
+const topNInput = document.getElementById('top-n');
+const fetchEpssInput = document.getElementById('fetch-epss');
+
+let loadedRows = null;
+
+wireFileDrop({
+  dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
+  onRows: (rows, fname) => {
+    loadedRows = rows;
+    runBtn.disabled = false;
+    statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
+    if (!clientInput.value) {
+      clientInput.value = fname.replace(/\.csv$/i, '').replace(/[_-]/g, ' ').split(' ')[0];
+    }
+  }
+});
+
+function classifyFixType(row) {
+  const fixed = row.fixedVersion;
+  if (!fixed || fixed === 'NaN' || String(fixed).trim() === '') return 'No Fix Available';
+  const current = String(row.version || '');
+  const currParts = current.split('.');
+  const fixParts = String(fixed).split('.');
+  if (currParts.length >= 3 && fixParts.length >= 3) {
+    if (currParts[0] !== fixParts[0]) return 'Major';
+    if (currParts[1] !== fixParts[1]) return 'Minor';
+    return 'Patch';
+  }
+  return fixed > current ? 'Minor' : 'Patch';
+}
+
+function depType(row) {
+  const d = parseInt(row.depth, 10);
+  return d === 0 ? 'Direct' : 'Transitive';
+}
+
+function categorizeEpss(score) {
+  if (score >= 0.5) return 'Critical (\u226550%)';
+  if (score >= 0.1) return 'High (10-50%)';
+  if (score >= 0.01) return 'Medium (1-10%)';
+  return 'Low (<1%)';
+}
+
+async function fetchEpssScores(cves, onProgress) {
+  const batchSize = 100;
+  const results = {};
+  for (let i = 0; i < cves.length; i += batchSize) {
+    const batch = cves.slice(i, i + batchSize);
+    try {
+      const url = `https://api.first.org/data/v1/epss?cve=${batch.join(',')}`;
+      const resp = await fetch(url);
+      if (resp.ok) {
+        const data = await resp.json();
+        if (data.data) {
+          for (const item of data.data) {
+            results[item.cve] = { epss: parseFloat(item.epss) || 0, percentile: parseFloat(item.percentile) || 0 };
+          }
+        }
+      }
+    } catch (e) {
+      console.warn('EPSS batch error:', e);
+    }
+    onProgress(Math.min(i + batchSize, cves.length), cves.length);
+    if (i + batchSize < cves.length) await new Promise(r => setTimeout(r, 400));
+  }
+  return results;
+}
+
+function buildBarChart(rows, client) {
+  const fixTypes = ['Patch', 'Minor', 'Major', 'No Fix Available'];
+  const depTypes = ['Direct', 'Transitive'];
+  const colors = { Direct: '#2E86AB', Transitive: '#A23B72' };
+
+  const counts = {};
+  fixTypes.forEach(f => { counts[f] = { Direct: 0, Transitive: 0 }; });
+  rows.forEach(r => { counts[r._fixType][r._depType] += 1; });
+
+  const traces = depTypes.map(dep => ({
+    name: `${dep} Dependencies`,
+    x: fixTypes,
+    y: fixTypes.map(f => counts[f][dep]),
+    type: 'bar',
+    text: fixTypes.map(f => counts[f][dep].toLocaleString()),
+    textposition: 'auto',
+    marker: { color: colors[dep] },
+    hovertemplate: `<b>%{x}</b><br>${dep} Dependencies: %{y:,}<extra></extra>`
+  }));
+
+  const uniqueRepos = new Set(rows.map(r => r.repositoryPath)).size;
+  return {
+    data: traces,
+    layout: {
+      title: {
+        text: `${client} - Vulnerability Analysis by Fix Type and Dependency Type<br><sub>Total: ${rows.length.toLocaleString()} vulnerabilities across ${uniqueRepos} repositories</sub>`,
+        x: 0.5, xanchor: 'center', font: { size: 20 }
+      },
+      xaxis: { title: 'Fix Type Required' },
+      yaxis: { title: 'Number of Vulnerabilities', gridcolor: 'lightgray', tickformat: ',' },
+      barmode: 'group', bargap: 0.15, bargroupgap: 0.1,
+      plot_bgcolor: 'white', paper_bgcolor: 'white',
+      legend: { orientation: 'h', yanchor: 'top', y: 0.95, xanchor: 'center', x: 0.5 }
+    }
+  };
+}
+
+function buildHeatmap(rows, client, topN, opts) {
+  const filtered = opts.onlyQuickWins
+    ? rows.filter(r => r._fixType === 'Patch' || r._fixType === 'Minor')
+    : rows;
+
+  const repoCounts = {};
+  filtered.forEach(r => { repoCounts[r._repo] = (repoCounts[r._repo] || 0) + 1; });
+  const topRepos = Object.entries(repoCounts).sort((a, b) => b[1] - a[1]).slice(0, topN).map(e => e[0]);
+
+  const topSet = new Set(topRepos);
+  const topRows = filtered.filter(r => topSet.has(r._repo));
+
+  const categories = ['Critical (\u226550%)', 'High (10-50%)', 'Medium (1-10%)', 'Low (<1%)'];
+  // Tier-midpoint exploitation probabilities (percent): Critical ≥50% → 75,
+  // High 10–50% → 30, Medium 1–10% → 5, Low <1% → 0 (dropped from color).
+  const weights = [75, 30, 5, 0];
+
+  const stats = topRepos.map(repo => {
+    const rr = topRows.filter(r => r._repo === repo);
+    const row = categories.map(cat => rr.filter(r => r._epssCat === cat).length);
+    const critical = row[0], high = row[1];
+    return { repo, row, total: rr.length, critical, high, riskScore: critical * 1000 + high * 100 + rr.length };
+  });
+  stats.sort((a, b) => b.riskScore - a.riskScore);
+
+  const sortedRepos = stats.map(s => s.repo);
+  const zCounts = stats.map(s => s.row);
+  const zWeighted = zCounts.map(row => row.map((v, i) => v * weights[i]));
+  const text = zCounts.map(row => row.map(v => v.toString()));
+
+  return {
+    data: [{
+      type: 'heatmap',
+      z: zWeighted, x: categories, y: sortedRepos,
+      zmin: 0,
+      text, texttemplate: '%{text}', textfont: { size: 10 },
+      colorscale: opts.colorscale, showscale: true,
+      colorbar: { title: { text: 'Risk Score' }, thickness: 15 },
+      hovertemplate: 'Repository: %{y}<br>EPSS Category: %{x}<br>Count: %{text}<extra></extra>'
+    }],
+    layout: {
+      title: { text: `${client} - ${opts.titleText}<br><sub>${opts.titleSub}</sub>`, x: 0.5, xanchor: 'center', font: { size: 20 } },
+      xaxis: { title: 'EPSS Risk Level (Exploitation Probability)', side: 'bottom', type: 'category', categoryorder: 'array', categoryarray: categories },
+      yaxis: { title: 'Repository', autorange: 'reversed', tickmode: 'linear', tickfont: { size: 9 }, automargin: true },
+      plot_bgcolor: 'white', paper_bgcolor: 'white',
+      margin: { l: 220, r: 50, t: 110, b: 90 }
+    }
+  };
+}
+
+runBtn.addEventListener('click', async () => {
+  if (!loadedRows) return;
+  runBtn.disabled = true;
+  const client = clientInput.value.trim() || 'Client';
+  const topN = Math.max(1, parseInt(topNInput.value, 10) || 10);
+
+  const rows = loadedRows
+    .filter(r => r.cve)
+    .map(r => ({
+      ...r,
+      _fixType: classifyFixType(r),
+      _depType: depType(r),
+      _repo: shortRepo(r.repositoryPath),
+      _epss: r.epss ? parseFloat(r.epss) : 0
+    }));
+
+  renderSummary(rows);
+  document.getElementById('summary-card').classList.remove('hidden');
+
+  statusEl.textContent = 'Rendering bar chart...';
+  const bar = buildBarChart(rows, client);
+  document.getElementById('bar-card').classList.remove('hidden');
+  Plotly.newPlot('bar', bar.data, bar.layout, { responsive: true });
+
+  const hasEpssColumn = rows.some(r => r._epss > 0);
+  if (fetchEpssInput.checked && !hasEpssColumn) {
+    const uniqueCves = [...new Set(rows.map(r => r.cve))];
+    statusEl.textContent = `Fetching EPSS scores for ${uniqueCves.length.toLocaleString()} CVEs...`;
+    progress.classList.remove('hidden');
+    const epss = await fetchEpssScores(uniqueCves, (done, total) => {
+      progressBar.style.width = `${(done / total * 100).toFixed(1)}%`;
+      statusEl.textContent = `Fetched EPSS scores: ${done.toLocaleString()} / ${total.toLocaleString()}`;
+    });
+    rows.forEach(r => { r._epss = (epss[r.cve] && epss[r.cve].epss) || 0; });
+    progress.classList.add('hidden');
+    progressBar.style.width = '0%';
+  } else if (hasEpssColumn) {
+    statusEl.textContent = 'Using EPSS values from CSV.';
+  } else {
+    statusEl.textContent = 'EPSS fetching skipped. Heatmaps will treat all scores as 0.';
+  }
+
+  rows.forEach(r => { r._epssCat = categorizeEpss(r._epss); });
+
+  statusEl.textContent = 'Rendering EPSS heatmap...';
+  const heatmap = buildHeatmap(rows, client, topN, {
+    onlyQuickWins: false, colorscale: YLORRD_SCALE,
+    titleText: `Vulnerability EPSS Score Heatmap - Top ${topN} Repositories`,
+    titleSub: 'EPSS (Exploit Prediction Scoring System) predicts likelihood of CVE exploitation in the wild'
+  });
+  document.getElementById('heatmap-card').classList.remove('hidden');
+  Plotly.newPlot('heatmap', heatmap.data, heatmap.layout, { responsive: true });
+
+  statusEl.textContent = 'Rendering quick wins heatmap...';
+  const quickwinsRows = rows.filter(r => r._fixType === 'Patch' || r._fixType === 'Minor');
+  const patchCount = quickwinsRows.filter(r => r._fixType === 'Patch').length;
+  const minorCount = quickwinsRows.filter(r => r._fixType === 'Minor').length;
+  const pct = rows.length ? (quickwinsRows.length / rows.length * 100).toFixed(1) : '0.0';
+  const quickwins = buildHeatmap(rows, client, topN, {
+    onlyQuickWins: true, colorscale: GREENS_SCALE,
+    titleText: 'Quick Wins: EPSS Vulnerabilities with Patch/Minor Fixes',
+    titleSub: `${quickwinsRows.length.toLocaleString()} vulnerabilities fixable without breaking changes (${pct}% of total) \u2022 Patch: ${patchCount.toLocaleString()} \u2022 Minor: ${minorCount.toLocaleString()}`
+  });
+  document.getElementById('quickwins-card').classList.remove('hidden');
+  Plotly.newPlot('quickwins', quickwins.data, quickwins.layout, { responsive: true });
+
+  statusEl.textContent = 'Done.';
+  runBtn.disabled = false;
+});
+
+function renderSummary(rows) {
+  const total = rows.length;
+  const repos = new Set(rows.map(r => r._repo)).size;
+  const cves = new Set(rows.map(r => r.cve)).size;
+  const direct = rows.filter(r => r._depType === 'Direct').length;
+  const patch = rows.filter(r => r._fixType === 'Patch').length;
+  const minor = rows.filter(r => r._fixType === 'Minor').length;
+  const major = rows.filter(r => r._fixType === 'Major').length;
+  const nofix = rows.filter(r => r._fixType === 'No Fix Available').length;
+  const stats = [
+    ['Vulnerabilities', total.toLocaleString()],
+    ['Unique CVEs', cves.toLocaleString()],
+    ['Repositories', repos.toLocaleString()],
+    ['Direct / Transitive', `${direct.toLocaleString()} / ${(total - direct).toLocaleString()}`],
+    ['Patch fixes', patch.toLocaleString()],
+    ['Minor fixes', minor.toLocaleString()],
+    ['Major fixes', major.toLocaleString()],
+    ['No fix available', nofix.toLocaleString()]
+  ];
+  document.getElementById('summary').innerHTML = stats
+    .map(([l, v]) => `<div class="stat"><div class="label">${l}</div><div class="value">${v}</div></div>`)
+    .join('');
+}
+
+document.querySelectorAll('button[data-download]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const key = btn.getAttribute('data-download');
+    const base = (clientInput.value.trim() || 'chart').toLowerCase();
+    downloadStandaloneChart(key, `${base}_${key}.html`);
+  });
+});
+</script>
+</body>
+</html>

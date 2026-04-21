@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>COBOL Find Copybook</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>COBOL find copybook</h1>
+  <p class="sub">Drop a CobolFindCopybook CSV to see which COBOL source files reference which copybooks. Missing copybooks are highlighted in red.</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop"><input type="file" id="file" accept=".csv" /><div id="drop-text"><strong>Drop a CSV here</strong> or click to choose a file.<br><span style="color:#606770; font-size: 13px;">Expected columns: source, copybookName, resolutionStatus</span></div></div>
+  <div class="controls" style="margin-top: 16px;"><button id="run" disabled>Generate chart</button></div>
+  <div class="status" id="status"></div>
+</div>
+
+<div class="card hidden" id="chart-card">
+  <div class="chart-header"><h2 id="chart-title">COBOL Copybook Usage</h2><button class="secondary" id="download">Download HTML</button></div>
+  <div class="chart" id="chart"></div>
+</div>
+
+<script src="_shared/common.js"></script>
+<script>
+let loadedRows = null;
+const runBtn = document.getElementById('run'), statusEl = document.getElementById('status');
+wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows; runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
+
+runBtn.addEventListener('click', () => {
+  if (!loadedRows) return;
+  const rows = loadedRows.filter(r => r.source && r.copybookName);
+  if (rows.length === 0) { statusEl.innerHTML = '<span class="error">No rows.</span>'; document.getElementById('chart-card').classList.add('hidden'); return; }
+
+  // Build node set
+  const nodes = new Map();
+  const edges = [];
+  for (const r of rows) {
+    if (!nodes.has(r.source)) nodes.set(r.source, { name: r.source, type: 'source', missing: false });
+    const missing = r.resolutionStatus === 'MISSING_SOURCE';
+    if (!nodes.has(r.copybookName)) nodes.set(r.copybookName, { name: r.copybookName, type: 'copybook', missing });
+    edges.push([r.source, r.copybookName]);
+  }
+  const list = [...nodes.values()];
+  const pos = computeSpringLayout(list.map(n => n.name), edges, { iterations: 180, k: 0.25 });
+
+  const ex = [], ey = [];
+  for (const [u, v] of edges) { const a = pos.get(u), b = pos.get(v); if (a && b) { ex.push(a.x, b.x, null); ey.push(a.y, b.y, null); } }
+  const edgeTrace = { type: 'scatter', mode: 'lines', x: ex, y: ey, line: { width: 0.8, color: 'rgba(120,120,120,0.45)' }, hoverinfo: 'none', showlegend: false };
+
+  const color = n => n.missing ? '#EF5350' : n.type === 'source' ? '#90CAF9' : '#FFF59D';
+  const nodeTrace = {
+    type: 'scatter', mode: 'markers+text',
+    x: list.map(n => pos.get(n.name).x), y: list.map(n => pos.get(n.name).y),
+    text: list.map(n => n.name.replace(/^.*\//, '')),
+    textposition: 'top center', textfont: { size: 10 },
+    marker: { size: list.map(n => n.type === 'source' ? 14 : 12), color: list.map(color), line: { width: 1, color: '#666' } },
+    hovertext: list.map(n => `<b>${n.name}</b><br>Type: ${n.type}${n.missing ? '<br><i>missing</i>' : ''}`),
+    hoverinfo: 'text', showlegend: false
+  };
+
+  document.getElementById('chart-card').classList.remove('hidden');
+  const missingCount = list.filter(n => n.missing).length;
+  Plotly.newPlot('chart', [edgeTrace, nodeTrace], {
+    title: { text: `COBOL copybook usage (${list.length} nodes, ${edges.length} edges, ${missingCount} missing)`, font: { size: 18 } },
+    xaxis: { visible: false }, yaxis: { visible: false, scaleanchor: 'x', scaleratio: 1 },
+    height: 750, plot_bgcolor: 'white', margin: { l: 10, r: 10, t: 60, b: 10 }, hovermode: 'closest'
+  }, { responsive: true });
+
+  statusEl.textContent = `Rendered ${list.length} nodes${missingCount ? ` (${missingCount} missing)` : ''}.`;
+});
+
+document.getElementById('download').addEventListener('click', () => downloadStandaloneChart('chart', 'cobol_find_copybook.html'));
+</script>
+</body>
+</html>
