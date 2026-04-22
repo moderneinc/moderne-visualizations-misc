@@ -1,0 +1,40 @@
+# @name org.openrewrite.table.ParseFailures
+# @instanceName Parser failures
+# @group 
+repositoryOrigin,repositoryPath,repositoryBranch,parser,sourcePath,exceptionType,treeType,snippet,stackTrace,org1,org2
+github.com,finos/messageml-utils,main,XmlParser,src/test/resources/examples/complex.xml,NullPointerException,,,"java.lang.NullPointerException: null
+  org.openrewrite.xml.internal.XmlParserVisitor.lambda$visitElement$19(XmlParserVisitor.java:327)
+  org.openrewrite.xml.internal.XmlParserVisitor.convert(XmlParserVisitor.java:497)
+  org.openrewrite.xml.internal.XmlParserVisitor.lambda$visitElement$21(XmlParserVisitor.java:327)
+  org.openrewrite.xml.internal.XmlParserVisitor.convert(XmlParserVisitor.java:488)
+  org.openrewrite.xml.internal.XmlParserVisitor.visitElement(XmlParserVisitor.java:326)
+  org.openrewrite.xml.internal.XmlParserVisitor.visitElement(XmlParserVisitor.java:42)
+  org.openrewrite.xml.internal.grammar.XMLParser$ElementContext.accept(XMLParser.java:1118)
+  org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:46)
+  org.openrewrite.xml.internal.grammar.XMLParserBaseVisitor.visitContent(XMLParserBaseVisitor.java:106)
+  org.openrewrite.xml.internal.XmlParserVisitor.visitContent(XmlParserVisitor.java:153)
+  org.openrewrite.xml.internal.XmlParserVisitor.visitContent(XmlParserVisitor.java:42)
+  org.openrewrite.xml.internal.grammar.XMLParser$ContentContext.accept(XMLParser.java:983)
+  org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:18)
+  java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+  java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+  java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+  ...",Default,ALL
+github.com,finos/symphony-bdk-java,main,YamlParser,symphony-bdk-config/src/test/resources/config/invalid_config.yaml,ScannerException,,,"org.yaml.snakeyaml.scanner.ScannerException: while scanning a quoted scalar
+ in 'reader', line 7, column 9:
+      host: ""devx1.symphony.com
+            ^
+found unexpected end of stream
+ in 'reader', line 11, column 1:
+    
+    ^
+
+  org.yaml.snakeyaml.scanner.ScannerImpl.scanFlowScalarSpaces(ScannerImpl.java:1990)
+  org.yaml.snakeyaml.scanner.ScannerImpl.scanFlowScalar(ScannerImpl.java:1901)
+  org.yaml.snakeyaml.scanner.ScannerImpl.fetchFlowScalar(ScannerImpl.java:1072)
+  org.yaml.snakeyaml.scanner.ScannerImpl.fetchDouble(ScannerImpl.java:1054)
+  org.yaml.snakeyaml.scanner.ScannerImpl.fetchMoreTokens(ScannerImpl.java:442)
+  org.yaml.snakeyaml.scanner.ScannerImpl.checkToken(ScannerImpl.java:239)
+  org.yaml.snakeyaml.parser.ParserImpl$ParseBlockMappingValue.produce(ParserImpl.java:669)
+  org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:161)
+  org.yaml.snakeyaml.parser.ParserImpl.getEvent(ParserImpl.java:170)",Default,ALL

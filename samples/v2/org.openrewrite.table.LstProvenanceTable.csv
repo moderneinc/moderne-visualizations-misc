@@ -1,0 +1,13 @@
+# @name org.openrewrite.table.LstProvenanceTable
+# @instanceName LST provenance
+# @group 
+repositoryOrigin,repositoryPath,repositoryBranch,buildToolType,buildToolVersion,lstSerializerVersion,timestampEpochMillis,timestampUtc,org1,org2
+github.com,apache/maven-doxia,master,Cli,4.2.0-SNAPSHOT,3.4.3,1776816547081,2026-04-22T00:09:07.081465463Z,Default,ALL
+github.com,finos/messageml-utils,main,Cli,4.2.0-SNAPSHOT,3.4.3,1776816896784,2026-04-22T00:14:56.784Z,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Cli,4.2.0-SNAPSHOT,3.4.3,1776816943845,2026-04-22T00:15:43.845679237Z,Default,ALL
+github.com,finos/symphony-bdk-java,main,Cli,4.2.0-SNAPSHOT,3.4.3,1776817406676,2026-04-22T00:23:26.676930910Z,Default,ALL
+github.com,finos/symphony-wdk,master,Cli,4.2.0-SNAPSHOT,3.4.3,1776817644147,2026-04-22T00:27:24.147651687Z,Default,ALL
+github.com,Netflix/photon,master,Cli,4.2.0-SNAPSHOT,3.4.3,1776817736926,2026-04-22T00:28:56.926581923Z,Default,ALL
+github.com,Netflix/ribbon,master,Cli,4.2.0-SNAPSHOT,3.4.3,1776817818347,2026-04-22T00:30:18.347021338Z,Default,ALL
+github.com,spring-projects/spring-data-commons,main,Cli,4.2.0-SNAPSHOT,3.4.3,1776818111206,2026-04-22T00:35:11.206130461Z,Default,ALL
+github.com,spring-projects/spring-petclinic,main,Cli,4.2.0-SNAPSHOT,3.4.3,1776816679575,2026-04-22T00:11:19.575510649Z,Default,ALL
