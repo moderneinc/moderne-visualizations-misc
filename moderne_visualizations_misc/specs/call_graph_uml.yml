@@ -16,3 +16,9 @@ options:
       displayName: Method name
       description: Enter the method name to filter by.
       required: false
+  - max_edges:
+      displayName: Max edges
+      description: >
+        Cap the number of edges rendered. Large call graphs can overwhelm
+        PlantUML, so unfiltered runs truncate once this limit is reached.
+      required: false
