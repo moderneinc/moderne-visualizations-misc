@@ -1,0 +1,102 @@
+# @name org.openrewrite.java.migrate.table.JavaVersionPerSourceSet
+# @instanceName Java versions by source set
+# @group 
+repositoryOrigin,repositoryPath,repositoryBranch,projectName,sourceSetName,createdBy,vmVendor,sourceCompatibility,majorVersionSourceCompatibility,targetCompatibility,org1,org2
+github.com,apache/maven-doxia,master,Doxia :: Sink API,main,25,Eclipse Adoptium,8,8,8,Default,ALL
+github.com,apache/maven-doxia,master,Doxia :: Core,main,25,Eclipse Adoptium,8,8,8,Default,ALL
+github.com,apache/maven-doxia,master,Doxia :: Core,test,25,Eclipse Adoptium,8,8,8,Default,ALL
+github.com,apache/maven-doxia,master,Doxia :: APT Module,main,25,Eclipse Adoptium,8,8,8,Default,ALL
+github.com,apache/maven-doxia,master,Doxia :: APT Module,test,25,Eclipse Adoptium,8,8,8,Default,ALL
+github.com,apache/maven-doxia,master,Doxia :: FML Module,main,25,Eclipse Adoptium,8,8,8,Default,ALL
+github.com,apache/maven-doxia,master,Doxia :: FML Module,test,25,Eclipse Adoptium,8,8,8,Default,ALL
+github.com,apache/maven-doxia,master,Doxia :: XDoc Module,main,25,Eclipse Adoptium,8,8,8,Default,ALL
+github.com,apache/maven-doxia,master,Doxia :: XDoc Module,test,25,Eclipse Adoptium,8,8,8,Default,ALL
+github.com,apache/maven-doxia,master,Doxia :: XHTML5 Module,main,25,Eclipse Adoptium,8,8,8,Default,ALL
+github.com,apache/maven-doxia,master,Doxia :: XHTML5 Module,test,25,Eclipse Adoptium,8,8,8,Default,ALL
+github.com,apache/maven-doxia,master,Doxia :: Markdown Module,main,25,Eclipse Adoptium,8,8,8,Default,ALL
+github.com,apache/maven-doxia,master,Doxia :: Markdown Module,test,25,Eclipse Adoptium,8,8,8,Default,ALL
+github.com,finos/messageml-utils,main,MessageML Utils,main,1.8,Temurin,1.8,8,1.8,Default,ALL
+github.com,finos/messageml-utils,main,MessageML Utils,test,1.8,Temurin,1.8,8,1.8,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Symphony Entity Json,main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Chat Workflow,main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Chat Workflow Testing,main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Chat Workflow Testing,test,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Symphony Java Client Entities,main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Spring Boot Starter For Chat Workflow Symphony BDK Adapter,main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Spring Boot Starter For Chat Workflow Symphony BDK Adapter,test,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Spring Boot Starter For Chat Workflow Microsoft Teams Adapter,main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Spring Boot Starter For Chat Workflow Microsoft Teams Adapter,test,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,RSS Publications Bot,main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Poll Bot,main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Poll Bot,test,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Reminder Bot,main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Reminder Bot,test,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Demo Bot,main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Custom Help Demo Bot,main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,To-Do Bot (Demo),main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Expense Claim Bot (Demo),main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,Rooms Bot (Demo),main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core-spring-boot-starter,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core-spring-boot-starter,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-test-jupiter,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,bdk-core-examples,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,bdk-core-examples,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template-freemarker,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template-freemarker,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-test-spring-boot,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http-webclient,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http-webclient,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,bdk-group-example,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,bdk-app-spring-boot-example,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,bdk-multi-instances-example,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-group-extension,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-group-extension,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http-api,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http-api,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-app-spring-boot-starter,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-app-spring-boot-starter,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,bdk-spring-boot-example,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,bdk-spring-boot-example,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template-api,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template-api,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-extension-api,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http-jersey2,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http-jersey2,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template-handlebars,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template-handlebars,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app,test,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-wdk,master,custom-activity-example,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,finos/symphony-wdk,master,studio,main,21.0.10+7-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,Netflix/photon,master,Photon,main,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/photon,master,Photon,test,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-archaius,main,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples,main,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples,test,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-loadbalancer,main,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-loadbalancer,test,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon,main,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon,test,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon,examples,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-evcache,main,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-evcache,test,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient,main,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient,test,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-transport,main,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-transport,test,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-guice,main,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-guice,test,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-eureka,main,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-eureka,test,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-core,main,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-core,test,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-test,main,21.0.10+7-LTS,Eclipse Adoptium,1.8,8,1.8,Default,ALL
+github.com,spring-projects/spring-data-commons,main,Spring Data Core,main,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,spring-projects/spring-data-commons,main,Spring Data Core,test,17,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,spring-projects/spring-petclinic,main,spring-petclinic,main,25.0.2+10-LTS,Eclipse Adoptium,17,17,17,Default,ALL
+github.com,spring-projects/spring-petclinic,main,spring-petclinic,test,25.0.2+10-LTS,Eclipse Adoptium,17,17,17,Default,ALL

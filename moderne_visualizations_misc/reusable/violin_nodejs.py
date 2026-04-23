@@ -1,10 +1,11 @@
-from code_data_science import data_table as dt
+from moderne_visualizations_misc.reusable.data_loader import read_data_table
 from code_data_science.versions import index as index_versions
 import plotly.graph_objects as go
 import code_data_science.palette as palette
 
 def create_violin_plot():
-    df = dt.read_csv("../samples/dependency_usage_violin_nodejs.csv")
+    # df = read_data_table("../samples/dependency_usage_violin_nodejs.csv")
+    df = read_data_table("../samples/v2/org.openrewrite.nodejs.table.DependenciesInUse.csv")
     df = df[["name", "requestedVersion"]]
 
     # make sure version is a string

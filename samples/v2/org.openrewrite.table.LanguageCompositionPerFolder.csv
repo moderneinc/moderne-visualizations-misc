@@ -1,0 +1,1277 @@
+# @name org.openrewrite.table.LanguageCompositionPerFolder
+# @instanceName Per-folder language composition report
+# @group 
+repositoryOrigin,repositoryPath,repositoryBranch,folderPath,language,fileCount,lineCount,org1,org2
+github.com,apache/maven-doxia,master,doxia-core/src/test/java/org/apache/maven/doxia/index,Java,2,94,Default,ALL
+github.com,apache/maven-doxia,master,,Plain text,3,121,Default,ALL
+github.com,apache/maven-doxia,master,,Xml,1,340,Default,ALL
+github.com,apache/maven-doxia,master,,Groovy,1,0,Default,ALL
+github.com,apache/maven-doxia,master,,Yaml,1,26,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xdoc,Xml,1,112,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/main/java/org/apache/maven/doxia,Java,3,36,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-apt/src/test/resources/test,Plain text,8,110,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-one-plugin/fml,Plain text,1,49,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-war-plugin/fml,Plain text,1,138,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-apt,Xml,1,37,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-changelog-plugin/fml,Plain text,1,180,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/test/java/org/apache/maven/doxia/module,Java,1,56,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-fml/src/main/mdo,Plain text,1,153,Default,ALL
+github.com,apache/maven-doxia,master,.github/workflows,Yaml,4,37,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-apt/src/site,Xml,1,15,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/test/java/org/apache/maven/doxia/macro/toc,Java,1,168,Default,ALL
+github.com,apache/maven-doxia,master,doxia-sink-api/src/main/java/org/apache/maven/doxia/sink,Java,6,269,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-docck-plugin/fml,Plain text,1,49,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-fml/src/test/java/org/apache/maven/doxia/module/fml,Java,2,264,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/test/java/org/apache/maven/doxia/util,Java,4,239,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-checkstyle-plugin/fml,Plain text,1,54,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-apt/src/main/java/org/apache/maven/doxia/module/apt,Java,9,1794,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/main/java/org/apache/maven/doxia/macro/snippet,Java,2,183,Default,ALL
+github.com,apache/maven-doxia,master,doxia-sink-api/src/site/markdown,Plain text,1,44,Default,ALL
+github.com,apache/maven-doxia,master,src/site/resources/images,Other/unknown/unparseable,1,0,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-pmd-plugin/fml,Plain text,1,38,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/doxia-site/fml,Plain text,1,100,Default,ALL
+github.com,apache/maven-doxia,master,doxia-sink-api,Xml,1,13,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/main/java/org/apache/maven/doxia/parser,Java,7,1255,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-patch-plugin/fml,Plain text,1,46,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-markdown/src/main/java/org/apache/maven/doxia/module/markdown,Java,9,1129,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/test/java/org/apache/maven/doxia/macro/snippet,Java,2,118,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/doxia-site/xdoc/references,Xml,3,152,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xhtml5/src/site/markdown,Plain text,1,33,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-site-plugin/fml,Plain text,1,130,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-antrun-plugin/fml,Plain text,1,37,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-stage-plugin/fml,Plain text,1,36,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-clean-plugin/fml,Plain text,1,56,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-idea-plugin/fml,Plain text,1,47,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources,Xml,1,136,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xdoc/src/test/resources,Xml,5,302,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xhtml5/src/test/resources,Plain text,3,376,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xhtml5/src/test/resources,Xml,2,88,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xdoc/src/site,Xml,1,19,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/test/java/org/apache/maven/doxia,Java,2,73,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/main/java/org/apache/maven/doxia/parser/manager,Java,3,30,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-help-plugin/fml,Plain text,1,41,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xdoc/src/main/java/org/apache/maven/doxia/module/xdoc,Java,5,375,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-javadoc-plugin/fml,Plain text,1,403,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/test/java/org/apache/maven/doxia/macro,Java,1,32,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xhtml5/src/main/java/org/apache/maven/doxia/module/xhtml5,Java,6,243,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/main/java/org/apache/maven/doxia/macro/manager,Java,3,30,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/test/java/org/apache/maven/doxia/sink/impl,Java,15,3500,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/site/markdown,Plain text,1,58,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-site/xdoc/developers,Xml,1,405,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-assembly-plugin/fml,Plain text,1,68,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/test/resources/macro/snippet,Plain text,1,34,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-ear-plugin/fml,Plain text,1,47,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-markdown/src/it,Xml,1,36,Default,ALL
+github.com,apache/maven-doxia,master,src/site/xdoc,Other/unknown/unparseable,1,0,Default,ALL
+github.com,apache/maven-doxia,master,src/site/xdoc,Plain text,1,70,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-compiler-plugin/fml,Plain text,1,51,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-install-plugin/fml,Plain text,1,34,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-fml,Xml,1,121,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-site-plugin/xdoc,Xml,1,304,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-site/fml,Plain text,4,810,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-deploy-plugin/fml,Plain text,1,75,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xdoc/src/main/resources,Xml,1,2272,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-markdown,Xml,1,212,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-invoker-plugin/fml,Plain text,1,73,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-fml/src/site,Xml,1,19,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs,Xml,1,13,Default,ALL
+github.com,apache/maven-doxia,master,doxia-sink-api/src/site,Xml,1,15,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-remote-resources-plugin/fml,Plain text,1,84,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-markdown/src/it/general/src/site,Xml,1,23,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xhtml5/src/test/java/org/apache/maven/doxia/module/xhtml5,Java,4,358,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/test/java/org/apache/maven/doxia/macro/manager,Java,1,17,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xhtml5/src/site,Xml,1,15,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/test/java/org/apache/maven/doxia/xsd,Java,2,256,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/test/resources,Xml,2,116,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xhtml5,Xml,1,41,Default,ALL
+github.com,apache/maven-doxia,master,.github,Plain text,1,23,Default,ALL
+github.com,apache/maven-doxia,master,.github,Yaml,2,12,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/main/java/org/apache/maven/doxia/parser/module,Java,5,67,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/src/site,Xml,1,14,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-fml/src/site/markdown,Plain text,1,39,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-ejb-plugin/fml,Plain text,1,63,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xdoc/src/test/java/org/apache/maven/doxia/module/xdoc,Java,5,577,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/test/java/org/apache/maven/doxia/parser,Java,3,951,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/main/java/org/apache/maven/doxia/macro,Java,6,81,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/main/java/org/apache/maven/doxia/markup,Java,4,325,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-markdown/src/it/general,Xml,1,43,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-markdown/src/it/general,Groovy,1,0,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/main/java/org/apache/maven/doxia/util,Java,8,981,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-apt/src/test/java/org/apache/maven/doxia/module/apt,Java,4,713,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-fml/src/main/resources,Xml,1,2248,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-dependency-plugin/fml,Plain text,1,74,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/site,Xml,1,18,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-fml/src/test/resources,Plain text,3,855,Default,ALL
+github.com,apache/maven-doxia,master,src/site/markdown,Plain text,1,47,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-xdoc/src/site/markdown,Plain text,1,38,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-markdown/src/site,Xml,1,15,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core,Xml,1,71,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-markdown/src/test/resources,Plain text,27,207,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-markdown/src/it/general/src/site/markdown,Plain text,8,88,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/main/java/org/apache/maven/doxia/sink/impl,Java,21,2267,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-eclipse-plugin/fml,Plain text,1,49,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/main/java/org/apache/maven/doxia/macro/toc,Java,1,82,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-changes-plugin/fml,Plain text,1,65,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-markdown/src/site/markdown,Plain text,1,75,Default,ALL
+github.com,apache/maven-doxia,master,src/site/resources,Plain text,1,22,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/main/java/org/apache/maven/doxia/index,Java,2,277,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-apt/src/test/resources,Plain text,1,110,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-apt/src/test/resources,Xml,1,136,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-rar-plugin/fml,Plain text,1,50,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-site/xdoc,Plain text,1,215,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-site/xdoc,Xml,3,410,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-site/xdoc/errors,Xml,1,19,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-verifier-plugin/fml,Plain text,1,33,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-doap-plugin/fml,Plain text,1,62,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-fml/src/main/java/org/apache/maven/doxia/module/fml,Java,4,367,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules,Xml,1,48,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-ant-plugin/fml,Plain text,1,41,Default,ALL
+github.com,apache/maven-doxia,master,doxia-core/src/main/resources,Xml,1,140,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-source-plugin/fml,Plain text,1,33,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-project-info-reports-plugin/fml,Plain text,1,65,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-gpg-plugin/fml,Plain text,1,33,Default,ALL
+github.com,apache/maven-doxia,master,doxia-modules/doxia-module-markdown/src/test/java/org/apache/maven/doxia/module/markdown,Java,5,1266,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-jar-plugin/fml,Plain text,1,36,Default,ALL
+github.com,apache/maven-doxia,master,src/site,Xml,1,22,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-repository-plugin/fml,Plain text,1,47,Default,ALL
+github.com,apache/maven-doxia,master,doxia-test-docs/src/main/resources/maven-ressources-plugin/fml,Plain text,1,79,Default,ALL
+github.com,apache/maven-doxia,master,.github/ISSUE_TEMPLATE,Yaml,3,35,Default,ALL
+github.com,finos/messageml-utils,main,src/main/java/org/finos/symphony/messageml/messagemlutils/util/instrument/resolver,Java,7,168,Default,ALL
+github.com,finos/messageml-utils,main,,Plain text,9,1186,Default,ALL
+github.com,finos/messageml-utils,main,,Xml,2,320,Default,ALL
+github.com,finos/messageml-utils,main,,Json,1,4,Default,ALL
+github.com,finos/messageml-utils,main,src/main/java/org/finos/symphony/messageml/messagemlutils/util/pojo,Java,2,122,Default,ALL
+github.com,finos/messageml-utils,main,src/main/java/org/finos/symphony/messageml/messagemlutils/exceptions,Java,3,23,Default,ALL
+github.com,finos/messageml-utils,main,src/test/java/org/finos/symphony/messageml/messagemlutils/util,Java,5,381,Default,ALL
+github.com,finos/messageml-utils,main,.mvn/wrapper,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/messageml-utils,main,.mvn/wrapper,Properties,1,2,Default,ALL
+github.com,finos/messageml-utils,main,src/test/java/org/finos/symphony/messageml/messagemlutils/elements/form,Java,14,5214,Default,ALL
+github.com,finos/messageml-utils,main,src/main/resources,Properties,1,5577,Default,ALL
+github.com,finos/messageml-utils,main,src/test/java/org/finos/symphony/messageml/messagemlutils/bi,Java,2,127,Default,ALL
+github.com,finos/messageml-utils,main,src/main/java/org/finos/symphony/messageml/messagemlutils/bi,Java,4,215,Default,ALL
+github.com,finos/messageml-utils,main,.github,Plain text,2,52,Default,ALL
+github.com,finos/messageml-utils,main,src/test/resources/examples,Xml,15,316,Default,ALL
+github.com,finos/messageml-utils,main,src/test/resources/examples,Parse error,1,66,Default,ALL
+github.com,finos/messageml-utils,main,src/test/resources/examples,Json,1,51,Default,ALL
+github.com,finos/messageml-utils,main,src/test/resources/payloads,Plain text,10,505,Default,ALL
+github.com,finos/messageml-utils,main,src/test/resources/payloads,Json,9,480,Default,ALL
+github.com,finos/messageml-utils,main,.github/workflows,Yaml,4,85,Default,ALL
+github.com,finos/messageml-utils,main,src/main/java/org/finos/symphony/messageml/messagemlutils/util,Java,14,672,Default,ALL
+github.com,finos/messageml-utils,main,src/main/java/org/finos/symphony/messageml/messagemlutils/markdown/nodes,Java,9,126,Default,ALL
+github.com,finos/messageml-utils,main,src/test/java/org/finos/symphony/messageml/messagemlutils/markdown,Java,1,25,Default,ALL
+github.com,finos/messageml-utils,main,src/test/java/org/finos/symphony/messageml/messagemlutils/elements,Java,34,4907,Default,ALL
+github.com,finos/messageml-utils,main,src/main/java/org/finos/symphony/messageml/messagemlutils,Java,2,686,Default,ALL
+github.com,finos/messageml-utils,main,src/main/java/org/finos/symphony/messageml/messagemlutils/elements,Java,73,5495,Default,ALL
+github.com,finos/messageml-utils,main,src/test/java/org/finos/symphony/messageml/messagemlutils,Java,4,1246,Default,ALL
+github.com,finos/messageml-utils,main,src/main/java/org/finos/symphony/messageml/messagemlutils/markdown,Java,3,639,Default,ALL
+github.com,finos/messageml-utils,main,src/main/java/org/finos/symphony/messageml/messagemlutils/markdown/nodes/form,Java,18,287,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,,Other/unknown/unparseable,2,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,,Plain text,14,1008,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,,Xml,1,233,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,,Yaml,1,10,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/teams/state,Java,4,303,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow-testing/src/main/java/org/finos/springbot/tests/content,Java,1,82,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/claim-bot/src/main/java/org/finos/springbot/example/claim/expenses,Java,3,105,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/turns,Java,1,4,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/java/com/symphony/integration/jira/event,Java,2,62,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/rss-bot/src/main/java/org/finos/springbot/tool/rssbot/feed,Java,6,305,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/response/templating,Java,6,119,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,.github/workflows,Plain text,1,53,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,.github/workflows,Xml,2,199,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,.github/workflows,Yaml,10,300,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/symphony/controller,Java,1,185,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/form,Java,2,60,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/actions/consumers,Java,6,95,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/java/com/symphony/integration,Java,2,67,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/response/handlers,Java,5,146,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/content,Java,9,195,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow-testing/src/test/java/org/finos/springbot/workflow/tables,Java,1,108,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/state,Java,6,454,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/handlers,Java,5,234,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/teams/conversations,Java,2,40,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/entity-json,Plain text,1,180,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/entity-json,Xml,1,35,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/symphony/templating,Java,5,386,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/reminder-bot/src/test/java/org/finos/symphony/toolkit/tools/reminders,Java,2,179,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/poll-bot/src/test/java/org/finos/springbot/tool/poll,Java,1,75,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/reminder-bot/images,Other/unknown/unparseable,13,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/java/mapping,Java,11,721,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/teams/handlers/retry,Java,2,112,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/poll-bot/src/main/java/org/finos/springbot/tool/poll/poll,Java,5,342,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/symphony/tags,Java,1,40,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/reminder-bot/src/main/java/org/finos/springbot/tool/reminders,Java,9,310,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow-testing/src/main/java/org/finos/springbot/tests/templating,Java,1,223,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow-testing/src/main/java/org/finos/springbot/testing/content,Java,1,14,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/symphony/conversations,Java,1,88,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/data,Java,3,127,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams,Java,2,199,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/annotations,Java,11,103,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/reminder-bot/src/main/resources/templates/symphony,Plain text,1,18,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/content/serialization,Java,2,263,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/actions,Java,5,122,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/resources/org/finos/springbot/symphony/templating,Plain text,25,435,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/java/com/symphony/integration/jira,Java,4,164,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/teams,Java,1,24,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/resources/org/finos/springbot/symphony/json,Json,7,292,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow-testing/src/main/java/org/finos/springbot/tests/work,Java,12,198,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony/entities/src/main/java/org/symphonyoss/fin,Java,1,9,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/teams/content,Java,2,144,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/response,Java,6,176,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/symphony/content,Java,8,224,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/resources/META-INF,Plain text,1,3,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/teams/form,Java,2,19,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/symphony,Java,1,89,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/help,Java,3,123,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/symphony/templating,Java,1,88,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony/entities,Xml,1,25,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/symphony/history,Java,2,129,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter,Plain text,1,7,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter,Xml,1,119,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter,Json,1,97,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/rss-bot,Plain text,1,99,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/rss-bot,Xml,1,86,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/teams/templating/adaptivecard,Java,1,100,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow-testing/src/test/java/org/finos/springbot/workflow/templating,Java,1,56,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/poll-bot/images,Other/unknown/unparseable,6,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/templating,Java,27,475,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/resources/org/finos/springbot/teams/content,Plain text,2,2,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/resources/org/finos/springbot/teams/content,Json,1,10,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/resources/org/finos/springbot/symphony/content,Plain text,2,2,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/entity-json/src/main/java/org/finos/springbot/entityjson,Java,4,223,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/claim-bot,Plain text,1,6,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/claim-bot,Xml,1,98,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/response/templating,Java,2,38,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/todo-bot/src/main/java/org/finos/springbot/example/todo,Java,6,218,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow-testing/src/test/java/org/finos/springbot/testing,Java,1,54,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/java/converters,Java,6,101,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/custom-help-bot/src/main/resources/templates/symphony,Plain text,1,71,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/content/serialization,Java,3,182,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/poll-bot,Plain text,1,21,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/poll-bot,Xml,1,93,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/symphony/json,Java,7,549,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/templating/adaptivecard,Java,8,504,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/symphony,Java,2,147,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter,Plain text,2,45,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter,Xml,1,46,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow-coverage,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow-coverage,Xml,1,81,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/resources/js,Plain text,4,1019,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/custom-help-bot/src/main/java/org/finos/springbot/example/demo,Java,1,9,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony/entities/src/main/java/org/symphonyoss/taxonomy,Java,1,10,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/rss-bot/src/main/java/org/finos/springbot/tool/rssbot/load,Java,5,172,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/symphony/history,Java,3,201,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/actions/form,Java,6,243,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/resources/templates/symphony,Plain text,1,1,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/symphony/form,Java,2,106,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony/entities/src/main/java/org/finos/springbot/entities,Java,1,27,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/templating,Java,1,21,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/tags,Java,3,104,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/teams/templating/thymeleaf,Java,1,98,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/rooms-bot,Plain text,1,8,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/rooms-bot,Xml,1,49,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/messages,Java,2,225,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow-testing/src/main/java/org/finos/springbot/tests/controller,Java,7,438,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,.github,Plain text,1,3,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/bot,Java,3,366,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow-testing,Xml,1,46,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/poll-bot/src/main/resources/templates/teams,Plain text,2,21,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/poll-bot/src/main/resources/templates/teams,Json,1,25,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/symphony/response/handlers,Java,1,106,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow,Plain text,1,9,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow,Xml,1,48,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/templating/thymeleaf,Java,6,340,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/custom-help-bot,Plain text,1,29,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/custom-help-bot,Xml,1,57,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/reminder-bot/src/main/java/org/finos/springbot/tool/reminders/alerter,Java,1,58,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/todo-bot,Plain text,1,9,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/todo-bot,Xml,1,53,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/todo-bot,Yaml,1,34,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/rss-bot/src/main/java/org/finos/springbot/tool/rssbot,Java,4,100,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/resources/templates/symphony,Plain text,4,91,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/poll-bot/src/main/resources/templates/symphony,Plain text,5,224,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/teams/handlers,Java,1,59,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/rss-bot/src/main/java/org/finos/springbot/tool/rssbot/alerter,Java,7,220,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/symphony/messages,Java,1,54,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/handlers/retry,Java,2,71,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/custom-help-bot/img,Other/unknown/unparseable,7,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/history,Java,3,105,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/resources,Json,1,59,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/symphony/response/templating,Java,1,17,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/demo-bot,Plain text,1,13,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/demo-bot,Xml,1,56,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/demo-bot,Yaml,1,21,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/resources/META-INF,Plain text,1,3,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony/entities/src/main/java/org/symphonyoss,Java,2,83,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/custom-help-bot/src/main/resources/templates/teams,Json,1,52,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/content,Java,18,457,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/reminder-bot/src/main/resources/templates/teams,Plain text,1,3,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony/entities/src/main/java/org/symphonyoss/fin/security/id,Java,5,34,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/conversations,Java,3,97,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/custom-help-bot/src/main/java/org/finos/springbot/example/demo/controller,Java,2,47,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/java/resolvers,Java,14,388,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/claim-bot/src/main/java/org/finos/springbot/example/claim,Java,1,7,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/resources/org/finos/springbot/teams/templating/thymeleaf,Plain text,12,45,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/form,Java,8,260,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/symphony/conversations,Java,4,305,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/welcome,Java,1,28,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/rss-bot/images,Other/unknown/unparseable,5,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/resources/mockito-extensions,Plain text,1,1,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/java/com/symphony/integration/jira/event/v2,Java,1,56,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/demo-bot/src/main/java/org/finos/springbot/example/demo,Java,5,97,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow-testing/src/main/java/org/finos/springbot/tests/form,Java,3,70,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/teams/history,Java,3,209,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/symphony/content,Java,2,142,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/symphony/content/serialization,Java,2,151,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/symphony/data,Java,2,89,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/teams/messages,Java,1,49,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/rss-bot/src/main/java/org/finos/springbot/tool/rssbot/notify,Java,1,42,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/conversations,Java,7,420,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot/workflow/history,Java,3,66,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/entity-json/images,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/java/org/finos/springbot/teams/controller,Java,3,428,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/rss-bot/src/main/resources/templates/symphony,Plain text,3,164,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony-bdk/symphony-bdk-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/symphony/form,Java,3,147,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,demos/rooms-bot/src/main/java/org/finos/springbot/example/rooms,Java,3,42,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/chat-workflow/src/main/java/org/finos/springbot,Java,2,167,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/resources,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/reminder-bot,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/reminder-bot,Plain text,1,102,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/reminder-bot,Xml,1,97,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/resources/templates/teams,Plain text,2,21,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/resources/templates/teams,Json,2,52,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,tools/poll-bot/src/main/java/org/finos/springbot/tool/poll,Java,1,13,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/symphony/entities/src/main/java/com/symphony/user,Java,5,49,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,.github/ISSUE_TEMPLATE,Plain text,4,88,Default,ALL
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/test/resources/org/finos/springbot/teams/templating/adaptivecard,Json,26,852,Default,ALL
+github.com,finos/symphony-bdk-java,main,,Plain text,8,982,Default,ALL
+github.com,finos/symphony-bdk-java,main,,Xml,1,14,Default,ALL
+github.com,finos/symphony-bdk-java,main,,Json,1,6,Default,ALL
+github.com,finos/symphony-bdk-java,main,,Groovy,2,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-extension-api,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/retry/resilience4j,Java,1,220,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-app-spring-boot-example/src/main/resources/static,Plain text,2,68,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-test/symphony-bdk-test-spring-boot/src/main/java/com/symphony/bdk/test/spring/annotation,Java,1,31,Default,ALL
+github.com,finos/symphony-bdk-java,main,.github/workflows,Yaml,6,135,Default,ALL
+github.com,finos/symphony-bdk-java,main,docs,Plain text,21,2956,Default,ALL
+github.com,finos/symphony-bdk-java,main,docs,Yaml,1,9,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/activity/parsing,Java,4,479,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/datafeed/util,Java,1,119,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-jersey2/src/test/java/com/symphony/bdk/http/jersey2,Java,2,138,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/main/java/com/symphony/bdk/spring/events,Java,2,108,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/test/java/com/symphony/bdk/spring/annotation,Java,1,78,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config/src/main/java/com/symphony/bdk/core/config/model,Java,17,457,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/resources/app,Json,1,87,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/message/model,Java,3,128,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config/src/main/java/com/symphony/bdk/core/config/exception,Java,3,22,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core,Java,5,407,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/resources/application,Json,5,96,Default,ALL
+github.com,finos/symphony-bdk-java,main,buildSrc,Plain text,1,50,Default,ALL
+github.com,finos/symphony-bdk-java,main,buildSrc,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/auth,Java,2,450,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-jersey2/src/main/java/com/symphony/bdk/http/jersey2,Java,6,607,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-webclient,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-api/src/main/java/com/symphony/bdk/http/api/util,Java,2,59,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/user/mapper,Java,1,20,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template/symphony-bdk-template-handlebars/src/main/resources/META-INF/services,Plain text,1,1,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/datafeed/exception,Java,1,8,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/disclaimer,Java,1,69,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config/src/main/java/com/symphony/bdk/core/config/util,Java,1,11,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-spring-boot-example/src/main/java/com/symphony/bdk/examples/spring/api,Java,2,41,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/activity,Java,5,173,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/test/java/com/symphony/bdk/app/spring/auth,Java,1,124,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/pagination,Java,3,326,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/test/java/com/symphony/bdk/app/spring/auth/service,Java,1,59,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-core-examples/src/main/resources/proxy/withoutAuthentication,Yaml,2,10,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/presence/constant,Java,1,12,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/pagination,Java,5,129,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/datafeed/impl,Java,4,1238,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/application,Java,1,63,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-core-examples/src/main/java/com/symphony/bdk/examples/activity/context,Java,2,24,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-test/symphony-bdk-test-spring-boot,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-core-examples/src/test/java/com/symphony/bdk/examples,Java,1,87,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-spring-boot-example/src/test/java/com/symphony/bdk/examples/spring,Java,1,64,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/resources/user,Json,7,352,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/version/model,Java,1,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/main/java/com/symphony/bdk/app/spring/auth/service,Java,1,39,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-api/src/main/java/com/symphony/bdk/http/api/auth,Java,1,8,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/session,Java,1,71,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/main/java/com/symphony/bdk/app/spring/config,Java,4,89,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-test/symphony-bdk-test-spring-boot/src/main/java/com/symphony/bdk/test,Java,2,107,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template/symphony-bdk-template-api/src/test/java/com/symphony/bdk/template/api,Java,1,48,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/main/java/com/symphony/bdk/app/spring/filter,Java,1,26,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/resources/keys,Plain text,1,46,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/message,Java,2,316,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/util,Java,5,155,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/user,Java,1,837,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service,Java,1,10,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/activity/command,Java,5,205,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/activity/model,Java,2,20,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config/src/test/java/com/symphony/bdk/core/config,Java,3,256,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-webclient/src/main/resources/META-INF/services,Plain text,1,1,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/client,Java,1,234,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-extensions/symphony-group-extension/src/main/java/com/symphony/bdk/ext/group/auth,Java,2,72,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-webclient/src/main/java/com/symphony/bdk/http/webclient,Java,3,445,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/resources/stream,Json,10,252,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/arch,Java,1,60,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/resources/datafeed,Plain text,1,1,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template/symphony-bdk-template-freemarker/src/test/resources/subFolder,Plain text,5,6,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/test/java/com/symphony/bdk/spring,Java,3,416,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/activity/parsing,Java,14,353,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-test,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-api/src/test/java/com/symphony/bdk/http/api/tracing,Java,1,16,Default,ALL
+github.com,finos/symphony-bdk-java,main,.github,Plain text,4,81,Default,ALL
+github.com,finos/symphony-bdk-java,main,.github,Json,1,1,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/stream,Java,2,277,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/test/java/com/symphony/bdk/app/spring/filter,Java,1,26,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template/symphony-bdk-template-freemarker/src/main/java/com/symphony/bdk/template/freemarker,Java,2,64,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/main/java/com/symphony/bdk/spring/annotation,Java,2,157,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/main/java/com/symphony/bdk/app/spring,Java,2,31,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/main/java/com/symphony/bdk/spring,Java,2,40,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/datafeed,Java,2,28,Default,ALL
+github.com,finos/symphony-bdk-java,main,docs/tech,Plain text,5,202,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config/src/test/java/com/symphony/bdk/core/config/util,Java,1,36,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/connection,Java,2,85,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-group-example/src/main/resources,Plain text,1,15,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/version,Java,1,29,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-core-examples/src/main/java/com/symphony/bdk/examples,Java,11,376,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-webclient/src/test/resources/certs,Other/unknown/unparseable,2,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/signal,Java,2,145,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/test/resources,Yaml,1,21,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/extension/exception,Java,1,6,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/test/java/com/symphony/bdk/spring/config,Java,1,80,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-multi-instances-example,Plain text,1,12,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-multi-instances-example,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/extension,Java,7,160,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-group-example,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-core-examples/src/main/resources,Other/unknown/unparseable,2,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-core-examples/src/main/resources,Plain text,2,6,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-core-examples/src/main/resources,Xml,3,30,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-core-examples/src/main/resources,Properties,1,5,Default,ALL
+github.com,finos/symphony-bdk-java,main,docs/spring-boot,Plain text,3,679,Default,ALL
+github.com,finos/symphony-bdk-java,main,docs/spring-boot,Yaml,1,130,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-spring-boot-example/src/main/java/com/symphony/bdk/examples/spring/config,Java,1,16,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/test/java/com/symphony/bdk/spring/extension,Java,2,13,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/main/java/com/symphony/bdk/app/spring/auth/model,Java,4,32,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template/symphony-bdk-template-handlebars,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-jersey2/src/main/resources/META-INF/services,Plain text,1,1,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/message/exception,Java,3,24,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-app-spring-boot-example,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-multi-instances-example/src/main/java/com/symphony/bdk/examples/df2,Java,2,139,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/user/constant,Java,2,51,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/datafeed/util,Java,1,65,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/extension,Java,4,91,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/test,Java,8,241,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/auth/exception,Java,2,19,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template/symphony-bdk-template-freemarker/src/main/resources/META-INF/services,Plain text,1,1,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/main/java/com/symphony/bdk/app/spring/auth,Java,1,56,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/version,Java,1,36,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/connection,Java,1,207,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template/symphony-bdk-template-handlebars/src/test/resources,Plain text,3,18,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/test/java/com/symphony/bdk/spring/slash,Java,3,74,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/client/exception,Java,1,7,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config/src/main/java/com/symphony/bdk/core/config/extension,Java,1,6,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter,Plain text,1,12,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/test/java/com/symphony/bdk/spring/events,Java,5,440,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-spring-boot-example/src/main/java/com/symphony/bdk/examples/spring,Java,5,125,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/main/resources/META-INF/spring,Plain text,1,1,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/stream/constant,Java,1,6,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/health,Java,1,124,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/datafeed/impl,Java,8,541,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/app,Java,1,38,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-extensions,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config/src/main/java/com/symphony/bdk/core/config,Java,2,121,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/test/java/com/symphony/bdk/app/spring/config,Java,4,73,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/message/util,Java,4,152,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-spring-boot-example/src/main/resources,Yaml,1,9,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/version/model,Java,1,18,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/session,Java,2,41,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/main/java/com/symphony/bdk/app/spring/service,Java,1,68,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-app-spring-boot-example/src/main/resources/static/scripts,Plain text,2,154,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config,Plain text,1,4,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-webclient/src/test/java/com/symphony/bdk/http/webclient/test,Java,2,82,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/test/java/com/symphony/bdk/app/spring,Java,3,76,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-app-spring-boot-example/src/main/java/com/symphony/bdk/examples/app/spring,Java,3,49,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/test/java/com/symphony/bdk/app/spring/exception,Java,1,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-extensions/symphony-group-extension/src/test/java/com/symphony/bdk/ext/group,Java,4,290,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/client/loadbalancing,Java,8,197,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-spring-boot-example/src/test/java/com/symphony/bdk/examples/spring/arch,Java,1,38,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config/src/test/resources/config,Plain text,1,3,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config/src/test/resources/config,Parse error,1,10,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config/src/test/resources/config,Json,4,38,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config/src/test/resources/config,Properties,1,29,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config/src/test/resources/config,Yaml,11,107,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/health,Java,1,52,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/client/loadbalancing,Java,4,356,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/activity,Java,5,250,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-bom,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template/symphony-bdk-template-handlebars/src/main/java/com/symphony/bdk/template/handlebars,Java,2,52,Default,ALL
+github.com,finos/symphony-bdk-java,main,templates,Plain text,4,739,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-test/symphony-bdk-test-jupiter,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/test/resources,Plain text,1,46,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/test/resources,Yaml,1,12,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/resources/config,Yaml,2,28,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-core-examples,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/presence,Java,1,199,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter,Plain text,1,2,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template/symphony-bdk-template-freemarker,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-extensions/symphony-group-extension,Plain text,1,63,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-extensions/symphony-group-extension,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/main/java/com/symphony/bdk/spring/service,Java,4,88,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/user,Java,2,391,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/message/model,Java,1,66,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-app-spring-boot-example/src/main/resources,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-app-spring-boot-example/src/main/resources,Yaml,1,48,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/auth/impl,Java,21,1467,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/util,Java,4,95,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/gen,Java,1,24,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/app,Java,1,76,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/datafeed,Java,7,88,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/activity/room,Java,2,33,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/main/resources/META-INF/spring,Plain text,1,1,Default,ALL
+github.com,finos/symphony-bdk-java,main,gradle/wrapper,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,gradle/wrapper,Properties,1,6,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/presence,Java,2,92,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/client,Java,1,122,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/activity/form,Java,2,49,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-app-spring-boot-example/src/main/resources/static/css,Plain text,1,12,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-test/symphony-bdk-test-jupiter/src/main/java/com/symphony/bdk/test/mockito/matcher,Java,2,31,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-test/symphony-bdk-test-jupiter/src/main/java/com/symphony/bdk/test,Java,3,264,Default,ALL
+github.com,finos/symphony-bdk-java,main,docs/_includes,Plain text,2,175,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/resources/certs,Other/unknown/unparseable,3,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-config/src/test/resources/certs,Other/unknown/unparseable,3,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-test/symphony-bdk-test-jupiter/src/main/java/com/symphony/bdk/test/mockito,Java,1,10,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/activity/exception,Java,2,18,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-extensions/symphony-group-extension/src/main/java/com/symphony/bdk/ext/group,Java,2,130,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template/symphony-bdk-template-api,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-group-example/src/main/java/com/symphony/bdk/examples,Java,1,41,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/pagination/model,Java,4,45,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/main/java/com/symphony/bdk/app/spring/exception,Java,4,82,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/retry/resilience4j,Java,1,43,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-spring-boot-example/src/main/resources/templates,Plain text,1,12,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-spring-boot-example,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/activity/room,Java,2,66,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/activity/command,Java,5,411,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/stream,Java,1,560,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-test/symphony-bdk-test-jupiter/src/main/java/com/symphony/bdk/test/junit/jupiter,Java,4,127,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-extension-api/src/main/java/com/symphony/bdk/extension,Java,3,11,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core,Java,6,428,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/resources/roles,Json,1,77,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/signal,Java,1,334,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template/symphony-bdk-template-freemarker/src/test/java/com/symphony/bdk/template/freemarker,Java,1,85,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,buildSrc/src/main/groovy,Groovy,4,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/auth/jwt,Java,2,142,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/activity/form,Java,2,71,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-core-examples/src/main/resources/proxy/withBasicAuthentication,Plain text,2,22,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-core-examples/src/main/resources/proxy/withBasicAuthentication,Docker,1,2,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-core-examples/src/main/resources/proxy/withBasicAuthentication,Yaml,2,12,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/resources/audit_trail,Json,2,67,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/stream/util,Java,1,17,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/test/java/com/symphony/bdk/app/spring/service,Java,1,90,Default,ALL
+github.com,finos/symphony-bdk-java,main,docs/_sass/color_schemes,Plain text,1,1,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/resources/message,Json,13,344,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template/symphony-bdk-template-api/src/main/java/com/symphony/bdk/template/api,Java,4,62,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/application,Java,1,180,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-api,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/test/java/com/symphony/bdk/spring/service,Java,1,47,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-api/src/main/java/com/symphony/bdk/http/api/tracing,Java,2,67,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-api/src/test/java/com/symphony/bdk/http/api,Java,2,100,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/disclaimer,Java,1,34,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/retry/function,Java,2,13,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-jersey2,Groovy,1,0,Default,ALL
+github.com,finos/symphony-bdk-java,main,docs/_layouts,Plain text,1,1,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/resources/res_response,Json,2,46,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-app-spring-boot-starter/src/main/java/com/symphony/bdk/app/spring/properties,Java,4,45,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-examples/bdk-core-examples/src/main/java/com/symphony/bdk/examples/activity,Java,6,168,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/connection/constant,Java,1,9,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/message,Java,1,534,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/resources/disclaimer,Json,2,28,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/test/java/com/symphony/bdk/core/service/message/util,Java,2,85,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/retry,Java,3,197,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src,Plain text,1,1,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-api/src/main/java/com/symphony/bdk/http/api,Java,11,327,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/auth,Java,9,90,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-http/symphony-bdk-http-webclient/src/test/java/com/symphony/bdk/http/webclient,Java,3,431,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-template/symphony-bdk-template-handlebars/src/test/java/com/symphony/bdk/template/handlebars,Java,1,47,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-test/symphony-bdk-test-jupiter/src/main/java/com/symphony/bdk/test/annotation,Java,1,16,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/auth/impl,Java,24,1084,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-spring/symphony-bdk-core-spring-boot-starter/src/main/java/com/symphony/bdk/spring/config,Java,10,631,Default,ALL
+github.com,finos/symphony-bdk-java,main,.github/ISSUE_TEMPLATE,Plain text,4,103,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/retry/util,Java,1,18,Default,ALL
+github.com,finos/symphony-wdk,master,studio,Plain text,1,64,Default,ALL
+github.com,finos/symphony-wdk,master,studio,Docker,1,4,Default,ALL
+github.com,finos/symphony-wdk,master,studio,Groovy,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,studio,Yaml,2,70,Default,ALL
+github.com,finos/symphony-wdk,master,,Plain text,10,1074,Default,ALL
+github.com,finos/symphony-wdk,master,,Docker,1,15,Default,ALL
+github.com,finos/symphony-wdk,master,,Xml,3,346,Default,ALL
+github.com,finos/symphony-wdk,master,,Json,1,6,Default,ALL
+github.com,finos/symphony-wdk,master,,Groovy,2,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/graph,Yaml,6,193,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/security,Java,1,104,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/handler/audit,Java,1,80,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/com/symphony/bdk/workflow/configuration,Yaml,1,9,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/swadl/validator,Java,1,60,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/expiration,Java,2,96,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/swadl/exception,Java,4,34,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/message,Yaml,27,287,Default,ALL
+github.com,finos/symphony-wdk,master,.github/workflows,Yaml,6,182,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/converter,Java,4,145,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/src/create-workflow,Error,6,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow,Java,2,67,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/configuration,Java,9,293,Default,ALL
+github.com,finos/symphony-wdk,master,postman,Json,2,437,Default,ALL
+github.com,finos/symphony-wdk,master,docs,Plain text,7,3502,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/handler,Java,3,36,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/management,Java,1,220,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/resources,Properties,2,2,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/resources,Yaml,2,105,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/lang,Java,1,44,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/monitoring/repository/domain,Java,4,57,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/event/id/on,Yaml,17,157,Default,ALL
+github.com,finos/symphony-wdk,master,custom-activity-example,Groovy,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow,Java,34,5879,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/management,Java,2,147,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/monitoring,Yaml,10,182,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/executor/connection,Java,6,153,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/bootstrap,Java,1,34,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/room/obo,Yaml,34,516,Default,ALL
+github.com,finos/symphony-wdk,master,studio/src/main/resources/META-INF,Plain text,1,2,Default,ALL
+github.com,finos/symphony-wdk,master,docs/examples,Yaml,11,280,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language/src/main/java/com/symphony/bdk/workflow/swadl/v1/activity,Java,6,101,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/engine/secret,Java,2,70,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/camunda/monitoring/converter,Java,6,109,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/src/wizard,Error,6,0,Default,ALL
+github.com,finos/symphony-wdk,master,buildSrc,Groovy,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,custom-activity-example/src/main/java/org/acme/workflow,Java,2,16,Default,ALL
+github.com,finos/symphony-wdk,master,studio/src/main/java/com/symphony/devsol/client,Java,4,238,Default,ALL
+github.com,finos/symphony-wdk,master,studio/deployment,Yaml,5,134,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/request,Yaml,13,201,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/public,Other/unknown/unparseable,6,0,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/public,Plain text,1,11,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/public,Error,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/form/invalid/swadl,Yaml,1,16,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language/src/main/java/com/symphony/bdk/workflow/swadl/v1,Java,5,139,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/shareddata,Yaml,2,24,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/com/symphony/bdk/workflow/lang,Yaml,6,58,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/executor/attachment,Java,1,38,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/exception,Java,1,50,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/event/id/all-of,Yaml,17,311,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/debug,Yaml,2,27,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/management/repository,Java,2,26,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/scheduled,Java,1,32,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/handler/variable,Java,1,48,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/util,Yaml,3,25,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/secret,Yaml,1,7,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/configuration,Java,3,224,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/basic/publish,Yaml,1,7,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/camunda/audit,Java,1,14,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language,Groovy,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/monitoring/repository,Java,1,13,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/api/v1,Java,2,241,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/src/editor,Error,2,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/basic/draft,Yaml,1,9,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language/src/main/java/com/symphony/bdk/workflow/swadl/v1/event,Java,23,173,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language/src/main/java/com/symphony/bdk/workflow/swadl/v1/activity/attachment,Java,1,9,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/management/repository,Java,1,94,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/camunda/variable,Java,5,128,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/connection,Yaml,7,51,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/message/templates,Plain text,1,1,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/message/templates,Xml,1,1,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/custom/assertion,Java,2,194,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/logs,Java,2,69,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/bootstrap,Java,1,20,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/engine,Java,1,58,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/src/diagram,Plain text,1,311,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/src/diagram,Error,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/engine/camunda,Java,1,80,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/executor/user,Java,8,263,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/executor/message,Java,7,376,Default,ALL
+github.com,finos/symphony-wdk,master,gradle/wrapper,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,gradle/wrapper,Properties,1,7,Default,ALL
+github.com,finos/symphony-wdk,master,studio/src/main/resources,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/api/v1/controller,Java,6,982,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/message/obo,Yaml,13,146,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language/src/main/java/com/symphony/bdk/workflow/swadl/v1/activity/message,Java,6,91,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/error,Yaml,7,146,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/exception,Java,4,79,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/executor/room,Java,9,377,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/executor/request,Java,2,75,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/event/timeout,Yaml,5,127,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/engine/camunda/monitoring/repository,Java,4,340,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/management/converter,Java,1,28,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/management/repository/domain,Java,2,75,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/executor,Java,2,36,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/src/core,Error,4,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/smoke,Plain text,1,3,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/smoke,Yaml,2,71,Default,ALL
+github.com,finos/symphony-wdk,master,.github,Plain text,3,74,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/utils,Java,2,97,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/camunda/bpmn,Java,4,344,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language/src/main/java/com/symphony/bdk/workflow/swadl/v1/activity/request,Java,1,14,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/event/types,Yaml,17,106,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/monitoring/service/converter,Java,4,100,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/src/action-bar,Error,6,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/executor/group,Java,5,206,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language/src/main/java/com/symphony/bdk/workflow/swadl/v1/activity/room,Java,9,138,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/api/v1/controller,Java,2,147,Default,ALL
+github.com,finos/symphony-wdk,master,studio/src/main/java/com/symphony/devsol/config,Java,6,198,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/event,Yaml,19,220,Default,ALL
+github.com,finos/symphony-wdk,master,studio/src/main/java/com/symphony/devsol/model/github,Java,3,22,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/stream/obo,Yaml,6,81,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/camunda/bpmn/builder,Java,11,328,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/loop,Yaml,4,70,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/deployment,Yaml,2,14,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web,Plain text,2,2955,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web,Error,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web,Json,1,28,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language/src/main/java/com/symphony/bdk/workflow/swadl/v1/activity/group,Java,5,105,Default,ALL
+github.com,finos/symphony-wdk,master,docs/images,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/executor/request/client,Java,2,68,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language/src/main/java/com/symphony/bdk/workflow/swadl/v1/activity/user,Java,8,135,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/src/versions,Error,2,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/management/converter,Java,4,80,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/api/v1/dto,Java,15,218,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/attachments,Other/unknown/unparseable,2,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/attachments,Plain text,1,1,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/attachments,Yaml,1,8,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/lang/custom2,Java,1,3,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/lang/custom1,Java,1,3,Default,ALL
+github.com,finos/symphony-wdk,master,buildSrc/src/main/groovy,Groovy,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/security,Java,2,45,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/engine/handler,Java,2,70,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/branching,Yaml,12,251,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/event,Java,22,544,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/event/timer,Yaml,5,64,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/monitoring/repository,Java,5,35,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/swadl,Java,2,219,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/form,Yaml,17,364,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine,Java,12,480,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/logs,Java,2,84,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/user,Yaml,14,217,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language/src/main/resources,Json,1,2872,Default,ALL
+github.com,finos/symphony-wdk,master,workflows,Plain text,1,1,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/swadl,Java,4,147,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/shared,Java,3,65,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/group,Yaml,1,55,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/event/id/one-of,Yaml,17,208,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/engine/camunda/monitoring/converter,Java,4,109,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/converter,Java,1,104,Default,ALL
+github.com,finos/symphony-wdk,master,studio/src/main/java/com/symphony/devsol/model/wdk,Java,3,23,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/room,Yaml,17,226,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/branching/invalid/swadl,Yaml,5,67,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources,Yaml,7,80,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/validation,Yaml,3,33,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/monitoring/expected,Json,1,3,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/monitoring/service/converter,Java,4,64,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/src/monitor,Error,7,0,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/src/console,Error,3,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/executor/stream,Java,4,148,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language/src/main/java/com/symphony/bdk/workflow/swadl/v1/activity/connection,Java,7,51,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/secret,Java,5,193,Default,ALL
+github.com,finos/symphony-wdk,master,docs/gifs,Other/unknown/unparseable,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/user/obo,Yaml,9,141,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/scheduled,Java,3,43,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language/src/main/java/com/symphony/bdk/workflow/swadl/v1/activity/stream,Java,4,53,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/com/symphony/bdk/workflow/swadl/validator,Yaml,16,103,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/camunda,Java,8,630,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/executor/obo,Java,1,14,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app,Groovy,1,1,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/engine/camunda/monitoring/repository,Java,5,245,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/src,Plain text,1,10,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/src,Error,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/connection/obo,Yaml,18,189,Default,ALL
+github.com,finos/symphony-wdk,master,studio/web/src/chart,Error,1,0,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/resources/stream,Yaml,8,113,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/monitoring/service,Java,1,160,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/expiration,Java,3,68,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/swadl/validator,Java,4,217,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-language/src/main/java/com/symphony/bdk/workflow/engine/executor,Java,6,85,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/engine/handler/variable,Java,1,70,Default,ALL
+github.com,finos/symphony-wdk,master,docs/devdocs,Plain text,2,713,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/monitoring/service,Java,1,267,Default,ALL
+github.com,finos/symphony-wdk,master,.github/ISSUE_TEMPLATE,Plain text,4,103,Default,ALL
+github.com,Netflix/photon,master,,Plain text,10,931,Default,ALL
+github.com,Netflix/photon,master,,Docker,1,17,Default,ALL
+github.com,Netflix/photon,master,,Groovy,2,0,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st0429_9_2007/AM,Xml,1,61,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st2067_100/macro/crop,Java,5,77,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_100_2014,Xml,1,74,Default,ALL
+github.com,Netflix/photon,master,.github/workflows,Yaml,4,159,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_201_2019,Xml,1,9,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_202_2022,Xml,1,11,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_101_2014,Xml,6,194,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_SADM_MGAMetadataIndex_wrong,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_SADM_MGAMetadataIndex_wrong,Xml,4,333,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCATagName_wrong,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCATagName_wrong,Xml,4,324,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/app,Java,10,426,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCATagName_missing,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCATagName_missing,Xml,4,320,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/reference-registers,Xml,4,122139,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/validation,Java,20,2440,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/IAB/CPL,Xml,17,6938,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/st0429_9,Java,1,86,Default,ALL
+github.com,Netflix/photon,master,codequality/pmd,Xml,1,18,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCAContent_missing,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCAContent_missing,Xml,4,320,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/st0429_8,Java,1,34,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_102_2014,Xml,1,74,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/TimedTextImageAndTextProfile,Other/unknown/unparseable,3,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/TimedTextImageAndTextProfile,Xml,4,459,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/RESTfulInterfaces,Java,3,310,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_CPL__non_compliant_unkown_operational_mode,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_CPL__non_compliant_unkown_operational_mode,Xml,4,324,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_103_2014,Xml,1,54,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st0377_41,Java,2,60,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/MERIDIAN_Netflix_Photon_161006_ID_MISMATCH,Other/unknown/unparseable,2,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/MERIDIAN_Netflix_Photon_161006_ID_MISMATCH,Xml,5,584,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/WrongXmlMimeTypes,Xml,4,346,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/ISXD/CompleteIMP,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/ISXD/CompleteIMP,Xml,5,446,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st0429_8_2007/PKL,Xml,1,53,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/exceptions,Java,3,26,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/Netflix_Sony_Plugfest_2015,Other/unknown/unparseable,5,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/Netflix_Sony_Plugfest_2015,Xml,15,8268,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st2067_100,Java,2,489,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_SADMAudioMetadataSubDescriptor_missing,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_SADMAudioMetadataSubDescriptor_missing,Xml,4,316,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st2067_100/macro/scale,Java,5,54,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st379_2,Java,1,38,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/Application2,Xml,21,7401,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCAUseClass_wrong,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCAUseClass_wrong,Xml,4,324,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_ContainerContraintsSubDescriptor_missing,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_ContainerContraintsSubDescriptor_missing,Xml,4,321,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_ADMAudioProgrammeID_missing,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_ADMAudioProgrammeID_missing,Xml,4,320,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_203_2023,Xml,1,32,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/writerTools,Java,9,2286,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCATitle_missing,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCATitle_missing,Xml,4,320,Default,ALL
+github.com,Netflix/photon,master,gradle/wrapper,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,gradle/wrapper,Properties,1,6,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/st2067_202,Java,2,122,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/st2067_201,Java,3,271,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/st2067_203,Java,1,254,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/validation,Java,4,191,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_SADM_MGAAudioMetadataIdentifier_wrong,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_SADM_MGAAudioMetadataIdentifier_wrong,Xml,4,324,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_CPL__non_compliant_wrong_track_id,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_CPL__non_compliant_wrong_track_id,Xml,4,324,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/w3/_2000_09/xmldsig,Xml,1,246,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCAContent_wrong,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCAContent_wrong,Xml,4,324,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/MERIDIAN_Netflix_Photon_161006,Other/unknown/unparseable,2,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/MERIDIAN_Netflix_Photon_161006,Xml,5,584,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st2067_2,Java,16,1990,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/BadXML,Xml,4,371,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/NYCbCrLT_3840x2160x23.98x10min,Other/unknown/unparseable,2,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/NYCbCrLT_3840x2160x23.98x10min,Xml,7,460,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary,Java,16,1666,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/ISXD,Xml,6,1685,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/ISXD/CompleteIMP3,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/ISXD/CompleteIMP3,Xml,3,487,Default,ALL
+github.com,Netflix/photon,master,src/main/resources,Plain text,1,7,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/ISXD/CompleteIMP2,Xml,5,415,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/Application5/PhotonApp5Test,Other/unknown/unparseable,3,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/Application5/PhotonApp5Test,Xml,4,455,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st0422,Java,1,24,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/annotations,Java,1,11,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/writerTools,Java,4,534,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_44100Hz,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_44100Hz,Xml,4,324,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary,Java,3,129,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/Application5/PhotonApp5TestNoContainerConstraintsSubDescriptor,Other/unknown/unparseable,3,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/Application5/PhotonApp5TestNoContainerConstraintsSubDescriptor,Xml,4,449,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/st0377,Java,2,237,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_2_2013,Xml,1,39,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/IMF-2020,Xml,3,698,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st0433_2008/dcmlTypes,Xml,1,210,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_2_2016,Xml,1,52,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st2067_100/macro/preset,Java,1,13,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/Application2E2021,Xml,5,930,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/Application2E2020,Xml,12,2972,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st2067_201,Java,4,325,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st2067_202,Java,3,156,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st2067_203,Java,6,633,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_3_2013,Xml,1,224,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCATagSymbol_missing,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCATagSymbol_missing,Xml,4,324,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_two_SADM_sections,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_two_SADM_sections,Xml,4,340,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st0377,Java,8,1451,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st2067_100/macro/pixelDecoder,Java,3,25,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_3_2016,Xml,1,222,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/PHDR,Other/unknown/unparseable,2,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/PHDR,Xml,3,418,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/IAB/CompleteIMP,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/IAB/CompleteIMP,Xml,4,372,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/Application5/MultiAppIMP,Xml,6,1053,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/Application5/PhotonApp5TestDiscontinuityAndVideoLineMapError,Other/unknown/unparseable,3,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/Application5/PhotonApp5TestDiscontinuityAndVideoLineMapError,Xml,4,451,Default,ALL
+github.com,Netflix/photon,master,src/test/resources,Other/unknown/unparseable,5,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources,Xml,7,371,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/st2067_100,Java,1,49,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_21_2016,Xml,1,9,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/OPL,Xml,3,499,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/IAB/MXF,Other/unknown/unparseable,14,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_CPL__non_compliant_no_virtual_track_parameterset,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_CPL__non_compliant_no_virtual_track_parameterset,Xml,4,320,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st2067_100/handle,Java,6,78,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCATagSymbol_wrong,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCATagSymbol_wrong,Xml,4,324,Default,ALL
+github.com,Netflix/photon,master,src/test/java/testUtils,Java,2,87,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCATitleVersion_missing,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCATitleVersion_missing,Xml,4,320,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/RESTfulInterfaces,Java,1,423,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st2067_100/macro,Java,3,62,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_16bit,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_16bit,Xml,4,324,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/utils,Java,7,298,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/test_mapped_file_set,Plain text,2,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/test_mapped_file_set,Xml,3,134,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/IMFTrackFiles,Other/unknown/unparseable,2,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/HT/IMP,Other/unknown/unparseable,2,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/HT/IMP,Xml,3,359,Default,ALL
+github.com,Netflix/photon,master,codequality,Xml,1,38,Default,ALL
+github.com,Netflix/photon,master,src/test/java/com/netflix/imflibrary/st2067_2,Java,8,1041,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st0429_8,Java,1,329,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st0429_9,Java,3,467,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/Application2Extended,Xml,20,6891,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/writerTools/utils,Java,5,284,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/exceptions,Java,3,69,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st0377/header,Java,45,2877,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_2_2016/PKL,Xml,1,54,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/ApplicationIdentification,Xml,5,1641,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCAUseClass_missing,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__non_compliant_MCAUseClass_missing,Xml,4,320,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/MissingFilesAndAssetMapEntries,Other/unknown/unparseable,3,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/MissingFilesAndAssetMapEntries,Xml,4,461,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st2067_100/macro/pixelEncoder,Java,3,25,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/st2067_100/macro/audioRoutingMixing,Java,3,37,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/app,Java,5,1443,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__compliant,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/photon,master,src/test/resources/TestIMP/SADM/ST2067-203_audio_track_file__compliant,Xml,4,324,Default,ALL
+github.com,Netflix/photon,master,src/main/resources/org/smpte_ra/schemas/st2067_2_2020,Xml,1,55,Default,ALL
+github.com,Netflix/photon,master,src/main/java/com/netflix/imflibrary/utils,Java,18,1415,Default,ALL
+github.com,Netflix/ribbon,master,,Plain text,7,802,Default,ALL
+github.com,Netflix/ribbon,master,,Properties,1,12,Default,ALL
+github.com,Netflix/ribbon,master,,Groovy,2,0,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/test/java/com/netflix/ribbon/examples/rx/proxy,Java,1,8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/test/java/com/netflix/ribbon/proxy/sample,Java,6,180,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-evcache/src/test/java/com/netflix/ribbon/proxy,Java,1,71,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-transport,Groovy,1,0,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-transport/src/test/java/com/netflix/ribbon/transport/netty/http,Java,6,1103,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-evcache/src/test/java/com/netflix/ribbon/proxy/sample,Java,8,222,Default,ALL
+github.com,Netflix/ribbon,master,.github/workflows,Yaml,4,126,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-core/src/resources/META-INF/services,Plain text,1,0,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/main/java/com/netflix/ribbon/examples/rx/proxy,Java,2,117,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-transport/src/test/java/com/netflix/client/netty/udp,Java,1,59,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-evcache/src/main/java/com/netflix/ribbon/proxy/annotation,Java,1,15,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient/src/test/java/com/netflix/client/testutil,Java,1,64,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-core/src/main/java/com/netflix/client/config,Java,11,845,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient/src/test/java/com/netflix/niws/client/http,Java,11,936,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/main/resources,Properties,1,8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-archaius/src/main/resources/META-INF/services,Plain text,1,1,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-transport/src/test/resources,Properties,1,4,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-evcache/src/main/java/com/netflix/ribbon/proxy/processor,Java,1,63,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-core/src/main/java/com/netflix/client/util,Java,1,21,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/test/java/com/netflix/ribbon,Java,2,364,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/main/java/com/netflix/ribbon,Java,14,213,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient/src/test/java/com/netflix/http4,Java,2,146,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient/src/main/java/com/netflix/client/http,Java,4,179,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/examples/java/com/netflix/ribbon,Java,1,41,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-transport/src/main/java/com/netflix/ribbon,Java,1,36,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-guice,Groovy,1,0,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-transport/src/main/java/com/netflix/ribbon/transport/netty/http,Java,4,400,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient/src/test/java/com/netflix/client/samples,Java,1,23,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/main/java/com/netflix/ribbon/examples/netty/http,Java,2,63,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-test/src/main/java/com/netflix/ribbon/testutils,Java,2,87,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/main/java/com/netflix/ribbon/examples/server,Java,1,137,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient/src/test/resources,Properties,2,12,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/main/java/com/netflix/ribbon/examples/rx,Java,2,210,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/main/java/com/netflix/ribbon/examples/rx,Plain text,1,10,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient/src/main/java/com/netflix/loadbalancer,Java,1,62,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-test/src/main/java/com/netflix/serialization,Java,6,109,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-loadbalancer,Groovy,1,0,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-transport/src/test/java/com/netflix/ribbon/transport/netty/udp,Java,2,116,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/main/java/com/netflix/ribbon/hystrix,Java,4,80,Default,ALL
+github.com,Netflix/ribbon,master,gradle/wrapper,Other/unknown/unparseable,1,0,Default,ALL
+github.com,Netflix/ribbon,master,gradle/wrapper,Properties,1,7,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-loadbalancer/src/main/java/com/netflix/client,Java,4,410,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-eureka/src/main/java/com/netflix/niws/loadbalancer,Java,5,318,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/main/java/com/netflix/ribbon/examples/rx/template,Java,1,93,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/test/resources,Properties,1,4,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient/src/test/java/com/netflix/client,Java,2,67,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples,Groovy,1,0,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-loadbalancer/src/main/java/com/netflix/loadbalancer/reactive,Java,6,389,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/test/java/com/netflix/ribbon/examples/rx/common,Java,2,23,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-archaius,Groovy,1,0,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-transport/src/main/java/com/netflix/ribbon/transport/netty,Java,4,396,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/test/java/com/netflix/ribbon/http,Java,1,93,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/main/java/com/netflix/ribbon/examples/restclient,Java,1,26,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-guice/src/test/java/com/netflix/ribbon/examples/rx/proxy,Java,1,41,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-loadbalancer/src/test/java/com/netflix/loadbalancer/reactive,Java,1,23,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-core/src/main/java/com/netflix/client/ssl,Java,3,128,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/test/java/com/netflix/ribbon/examples/rx,Java,2,105,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-transport/src/test/java/com/netflix/ribbon/transport/netty,Java,2,59,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-eureka/src/test/java/com/netflix/niws/loadbalancer,Java,6,740,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-test/src/main/java/com/netflix/ribbon/test/resources,Java,1,132,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-transport/src/main/java/com/netflix/ribbon/transport/netty/tcp,Java,1,45,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-eureka,Groovy,1,0,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-archaius/src/main/java/com/netflix/client/config,Java,3,290,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/main/java/com/netflix/ribbon/examples/rx/common,Java,6,156,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-eureka/src/test/java/com/netflix/loadbalancer,Java,1,134,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-archaius/src/main/java/com/netflix/utils,Java,1,19,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/main/java/com/netflix/ribbon/template,Java,6,98,Default,ALL
+github.com,Netflix/ribbon,master,ribbon,Plain text,1,38,Default,ALL
+github.com,Netflix/ribbon,master,ribbon,Groovy,1,0,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/test/java/com/netflix/ribbon/proxy,Java,8,457,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/main/java/com/netflix/ribbon/proxy/annotation,Java,9,104,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-core/src/main/java/com/netflix/client/http,Java,1,13,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-eureka/src/test/resources,Properties,1,4,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-transport/src/main/java/com/netflix/ribbon/transport/netty/udp,Java,1,32,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-guice/src/main/java/com/netflix/ribbon/guice,Java,2,41,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/main/java/com/netflix/ribbon/proxy/processor,Java,6,155,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-core,Groovy,1,0,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-loadbalancer/src/test/java/com/netflix/loadbalancer,Java,19,1281,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-test,Groovy,1,0,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-evcache/src/main/java/com/netflix/ribbon/evache,Java,4,115,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-core/src/test/resources,Properties,1,5,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-loadbalancer/src/test/java/com/netflix/client/testutil,Java,1,280,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/test/java/com/netflix/ribbon/examples/rx/transport,Java,1,8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/test/java/com/netflix/ribbon/examples/rx/template,Java,1,8,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/main/java/com/netflix/ribbon/examples,Java,1,26,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient,Groovy,1,0,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-evcache/src/test/java/com/netflix/ribbon/evache,Java,2,139,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-evcache,Groovy,1,0,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/main/java/com/netflix/ribbon/examples/rx/transport,Java,1,88,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/main/java/com/netflix/ribbon/http,Java,8,592,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-loadbalancer/src/main/java/com/netflix/loadbalancer,Java,50,3243,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient/src/main/java/com/netflix/http4,Java,6,506,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/test/java/com/netflix/ribbon/hystrix,Java,1,66,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient/src/main/java/com/netflix/niws/client/http,Java,5,670,Default,ALL
+github.com,Netflix/ribbon,master,codequality,Xml,1,158,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-core/src/test/java/com/netflix/client/config,Java,5,287,Default,ALL
+github.com,Netflix/ribbon,master,ribbon/src/main/java/com/netflix/ribbon/proxy,Java,9,422,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-examples/src/main/java/com/netflix/ribbon/examples/loadbalancer,Java,1,45,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-core/src/main/java/com/netflix/client,Java,10,289,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-archaius/src/main/java/com/netflix/client,Java,1,22,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-guice/src/test/java/com/netflix/ribbon/examples/rx,Java,3,198,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-httpclient/src/main/java/com/netflix/http4/ssl,Java,2,58,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-loadbalancer/src/test/resources,Properties,1,4,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-loadbalancer/src/test/java/com/netflix/client,Java,1,25,Default,ALL
+github.com,Netflix/ribbon,master,ribbon-evcache/src/main/resources/META-INF/services,Plain text,1,1,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/mapping/callback,Java,9,334,Default,ALL
+github.com,spring-projects/spring-data-commons,main,,Plain text,9,1296,Default,ALL
+github.com,spring-projects/spring-data-commons,main,,Xml,2,448,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/resources/org/springframework/data/domain/jaxb,Plain text,1,3,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/resources/org/springframework/data/domain/jaxb,Xml,1,12,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/convert,Java,12,888,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/query/parser,Java,5,337,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/sample,Java,8,60,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/init,Java,4,84,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/aot,Java,4,324,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/auditing/config,Java,6,170,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/classloadersupport,Java,1,34,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/projection,Java,16,831,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/auditing,Java,14,555,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/kotlin/org/springframework/data/core,Kotlin,5,271,Default,ALL
+github.com,spring-projects/spring-data-commons,main,.github/workflows,Yaml,4,98,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/util,Java,2,224,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/geo/format,Java,3,81,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/resources/org/springframework/data/config,Xml,1,9,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/web/querydsl,Java,2,243,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/web,Java,25,2053,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/resources/org/springframework/data/web/config,Xml,2,29,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/web/config,Java,7,428,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/geo,Java,9,279,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/domain,Java,41,2076,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/core,Java,12,1677,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/util,Java,38,2292,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/web/aot,Java,1,33,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/test/util,Java,3,164,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/mapping/context,Java,10,822,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/config,Java,39,1350,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/resources/org/springframework/data/repository/config,Xml,8,1433,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/mapping,Java,16,530,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/mapping,Kotlin,1,7,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/antora/modules/ROOT,Plain text,1,39,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/aot/generate,Java,13,917,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/resources/org/springframework/data/repository/init,Json,1,2,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/querydsl/suffix,Java,1,8,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/expression,Java,1,89,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/resources/META-INF/native-image/org.springframework.data/spring-data-commons,Properties,1,1,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/core,Java,11,247,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/crossstore,Java,6,87,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/resources/org/springframework/data/repository/config,Plain text,1,0,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/resources/org/springframework/data/repository/config,Xml,1,12,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/kotlin/org/springframework/data/repository,Kotlin,1,16,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/spel,Java,4,223,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/domain,Java,22,1092,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/resources/META-INF,Plain text,1,4,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/resources/META-INF/services,Plain text,1,1,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/cdi/isolated,Java,4,18,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/core,Java,22,2274,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/domain/jaxb,Java,1,94,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/config,Java,5,207,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/transaction,Java,1,111,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/transaction,Java,5,211,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/query,Java,23,1559,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/aot/sample,Java,11,251,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/annotation,Java,16,145,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/kotlin/org/springframework/data/mapping/model,Kotlin,12,702,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/config/annotated,Java,4,14,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/support,Java,10,779,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/mapping,Java,22,625,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/config,Java,41,2409,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/jmh/java/org/springframework/data/core,Java,2,42,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/cdi,Java,20,379,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/antora/modules/ROOT/pages,Plain text,14,1818,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/mapping/model,Java,44,3484,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/benchmark/org/springframework/data/convert,Plain text,1,138,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/antora/modules/ROOT/pages/repositories,Plain text,22,3137,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/config/spifragment,Java,3,6,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/kotlin/org/springframework/data/mapping,Kotlin,2,13,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/mapping/model/subpackage,Java,1,46,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/web/aot,Java,1,55,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/mapping/context,Java,9,938,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/kotlin/org/springframework/data/projection,Kotlin,3,19,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/geo/format,Java,2,64,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/expression,Java,13,250,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository,Java,8,75,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/history,Java,2,16,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/resources/org/springframework/data/domain/jaxb,Xml,2,253,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/kotlin/org/springframework/data/mapping,Kotlin,1,45,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/core/support,Java,39,2518,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/auditing/config,Java,1,98,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/init,Java,12,309,Default,ALL
+github.com,spring-projects/spring-data-commons,main,.mvn/wrapper,Other/unknown/unparseable,1,0,Default,ALL
+github.com,spring-projects/spring-data-commons,main,.mvn/wrapper,Properties,1,1,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/resources,Plain text,2,236,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/antora/modules/ROOT/pages/kotlin,Plain text,5,133,Default,ALL
+github.com,spring-projects/spring-data-commons,main,.github,Plain text,2,34,Default,ALL
+github.com,spring-projects/spring-data-commons,main,.github,Yaml,1,1,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/kotlin/org/springframework/data/repository/kotlin,Kotlin,3,254,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/mapping/callback,Java,4,422,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/antora/resources/antora-resources,Yaml,1,18,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/resources/META-INF/spring,Plain text,1,13,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/querydsl,Java,10,274,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/kotlin/org/springframework/data/util,Kotlin,4,128,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/kotlin/org/springframework/data/repository/core/support,Kotlin,2,27,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/kotlin/org/springframework/data/repository/query,Kotlin,2,24,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/querydsl/binding,Java,5,376,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/spel/spi,Java,6,215,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/convert,Java,31,1531,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/aot/generate,Java,28,2067,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/support,Java,3,125,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/util,Java,4,452,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/kotlin/org/springframework/data/repository,Kotlin,1,1,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/mapping/model,Java,30,3130,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/history,Java,3,183,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/javapoet,Java,3,363,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/config/basepackage,Java,1,3,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/resources/META-INF,Plain text,4,29,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/annotation,Java,1,12,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/antora,Yaml,2,44,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/reactive,Java,5,72,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/aot/hint,Java,2,47,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/aot,Java,12,759,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/resources,Xml,1,11,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/resources,Properties,1,1,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/config/stereotype,Java,2,10,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/web/querydsl,Java,4,137,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/history/support,Java,2,6,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/history,Java,6,183,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/kotlin/org/springframework/data/mapping/context,Kotlin,2,4,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/spel/spi,Java,2,62,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/support,Java,8,177,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/aot/types,Java,17,105,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/query,Java,9,1095,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/aot,Java,13,725,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/config,Java,1,44,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/domain/jaxb,Java,6,175,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/kotlin/org/springframework/data/repository/kotlin,Plain text,1,5,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/kotlin/org/springframework/data/repository/kotlin,Kotlin,2,31,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data,Java,1,58,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/web/config,Java,15,522,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/core/support,Java,30,2568,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/projection,Java,9,708,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/cdi,Java,6,400,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/util/nonnull,Java,1,13,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/query/parser,Java,2,422,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/spel,Java,8,563,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/util/nonnull/packagelevel,Java,2,4,Default,ALL
+github.com,spring-projects/spring-data-commons,main,.mvn,Plain text,1,14,Default,ALL
+github.com,spring-projects/spring-data-commons,main,.mvn,Xml,1,8,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/web,Java,32,1648,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/javapoet,Java,2,241,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/kotlin/org/springframework/data/core,Kotlin,4,105,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/config/basepackage/repo,Java,2,7,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/auditing,Java,12,679,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/repository/support,Java,13,638,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/jmh/java/org/springframework/data,Java,1,14,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/geo,Java,15,472,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java,Java,2,3,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/querydsl/aot,Java,2,22,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/main/java/org/springframework/data/querydsl/binding,Java,14,589,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/util/nonnull/type,Java,5,25,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/repository/config/excluded,Java,1,6,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/util,Java,23,868,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/org/springframework/data/querydsl,Java,9,243,Default,ALL
+github.com,spring-projects/spring-data-commons,main,src/test/java/example,Java,6,35,Default,ALL
+github.com,spring-projects/spring-petclinic,main,,Plain text,9,1279,Default,ALL
+github.com,spring-projects/spring-petclinic,main,,Xml,1,402,Default,ALL
+github.com,spring-projects/spring-petclinic,main,,Groovy,2,0,Default,ALL
+github.com,spring-projects/spring-petclinic,main,,Yaml,2,28,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/static/resources/css,Plain text,1,9532,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/test/java/org/springframework/samples/petclinic/model,Java,1,26,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/templates/fragments,Plain text,3,142,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/templates,Plain text,2,37,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/test/java/org/springframework/samples/petclinic,Java,4,187,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/java/org/springframework/samples/petclinic,Java,3,24,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/test/jmeter,Plain text,1,540,Default,ALL
+github.com,spring-projects/spring-petclinic,main,.mvn/wrapper,Properties,1,3,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources,Plain text,1,15,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources,Properties,3,22,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/java/org/springframework/samples/petclinic/vet,Java,6,108,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/test/java/org/springframework/samples/petclinic/vet,Java,2,76,Default,ALL
+github.com,spring-projects/spring-petclinic,main,.github,Yaml,1,1,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/static/resources/fonts,Other/unknown/unparseable,6,0,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/static/resources/fonts,Plain text,2,9158,Default,ALL
+github.com,spring-projects/spring-petclinic,main,.github/workflows,Yaml,3,66,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/db/h2,Plain text,2,117,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/templates/vets,Plain text,1,57,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/static/resources/images,Other/unknown/unparseable,4,0,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/static/resources/images,Plain text,1,66,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/scss,Plain text,4,388,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/test/java/org/springframework/samples/petclinic/owner,Java,5,494,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/java/org/springframework/samples/petclinic/owner,Java,12,464,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/test/java/org/springframework/samples/petclinic/service,Java,2,161,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/templates/pets,Plain text,2,93,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/java/org/springframework/samples/petclinic/system,Java,5,57,Default,ALL
+github.com,spring-projects/spring-petclinic,main,k8s,Yaml,2,125,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/checkstyle,Xml,2,21,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/messages,Properties,9,408,Default,ALL
+github.com,spring-projects/spring-petclinic,main,gradle/wrapper,Other/unknown/unparseable,1,0,Default,ALL
+github.com,spring-projects/spring-petclinic,main,gradle/wrapper,Properties,1,7,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/test/java/org/springframework/samples/petclinic/system,Java,3,153,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/templates/owners,Plain text,4,217,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/db/mysql,Plain text,4,155,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/db/postgres,Plain text,3,124,Default,ALL
+github.com,spring-projects/spring-petclinic,main,.devcontainer,Docker,1,11,Default,ALL
+github.com,spring-projects/spring-petclinic,main,.devcontainer,Json,1,18,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/java/org/springframework/samples/petclinic/model,Java,4,55,Default,ALL

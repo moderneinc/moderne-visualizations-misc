@@ -1,3 +1,4 @@
+from moderne_visualizations_misc.reusable.data_loader import read_data_table
 from code_data_science import (
     data_table as dt,
     unique_dictionaries as ud,
@@ -27,7 +28,8 @@ def dataframe_to_tree(df):
 
 
 def create_tree_view():
-    df = dt.read_csv("../samples/dependency_tree_view_nodejs.csv")
+    # df = read_data_table("../samples/dependency_tree_view_nodejs.csv")
+    df = read_data_table("../samples/v2/org.openrewrite.nodejs.table.DependenciesInUse.csv")
     df = df.drop_duplicates(subset=["repositoryPath", "name"])
     tree_data = dataframe_to_tree(df)
 

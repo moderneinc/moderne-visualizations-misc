@@ -1,0 +1,13 @@
+# @name org.openrewrite.sql.table.DatabaseColumnsUsed
+# @instanceName Database columns used
+# @group 
+repositoryOrigin,repositoryPath,repositoryBranch,sourcePath,lineNumber,getCommitHash,operation,table,column,org1,org2
+github.com,finos/spring-bot,spring-bot-master,libs/teams/teams-chat-workflow-spring-boot-starter/src/main/java/org/finos/springbot/teams/templating/adaptivecard/AdaptiveCardRendering.java,255,dcf58cbf91da6e67febccb8cf2542f448cc45ef9,DELETE,Selected,,Default,ALL
+github.com,finos/symphony-bdk-java,main,symphony-bdk-core/src/main/java/com/symphony/bdk/core/service/datafeed/impl/DatafeedLoopV2.java,92,32cea81d1a696d701d4284cd00ab00695c7347eb,DELETE,Datafeed,,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/main/java/com/symphony/bdk/workflow/api/v1/WorkflowsMgtApi.java,127,e9657492bfcffde29d2e0cb1ec9d7b0355aeeab6,DELETE,a,,Default,ALL
+github.com,finos/symphony-wdk,master,workflow-bot-app/src/test/java/com/symphony/bdk/workflow/api/v1/controller/WorkflowsMgtApiControllerTest.java,136,e9657492bfcffde29d2e0cb1ec9d7b0355aeeab6,DELETE,workflow,,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java,39,c7ee170434ec3e369fdc9201290ba2ea4c92b557,SELECT,PetType,ptype,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/db/h2/data.sql,1,c7ee170434ec3e369fdc9201290ba2ea4c92b557,INSERT,vets,,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/db/mysql/data.sql,1,c7ee170434ec3e369fdc9201290ba2ea4c92b557,INSERT,vets,,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/db/postgres/data.sql,1,c7ee170434ec3e369fdc9201290ba2ea4c92b557,INSERT,vets,first_name,Default,ALL
+github.com,spring-projects/spring-petclinic,main,src/main/resources/db/postgres/data.sql,1,c7ee170434ec3e369fdc9201290ba2ea4c92b557,INSERT,vets,last_name,Default,ALL

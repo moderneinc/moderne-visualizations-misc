@@ -1,0 +1,10 @@
+# @name org.openrewrite.java.migrate.table.JavaVersionTable
+# @instanceName Java version table
+# @group 
+repositoryOrigin,repositoryPath,repositoryBranch,sourceVersion,targetVersion,org1,org2
+github.com,apache/maven-doxia,master,8,8,Default,ALL
+github.com,finos/messageml-utils,main,8,8,Default,ALL
+github.com,finos/symphony-wdk,master,17,17,Default,ALL
+github.com,Netflix/ribbon,master,8,8,Default,ALL
+github.com,spring-projects/spring-data-commons,main,17,17,Default,ALL
+github.com,spring-projects/spring-petclinic,main,17,17,Default,ALL

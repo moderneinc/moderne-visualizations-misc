@@ -91,3 +91,11 @@ github.com,modernetraining/example-ecom-security,main,GITHUB,https://github.com/
 github.com,modernetraining/example-ecom-security,main,GITHUB,https://github.com/modernetraining/example-ecom-security/blob/main,ecom-security,main,com.example.ecom,ecom-common,1.0.0,1.0.0,runtime,1
 github.com,modernetraining/example-ecom-security,main,GITHUB,https://github.com/modernetraining/example-ecom-security/blob/main,ecom-security,main,com.example.ecom,ecom-common,1.0.0,1.0.0,test,1
 github.com,modernetraining/example-ecom-security,main,GITHUB,https://github.com/modernetraining/example-ecom-security/blob/main,ecom-security,main,com.example.ecom,ecom-common,1.0.0,1.0.0,provided,1
+github.com,finos/symphony-bdk-java,main,GITHUB,https://github.com/finos/symphony-bdk-java,symphony-bdk-java,main,org.finos.symphony.messageml,messageml-utils,0.10.0,,compile,1
+github.com,finos/symphony-wdk,main,GITHUB,https://github.com/finos/symphony-wdk,symphony-wdk,main,org.finos.symphony.bdk,symphony-bdk-core,2.14.0,,compile,1
+github.com,finos/symphony-wdk,main,GITHUB,https://github.com/finos/symphony-wdk,symphony-wdk,main,org.finos.symphony.bdk,symphony-bdk-spring,2.14.0,,compile,1
+github.com,finos/spring-bot,main,GITHUB,https://github.com/finos/spring-bot,spring-bot,main,org.finos.symphony.messageml,messageml-utils,0.10.0,,compile,1
+github.com,finos/spring-bot,main,GITHUB,https://github.com/finos/spring-bot,spring-bot,main,org.finos.symphony.bdk,symphony-bdk-core,2.14.0,,compile,1
+github.com,spring-projects/spring-petclinic,main,GITHUB,https://github.com/spring-projects/spring-petclinic,spring-petclinic,main,org.springframework.data,spring-data-commons,3.2.0,,compile,1
+github.com,finos/spring-bot,main,GITHUB,https://github.com/finos/spring-bot,spring-bot,main,org.springframework.data,spring-data-commons,3.2.0,,compile,1
+github.com,Netflix/photon,main,GITHUB,https://github.com/Netflix/photon,photon,main,com.netflix.ribbon,ribbon-core,2.7.18,,compile,1

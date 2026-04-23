@@ -1,0 +1,9 @@
+# @name org.openrewrite.gradle.table.GradleWrappersInUse
+# @instanceName Gradle wrappers in use
+# @group 
+repositoryOrigin,repositoryPath,repositoryBranch,version,distribution,org1,org2
+github.com,finos/symphony-bdk-java,main,8.5,bin,Default,ALL
+github.com,finos/symphony-wdk,master,8.5,bin,Default,ALL
+github.com,Netflix/photon,master,8.5,bin,Default,ALL
+github.com,Netflix/ribbon,master,8.14.2,bin,Default,ALL
+github.com,spring-projects/spring-petclinic,main,9.2.1,bin,Default,ALL
