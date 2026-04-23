@@ -1,6 +1,28 @@
 # CHANGELOG
 
 
+## v1.6.0 (2026-04-23)
+
+### Features
+
+- V2 data table support via central adapter
+  ([#97](https://github.com/moderneinc/moderne-visualizations-misc/pull/97),
+  [`59b4b1b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/59b4b1b78b2967fd1e36853d58b2e79f6b32d61c))
+
+* feat: v2 data table support via central adapter
+
+- Add reusable/data_loader.read_data_table: wraps dt.read_csv and back-fills scmType +
+  repositoryLink when missing (v2 dropped them) - Migrate 37 notebooks and 2 reusable modules to
+  read_data_table with v1 sample commented and v2 sample active - Drop samples/v2/ CSVs for 21
+  tables - Fix value_counts().pivot() anti-pattern in gradle_wrappers and lst_provenance (size() +
+  explicit values=) - call_graph_uml: set PlantUML namespaceSeparator none + max_edges cap to handle
+  v2's 84k-row scale and mixed-language class names - Enrich samples: class_quality_metrics (v2)
+  with test_gaps-matching rows and release_metro_dependencies (v1) with v2 inter-repo edges so merge
+  visualizations are non-empty
+
+* fix: declare max_edges option in call_graph_uml spec
+
+
 ## v1.5.2 (2026-04-16)
 
 
