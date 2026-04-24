@@ -9,138 +9,144 @@ Single-file, browser-only ports of the Moderne visualization notebooks. Each too
 
 ## Quick start
 
-1. Clone or download this directory (`html-visualizations/`) as a whole &mdash; the tools share `_shared/styles.css` and `_shared/common.js`.
-2. Open `index.html` in any modern browser (Chrome, Safari, Firefox, Edge).
-3. Click any implemented tool, drop a CSV, set options, click **Generate chart**.
+1. Download `moderne-visualizations.html` &mdash; it is fully self-contained (each tool inlines its own CSS + helpers), so no other files are needed.
+2. Open it in any modern browser (Chrome, Safari, Firefox, Edge).
+3. Click any tool in the sidebar, drop a CSV, set options, click **Generate chart**.
 4. Use the **Download HTML** button next to each chart to export a standalone file for sharing.
 
 > Opening the HTML files via `file://` works for most tools. The `dependency_vulnerabilities` tool calls `api.first.org` for EPSS scores; that works from `file://` in Chrome/Safari but some browsers may block it &mdash; serve the folder via `python -m http.server` or any static server if you hit CORS issues.
 
+## Aggregator tools
+
+Two starred entries in the sidebar render multiple visualizations on one scrolling page from a single multi-file (or folder) drop:
+
+- **⭐ All Prethink files** (`#prethink_all`, under *Prethink quality*) — drop any mix of Prethink CSVs (`ClassQualityMetrics`, `MethodQualityMetrics`, `PackageQualityMetrics`, `CodeSmells`, `TestGaps`, `TestQualityIssues`, `CyclomaticComplexity`, …) and it renders every applicable Prethink visualization. Empty-state placeholders show which inputs are still missing.
+- **⭐ All release files** (`#release_all`, under *Release*) — drop `ProjectCoordinates` + `DependenciesInUse` + `ParentRelationships` together (all three are required) to render metro map, metro plan, metro waves, and repository release order in one view.
+
+Both aggregators accept folder drops, keep cumulative state across successive drops (with a **Clear all** button), show a per-file detection log, auto-skip `.moderne/run/` historical snapshots, and tag rows with their project folder so multi-project drops stay distinguishable.
+
 ## Which CSV does each tool expect?
 
-| Tool | Source data table (Python notebook input) |
-| --- | --- |
-| `dependency_vulnerabilities.html` | `DependencyVulnerabilities` (expects `cve, version, fixedVersion, repositoryPath, severity, depth`) |
-| `technical_debt_treemap.html` | `MethodQualityMetrics` |
-| `code_smell_severity_stacked_bar.html` | `CodeSmells` |
-| `language_composition.html` | `FindSourceFiles` (expects `language, sourcePath, linesOfText, hasParseFailures`) |
-| `cyclomatic_complexity_heatmap.html` | `CyclomaticComplexity` |
-| `dependency_usage_violin.html` | `DependenciesInUse` (expects `artifactId, version, count`; `groupId` optional) |
-| `portfolio_health_sunburst.html` | `ClassQualityMetrics` |
-| `repository_release_order.html` | `DependenciesInUse` (expects `repositoryOrigin, repositoryPath, projectName, groupId, artifactId`) |
-| `composite_recipe_results_sankey.html` | `CompositeRecipeResults` |
-| `lst_provenance.html` | `LstProvenance` |
-| `complexity_vs_test_gaps_bubble.html` | `ClassQualityMetrics` + `TestGaps` (two CSVs) |
-| `spring_component_relationships.html` | `SpringComponentRelationships` |
-| `architectural_stability_scatter.html` | `PackageQualityMetrics` |
-| `method_risk_radar.html` | `MethodQualityMetrics` |
-| `coupling_cohesion_quadrant.html` | `ClassQualityMetrics` |
-| `cyclomatic_complexity_risk_matrix.html` | `CyclomaticComplexity` |
-| `test_quality_issue_heatmap.html` | `TestQualityIssues` |
-| `test_quality_treemap.html` | `TestQualityIssues` |
-| `dependency_usage_violin_nodejs.html` | NPM `DependenciesInUse` (all 12 insight recipes) |
-| `dependency_vulnerabilities_npm.html` | npm or NuGet `DependencyVulnerabilityCheck` (identical schema, one tool) |
-| `parse_failure_stacktraces.html` | `ParseFailures` |
-| `release_metro_map.html` | `ProjectCoordinates` + `DependenciesInUse` + `ParentRelationships` |
-| `release_metro_plan.html` | `ProjectCoordinates` + `DependenciesInUse` + `ParentRelationships` |
-| `release_metro_waves.html` | `ProjectCoordinates` + `DependenciesInUse` + `ParentRelationships` |
-| `test_gap_risk_heatmap.html` | `TestGaps` |
-| `test_quality_by_language.html` | `TestQualityIssues` |
-| `test_quality_language_sunburst.html` | `TestQualityIssues` |
-| `test_quality_risk_matrix.html` | `TestQualityIssues` |
-| `test_quality_executive_dashboard.html` | `TestQualityIssues` |
-| `code_quality_executive_dashboard.html` | `ClassQualityMetrics` (only the primary table is required; omit the optional helper tables from the Python notebook) |
-| `portfolio_quality_comparison_violin.html` | `MethodQualityMetrics` |
-| `dependency_cycle_network.html` | `PackageQualityMetrics` |
-| `eslint_problems.html`, `eslint_problems_by_repo.html` | `ESLintProblems` |
-| `ui5lint_rule_treemap.html`, `ui5lint_violations_heatmap.html` | `UI5Lint` |
-| `comment_language_distribution.html` | `CommentsLanguage` |
-| `find_source_files.html` | `FindSourceFiles` |
-| `java_versions_in_use.html` | `JavaVersionsInUse` |
-| `java_versions_by_sourceset.html` | `JavaVersionsBySourceSet` |
-| `gradle_wrappers.html` | `GradleWrappers` |
-| `maven_parent_poms.html` | `MavenParentPOMs` |
-| `recipe_performance.html` | `RecipePerformance` |
-| `language_composition_by_folder.html` | `LanguageCompositionByFolder` |
-| `language_composition_by_repo.html` | `FindSourceFiles` (language + sourcePath) |
-| `cobol_relationships.html` | `CobolRelationships` |
-| `cobol_find_copybook.html` | `CobolFindCopybook` |
+Every entry below is a hash-routed view inside `moderne-visualizations.html` — e.g. `…/moderne-visualizations.html#technical_debt_treemap`. The groupings match the sidebar.
+
+**Prethink quality**
+
+| Sidebar label | Slug | Source data table |
+| --- | --- | --- |
+| ⭐ All Prethink files | `prethink_all` | Any mix of the Prethink data tables listed below — folder drops work, missing inputs show placeholders |
+| Architectural stability scatter | `architectural_stability_scatter` | `PackageQualityMetrics` |
+| Code quality executive dashboard | `code_quality_executive_dashboard` | `ClassQualityMetrics` (only the primary table is required; omit the optional helper tables from the Python notebook) |
+| Code smell severity | `code_smell_severity_stacked_bar` | `CodeSmells` |
+| Complexity vs test gaps bubble | `complexity_vs_test_gaps_bubble` | `ClassQualityMetrics` + `TestGaps` (two CSVs) |
+| Coupling vs cohesion quadrant | `coupling_cohesion_quadrant` | `ClassQualityMetrics` |
+| Dependency cycle network | `dependency_cycle_network` | `PackageQualityMetrics` |
+| Method risk radar | `method_risk_radar` | `MethodQualityMetrics` |
+| Portfolio health sunburst | `portfolio_health_sunburst` | `ClassQualityMetrics` |
+| Portfolio quality comparison violin | `portfolio_quality_comparison_violin` | `MethodQualityMetrics` |
+| Technical debt hotspots | `technical_debt_treemap` | `MethodQualityMetrics` or `ClassQualityMetrics` (auto-detected) |
+| Test gap risk heatmap | `test_gap_risk_heatmap` | `TestGaps` |
+| Test quality by language | `test_quality_by_language` | `TestQualityIssues` |
+| Test quality executive dashboard | `test_quality_executive_dashboard` | `TestQualityIssues` |
+| Test quality issue heatmap | `test_quality_issue_heatmap` | `TestQualityIssues` |
+| Test quality language sunburst | `test_quality_language_sunburst` | `TestQualityIssues` |
+| Test quality risk matrix | `test_quality_risk_matrix` | `TestQualityIssues` |
+| Test quality treemap | `test_quality_treemap` | `TestQualityIssues` |
+
+**Static analysis**
+
+| Sidebar label | Slug | Source data table |
+| --- | --- | --- |
+| Cyclomatic complexity heatmap | `cyclomatic_complexity_heatmap` | `CyclomaticComplexity` |
+| Cyclomatic complexity risk matrix | `cyclomatic_complexity_risk_matrix` | `CyclomaticComplexity` |
+| Repository category heatmap | `repository_category_heatmap` | Static-analysis findings (top-N repos × impact categories) |
+
+**Dependencies**
+
+| Sidebar label | Slug | Source data table |
+| --- | --- | --- |
+| Dependency usage violin (Maven / Gradle / Jackson / NuGet) | `dependency_usage_violin` | `DependenciesInUse` (expects `artifactId, version, count`; `groupId` optional) |
+| Dependency vulnerabilities | `dependency_vulnerabilities` | `DependencyVulnerabilities` (expects `cve, version, fixedVersion, repositoryPath, severity, depth`) |
+| NPM / NuGet dependency vulnerabilities | `dependency_vulnerabilities_npm` | npm or NuGet `DependencyVulnerabilityCheck` (identical schema, one tool) |
+| NPM package usage violin | `dependency_usage_violin_nodejs` | NPM `DependenciesInUse` (all 12 insight recipes) |
+
+**Lint**
+
+| Sidebar label | Slug | Source data table |
+| --- | --- | --- |
+| ESLint problems (repo → rule) | `eslint_problems_by_repo` | `ESLintProblems` |
+| ESLint problems (rule → repo) | `eslint_problems` | `ESLintProblems` |
+| UI5Lint rule treemap | `ui5lint_rule_treemap` | `UI5Lint` |
+| UI5Lint violations heatmap | `ui5lint_violations_heatmap` | `UI5Lint` |
+
+**Inventory**
+
+| Sidebar label | Slug | Source data table |
+| --- | --- | --- |
+| Comment language distribution | `comment_language_distribution` | `CommentsLanguage` |
+| Find source files | `find_source_files` | `FindSourceFiles` |
+| Gradle wrappers | `gradle_wrappers` | `GradleWrappers` |
+| Java versions by source set | `java_versions_by_sourceset` | `JavaVersionsBySourceSet` |
+| Java versions in use | `java_versions_in_use` | `JavaVersionsInUse` |
+| Language composition | `language_composition` | `FindSourceFiles` (expects `language, sourcePath, linesOfText, hasParseFailures`) |
+| Language composition by folder | `language_composition_by_folder` | `LanguageCompositionByFolder` |
+| Language composition by repo | `language_composition_by_repo` | `FindSourceFiles` (language + sourcePath) |
+| LST provenance | `lst_provenance` | `LstProvenance` |
+| Maven parent POMs | `maven_parent_poms` | `MavenParentPOMs` |
+| Parse failure stacktraces | `parse_failure_stacktraces` | `ParseFailures` |
+
+**Structure**
+
+| Sidebar label | Slug | Source data table |
+| --- | --- | --- |
+| COBOL find copybook | `cobol_find_copybook` | `CobolFindCopybook` |
+| COBOL relationships | `cobol_relationships` | `CobolRelationships` |
+| Composite recipe results sankey | `composite_recipe_results_sankey` | `CompositeRecipeResults` |
+| Recipe performance | `recipe_performance` | `RecipePerformance` |
+| Spring component relationships | `spring_component_relationships` | `SpringComponentRelationships` |
+
+**Release**
+
+| Sidebar label | Slug | Source data table |
+| --- | --- | --- |
+| ⭐ All release files | `release_all` | `ProjectCoordinates` + `DependenciesInUse` + `ParentRelationships` (all three required) |
+| Release metro map | `release_metro_map` | `ProjectCoordinates` + `DependenciesInUse` + `ParentRelationships` |
+| Release metro plan | `release_metro_plan` | `ProjectCoordinates` + `DependenciesInUse` + `ParentRelationships` |
+| Release metro waves | `release_metro_waves` | `ProjectCoordinates` + `DependenciesInUse` + `ParentRelationships` |
+| Repository release order | `repository_release_order` | `DependenciesInUse` (expects `repositoryOrigin, repositoryPath, projectName, groupId, artifactId`) |
 
 Sample CSVs matching each schema live in `../samples/`.
 
 ## Porting an additional notebook
 
-Use `code_smell_severity_stacked_bar.html` as the simplest template:
+Everything lives inside `moderne-visualizations.html`. The main page is a sidebar + an `<iframe id="viewer">` with hash routing: clicking a sidebar entry (or landing on `#slug`) looks up `TOOLS[slug]` — a fully self-contained HTML document stored as a string — and loads it into the iframe. The same string is what **Download HTML** writes to disk, which is why each tool inlines its own helpers and CSS.
 
-1. Copy it to a new filename.
-2. Update the `<title>`, `<header>`, and CSV-column hint in the dropzone.
-3. Adjust the `<div class="controls">` inputs to match the notebook's parameter cell.
-4. In the `runBtn.addEventListener(...)` block, replace the transform + Plotly call with the JS equivalent of the notebook's pandas + plotly code. Shared helpers available from `_shared/common.js`:
-   - `wireFileDrop({ dropId, inputId, dropTextId, onRows })`
-   - `downloadStandaloneChart(chartDivId, filename)`
-   - `parseNum(v)`, `shortRepo(path)`, `shortClass(fqn)`, `extractPackage(fqn)`
-   - `matchesRepoFilter(value, commaSeparatedTerms)`
-   - `compareVersions(a, b)` (natural, for version axes)
-5. Add a new `<div class="cat-card">` entry in `index.html`.
+Structurally, inside `moderne-visualizations.html`:
 
-The Python notebooks are the source of truth for the data transformations; open the matching `.ipynb` in `../moderne_visualizations_misc/` and translate the pandas operations one by one.
+- `const TOOLS = { … }` (~line 134) — one entry per tool, keyed by slug.
+- Sidebar: `<a class="nav-item" data-slug="…" href="#…">Label</a>` inside one of the `<div class="nav-group">` blocks (Prethink quality, Static analysis, Dependencies, Lint, Inventory, Structure, Release).
+
+To add a new tool:
+
+1. Pick any existing TOOLS entry as a template (`code_smell_severity_stacked_bar` is the simplest) and author a complete standalone HTML document with inline `<style>` and `<script>`. Load Plotly + PapaParse from CDN and inline the helper block you need — copy from the template:
+   - `wireFileDrop({ dropId, inputId, dropTextId, onRows })`, `downloadStandaloneChart(chartDivId, filename)`
+   - `normalizeHeaders(rows)` + `HEADER_MAP` — fold platform CSV header variants to canonical names
+   - `repoOrModule(row)` — prefer when you previously would have used `shortRepo(row.repositoryPath)`
+   - `parseNum(v)`, `shortRepo`, `shortClass`, `extractPackage`, `matchesRepoFilter`, `compareVersions`, `groupBy`
+2. Add the document as a new string value in the `TOOLS` object, keyed by a unique snake_case slug.
+3. Add a matching `<a class="nav-item" data-slug="your_slug" href="#your_slug">Display name</a>` inside the appropriate `<div class="nav-group">`.
+4. If the tool belongs in an aggregator, wire it into the render loop in `prethink_all` or `release_all` (detection → section render with empty-state placeholder).
+5. Add a row to the table above and run through the Quick start to sanity-check.
+
+The Python notebooks in `../moderne_visualizations_misc/` remain the source of truth for the data transformations; translate the pandas + plotly operations cell-by-cell into vanilla JS.
+
+There is no build step or checked-in bundler — `moderne-visualizations.html` is edited directly.
 
 ## What's in this folder
 
 ```
 html-visualizations/
 ├── README.md                              ← this file
-├── index.html                             ← catalog / launcher
-├── _shared/
-│   ├── styles.css                         ← shared look & feel
-│   └── common.js                          ← CSV load, download, helpers
-├── dependency_vulnerabilities.html
-├── technical_debt_treemap.html
-├── code_smell_severity_stacked_bar.html
-├── language_composition.html
-├── cyclomatic_complexity_heatmap.html
-├── dependency_usage_violin.html
-├── portfolio_health_sunburst.html
-├── repository_release_order.html
-├── composite_recipe_results_sankey.html
-├── lst_provenance.html
-├── complexity_vs_test_gaps_bubble.html
-├── spring_component_relationships.html
-├── architectural_stability_scatter.html
-├── method_risk_radar.html
-├── coupling_cohesion_quadrant.html
-├── cyclomatic_complexity_risk_matrix.html
-├── test_quality_issue_heatmap.html
-├── test_quality_treemap.html
-├── dependency_usage_violin_nodejs.html
-├── dependency_vulnerabilities_npm.html
-├── parse_failure_stacktraces.html
-├── release_metro_map.html
-├── release_metro_plan.html
-├── release_metro_waves.html
-├── test_gap_risk_heatmap.html
-├── test_quality_by_language.html
-├── test_quality_language_sunburst.html
-├── test_quality_risk_matrix.html
-├── test_quality_executive_dashboard.html
-├── code_quality_executive_dashboard.html
-├── portfolio_quality_comparison_violin.html
-├── dependency_cycle_network.html
-├── eslint_problems.html
-├── eslint_problems_by_repo.html
-├── ui5lint_rule_treemap.html
-├── ui5lint_violations_heatmap.html
-├── comment_language_distribution.html
-├── find_source_files.html
-├── java_versions_in_use.html
-├── java_versions_by_sourceset.html
-├── gradle_wrappers.html
-├── maven_parent_poms.html
-├── recipe_performance.html
-├── language_composition_by_folder.html
-├── language_composition_by_repo.html
-├── cobol_relationships.html
-└── cobol_find_copybook.html
+└── moderne-visualizations.html            ← self-contained bundle (sidebar + iframe viewer + TOOLS map)
 ```
 
 ## Caveats
