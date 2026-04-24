@@ -5,16 +5,61 @@ Single-file, browser-only ports of the Moderne visualization notebooks. Each too
 - Runs entirely in the browser &mdash; no Python, no server, no build step.
 - Loads a CSV via drag-and-drop (or file picker).
 - Renders an interactive Plotly chart.
-- Lets you download a single-chart, self-contained HTML you can email.
+- Lets you download each chart as a standalone HTML you can email, or as a static PNG / SVG.
 
 ## Quick start
 
 1. Download `moderne-visualizations.html` &mdash; it is fully self-contained (each tool inlines its own CSS + helpers), so no other files are needed.
 2. Open it in any modern browser (Chrome, Safari, Firefox, Edge).
 3. Click any tool in the sidebar, drop a CSV, set options, click **Generate chart**.
-4. Use the **Download HTML** button next to each chart to export a standalone file for sharing.
+4. Next to each chart, pick **Download HTML** (interactive), **PNG** (raster), or **SVG** (vector) to export it.
 
 > Opening the HTML files via `file://` works for most tools. The `dependency_vulnerabilities` tool calls `api.first.org` for EPSS scores; that works from `file://` in Chrome/Safari but some browsers may block it &mdash; serve the folder via `python -m http.server` or any static server if you hit CORS issues.
+
+> **Air-gapped machines:** `moderne-visualizations.html` inlines Plotly and PapaParse, so every tool works with zero network access. The only runtime network call is the optional EPSS fetch in `dependency_vulnerabilities`; that tool still renders the fix-type bar and quick-wins heatmap offline, only the EPSS heatmap needs `api.first.org`. The **PNG** and **SVG** export buttons are also fully offline (Plotly renders them locally). **Download HTML** exports still reference Plotly from a CDN &mdash; edit the saved file, or use PNG/SVG instead, if you need the exported chart to work offline too.
+
+### Emailing the tool file IN past a restrictive scanner
+
+The inlined Plotly/PapaParse blobs push `moderne-visualizations.html` to ~5.9 MB of minified JavaScript, which some corporate email scanners flag or drop. You can strip those two blobs before sending and have the recipient paste them back &mdash; the file drops to ~1.3 MB and is much more likely to make it through.
+
+**Sender:** open `moderne-visualizations.html` in a text editor and delete these two elements (each is one opening tag, the minified library source, and a closing `</script>`):
+
+```html
+<script type="text/plain" id="_plotly_src">…plotly source…</script>
+<script type="text/plain" id="_papaparse_src">…papaparse source…</script>
+```
+
+Leave everything else alone &mdash; in particular keep the small `<script type="text/plain" id="_exporter_src">` block (it only contains the PNG/SVG export helper) and all the regular `<script>` tags. Send the stripped file.
+
+**Recipient — air-gapped:** paste the two blocks back in just before `</head>`, using the minified source of [plotly 2.35.2](https://cdn.plot.ly/plotly-2.35.2.min.js) and [PapaParse 5.x](https://cdn.jsdelivr.net/npm/papaparse) (obtained once on any machine with internet and carried across the gap):
+
+```html
+<script type="text/plain" id="_plotly_src">/* paste plotly-2.35.2.min.js here */</script>
+<script type="text/plain" id="_papaparse_src">/* paste papaparse.min.js here */</script>
+```
+
+**Recipient — has internet:** just open the stripped file. If the embed blocks are missing, the shell falls back to loading Plotly and PapaParse from their CDNs, so no re-insertion is required.
+
+Note that the `TOOLS` object near the bottom of the file also contains script tags (one per tool) and can itself trigger heuristic scanners. There's no clean way to strip it, so if the email is rejected despite removing the lib blobs, use a shared drive, USB transfer, or a password-protected zip instead.
+
+### Emailing charts back OUT past a restrictive scanner
+
+Charts exported with **Download HTML** contain two `<script>` tags (one CDN include for Plotly, one inline `Plotly.newPlot(...)` call with the chart JSON). Many outbound email DLP/sanitizers drop any HTML attachment that contains scripts at all, regardless of size, so the interactive HTML format is often the hardest to get out of a restricted environment.
+
+**Preferred: export as PNG or SVG instead.** The **PNG** and **SVG** buttons next to every chart produce plain image attachments with no scripts, no external references, and no executable code. They pass through scanners cleanly and are usually smaller than the equivalent Download HTML. Pick:
+
+- **SVG** for reports, slides, Confluence/Word &mdash; vector, stays crisp at any zoom, editable in Illustrator/Inkscape.
+- **PNG** for quick previews, Slack/Teams messages, screenshots.
+
+The PNG/SVG output is rendered from the same figure the interactive chart uses, so axes, legend, colorbar, and annotations all appear exactly as on screen.
+
+**If you truly need an interactive HTML on the outside**, try these in order:
+
+1. **Rename the file's extension**: `chart.html` → `chart.htm.txt` or `chart.html.bin`. Many scanners route on extension; the outside recipient renames it back. Write the original name in the email body so it's obvious.
+2. **Password-protect a zip**: most mail gateways cannot inspect encrypted archives and will let a password-protected `.zip` through. Put the password in a second email or over chat.
+3. **Route around email**: upload to a shared drive (OneDrive, S3, SharePoint, internal file share) the sender can read, and send a link instead of the file.
+
+Stripping the `<script>` tags out of a downloaded chart HTML is not a workable strategy for outbound: the chart data lives inside the inline `Plotly.newPlot(...)` call, so stripping it removes the chart itself. For the interactive-HTML case, prefer the transport workarounds above over the strip/re-insert pattern.
 
 ## Aggregator tools
 
