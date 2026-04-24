@@ -59,7 +59,7 @@ const statusEl = document.getElementById('status');
 wireFileDrop({
   dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
   onRows: (rows) => {
-    loadedRows = rows;
+    loadedRows = rows.map(normalizeHeaders);
     runBtn.disabled = false;
     statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
   }
@@ -82,7 +82,7 @@ runBtn.addEventListener('click', () => {
   for (const r of rows) {
     const key = `${r.repositoryPath}\u0001${r.className}`;
     const cur = agg.get(key) || {
-      repoShort: shortRepo(r.repositoryPath),
+      repoShort: repoOrModule(r),
       classShort: shortClass(r.className),
       total: 0, max: 0, count: 0, sum: 0
     };

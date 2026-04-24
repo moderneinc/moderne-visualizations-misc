@@ -54,7 +54,7 @@ const statusEl = document.getElementById('status');
 wireFileDrop({
   dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
   onRows: (rows) => {
-    loadedRows = rows;
+    loadedRows = rows.map(normalizeHeaders);
     runBtn.disabled = false;
     statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
   }
@@ -68,7 +68,7 @@ runBtn.addEventListener('click', () => {
   const rows = loadedRows
     .filter(r => matchesRepoFilter(r.repositoryPath, filterStr))
     .filter(r => r.issueType)
-    .map(r => ({ ...r, repoShort: shortRepo(r.repositoryPath) }));
+    .map(r => ({ ...r, repoShort: repoOrModule(r) }));
 
   if (rows.length === 0) {
     statusEl.innerHTML = '<span class="error">No rows remain after filter.</span>';

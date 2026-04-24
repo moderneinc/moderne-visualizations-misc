@@ -39,7 +39,7 @@ const TYPE_COLORS = {
 
 let loadedRows = null;
 const runBtn = document.getElementById('run'), statusEl = document.getElementById('status');
-wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows; runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
+wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows.map(normalizeHeaders); runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
 
 function nodeKey(name, type) { return `${name}\u0001${type}`; }
 

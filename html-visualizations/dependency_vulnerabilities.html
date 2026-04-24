@@ -107,7 +107,7 @@ let loadedRows = null;
 wireFileDrop({
   dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
   onRows: (rows, fname) => {
-    loadedRows = rows;
+    loadedRows = rows.map(normalizeHeaders);
     runBtn.disabled = false;
     statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
     if (!clientInput.value) {
@@ -266,7 +266,7 @@ runBtn.addEventListener('click', async () => {
       ...r,
       _fixType: classifyFixType(r),
       _depType: depType(r),
-      _repo: shortRepo(r.repositoryPath),
+      _repo: repoOrModule(r),
       _epss: r.epss ? parseFloat(r.epss) : 0
     }));
 

@@ -58,7 +58,7 @@ const statusEl = document.getElementById('status');
 wireFileDrop({
   dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
   onRows: (rows) => {
-    loadedRows = rows;
+    loadedRows = rows.map(normalizeHeaders);
     runBtn.disabled = false;
     statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
   }

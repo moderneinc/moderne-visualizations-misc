@@ -79,11 +79,11 @@ function maybeEnable() {
 
 wireFileDrop({
   dropId: 'drop-classes', inputId: 'file-classes', dropTextId: 'drop-classes-text',
-  onRows: (rows) => { classesRows = rows; maybeEnable(); }
+  onRows: (rows) => { classesRows = rows.map(normalizeHeaders); maybeEnable(); }
 });
 wireFileDrop({
   dropId: 'drop-gaps', inputId: 'file-gaps', dropTextId: 'drop-gaps-text',
-  onRows: (rows) => { gapsRows = rows; maybeEnable(); }
+  onRows: (rows) => { gapsRows = rows.map(normalizeHeaders); maybeEnable(); }
 });
 
 runBtn.addEventListener('click', () => {
@@ -96,7 +96,7 @@ runBtn.addEventListener('click', () => {
     .map(r => ({
       repositoryPath: r.repositoryPath,
       className: r.className,
-      repoShort: shortRepo(r.repositoryPath),
+      repoShort: repoOrModule(r),
       classShort: shortClass(r.className),
       wmc: parseNum(r.wmc),
       cbo: parseNum(r.cbo),

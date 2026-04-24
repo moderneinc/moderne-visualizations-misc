@@ -43,7 +43,7 @@ const BINS = [0, 25, 50, 75, 100];
 let loadedRows = null;
 const runBtn = document.getElementById('run'), statusEl = document.getElementById('status');
 
-wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows; runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
+wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows.map(normalizeHeaders); runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
 
 function bucketFor(score) {
   if (score <= BINS[1]) return LABELS[0];
@@ -59,7 +59,7 @@ runBtn.addEventListener('click', () => {
 
   const rows = loadedRows
     .filter(r => matchesRepoFilter(r.repositoryPath, filterStr))
-    .map(r => ({ repoShort: shortRepo(r.repositoryPath), bucket: bucketFor(parseNum(r.riskScore)) }));
+    .map(r => ({ repoShort: repoOrModule(r), bucket: bucketFor(parseNum(r.riskScore)) }));
   if (rows.length === 0) { statusEl.innerHTML = '<span class="error">No rows remain after filter.</span>'; document.getElementById('chart-card').classList.add('hidden'); return; }
 
   const repoTotals = new Map();

@@ -35,7 +35,7 @@ const LANG_COLORS = { java: '#2196F3', javascript: '#FDD835', python: '#4CAF50',
 
 let loadedRows = null;
 const runBtn = document.getElementById('run'), statusEl = document.getElementById('status');
-wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows; runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
+wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows.map(normalizeHeaders); runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
 
 runBtn.addEventListener('click', () => {
   if (!loadedRows) return;

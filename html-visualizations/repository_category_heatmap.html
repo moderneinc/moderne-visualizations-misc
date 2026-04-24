@@ -83,7 +83,7 @@ const statusEl = document.getElementById('status');
 wireFileDrop({
   dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
   onRows: (rows) => {
-    loadedRows = rows;
+    loadedRows = rows.map(normalizeHeaders);
     runBtn.disabled = false;
     statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
   }
@@ -108,7 +108,7 @@ runBtn.addEventListener('click', () => {
   const pairCounts = new Map();
   let otherSeen = 0;
   for (const r of rows) {
-    const repo = shortRepo(r.repositoryPath);
+    const repo = repoOrModule(r);
     const cat = categorize(r.recipe);
     if (cat === 'Other') otherSeen++;
     totalByRepo.set(repo, (totalByRepo.get(repo) || 0) + 1);

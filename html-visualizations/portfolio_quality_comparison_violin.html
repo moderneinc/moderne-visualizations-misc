@@ -41,7 +41,7 @@
 <script>
 let loadedRows = null;
 const runBtn = document.getElementById('run'), statusEl = document.getElementById('status');
-wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows; runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
+wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows.map(normalizeHeaders); runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
 
 function median(arr) { if (!arr.length) return 0; const s = [...arr].sort((a, b) => a - b); const m = Math.floor(s.length / 2); return s.length % 2 ? s[m] : 0.5 * (s[m - 1] + s[m]); }
 function quantile(arr, q) { if (!arr.length) return 0; const s = [...arr].sort((a, b) => a - b); const pos = (s.length - 1) * q, base = Math.floor(pos), rest = pos - base; return s[base + 1] !== undefined ? s[base] + rest * (s[base + 1] - s[base]) : s[base]; }
@@ -51,7 +51,7 @@ runBtn.addEventListener('click', () => {
   if (!loadedRows) return;
   const filterStr = document.getElementById('repo-filter').value;
   const metric = document.getElementById('metric').value;
-  const rows = loadedRows.filter(r => matchesRepoFilter(r.repositoryPath, filterStr)).map(r => ({ repo: shortRepo(r.repositoryPath), value: parseNum(r[metric]) }));
+  const rows = loadedRows.filter(r => matchesRepoFilter(r.repositoryPath, filterStr)).map(r => ({ repo: repoOrModule(r), value: parseNum(r[metric]) }));
   if (rows.length === 0) { statusEl.innerHTML = '<span class="error">No rows after filter.</span>'; document.getElementById('chart-card').classList.add('hidden'); return; }
 
   const byRepo = new Map();

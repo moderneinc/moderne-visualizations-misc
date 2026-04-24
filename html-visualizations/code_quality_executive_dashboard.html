@@ -33,7 +33,7 @@
 <script>
 let loadedRows = null;
 const runBtn = document.getElementById('run'), statusEl = document.getElementById('status');
-wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows; runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
+wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows.map(normalizeHeaders); runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
 
 function median(arr) { if (!arr.length) return 0; const s = [...arr].sort((a, b) => a - b); const m = Math.floor(s.length / 2); return s.length % 2 ? s[m] : 0.5 * (s[m - 1] + s[m]); }
 
@@ -44,7 +44,7 @@ runBtn.addEventListener('click', () => {
     .filter(r => matchesRepoFilter(r.repositoryPath, filterStr))
     .filter(r => r.className && isFinite(parseFloat(r.maintainabilityIndex)))
     .map(r => ({
-      repoShort: shortRepo(r.repositoryPath),
+      repoShort: repoOrModule(r),
       classShort: shortClass(r.className),
       mi: parseFloat(r.maintainabilityIndex),
       wmc: parseNum(r.wmc),

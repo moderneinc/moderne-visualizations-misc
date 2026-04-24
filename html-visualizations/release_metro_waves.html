@@ -67,9 +67,9 @@ function maybeEnable() {
   }
 }
 
-wireFileDrop({ dropId: 'drop-coords', inputId: 'file-coords', dropTextId: 'drop-coords-text', onRows: rows => { coords = rows; maybeEnable(); } });
-wireFileDrop({ dropId: 'drop-deps', inputId: 'file-deps', dropTextId: 'drop-deps-text', onRows: rows => { deps = rows; maybeEnable(); } });
-wireFileDrop({ dropId: 'drop-parents', inputId: 'file-parents', dropTextId: 'drop-parents-text', onRows: rows => { parents = rows; parentsProvided = true; maybeEnable(); } });
+wireFileDrop({ dropId: 'drop-coords', inputId: 'file-coords', dropTextId: 'drop-coords-text', onRows: rows => { coords = rows.map(normalizeHeaders); maybeEnable(); } });
+wireFileDrop({ dropId: 'drop-deps', inputId: 'file-deps', dropTextId: 'drop-deps-text', onRows: rows => { deps = rows.map(normalizeHeaders); maybeEnable(); } });
+wireFileDrop({ dropId: 'drop-parents', inputId: 'file-parents', dropTextId: 'drop-parents-text', onRows: rows => { parents = rows.map(normalizeHeaders); parentsProvided = true; maybeEnable(); } });
 document.getElementById('skip-parents').addEventListener('click', () => {
   parents = []; parentsProvided = false;
   document.getElementById('drop-parents-text').innerHTML = '<strong>No parents CSV</strong><span class="hint">Continuing without parent edges.</span>';

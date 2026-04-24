@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>All Prethink visualizations</title>
+<link rel="stylesheet" href="_shared/styles.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<style>
+  .detect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; margin-top: 12px; }
+  .detect-chip { padding: 10px 12px; border-radius: 8px; border: 1px solid #e4e6eb; background: #f7f8fa; font-size: 12px; display: flex; flex-direction: column; gap: 2px; }
+  .detect-chip.on { background: #eef6fb; border-color: #bcd8ea; }
+  .detect-chip .t { font-weight: 600; color: #1c1e21; font-size: 12px; }
+  .detect-chip .s { color: #606770; font-size: 11px; }
+  .viz-card { margin-top: 14px; background: #fff; border: 1px solid #e4e6eb; border-radius: 10px; padding: 14px 18px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); max-width: 1200px; margin-left: auto; margin-right: auto; }
+  .viz-card.disabled { opacity: 0.55; }
+  .viz-card h3 { margin: 0 0 2px; font-size: 15px; }
+  .viz-card .src { color: #606770; font-size: 12px; margin-bottom: 8px; }
+  .viz-placeholder { padding: 40px 20px; text-align: center; color: #606770; font-size: 13px; background: #f7f8fa; border-radius: 6px; border: 1px dashed #c0c7d1; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>All Prethink visualizations</h1>
+  <p class="sub">Drop multiple Prethink data-table CSVs at once (ClassQualityMetrics, MethodQualityMetrics, PackageQualityMetrics, CodeSmells, TestGaps, TestQualityIssues). Each CSV is auto-detected by its column fingerprint, and every visualization whose inputs are present is rendered. Human-readable column headers (e.g. <code>Class name</code>, <code>Cyclomatic complexity</code>) are accepted in addition to camelCase.</p>
+  <p class="sub"><a href="index.html">&larr; Back to index</a></p>
+</header>
+
+<div class="card">
+  <div class="file-drop" id="drop">
+    <input type="file" id="file" accept=".csv" multiple />
+    <input type="file" id="folder" webkitdirectory directory multiple style="display:none" />
+    <div id="drop-text">
+      <strong>Drop CSVs or a folder here</strong>, click to pick files, or use the folder picker below.<br>
+      <span style="color:#606770; font-size: 13px;">Non-CSV files and CSVs that don't match a Prethink table are silently ignored, so you can point this at a whole <code>.moderne/context/</code> directory.</span>
+    </div>
+  </div>
+  <div style="margin-top: 10px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+    <button class="secondary" id="pick-folder" type="button">Select folder…</button>
+    <button class="secondary" id="clear" type="button" style="display:none">Clear all</button>
+    <span style="color: #606770; font-size: 12px;">
+      Drops are cumulative &mdash; keep dropping files or folders and the detection grid adds up. Use <strong>Clear all</strong> to start over.
+      Prethink CSVs live in a hidden <code>.moderne/context/</code> folder; the OS file picker doesn't descend into dotfolders &mdash;
+      pick the <strong>non-hidden parent</strong> (e.g. the repository root) and the hidden subfolder is still scanned,
+      or drag the <code>.context</code> folder directly from Finder (press <kbd>&#8984;&#8679;.</kbd> in Finder to reveal hidden items).
+    </span>
+  </div>
+  <div class="detect-grid" id="detect-grid"></div>
+  <details style="margin-top: 10px; font-size: 12px; color: #606770;">
+    <summary style="cursor: pointer;">Show per-file detection log</summary>
+    <div id="file-log" style="margin-top: 8px; max-height: 260px; overflow: auto; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; background: #f7f8fa; border: 1px solid #e4e6eb; border-radius: 6px; padding: 8px 10px;"></div>
+  </details>
+  <div class="controls" style="margin-top: 16px;">
+    <div class="field">
+      <label for="repo-filter">Repository filter (comma-separated, case-insensitive)</label>
+      <input type="text" id="repo-filter" placeholder="optional" />
+    </div>
+    <div class="field">
+      <label for="top-n">Top N (where applicable)</label>
+      <input type="number" id="top-n" value="20" min="1" max="200" />
+    </div>
+    <button id="run" disabled>Render all visualizations</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<div id="charts"></div>
+
+<script src="_shared/common.js"></script>
+<script>
+// ---------------------------------------------------------------------------
+// State and CSV type detection
+
+const TABLES = ['ClassQualityMetrics', 'MethodQualityMetrics', 'PackageQualityMetrics', 'CodeSmells', 'TestGaps', 'TestQualityIssues'];
+const loaded = {}; // { [tableName]: { rows, projects: Set, files: string[] } }
+
+// Extract a "project" label from a file path. `.moderne/context/` exports live
+// in <project>/.moderne/context/*.csv, so the segment immediately before
+// `.moderne` is the project / repository folder we want to tag rows with.
+function extractProject(path) {
+  if (!path) return null;
+  const parts = String(path).split('/').filter(Boolean);
+  const idx = parts.indexOf('.moderne');
+  if (idx > 0) return parts[idx - 1];
+  // Fallback: parent directory if not a .moderne layout
+  return parts.length > 1 ? parts[parts.length - 2] : null;
+}
+
+// Historical snapshots live under `.moderne/run/<ts>/after-fenced/.moderne/context/`.
+// Skip them by default; otherwise every row from the current context would be
+// duplicated N times (one per run).
+function isHistoricalSnapshot(path) { return /\.moderne\/run\//.test(String(path || '')); }
+
+function pathOf(file) {
+  return file._relativePath || file.webkitRelativePath || file.name;
+}
+
+function detectCsvType(rows) {
+  if (!rows || !rows.length) return null;
+  const cols = new Set(Object.keys(rows[0]));
+  const has = k => cols.has(k);
+  if (has('packageName') && (has('instability') || has('abstractness'))) return 'PackageQualityMetrics';
+  if (has('smellType') && has('severity')) return 'CodeSmells';
+  if (has('issueType') && has('severity')) return 'TestQualityIssues';
+  if (has('gapReason') || (has('riskScore') && has('className') && !has('smellType'))) return 'TestGaps';
+  // Require a complexity metric so service-endpoints / messaging-connections
+  // (which carry Method name + Method signature but no quality columns) aren't
+  // misclassified as MethodQualityMetrics.
+  if (has('methodName') && (has('cyclomaticComplexity') || has('cognitiveComplexity') || has('halsteadEstimatedBugs'))) return 'MethodQualityMetrics';
+  if (has('wmc') && has('maintainabilityIndex')) return 'ClassQualityMetrics';
+  return null;
+}
+
+// ---------------------------------------------------------------------------
+// Dropzone with multi-file support
+
+const drop = document.getElementById('drop');
+const fileInput = document.getElementById('file');
+const folderInput = document.getElementById('folder');
+const pickFolderBtn = document.getElementById('pick-folder');
+const dropText = document.getElementById('drop-text');
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+let ignoredCount = 0;
+
+drop.addEventListener('click', () => fileInput.click());
+drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('drag'); });
+drop.addEventListener('dragleave', () => drop.classList.remove('drag'));
+drop.addEventListener('drop', async e => {
+  e.preventDefault();
+  drop.classList.remove('drag');
+  // The DataTransfer becomes inaccessible as soon as the drop handler yields,
+  // so pull out webkitGetAsEntry() entries + the File list synchronously
+  // BEFORE any await. After that, walking the entries async is safe.
+  const entries = (e.dataTransfer.items && e.dataTransfer.items.length)
+    ? [...e.dataTransfer.items].map(it => it.webkitGetAsEntry && it.webkitGetAsEntry()).filter(Boolean)
+    : [];
+  const fallbackFiles = e.dataTransfer.files ? [...e.dataTransfer.files] : [];
+  let files;
+  if (entries.length) {
+    files = [];
+    for (const entry of entries) await walkEntry(entry, files);
+    // If walkEntry produced nothing (entries were empty directories or a
+    // browser quirk), fall back to the raw file list.
+    if (files.length === 0) files = fallbackFiles;
+  } else {
+    files = fallbackFiles;
+  }
+  handleFiles(files);
+});
+fileInput.addEventListener('change', e => { if (e.target.files) handleFiles([...e.target.files]); });
+pickFolderBtn.addEventListener('click', () => folderInput.click());
+folderInput.addEventListener('change', e => { if (e.target.files) handleFiles([...e.target.files]); });
+
+// Resolve dropped items. When the user drops a folder, DataTransfer.files is
+// empty on most browsers — we have to walk DataTransfer.items via
+// webkitGetAsEntry() and recurse into directory entries.
+async function collectDroppedFiles(dt) {
+  if (dt.items && dt.items.length && typeof dt.items[0].webkitGetAsEntry === 'function') {
+    const entries = [];
+    for (const item of dt.items) {
+      const entry = item.webkitGetAsEntry && item.webkitGetAsEntry();
+      if (entry) entries.push(entry);
+    }
+    const files = [];
+    for (const entry of entries) await walkEntry(entry, files);
+    return files;
+  }
+  return [...(dt.files || [])];
+}
+
+function walkEntry(entry, out, prefix = '') {
+  return new Promise(resolve => {
+    if (entry.isFile) {
+      entry.file(f => { f._relativePath = prefix + entry.name; out.push(f); resolve(); }, () => resolve());
+    } else if (entry.isDirectory) {
+      const dirPrefix = prefix + entry.name + '/';
+      const reader = entry.createReader();
+      const readBatch = () => reader.readEntries(async (batch) => {
+        if (!batch.length) return resolve();
+        for (const e of batch) await walkEntry(e, out, dirPrefix);
+        readBatch(); // directoryReader returns results in chunks
+      }, () => resolve());
+      readBatch();
+    } else resolve();
+  });
+}
+
+let snapshotCount = 0;
+const fileLog = []; // { path, status: 'ignored-noncsv'|'snapshot'|'detected:<type>'|'unrecognized'|'parse-error' }
+const seenPaths = new Set(); // dedupe by path + size + mtime across drops
+function fileKey(f) { return `${pathOf(f)}|${f.size}|${f.lastModified}`; }
+
+function resetAll() {
+  for (const k of Object.keys(loaded)) delete loaded[k];
+  ignoredCount = 0;
+  snapshotCount = 0;
+  fileLog.length = 0;
+  seenPaths.clear();
+  lastRawDelivered = 0;
+  document.getElementById('clear').style.display = 'none';
+  renderDetectionGrid();
+}
+
+document.getElementById('clear').addEventListener('click', resetAll);
+
+function handleFiles(files) {
+  // Drops are cumulative. State is only cleared via the explicit Clear button.
+  lastRawDelivered += files.length;
+  document.getElementById('clear').style.display = '';
+  statusEl.textContent = `Received ${files.length} file${files.length === 1 ? '' : 's'} from drop. Parsing...`;
+
+  const fresh = files.filter(f => {
+    const k = fileKey(f);
+    if (seenPaths.has(k)) return false; // already processed in a prior drop
+    seenPaths.add(k);
+    return true;
+  });
+  const csvFiles = fresh.filter(f => {
+    const ok = f.name.toLowerCase().endsWith('.csv');
+    if (!ok) fileLog.push({ path: pathOf(f), status: 'ignored-noncsv' });
+    return ok;
+  });
+  const nonCsv = fresh.length - csvFiles.length;
+  const liveFiles = csvFiles.filter(f => {
+    const skip = isHistoricalSnapshot(pathOf(f));
+    if (skip) { snapshotCount++; fileLog.push({ path: pathOf(f), status: 'snapshot' }); }
+    return !skip;
+  });
+  ignoredCount += nonCsv;
+
+  if (liveFiles.length === 0) {
+    // Nothing new to parse — just refresh the grid in case dedupe logged
+    // ignored / snapshot entries.
+    renderDetectionGrid();
+    return;
+  }
+  statusEl.textContent = `Parsing ${liveFiles.length} CSV file(s)...`;
+  let done = 0;
+
+  liveFiles.forEach(file => {
+    Papa.parse(file, {
+      header: true, dynamicTyping: false, skipEmptyLines: true,
+      complete: (results) => {
+        const rawRows = results.data.map(normalizeHeaders);
+        const path = pathOf(file);
+        const type = detectCsvType(rawRows);
+        if (type) {
+          const project = extractProject(path);
+          // Tag rows with the project / repo so multi-project folders stay
+          // distinguishable on the chart axes. Don't overwrite an existing
+          // repositoryPath (platform-level CSVs will already have one).
+          const tagged = project
+            ? rawRows.map(r => (r.repositoryPath ? r : { ...r, repositoryPath: project }))
+            : rawRows;
+          const slot = loaded[type] || { rows: [], projects: new Set(), files: [] };
+          slot.rows.push(...tagged);
+          if (project) slot.projects.add(project);
+          slot.files.push(path);
+          loaded[type] = slot;
+          fileLog.push({ path, status: `detected:${type}`, rows: rawRows.length });
+        } else {
+          ignoredCount++;
+          const cols = rawRows[0] ? Object.keys(rawRows[0]).slice(0, 6).join(', ') : '(empty)';
+          fileLog.push({ path, status: 'unrecognized', cols });
+        }
+        done++;
+        // Re-render after every file so the detection grid updates
+        // progressively — users see new categories light up as files
+        // arrive rather than waiting for the whole batch to finish.
+        renderDetectionGrid();
+      },
+      error: () => {
+        done++;
+        ignoredCount++;
+        fileLog.push({ path: pathOf(file), status: 'parse-error' });
+        renderDetectionGrid();
+      }
+    });
+  });
+}
+
+let lastRawDelivered = 0;
+
+function renderDetectionGrid() {
+  const grid = document.getElementById('detect-grid');
+  grid.innerHTML = TABLES.map(t => {
+    const info = loaded[t];
+    if (!info) return `<div class="detect-chip"><div class="t">${t} —</div><div class="s">not loaded</div></div>`;
+    const projectCount = info.projects.size;
+    const projectNote = projectCount > 1 ? `${projectCount} projects` : projectCount === 1 ? `1 project` : `${info.files.length} file${info.files.length === 1 ? '' : 's'}`;
+    return `<div class="detect-chip on">
+      <div class="t">${t} ✓</div>
+      <div class="s">${info.rows.length.toLocaleString()} rows &middot; ${projectNote}</div>
+    </div>`;
+  }).join('');
+  const loadedCount = Object.keys(loaded).length;
+  runBtn.disabled = loadedCount === 0;
+  const notes = [];
+  if (snapshotCount > 0) notes.push(`${snapshotCount} historical .moderne/run/ snapshot${snapshotCount === 1 ? '' : 's'} skipped`);
+  if (ignoredCount > 0) notes.push(`${ignoredCount} other file${ignoredCount === 1 ? '' : 's'} ignored`);
+  const noteStr = notes.length ? ` (${notes.join(', ')})` : '';
+  statusEl.textContent = `Detected ${loadedCount} of ${TABLES.length} Prethink tables${noteStr}. Ready to render.`;
+
+  // Render per-file log (most recent at top). Groups by status + filename so
+  // it's easy to spot which CSVs didn't make it into a table.
+  const logDiv = document.getElementById('file-log');
+  if (fileLog.length === 0) { logDiv.textContent = '(no files processed)'; return; }
+  const sawTQI = fileLog.some(e => /test-quality-issues\.csv$/i.test(e.path));
+  const header = `<div style="color:#1c1e21; font-weight: 600; margin-bottom: 6px;">Browser delivered ${lastRawDelivered.toLocaleString()} file${lastRawDelivered === 1 ? '' : 's'} total${sawTQI ? '' : ' &mdash; <span style="color:#c0392b;">no test-quality-issues.csv present</span>'}</div>`;
+  const byStatus = new Map();
+  for (const e of fileLog) {
+    const key = e.status;
+    if (!byStatus.has(key)) byStatus.set(key, []);
+    byStatus.get(key).push(e);
+  }
+  const order = ['detected:PackageQualityMetrics','detected:ClassQualityMetrics','detected:MethodQualityMetrics','detected:CodeSmells','detected:TestGaps','detected:TestQualityIssues','unrecognized','parse-error','snapshot','ignored-noncsv'];
+  const keys = [...byStatus.keys()].sort((a, b) => order.indexOf(a) - order.indexOf(b));
+  logDiv.innerHTML = header + keys.map(k => {
+    const entries = byStatus.get(k);
+    const color = k.startsWith('detected:') ? '#1e7b43' : k === 'unrecognized' ? '#c0392b' : k === 'parse-error' ? '#c0392b' : '#606770';
+    const label = k.startsWith('detected:') ? k.slice(9) : k;
+    const rows = entries.slice(0, 40).map(e => {
+      const suffix = e.cols ? ` &middot; first cols: ${escapeHtml(e.cols)}` : (e.rows !== undefined ? ` &middot; ${e.rows} rows` : '');
+      return `<div>${escapeHtml(e.path)}${suffix}</div>`;
+    }).join('');
+    const more = entries.length > 40 ? `<div style="color:#888;">… and ${entries.length - 40} more</div>` : '';
+    return `<div style="margin-top: 6px;"><div style="color: ${color}; font-weight: 600; margin-bottom: 2px;">${escapeHtml(label)} (${entries.length})</div>${rows}${more}</div>`;
+  }).join('');
+}
+
+renderDetectionGrid();
+
+// ---------------------------------------------------------------------------
+// Visualization registry. Each entry declares which tables it needs and how
+// to render. When the user clicks Render, we iterate and either call render()
+// or emit a "missing CSV" placeholder.
+
+const PALETTE = ['#2E86AB','#A23B72','#F18F01','#C73E1D','#3B8686','#79BD8F','#A8DBA8','#CFF09E','#FF6B6B','#4ECDC4','#45B7D1','#FFA07A','#98D8C8','#F7DC6F','#BB8FCE'];
+const SEVERITY_COLORS = { LOW:'#A5D6A7', MEDIUM:'#FFE082', HIGH:'#FF8A65', CRITICAL:'#EF5350' };
+const HEALTH_COLORSCALE = [[0,'#EF5350'],[0.25,'#FF8A65'],[0.5,'#FFE082'],[0.75,'#A5D6A7'],[1,'#4CAF50']];
+const DEBT_COLORSCALE = [[0,'#4CAF50'],[0.25,'#A5D6A7'],[0.5,'#FFE082'],[0.75,'#FF8A65'],[1,'#EF5350']];
+
+function renderEmptyState(divId, message) {
+  const el = typeof divId === 'string' ? document.getElementById(divId) : divId;
+  if (el) el.innerHTML = `<div class="viz-placeholder">${escapeHtml(message)}</div>`;
+}
+
+function globalOpts() {
+  return {
+    repoFilter: document.getElementById('repo-filter').value,
+    topN: Math.max(1, parseInt(document.getElementById('top-n').value, 10) || 20)
+  };
+}
+
+// Helpers
+function groupKey(r) { return repoOrModule(r); }
+
+function enrichMethod(r) {
+  return {
+    repoShort: repoOrModule(r), classShort: shortClass(r.className),
+    methodName: r.methodName || '', sourcePath: r.sourcePath || '',
+    lineCount: Math.max(1, parseNum(r.lineCount)),
+    cyclomaticComplexity: parseNum(r.cyclomaticComplexity),
+    cognitiveComplexity: parseNum(r.cognitiveComplexity),
+    maxNestingDepth: parseNum(r.maxNestingDepth),
+    halsteadEstimatedBugs: parseNum(r.halsteadEstimatedBugs),
+    parameterCount: parseNum(r.parameterCount),
+    repositoryPath: r.repositoryPath
+  };
+}
+
+function enrichClass(r) {
+  return {
+    repoShort: repoOrModule(r), classShort: shortClass(r.className),
+    className: r.className, sourcePath: r.sourcePath || '',
+    lineCount: Math.max(1, parseNum(r.lineCount)),
+    wmc: parseNum(r.wmc), lcom4: parseNum(r.lcom4),
+    tcc: parseFloat(r.tcc), cbo: parseNum(r.cbo),
+    maintainabilityIndex: parseNum(r.maintainabilityIndex),
+    methodCount: parseNum(r.methodCount),
+    fieldCount: parseNum(r.fieldCount),
+    repositoryPath: r.repositoryPath
+  };
+}
+
+function filterByRepo(rows, filterStr) {
+  const hasRepo = rows.length && 'repositoryPath' in rows[0];
+  return hasRepo ? rows.filter(r => matchesRepoFilter(r.repositoryPath, filterStr)) : rows.slice();
+}
+
+function median(arr) { if (!arr.length) return 0; const s = [...arr].sort((a,b)=>a-b); const m = Math.floor(s.length/2); return s.length%2 ? s[m] : 0.5*(s[m-1]+s[m]); }
+function stdOf(arr, mean) { if (arr.length < 2) return 0; const v = arr.reduce((s,x)=>s+(x-mean)**2, 0)/(arr.length-1); return Math.sqrt(v); }
+function quantile(arr, q) { if (!arr.length) return 0; const s = [...arr].sort((a,b)=>a-b); const pos = (s.length-1)*q, base = Math.floor(pos), rest = pos - base; return s[base+1] !== undefined ? s[base]+rest*(s[base+1]-s[base]) : s[base]; }
+
+// ---------------------------------------------------------------------------
+// Individual viz builders. Each takes (div, rows..., opts) and renders.
+
+function vizCodeSmellSeverity(div, codeSmellsRows, opts) {
+  const rows = filterByRepo(codeSmellsRows, opts.repoFilter);
+  rows.forEach(r => { r._repoShort = repoOrModule(r); });
+  const SEVERITY_ORDER = ['LOW','MEDIUM','HIGH','CRITICAL'];
+  const totals = new Map();
+  rows.forEach(r => { const k = r._repoShort || '(unknown)'; totals.set(k, (totals.get(k)||0)+1); });
+  const groups = [...totals.entries()].sort((a,b)=>a[1]-b[1]).map(e=>e[0]);
+  const counts = {}; SEVERITY_ORDER.forEach(s => { counts[s] = Object.fromEntries(groups.map(g=>[g,0])); });
+  rows.forEach(r => { const sev = (r.severity||'').toUpperCase(); if (counts[sev]) counts[sev][r._repoShort || '(unknown)'] = (counts[sev][r._repoShort || '(unknown)']||0)+1; });
+  const traces = SEVERITY_ORDER.map(sev => ({
+    type:'bar', orientation:'h', name: sev,
+    y: groups, x: groups.map(g => counts[sev][g]||0),
+    marker: { color: SEVERITY_COLORS[sev] },
+    hovertemplate: `<b>%{y}</b><br>${sev}: %{x}<extra></extra>`
+  }));
+  Plotly.newPlot(div, traces, {
+    barmode: 'stack', title: { text: 'Code smell severity by repository / module' },
+    xaxis: { title: 'Count' }, yaxis: { title: '', automargin: true },
+    height: Math.max(400, groups.length * 28 + 120), margin: { l: 220, r: 20, t: 60, b: 50 }
+  }, { responsive: true });
+}
+
+function vizTestQualityIssueHeatmap(div, issueRows, opts) {
+  const rows = filterByRepo(issueRows, opts.repoFilter).map(r => ({ ...r, _repoShort: repoOrModule(r) }));
+  const issueTypes = [];
+  const seen = new Set();
+  for (const r of rows) if (r.issueType && !seen.has(r.issueType)) { seen.add(r.issueType); issueTypes.push(r.issueType); }
+  const repoTotals = new Map();
+  for (const r of rows) repoTotals.set(r._repoShort, (repoTotals.get(r._repoShort)||0)+1);
+  const topRepos = [...repoTotals.entries()].sort((a,b)=>b[1]-a[1]).slice(0, opts.topN).map(e=>e[0]);
+  const topSet = new Set(topRepos);
+  const pivot = Object.fromEntries(topRepos.map(r => [r, Object.fromEntries(issueTypes.map(i=>[i,0]))]));
+  for (const r of rows) if (topSet.has(r._repoShort) && issueTypes.includes(r.issueType)) pivot[r._repoShort][r.issueType]++;
+  const z = topRepos.map(repo => issueTypes.map(it => pivot[repo][it]));
+  Plotly.newPlot(div, [{
+    type:'heatmap', z, x: issueTypes, y: topRepos,
+    text: z.map(row => row.map(v => String(v))), texttemplate: '%{text}',
+    colorscale: [[0,'#FFFFFF'],[0.33,'#FFE082'],[0.66,'#FF8A65'],[1,'#EF5350']],
+    hovertemplate:'<b>%{y}</b><br>Issue: %{x}<br>Count: %{text}<extra></extra>'
+  }], {
+    title: { text: 'Test quality issues by repository and type' },
+    xaxis: { title: 'Issue type', tickangle: -30, automargin: true },
+    yaxis: { autorange: 'reversed', automargin: true },
+    height: Math.max(500, topRepos.length * 28 + 150),
+    margin: { l: 220, r: 50, t: 60, b: 80 }
+  }, { responsive: true });
+}
+
+function vizTestQualityTreemap(div, issueRows, opts) {
+  const rows = filterByRepo(issueRows, opts.repoFilter).filter(r => r.className && r.issueType).map(r => ({
+    repoShort: repoOrModule(r), classShort: shortClass(r.className), issueType: r.issueType,
+    sev: String(r.severity||'').toLowerCase()
+  }));
+  if (!rows.length) return renderEmptyState(div, "No rows to render for this chart.");
+  const SEV_RANK = { low:1, medium:2, high:3 };
+  const repoTotals = new Map();
+  for (const r of rows) repoTotals.set(r.repoShort, (repoTotals.get(r.repoShort)||0)+1);
+  const topRepos = new Set([...repoTotals.entries()].sort((a,b)=>b[1]-a[1]).slice(0, opts.topN).map(e=>e[0]));
+  const filtered = rows.filter(r => topRepos.has(r.repoShort));
+  const agg = new Map();
+  for (const r of filtered) {
+    const k = `${r.repoShort}\u0001${r.classShort}\u0001${r.issueType}`;
+    const cur = agg.get(k) || { repoShort: r.repoShort, classShort: r.classShort, issueType: r.issueType, count: 0, sevMax: 0 };
+    cur.count++; cur.sevMax = Math.max(cur.sevMax, SEV_RANK[r.sev]||0);
+    agg.set(k, cur);
+  }
+  const nodes = new Map();
+  const upsert = (id, label, parent, value, sev) => {
+    const n = nodes.get(id) || { id, label, parent, value:0, sevSum:0, sevCount:0 };
+    n.value += value; if (sev>0) { n.sevSum += sev*value; n.sevCount += value; } nodes.set(id, n);
+  };
+  for (const l of agg.values()) {
+    const repoId = l.repoShort, classId = `${repoId}\u0001${l.classShort}`, issueId = `${classId}\u0001${l.issueType}`;
+    upsert(repoId, l.repoShort, '', l.count, l.sevMax);
+    upsert(classId, l.classShort, repoId, l.count, l.sevMax);
+    upsert(issueId, l.issueType, classId, l.count, l.sevMax);
+  }
+  const list = [...nodes.values()];
+  Plotly.newPlot(div, [{
+    type: 'treemap',
+    ids: list.map(n=>n.id), labels: list.map(n=>n.label), parents: list.map(n=>n.parent), values: list.map(n=>n.value),
+    branchvalues: 'total',
+    marker: {
+      colors: list.map(n => n.sevCount > 0 ? n.sevSum / n.sevCount : 1),
+      colorscale: [[0,'#4CAF50'],[0.5,'#FFE082'],[1,'#EF5350']], cmin: 1, cmax: 3,
+      colorbar: { title: { text: 'Severity' }, tickvals: [1,2,3], ticktext: ['low','medium','high'] }
+    },
+    hovertemplate:'<b>%{label}</b><br>Count: %{value}<extra></extra>'
+  }], { title: { text: 'Test quality issue treemap' }, height: 700 }, { responsive: true });
+}
+
+function vizTestQualityByLanguage(div, issueRows, opts) {
+  const rows = filterByRepo(issueRows, opts.repoFilter).filter(r => r.issueType && r.language);
+  const LANG_COLORS = { java:'#2196F3', javascript:'#FDD835', python:'#4CAF50', typescript:'#3178C6', kotlin:'#A97BFF' };
+  const issueTotals = new Map();
+  for (const r of rows) issueTotals.set(r.issueType, (issueTotals.get(r.issueType)||0)+1);
+  const issueOrder = [...issueTotals.entries()].sort((a,b)=>b[1]-a[1]).map(e=>e[0]);
+  const langs = [...new Set(rows.map(r=>r.language))].sort();
+  const counts = {};
+  for (const lang of langs) counts[lang] = Object.fromEntries(issueOrder.map(i=>[i,0]));
+  for (const r of rows) if (counts[r.language]) counts[r.language][r.issueType] = (counts[r.language][r.issueType]||0)+1;
+  const traces = langs.map(lang => ({
+    type:'bar', name: lang, x: issueOrder, y: issueOrder.map(i => counts[lang][i]||0),
+    marker: { color: LANG_COLORS[lang] || '#999' }
+  }));
+  Plotly.newPlot(div, traces, {
+    title: { text: 'Test quality issues by language' },
+    xaxis: { title: 'Issue type', tickangle: -45, categoryorder: 'array', categoryarray: issueOrder },
+    yaxis: { title: 'Count' }, barmode: 'group', height: 500, margin: { l: 60, r: 50, t: 60, b: 140 }
+  }, { responsive: true });
+}
+
+function vizTestQualityLanguageSunburst(div, issueRows, opts) {
+  const rows = filterByRepo(issueRows, opts.repoFilter).filter(r => r.language && r.severity && r.issueType);
+  if (!rows.length) return renderEmptyState(div, "No rows to render for this chart.");
+  const LANG_COLORS = { java:'#2196F3', javascript:'#FDD835', python:'#4CAF50', typescript:'#3178C6', kotlin:'#A97BFF' };
+  const nodes = new Map();
+  const color = l => LANG_COLORS[l] || '#999';
+  const up = (id, label, parent, c) => {
+    const n = nodes.get(id) || { id, label, parent, value:0, color:c };
+    n.value++; nodes.set(id, n);
+  };
+  for (const r of rows) {
+    const c = color(r.language);
+    const langId = r.language, sevId = `${langId}\u0001${r.severity}`, issueId = `${sevId}\u0001${r.issueType}`;
+    up(langId, r.language, '', c); up(sevId, r.severity, langId, c); up(issueId, r.issueType, sevId, c);
+  }
+  const list = [...nodes.values()];
+  Plotly.newPlot(div, [{
+    type: 'sunburst',
+    ids: list.map(n=>n.id), labels: list.map(n=>n.label), parents: list.map(n=>n.parent), values: list.map(n=>n.value),
+    marker: { colors: list.map(n=>n.color) }, branchvalues: 'total'
+  }], { title: { text: 'Test quality: language → severity → type' }, height: 650 }, { responsive: true });
+}
+
+function vizTestQualityRiskMatrix(div, issueRows, opts) {
+  const rows = filterByRepo(issueRows, opts.repoFilter).filter(r => r.issueType && r.severity);
+  const SEV_ORDER = ['low','medium','high'];
+  const agg = new Map();
+  for (const r of rows) {
+    const sev = String(r.severity||'').toLowerCase();
+    if (!SEV_ORDER.includes(sev)) continue;
+    const k = `${r.issueType}\u0001${sev}`; agg.set(k, (agg.get(k)||0)+1);
+  }
+  const traces = SEV_ORDER.map(sev => {
+    const entries = [...agg.entries()].filter(([k])=>k.endsWith(`\u0001${sev}`));
+    if (!entries.length) return null;
+    return {
+      type:'scatter', mode:'markers+text', name: sev,
+      x: entries.map(([k])=>k.split('\u0001')[0]),
+      y: entries.map(()=>sev),
+      marker: { size: entries.map(([,v])=>v*5+15), color: SEVERITY_COLORS[sev.toUpperCase()]||'#999', line:{width:1,color:'#666'} },
+      text: entries.map(([,v])=>String(v)), textposition:'middle center'
+    };
+  }).filter(Boolean);
+  Plotly.newPlot(div, traces, {
+    title: { text: 'Test quality risk matrix' },
+    xaxis: { title: 'Issue type', tickangle: -45 },
+    yaxis: { title: 'Severity', categoryorder: 'array', categoryarray: SEV_ORDER },
+    height: 460, margin: { l: 100, r: 50, t: 60, b: 140 }
+  }, { responsive: true });
+}
+
+function vizTestGapRiskHeatmap(div, gapRows, opts) {
+  const rows = filterByRepo(gapRows, opts.repoFilter).map(r => ({ repoShort: repoOrModule(r), bucket: bucketFor(parseNum(r.riskScore)) }));
+  function bucketFor(s) { if (s<=25) return 'Low'; if (s<=50) return 'Medium'; if (s<=75) return 'High'; return 'Critical'; }
+  const LABELS = ['Low','Medium','High','Critical'];
+  const repoTotals = new Map();
+  for (const r of rows) repoTotals.set(r.repoShort, (repoTotals.get(r.repoShort)||0)+1);
+  const topRepos = [...repoTotals.entries()].sort((a,b)=>b[1]-a[1]).slice(0, opts.topN).map(e=>e[0]);
+  const topSet = new Set(topRepos);
+  const pivot = Object.fromEntries(topRepos.map(r=>[r, Object.fromEntries(LABELS.map(l=>[l,0]))]));
+  for (const r of rows) if (topSet.has(r.repoShort)) pivot[r.repoShort][r.bucket]++;
+  const z = topRepos.map(repo => LABELS.map(l => pivot[repo][l]));
+  Plotly.newPlot(div, [{
+    type: 'heatmap', z, x: LABELS, y: topRepos,
+    text: z.map(row => row.map(v=>String(v))), texttemplate: '%{text}',
+    colorscale: [[0,'#E8F5E9'],[0.33,'#FFE082'],[0.66,'#FF8A65'],[1,'#EF5350']]
+  }], {
+    title: { text: `Test gap risk heatmap (top ${topRepos.length})` },
+    xaxis: { title: 'Risk level' }, yaxis: { autorange: 'reversed', automargin: true },
+    height: Math.max(500, topRepos.length * 28 + 150), margin: { l: 220, r: 50, t: 60, b: 60 }
+  }, { responsive: true });
+}
+
+function vizArchitecturalStabilityScatter(div, pkgRows, opts) {
+  const rows = filterByRepo(pkgRows, opts.repoFilter)
+    .filter(r => r.packageName && isFinite(parseFloat(r.instability)) && isFinite(parseFloat(r.abstractness)))
+    .map(r => ({
+      packageName: r.packageName, instability: parseFloat(r.instability),
+      abstractness: parseFloat(r.abstractness), distance: parseNum(r.distanceFromMainSequence),
+      inCycle: String(r.inCycle).toLowerCase()==='true'
+    }));
+  const DIST_SCALE = [[0,'#4CAF50'],[0.25,'#A5D6A7'],[0.5,'#FFE082'],[0.75,'#FF8A65'],[1,'#EF5350']];
+  const normal = rows.filter(r => !r.inCycle);
+  const cycled = rows.filter(r => r.inCycle);
+  const traces = [];
+  if (normal.length) traces.push({
+    type:'scatter', mode:'markers', name:'Package',
+    x: normal.map(r=>r.instability), y: normal.map(r=>r.abstractness),
+    marker: { size: 7, color: normal.map(r=>r.distance), colorscale: DIST_SCALE, cmin:0, cmax:1, colorbar: { title: { text:'Distance' }, thickness:15 } },
+    text: normal.map(r=>r.packageName),
+    hovertemplate:'<b>%{text}</b><br>Instability: %{x:.2f}<br>Abstractness: %{y:.2f}<extra></extra>'
+  });
+  if (cycled.length) traces.push({
+    type:'scatter', mode:'markers', name:'In cycle',
+    x: cycled.map(r=>r.instability), y: cycled.map(r=>r.abstractness),
+    marker: { size: 10, color: cycled.map(r=>r.distance), colorscale: DIST_SCALE, cmin:0, cmax:1, symbol:'star', line:{width:1,color:'#EF5350'}, showscale:false },
+    text: cycled.map(r=>r.packageName),
+    hovertemplate:'<b>%{text}</b> (in cycle)<br>Instability: %{x:.2f}<br>Abstractness: %{y:.2f}<extra></extra>'
+  });
+  Plotly.newPlot(div, traces, {
+    title: { text: 'Architectural stability scatter' },
+    xaxis: { title: 'Instability (I)', range: [-0.05, 1.05] },
+    yaxis: { title: 'Abstractness (A)', range: [-0.05, 1.05] },
+    shapes: [
+      { type:'rect', x0:0, y0:0, x1:0.5, y1:0.5, fillcolor:'rgba(239,83,80,0.10)', line:{width:0}, layer:'below' },
+      { type:'rect', x0:0.5, y0:0.5, x1:1, y1:1, fillcolor:'rgba(255,224,130,0.15)', line:{width:0}, layer:'below' },
+      { type:'line', x0:0, y0:1, x1:1, y1:0, line:{ color:'#888', width: 2, dash: 'dash' } }
+    ],
+    annotations: [
+      { x:0.15, y:0.15, text:'Zone of Pain', showarrow:false, font:{size:12,color:'#EF5350'} },
+      { x:0.85, y:0.85, text:'Zone of Uselessness', showarrow:false, font:{size:12,color:'#F9A825'} }
+    ],
+    height: 600
+  }, { responsive: true });
+}
+
+function vizDependencyCycleNetwork(div, pkgRows, opts) {
+  const rows = filterByRepo(pkgRows, opts.repoFilter).filter(r => String(r.inCycle).toLowerCase()==='true' && r.packageName);
+  if (!rows.length) return renderEmptyState(div, 'No packages flagged as in-cycle — clean dependency graph, nothing to plot.');
+  const metrics = new Map(), edges = [];
+  const cycle = new Set(rows.map(r=>r.packageName));
+  for (const r of rows) {
+    metrics.set(r.packageName, { aff: parseNum(r.afferentCoupling), eff: parseNum(r.efferentCoupling), coupling: parseNum(r.afferentCoupling)+parseNum(r.efferentCoupling), inst: parseNum(r.instability) });
+    const members = String(r.cycleMembers||'').split(',').map(s=>s.trim()).filter(Boolean);
+    for (const m of members) { edges.push([r.packageName, m]); if (!metrics.has(m)) metrics.set(m, { aff:0, eff:0, coupling:0, inst:0 }); }
+  }
+  const nodes = [...metrics.keys()];
+  const pos = computeSpringLayout(nodes, edges, { iterations: 180, k: 2.0 / Math.sqrt(Math.max(1, nodes.length)) });
+  const ex = [], ey = [];
+  for (const [u,v] of edges) { const a = pos.get(u), b = pos.get(v); if (a && b) { ex.push(a.x, b.x, null); ey.push(a.y, b.y, null); } }
+  Plotly.newPlot(div, [
+    { type:'scatter', mode:'lines', x: ex, y: ey, line: { width: 1.5, color: '#EF5350' }, hoverinfo:'none' },
+    {
+      type:'scatter', mode:'markers+text',
+      x: nodes.map(n=>pos.get(n).x), y: nodes.map(n=>pos.get(n).y),
+      text: nodes.map(n => n.split('.').pop()), textposition: 'top center', textfont: { size: 9 },
+      marker: {
+        size: nodes.map(n => { const m = metrics.get(n); return Math.max(15, Math.min(50, 10 + m.coupling * 3)); }),
+        color: nodes.map(n => metrics.get(n).inst),
+        colorscale: [[0,'#4CAF50'],[0.5,'#FFE082'],[1,'#EF5350']], cmin: 0, cmax: 1,
+        symbol: nodes.map(n => cycle.has(n) ? 'circle' : 'diamond'),
+        line: { width: 1, color: '#333' }
+      },
+      hovertext: nodes.map(n => { const m = metrics.get(n); return `<b>${n}</b><br>Coupling: ${m.coupling}<br>Instability: ${m.inst.toFixed(2)}`; }),
+      hoverinfo: 'text'
+    }
+  ], {
+    title: { text: `Dependency cycle network (${cycle.size} packages in cycles)` },
+    xaxis: { visible: false }, yaxis: { visible: false },
+    height: 650, plot_bgcolor: 'white', hovermode: 'closest'
+  }, { responsive: true });
+}
+
+function vizCouplingCohesionQuadrant(div, classRows, opts) {
+  const rows = filterByRepo(classRows, opts.repoFilter)
+    .filter(r => r.className && isFinite(parseFloat(r.cbo)) && isFinite(parseFloat(r.tcc)))
+    .map(enrichClass);
+  if (!rows.length) return renderEmptyState(div, "No rows to render for this chart.");
+  const cboThresh = 10, tccThresh = 0.5;
+  const wmcs = rows.map(r => r.wmc);
+  const wmcMin = Math.min(...wmcs), wmcMax = Math.max(...wmcs);
+  const wmcRange = wmcMax > wmcMin ? wmcMax - wmcMin : 1;
+  const sizes = rows.map(r => 8 + 30 * (r.wmc - wmcMin) / wmcRange);
+  const xMax = Math.max(Math.max(...rows.map(r => r.cbo)) * 1.1, cboThresh * 2);
+  Plotly.newPlot(div, [{
+    type:'scatter', mode:'markers',
+    x: rows.map(r=>r.cbo), y: rows.map(r=>r.tcc),
+    marker: { size: sizes, color: rows.map(r=>r.maintainabilityIndex), colorscale: HEALTH_COLORSCALE, cmin: 0, cmax: 100, colorbar: { title: { text: 'MI' } }, line: { width: 0.5, color: '#ddd' } },
+    text: rows.map(r=>r.className),
+    customdata: rows.map(r=>[r.wmc, r.repoShort, r.lcom4]),
+    hovertemplate:'<b>%{text}</b><br>Repo: %{customdata[1]}<br>CBO: %{x}<br>TCC: %{y:.2f}<br>WMC: %{customdata[0]}<br>LCOM4: %{customdata[2]}<extra></extra>'
+  }], {
+    title: { text: 'Coupling vs Cohesion quadrant' },
+    xaxis: { title: 'CBO', range: [0, xMax] }, yaxis: { title: 'TCC', range: [-0.05, 1.05] },
+    shapes: [
+      { type:'line', x0:0, x1:xMax, y0:tccThresh, y1:tccThresh, line:{color:'#888', dash:'dash', width:1} },
+      { type:'line', x0:cboThresh, x1:cboThresh, y0:-0.05, y1:1.05, line:{color:'#888', dash:'dash', width:1} }
+    ],
+    annotations: [
+      { xref:'paper', yref:'paper', x:0.01, y:0.02, text:'<b>Island</b>', showarrow:false, font:{size:12,color:'#90CAF9'} },
+      { xref:'paper', yref:'paper', x:0.01, y:0.98, text:'<b>Healthy</b>', showarrow:false, font:{size:12,color:'#4CAF50'} },
+      { xref:'paper', yref:'paper', x:0.99, y:0.02, text:'<b>Spaghetti</b>', showarrow:false, font:{size:12,color:'#EF5350'}, xanchor:'right' },
+      { xref:'paper', yref:'paper', x:0.99, y:0.98, text:'<b>Hub</b>', showarrow:false, font:{size:12,color:'#FF8A65'}, xanchor:'right' }
+    ],
+    height: 600, plot_bgcolor: 'white', showlegend: false
+  }, { responsive: true });
+}
+
+function vizPortfolioHealthSunburst(div, classRows, opts) {
+  const rows = filterByRepo(classRows, opts.repoFilter)
+    .filter(r => r.className && parseNum(r.lineCount) > 0)
+    .map(r => ({
+      repoShort: repoOrModule(r), classShort: shortClass(r.className),
+      pkg: shortenPkg(extractPackage(r.className)),
+      lineCount: parseNum(r.lineCount), mi: parseFloat(r.maintainabilityIndex)
+    }))
+    .filter(r => isFinite(r.mi));
+  function shortenPkg(p) { if (!p) return '(default)'; const parts = String(p).split('.'); return parts.length > 2 ? parts.slice(-2).join('.') : p; }
+  if (!rows.length) return renderEmptyState(div, "No rows to render for this chart.");
+  const repoCounts = new Map();
+  rows.forEach(r => repoCounts.set(r.repoShort, (repoCounts.get(r.repoShort)||0)+1));
+  const keepRepos = new Set([...repoCounts.entries()].sort((a,b)=>b[1]-a[1]).slice(0, Math.min(opts.topN, 15)).map(e=>e[0]));
+  const kept = rows.filter(r => keepRepos.has(r.repoShort));
+  const nodes = new Map();
+  const upsert = (id, label, parent, value, mi) => {
+    const n = nodes.get(id) || { id, label, parent, value: 0, miSum: 0, miCount: 0 };
+    n.value += value; if (isFinite(mi)) { n.miSum += mi*value; n.miCount += value; } nodes.set(id, n);
+  };
+  for (const r of kept) {
+    const rid = r.repoShort, pid = `${rid}/${r.pkg}`, cid = `${pid}/${r.classShort}`;
+    upsert(rid, r.repoShort, '', r.lineCount, r.mi);
+    upsert(pid, r.pkg, rid, r.lineCount, r.mi);
+    upsert(cid, r.classShort, pid, r.lineCount, r.mi);
+  }
+  const list = [...nodes.values()];
+  Plotly.newPlot(div, [{
+    type: 'sunburst',
+    ids: list.map(n=>n.id), labels: list.map(n=>n.label), parents: list.map(n=>n.parent), values: list.map(n=>n.value),
+    branchvalues: 'total',
+    marker: { colors: list.map(n => n.miCount > 0 ? n.miSum/n.miCount : 0), colorscale: HEALTH_COLORSCALE, cmin: 0, cmid: 50, cmax: 100, colorbar: { title: { text: 'MI' } }, showscale: true }
+  }], { title: { text: `Portfolio code health (${keepRepos.size} repos)` }, height: 700 }, { responsive: true });
+}
+
+function vizMethodRiskRadar(div, methodRows, opts) {
+  const METRICS = ['cyclomaticComplexity','cognitiveComplexity','maxNestingDepth','parameterCount','halsteadEstimatedBugs'];
+  const LABELS = ['Cyclomatic','Cognitive','Nesting','Parameters','Est. Bugs'];
+  const RADAR_COLORS = ['#EF5350','#FF8A65','#FFB74D','#FFE082','#A5D6A7','#4DB6AC','#4FC3F7','#7986CB','#BA68C8','#F06292'];
+  const rows = filterByRepo(methodRows, opts.repoFilter).filter(r => r.className && r.methodName).map(r => ({
+    classShort: shortClass(r.className), methodName: r.methodName,
+    values: METRICS.map(m => parseNum(r[m]))
+  }));
+  if (!rows.length) return renderEmptyState(div, "No rows to render for this chart.");
+  const maxes = METRICS.map((_, j) => Math.max(...rows.map(r => r.values[j])));
+  const normalized = rows.map(r => ({ ...r, norm: r.values.map((v, j) => maxes[j] > 0 ? v / maxes[j] : 0) }));
+  normalized.forEach(r => { r.riskSum = r.norm.reduce((a,b) => a+b, 0); });
+  normalized.sort((a,b) => b.riskSum - a.riskSum);
+  const top = normalized.slice(0, Math.min(8, normalized.length));
+  const labelsClosed = [...LABELS, LABELS[0]];
+  const traces = top.map((m, rank) => ({
+    type:'scatterpolar',
+    r: [...m.norm, m.norm[0]], theta: labelsClosed,
+    fill: 'toself',
+    fillcolor: hexToRgba(RADAR_COLORS[rank % RADAR_COLORS.length], 0.15),
+    name: `${m.classShort}.${m.methodName}`.slice(0, 50),
+    line: { color: RADAR_COLORS[rank % RADAR_COLORS.length], width: 2 }
+  }));
+  function hexToRgba(h, a) { const r=parseInt(h.slice(1,3),16), g=parseInt(h.slice(3,5),16), b=parseInt(h.slice(5,7),16); return `rgba(${r},${g},${b},${a})`; }
+  Plotly.newPlot(div, traces, { title: { text: `Method risk radar (top ${top.length})` }, polar: { radialaxis: { visible: true, range: [0, 1.05] } }, height: 600, legend: { font: { size: 10 } } }, { responsive: true });
+}
+
+function vizPortfolioQualityViolin(div, methodRows, opts) {
+  const metric = 'cyclomaticComplexity';
+  const rows = filterByRepo(methodRows, opts.repoFilter).map(r => ({ repo: repoOrModule(r), value: parseNum(r[metric]) }));
+  if (!rows.length) return renderEmptyState(div, "No rows to render for this chart.");
+  const byRepo = new Map();
+  for (const r of rows) { if (!byRepo.has(r.repo)) byRepo.set(r.repo, []); byRepo.get(r.repo).push(r.value); }
+  const stats = [...byRepo.entries()].map(([repo, vals]) => {
+    const m = median(vals), mean = vals.reduce((a,b)=>a+b,0)/vals.length, s = stdOf(vals, mean);
+    return { repo, values: vals, median: m, count: vals.length, cv: s/(m+1e-9) };
+  }).filter(s => s.count >= 2);
+  if (!stats.length) return renderEmptyState(div, "No repositories with at least 2 methods — not enough data to compare.");
+  stats.sort((a,b) => b.median - a.median);
+  const selected = stats.slice(0, Math.min(20, stats.length));
+  const cap = quantile(rows.map(r=>r.value), 0.95);
+  const medMin = Math.min(...selected.map(s=>s.median)), medMax = Math.max(...selected.map(s=>s.median));
+  const medRange = medMax - medMin || 1;
+  const traces = selected.map(s => {
+    const norm = (s.median - medMin)/medRange;
+    const r = Math.round(76 + norm * (239 - 76));
+    const g = Math.round(175 + norm * (83 - 175));
+    return {
+      type:'violin', y: s.values.map(v => Math.min(v, cap)), name: s.repo,
+      box: { visible: true }, meanline: { visible: true }, points: 'outliers',
+      fillcolor: `rgb(${r},${g},80)`, line: { color: '#333' }, opacity: 0.75
+    };
+  });
+  Plotly.newPlot(div, traces, {
+    title: { text: 'Portfolio quality comparison (cyclomatic complexity)' },
+    yaxis: { title: 'Cyclomatic complexity', range: [0, cap * 1.1] },
+    xaxis: { tickangle: -35, tickfont: { size: 10 } },
+    height: 550, plot_bgcolor: 'white', showlegend: false
+  }, { responsive: true });
+}
+
+function vizTechnicalDebtTreemap(div, rows, mode, opts) {
+  const METHOD_WEIGHTS = { cyclomaticComplexity: 0.4, cognitiveComplexity: 0.3, maxNestingDepth: 0.2, halsteadEstimatedBugs: 0.1 };
+  const CLASS_WEIGHTS = { wmc: 0.35, lcom4: 0.20, cbo: 0.20, inverseMaintainability: 0.25 };
+  const src = filterByRepo(rows, opts.repoFilter);
+  const enriched = mode === 'method'
+    ? src.map(enrichMethod)
+    : src.map(enrichClass).map(r => ({ ...r, inverseMaintainability: Math.max(0, Math.min(1, (100 - r.maintainabilityIndex)/100)) }));
+  const weights = mode === 'method' ? METHOD_WEIGHTS : CLASS_WEIGHTS;
+  const maxes = {};
+  for (const col of Object.keys(weights)) maxes[col] = Math.max(...enriched.map(r=>r[col]||0), 0);
+  for (const r of enriched) { let s = 0; for (const [c,w] of Object.entries(weights)) if (maxes[c]>0) s += w*((r[c]||0)/maxes[c]); r.debtScore = s; }
+  enriched.sort((a,b) => b.debtScore - a.debtScore);
+  const top = enriched.slice(0, Math.min(opts.topN * 10, enriched.length)).filter(r => r.classShort);
+  if (!top.length) return renderEmptyState(div, "No rows to render for this chart.");
+  const nodes = new Map();
+  const up = (id, label, parent, value, debtSum, debtCount) => {
+    const n = nodes.get(id) || { id, label, parent, value:0, debtSum:0, debtCount:0 };
+    n.value += value; n.debtSum += debtSum; n.debtCount += debtCount; nodes.set(id, n);
+  };
+  for (const r of top) {
+    const rid = r.repoShort, cid = `${rid}\u0001${r.classShort}`;
+    up(rid, r.repoShort, '', r.lineCount, r.debtScore * r.lineCount, r.lineCount);
+    if (mode === 'method') {
+      let mid = `${cid}\u0001${r.methodName}`; let n = 2;
+      while (nodes.has(mid)) { mid = `${cid}\u0001${r.methodName}#${n++}`; }
+      up(cid, r.classShort, rid, r.lineCount, r.debtScore * r.lineCount, r.lineCount);
+      nodes.set(mid, { id: mid, label: r.methodName, parent: cid, value: r.lineCount, debtSum: r.debtScore * r.lineCount, debtCount: r.lineCount });
+    } else {
+      let lid = cid; let n = 2;
+      while (nodes.has(lid)) { lid = `${cid}#${n++}`; }
+      nodes.set(lid, { id: lid, label: r.classShort, parent: rid, value: r.lineCount, debtSum: r.debtScore * r.lineCount, debtCount: r.lineCount });
+    }
+  }
+  const list = [...nodes.values()];
+  Plotly.newPlot(div, [{
+    type: 'treemap',
+    ids: list.map(n=>n.id), labels: list.map(n=>n.label), parents: list.map(n=>n.parent), values: list.map(n=>n.value),
+    branchvalues: 'total',
+    marker: { colors: list.map(n => n.debtCount>0 ? n.debtSum/n.debtCount : 0), colorscale: DEBT_COLORSCALE, cmin: 0, cmax: Math.max(0.001, Math.max(...top.map(r=>r.debtScore))), colorbar: { title: { text: 'Debt' } } }
+  }], { title: { text: `Technical debt hotspots (${mode}-level)` }, height: 700 }, { responsive: true });
+}
+
+function vizComplexityVsTestGapsBubble(div, classRows, gapRows, opts) {
+  const classes = filterByRepo(classRows, opts.repoFilter).map(enrichClass);
+  const gaps = filterByRepo(gapRows, opts.repoFilter);
+  if (!classes.length || !gaps.length) return;
+  const gapAgg = new Map();
+  for (const g of gaps) {
+    const k = `${g.repositoryPath||''}\u0001${g.className}`;
+    const cur = gapAgg.get(k) || { untested: 0, totalRisk: 0 };
+    cur.untested++; cur.totalRisk += parseNum(g.riskScore); gapAgg.set(k, cur);
+  }
+  const merged = [];
+  for (const c of classes) {
+    const g = gapAgg.get(`${c.repositoryPath||''}\u0001${c.className}`);
+    if (!g || c.wmc < 5) continue;
+    merged.push({ ...c, untested: g.untested, totalRisk: g.totalRisk });
+  }
+  if (!merged.length) return renderEmptyState(div, "No classes with WMC ≥ 5 also have test gaps — no hotspots to plot.");
+  const riskMax = Math.max(...merged.map(m=>m.totalRisk));
+  const sizes = merged.map(m => 10 + 50 * (riskMax > 0 ? m.totalRisk/riskMax : 1));
+  const wmcMedian = median(merged.map(m=>m.wmc));
+  const gapMedian = median(merged.map(m=>m.untested));
+  Plotly.newPlot(div, [{
+    type:'scatter', mode:'markers',
+    x: merged.map(m=>m.wmc), y: merged.map(m=>m.untested),
+    marker: { size: sizes, color: merged.map(m=>m.maintainabilityIndex), colorscale: HEALTH_COLORSCALE, cmin: 0, cmax: 100, colorbar: { title: { text: 'MI' } }, line: { width: 0.5, color: '#ddd' } },
+    text: merged.map(m=>m.className),
+    customdata: merged.map(m=>[m.repoShort, m.totalRisk]),
+    hovertemplate:'<b>%{text}</b><br>Repo: %{customdata[0]}<br>WMC: %{x}<br>Untested: %{y}<br>Risk: %{customdata[1]}<extra></extra>'
+  }], {
+    title: { text: 'Complexity vs test gaps' },
+    xaxis: { title: 'WMC' }, yaxis: { title: 'Untested methods' },
+    shapes: [
+      { type: 'line', x0: wmcMedian, x1: wmcMedian, y0: 0, y1: 1, yref: 'paper', line: { color: '#888', dash: 'dash', width: 1 } },
+      { type: 'line', x0: 0, x1: 1, xref: 'paper', y0: gapMedian, y1: gapMedian, line: { color: '#888', dash: 'dash', width: 1 } }
+    ],
+    height: 600, plot_bgcolor: 'white'
+  }, { responsive: true });
+}
+
+function vizCodeQualityExecDashboard(div, classRows, opts) {
+  const rows = filterByRepo(classRows, opts.repoFilter).filter(r => r.className && isFinite(parseFloat(r.maintainabilityIndex))).map(enrichClass);
+  if (!rows.length) return renderEmptyState(div, "No rows to render for this chart.");
+  const byRepo = new Map();
+  for (const r of rows) { const cur = byRepo.get(r.repoShort) || { sum:0, n:0 }; cur.sum += r.maintainabilityIndex; cur.n++; byRepo.set(r.repoShort, cur); }
+  const health = [...byRepo.entries()].map(([repo, v]) => ({ repo, health: v.sum/v.n })).sort((a,b) => b.health - a.health);
+  const display = health.length <= 10 ? [...health].sort((a,b) => a.health-b.health) : [
+    ...health.slice(-5).sort((a,b) => a.health-b.health),
+    { repo: `··· ${health.length - 10} more ···`, health: median(health.map(r=>r.health)), gap: true },
+    ...health.slice(0, 5).sort((a,b) => a.health-b.health)
+  ];
+  const colors = display.map(d => d.gap ? '#E0E0E0' : d.health < 50 ? '#EF5350' : d.health < 65 ? '#FF8A65' : '#4CAF50');
+  const texts = display.map(d => d.gap ? '' : d.health.toFixed(0));
+  const ranked = rows.map(r => ({ ...r, priority: (100 - r.maintainabilityIndex) + r.wmc })).sort((a,b) => b.priority - a.priority).slice(0, 15);
+  const healthLabel = mi => mi < 50 ? 'Poor' : mi < 65 ? 'Fair' : 'Good';
+  Plotly.newPlot(div, [
+    {
+      type:'bar', orientation:'h', y: display.map(d=>d.repo), x: display.map(d => Math.round(d.health*10)/10),
+      marker: { color: colors }, text: texts, textposition: 'outside', xaxis: 'x', yaxis: 'y', showlegend: false
+    },
+    {
+      type: 'table',
+      columnwidth: [120, 160, 70, 70],
+      header: { values: ['Repository','Class','Health','Methods'], fill: { color: '#7986CB' }, font: { color: 'white', size: 11 }, align: 'left', height: 26 },
+      cells: {
+        values: [ ranked.map(r=>r.repoShort), ranked.map(r=>r.classShort), ranked.map(r=>`${healthLabel(r.maintainabilityIndex)} (${r.maintainabilityIndex.toFixed(0)})`), ranked.map(r=>r.methodCount) ],
+        align: 'left', font: { size: 11 }, height: 24
+      },
+      domain: { x: [0, 1], y: [0, 0.45] }
+    }
+  ], {
+    title: { text: 'Code quality executive dashboard' },
+    xaxis: { domain: [0, 1], anchor: 'y', title: { text: 'Health score' }, range: [0, 110] },
+    yaxis: { domain: [0.55, 1], anchor: 'x', automargin: true },
+    height: 800, margin: { l: 200, r: 50, t: 60, b: 30 },
+    annotations: [
+      { text: '<b>Repo health</b>', xref: 'paper', yref: 'paper', x: 0.5, y: 1.02, showarrow: false, font: { size: 12 } },
+      { text: '<b>Top refactoring targets</b>', xref: 'paper', yref: 'paper', x: 0.5, y: 0.48, showarrow: false, font: { size: 12 } }
+    ]
+  }, { responsive: true });
+}
+
+function vizTestQualityExecDashboard(div, issueRows, opts) {
+  const rows = filterByRepo(issueRows, opts.repoFilter).map(r => ({ ...r, _repoShort: repoOrModule(r) }));
+  if (!rows.length) return renderEmptyState(div, "No rows to render for this chart.");
+  const repoCounts = new Map();
+  for (const r of rows) repoCounts.set(r._repoShort, (repoCounts.get(r._repoShort)||0)+1);
+  const topRepos = [...repoCounts.entries()].sort((a,b)=>b[1]-a[1]).slice(0, 10);
+  const highByRepo = new Map();
+  for (const r of rows) if (String(r.severity).toLowerCase()==='high') highByRepo.set(r._repoShort, (highByRepo.get(r._repoShort)||0)+1);
+  const colors = topRepos.map(([repo, total]) => { const p = (highByRepo.get(repo)||0)/total; return `rgb(${Math.round(200*p+55)},${Math.round(200*(1-p)+55)},80)`; });
+  const sevCounts = new Map();
+  for (const r of rows) { const s = String(r.severity).toLowerCase(); sevCounts.set(s, (sevCounts.get(s)||0)+1); }
+  const sevLabels = [...sevCounts.keys()], sevValues = [...sevCounts.values()];
+  const typeCounts = new Map();
+  for (const r of rows) if (r.issueType) typeCounts.set(r.issueType, (typeCounts.get(r.issueType)||0)+1);
+  const typeOrder = [...typeCounts.entries()].sort((a,b)=>b[1]-a[1]).map(e=>e[0]);
+  const SEV_RANK = { high:3, medium:2, low:1 };
+  const priorities = [...rows].sort((a,b) => {
+    const ar = SEV_RANK[String(a.severity).toLowerCase()]||0;
+    const br = SEV_RANK[String(b.severity).toLowerCase()]||0;
+    return br - ar;
+  }).slice(0, 10);
+  Plotly.newPlot(div, [
+    {
+      type:'bar', orientation:'h', y: topRepos.map(e=>e[0]).reverse(), x: topRepos.map(e=>e[1]).reverse(),
+      marker: { color: colors.slice().reverse() }, xaxis: 'x', yaxis: 'y', showlegend: false
+    },
+    { type:'pie', labels: sevLabels, values: sevValues, marker: { colors: sevLabels.map(s => SEVERITY_COLORS[s.toUpperCase()]||'#999') }, textinfo: 'label+percent', domain: { x: [0.55, 1], y: [0.55, 1] } },
+    {
+      type:'bar', x: typeOrder, y: typeOrder.map(t => typeCounts.get(t)),
+      marker: { color: typeOrder.map((_, i) => PALETTE[i % PALETTE.length]) },
+      xaxis: 'x2', yaxis: 'y2', showlegend: false
+    },
+    {
+      type: 'table',
+      header: { values: ['Class','Method','Issue','Severity'], fill: { color: '#f0f0f0' }, align: 'left', font: { size: 11 } },
+      cells: {
+        values: [ priorities.map(r=>shortClass(r.className)), priorities.map(r=>r.methodName||''), priorities.map(r=>r.issueType), priorities.map(r=>r.severity) ],
+        align: 'left', font: { size: 10 }
+      },
+      domain: { x: [0.55, 1], y: [0, 0.45] }
+    }
+  ], {
+    title: { text: `Test quality dashboard (${rows.length} issues, ${repoCounts.size} repos)` },
+    xaxis: { domain: [0, 0.45], anchor: 'y' }, yaxis: { domain: [0.55, 1], anchor: 'x', automargin: true },
+    xaxis2: { domain: [0, 0.45], anchor: 'y2', tickangle: -45 }, yaxis2: { domain: [0, 0.45], anchor: 'x2' },
+    height: 800, margin: { l: 180, r: 40, t: 80, b: 60 }, showlegend: false,
+    annotations: [
+      { text: '<b>Worst repos</b>', xref: 'paper', yref: 'paper', x: 0.225, y: 1.02, showarrow: false, font: { size: 12 } },
+      { text: '<b>Severity mix</b>', xref: 'paper', yref: 'paper', x: 0.775, y: 1.02, showarrow: false, font: { size: 12 } },
+      { text: '<b>Issue types</b>', xref: 'paper', yref: 'paper', x: 0.225, y: 0.48, showarrow: false, font: { size: 12 } },
+      { text: '<b>Top priorities</b>', xref: 'paper', yref: 'paper', x: 0.775, y: 0.48, showarrow: false, font: { size: 12 } }
+    ]
+  }, { responsive: true });
+}
+
+// ---------------------------------------------------------------------------
+// Registry: what each viz needs and how to render it
+
+const VIZ_REGISTRY = [
+  { title: 'Architectural stability scatter', needs: ['PackageQualityMetrics'], render: (d, o) => vizArchitecturalStabilityScatter(d, loaded.PackageQualityMetrics.rows, o) },
+  { title: 'Dependency cycle network', needs: ['PackageQualityMetrics'], render: (d, o) => vizDependencyCycleNetwork(d, loaded.PackageQualityMetrics.rows, o) },
+  { title: 'Coupling vs cohesion quadrant', needs: ['ClassQualityMetrics'], render: (d, o) => vizCouplingCohesionQuadrant(d, loaded.ClassQualityMetrics.rows, o) },
+  { title: 'Portfolio health sunburst', needs: ['ClassQualityMetrics'], render: (d, o) => vizPortfolioHealthSunburst(d, loaded.ClassQualityMetrics.rows, o) },
+  { title: 'Code quality executive dashboard', needs: ['ClassQualityMetrics'], render: (d, o) => vizCodeQualityExecDashboard(d, loaded.ClassQualityMetrics.rows, o) },
+  { title: 'Method risk radar', needs: ['MethodQualityMetrics'], render: (d, o) => vizMethodRiskRadar(d, loaded.MethodQualityMetrics.rows, o) },
+  { title: 'Portfolio quality comparison (violin)', needs: ['MethodQualityMetrics'], render: (d, o) => vizPortfolioQualityViolin(d, loaded.MethodQualityMetrics.rows, o) },
+  { title: 'Technical debt hotspots (method-level)', needs: ['MethodQualityMetrics'], render: (d, o) => vizTechnicalDebtTreemap(d, loaded.MethodQualityMetrics.rows, 'method', o) },
+  { title: 'Technical debt hotspots (class-level)', needs: ['ClassQualityMetrics'], render: (d, o) => vizTechnicalDebtTreemap(d, loaded.ClassQualityMetrics.rows, 'class', o), skipIfMethodAvailable: true },
+  { title: 'Complexity vs test gaps bubble', needs: ['ClassQualityMetrics','TestGaps'], render: (d, o) => vizComplexityVsTestGapsBubble(d, loaded.ClassQualityMetrics.rows, loaded.TestGaps.rows, o) },
+  { title: 'Code smell severity', needs: ['CodeSmells'], render: (d, o) => vizCodeSmellSeverity(d, loaded.CodeSmells.rows, o) },
+  { title: 'Test gap risk heatmap', needs: ['TestGaps'], render: (d, o) => vizTestGapRiskHeatmap(d, loaded.TestGaps.rows, o) },
+  { title: 'Test quality issue heatmap', needs: ['TestQualityIssues'], render: (d, o) => vizTestQualityIssueHeatmap(d, loaded.TestQualityIssues.rows, o) },
+  { title: 'Test quality treemap', needs: ['TestQualityIssues'], render: (d, o) => vizTestQualityTreemap(d, loaded.TestQualityIssues.rows, o) },
+  { title: 'Test quality by language', needs: ['TestQualityIssues'], render: (d, o) => vizTestQualityByLanguage(d, loaded.TestQualityIssues.rows, o) },
+  { title: 'Test quality language sunburst', needs: ['TestQualityIssues'], render: (d, o) => vizTestQualityLanguageSunburst(d, loaded.TestQualityIssues.rows, o) },
+  { title: 'Test quality risk matrix', needs: ['TestQualityIssues'], render: (d, o) => vizTestQualityRiskMatrix(d, loaded.TestQualityIssues.rows, o) },
+  { title: 'Test quality executive dashboard', needs: ['TestQualityIssues'], render: (d, o) => vizTestQualityExecDashboard(d, loaded.TestQualityIssues.rows, o) }
+];
+
+function haveAll(tables) { return tables.every(t => loaded[t]); }
+
+runBtn.addEventListener('click', () => {
+  const opts = globalOpts();
+  const container = document.getElementById('charts');
+  container.innerHTML = '';
+
+  const methodAvailable = !!loaded.MethodQualityMetrics;
+  for (let i = 0; i < VIZ_REGISTRY.length; i++) {
+    const v = VIZ_REGISTRY[i];
+    if (v.skipIfMethodAvailable && methodAvailable) continue; // class-level debt duplicates method-level when both are present
+    const card = document.createElement('div');
+    card.className = 'viz-card';
+    const present = haveAll(v.needs);
+    const srcLine = `Requires: ${v.needs.join(' + ')} ${present ? '' : '<span style="color:#c0392b;">— missing: ' + v.needs.filter(t => !loaded[t]).join(', ') + '</span>'}`;
+    card.innerHTML = `<h3>${escapeHtml(v.title)}</h3><div class="src">${srcLine}</div><div class="chart" id="viz-${i}"></div>`;
+    if (!present) {
+      card.classList.add('disabled');
+      card.querySelector('.chart').innerHTML = `<div class="viz-placeholder">Upload the required CSV(s) to render this chart.</div>`;
+    }
+    container.appendChild(card);
+    if (present) {
+      try { v.render('viz-' + i, opts); } catch (e) {
+        card.querySelector('.chart').innerHTML = `<div class="viz-placeholder" style="color:#c0392b;">Render error: ${escapeHtml(e.message)}</div>`;
+        console.error(v.title, e);
+      }
+    }
+  }
+
+  statusEl.textContent = `Rendered ${VIZ_REGISTRY.filter((v, i) => haveAll(v.needs) && !(v.skipIfMethodAvailable && methodAvailable)).length} of ${VIZ_REGISTRY.length} visualizations.`;
+});
+</script>
+</body>
+</html>

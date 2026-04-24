@@ -62,7 +62,7 @@ const statusEl = document.getElementById('status');
 wireFileDrop({
   dropId: 'drop', inputId: 'file', dropTextId: 'drop-text',
   onRows: (rows) => {
-    loadedRows = rows;
+    loadedRows = rows.map(normalizeHeaders);
     runBtn.disabled = false;
     statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`;
   }
@@ -73,15 +73,24 @@ runBtn.addEventListener('click', () => {
   const filterStr = document.getElementById('repo-filter').value;
   const groupBy = document.getElementById('group-by').value;
 
-  const filtered = loadedRows.filter(r => matchesRepoFilter(r.repositoryPath, filterStr));
+  // If the CSV has no repositoryPath (single-repo .moderne/context export),
+  // fall back to the Gradle / Maven submodule derived from sourcePath so
+  // rows still have a sensible grouping label.
+  const hasRepo = 'repositoryPath' in (loadedRows[0] || {});
+  const filtered = hasRepo
+    ? loadedRows.filter(r => matchesRepoFilter(r.repositoryPath, filterStr))
+    : loadedRows.slice();
   if (filtered.length === 0) {
     statusEl.innerHTML = '<span class="error">No rows match the filter.</span>';
     document.getElementById('chart-card').classList.add('hidden');
     return;
   }
 
-  // Annotate with repoShort so the group key is available
-  filtered.forEach(r => { r._repoShort = shortRepo(r.repositoryPath); });
+  // Annotate with repoShort so the group key is available. Fall back to the
+  // sourcePath module when there's no repositoryPath column.
+  filtered.forEach(r => {
+    r._repoShort = r.repositoryPath ? repoOrModule(r) : moduleOf(r.sourcePath);
+  });
   const groupKey = groupBy === 'repository' ? '_repoShort' : 'smellType';
 
   // Totals per group (sorted ascending so largest is at top with autorange reversed)
@@ -114,7 +123,8 @@ runBtn.addEventListener('click', () => {
     hovertemplate: `<b>%{y}</b><br>${sev}: %{x}<extra></extra>`
   }));
 
-  const title = 'Code Smell Severity by ' + (groupBy === 'repository' ? 'Repository' : 'Smell Type');
+  const groupLabel = groupBy === 'repository' ? (hasRepo ? 'Repository' : 'Module') : 'Smell Type';
+  const title = 'Code Smell Severity by ' + groupLabel;
   const layout = {
     barmode: 'stack',
     title: { text: title, font: { size: 18 } },
@@ -128,7 +138,8 @@ runBtn.addEventListener('click', () => {
   document.getElementById('chart-card').classList.remove('hidden');
   document.getElementById('chart-title').textContent = title;
   Plotly.newPlot('chart', traces, layout, { responsive: true });
-  statusEl.textContent = `Rendered ${filtered.length.toLocaleString()} smells across ${orderedGroups.length} ${groupBy === 'repository' ? 'repositories' : 'smell types'}.`;
+  const pluralLabel = groupBy === 'repository' ? (hasRepo ? 'repositories' : 'modules') : 'smell types';
+  statusEl.textContent = `Rendered ${filtered.length.toLocaleString()} smells across ${orderedGroups.length} ${pluralLabel}.`;
 });
 
 document.getElementById('download').addEventListener('click', () => {

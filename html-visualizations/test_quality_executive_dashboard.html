@@ -36,13 +36,13 @@ const SEV_COLORS = { low: '#A5D6A7', medium: '#FFE082', high: '#FF8A65' };
 
 let loadedRows = null;
 const runBtn = document.getElementById('run'), statusEl = document.getElementById('status');
-wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows; runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
+wireFileDrop({ dropId: 'drop', inputId: 'file', dropTextId: 'drop-text', onRows: (rows) => { loadedRows = rows.map(normalizeHeaders); runBtn.disabled = false; statusEl.textContent = `Ready. ${rows.length.toLocaleString()} rows parsed.`; } });
 
 runBtn.addEventListener('click', () => {
   if (!loadedRows) return;
   const filterStr = document.getElementById('repo-filter').value;
   const topN = Math.max(1, parseInt(document.getElementById('top-n').value, 10) || 10);
-  const rows = loadedRows.filter(r => matchesRepoFilter(r.repositoryPath, filterStr)).map(r => ({ ...r, repoShort: shortRepo(r.repositoryPath) }));
+  const rows = loadedRows.filter(r => matchesRepoFilter(r.repositoryPath, filterStr)).map(r => ({ ...r, repoShort: repoOrModule(r) }));
   if (rows.length === 0) { statusEl.innerHTML = '<span class="error">No rows after filter.</span>'; document.getElementById('chart-card').classList.add('hidden'); return; }
   const totalIssues = rows.length, totalRepos = new Set(rows.map(r => r.repoShort)).size;
 
