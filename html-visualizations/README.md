@@ -61,18 +61,35 @@ The PNG/SVG output is rendered from the same figure the interactive chart uses, 
 1. **Rename the file's extension**: `chart.html` → `chart.htm.txt` or `chart.html.bin`. Write the original name in the email body so it's obvious.
 2. **Password-protect a zip**: most mail gateways will let a password-protected `.zip` through. Provide the password through a separate channel or communication.
 
+
+## Caveats
+
+- All data stays in your browser. The only network calls are to CDN (`cdn.plot.ly`, `cdn.jsdelivr.net`) for Plotly + Papa Parse, and optionally `api.first.org` for EPSS scores in the vulnerability tool.
+- The JS ports reproduce the notebook logic as closely as practical but are not a bit-for-bit clone. In particular, `dependency_usage_violin` uses a simpler natural-compare version ordering instead of Moderne's `code_data_science.versions.index`; the resulting axis order can differ for pre-release / build-metadata versions.
+- Large CSVs (hundreds of thousands of rows) will work but the in-browser aggregation is single-threaded; expect multi-second waits past ~100k rows.
+- Dropping multi-selected files on an aggregator tool has been more reliable than the built in folder picker, or folder drop, at times.
+
 ## Aggregator tools
 
-Two starred entries in the sidebar render multiple visualizations on one scrolling page from a single multi-file (or folder) drop:
+Three starred entries in the sidebar accept a single multi-file (or folder) drop and surface every visualization whose inputs are present:
 
-- **⭐ All Prethink files** (`#prethink_all`, under *Prethink quality*) — drop any mix of Prethink CSVs (`ClassQualityMetrics`, `MethodQualityMetrics`, `PackageQualityMetrics`, `CodeSmells`, `TestGaps`, `TestQualityIssues`, `CyclomaticComplexity`, …) and it renders every applicable Prethink visualization. Empty-state placeholders show which inputs are still missing.
-- **⭐ All release files** (`#release_all`, under *Release*) — drop `ProjectCoordinates` + `DependenciesInUse` + `ParentRelationships` together (all three are required) to render metro map, metro plan, metro waves, and repository release order in one view.
+- **⭐ All POV visualizations** drop the entire output folder produced by `pov_recipes_cli_bash.sh` (the `$MODERNE_POV_DATATABLES` directory). 
+  - Auto-detects every POV data table the script produces and renders every applicable or available visualization inline on one scrolling page. 
+  - The Download HTML / PNG / SVG header buttons download every rendered chart at once.
+- **⭐ All Prethink files** drop any mix of Prethink CSVs and it renders every applicable or available Prethink visualization inline.
+- **⭐ All release files** drop `ProjectCoordinates` + `DependenciesInUse` + `ParentRelationships` together (all three are required) to render metro map, metro plan, metro waves, and repository release order in one view.
 
-Both aggregators accept folder drops, keep cumulative state across successive drops (with a **Clear all** button), show a per-file detection log, auto-skip `.moderne/run/` historical snapshots, and tag rows with their project folder so multi-project drops stay distinguishable.
+All three aggregators accept folder and multi-file drops, keep cumulative state across successive drops, show a per-file detection log, auto-skip `.moderne/run/` historical snapshots, and tag rows with their project folder so multi-project drops stay distinguishable.
 
 ## Which CSV does each tool expect?
 
 Every entry below is a hash-routed view inside `moderne-visualizations.html` — e.g. `…/moderne-visualizations.html#technical_debt_treemap`. The groupings match the sidebar.
+
+**POV recipes**
+
+| Sidebar label | Slug | Source data table |
+| --- | --- | --- |
+| ⭐ All POV visualizations | `pov_all` | Drop the whole `$MODERNE_POV_DATATABLES` folder produced by `pov_recipes_cli_bash.sh`; auto-detects every POV data table and routes you to the right individual tool or aggregator |
 
 **Prethink quality**
 
@@ -168,7 +185,7 @@ Everything lives inside `moderne-visualizations.html`. The main page is a sideba
 Structurally, inside `moderne-visualizations.html`:
 
 - `const TOOLS = { … }` (~line 134) — one entry per tool, keyed by slug.
-- Sidebar: `<a class="nav-item" data-slug="…" href="#…">Label</a>` inside one of the `<div class="nav-group">` blocks (Prethink quality, Static analysis, Dependencies, Lint, Inventory, Structure, Release).
+- Sidebar: `<a class="nav-item" data-slug="…" href="#…">Label</a>` inside one of the `<div class="nav-group">` blocks (POV recipes, Prethink quality, Release, Static analysis, Dependencies, Lint, Inventory, Structure).
 
 To add a new tool:
 
@@ -179,7 +196,7 @@ To add a new tool:
    - `parseNum(v)`, `shortRepo`, `shortClass`, `extractPackage`, `matchesRepoFilter`, `compareVersions`, `groupBy`
 2. Add the document as a new string value in the `TOOLS` object, keyed by a unique snake_case slug.
 3. Add a matching `<a class="nav-item" data-slug="your_slug" href="#your_slug">Display name</a>` inside the appropriate `<div class="nav-group">`.
-4. If the tool belongs in an aggregator, wire it into the render loop in `prethink_all` or `release_all` (detection → section render with empty-state placeholder).
+4. If the tool belongs in an aggregator, wire it into the render loop in `prethink_all` or `release_all` (detection → section render with empty-state placeholder), and add an entry to the `POV_VIZ` catalog in `pov_all` if the source recipe is part of the POV bash script.
 5. Add a row to the table above and run through the Quick start to sanity-check.
 
 The Python notebooks in `../moderne_visualizations_misc/` remain the source of truth for the data transformations; translate the pandas + plotly operations cell-by-cell into vanilla JS.
@@ -194,8 +211,3 @@ html-visualizations/
 └── moderne-visualizations.html            ← self-contained bundle (sidebar + iframe viewer + TOOLS map)
 ```
 
-## Caveats
-
-- All data stays in your browser. The only network calls are to CDN (`cdn.plot.ly`, `cdn.jsdelivr.net`) for Plotly + Papa Parse, and optionally `api.first.org` for EPSS scores in the vulnerability tool.
-- The JS ports reproduce the notebook logic as closely as practical but are not a bit-for-bit clone. In particular, `dependency_usage_violin` uses a simpler natural-compare version ordering instead of Moderne's `code_data_science.versions.index`; the resulting axis order can differ for pre-release / build-metadata versions.
-- Large CSVs (hundreds of thousands of rows) will work but the in-browser aggregation is single-threaded; expect multi-second waits past ~100k rows.
