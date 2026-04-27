@@ -71,15 +71,16 @@ The PNG/SVG output is rendered from the same figure the interactive chart uses, 
 
 ## Aggregator tools
 
-Three starred entries in the sidebar accept a single multi-file (or folder) drop and surface every visualization whose inputs are present:
+Four starred entries in the sidebar accept a single multi-file (or folder) drop and surface every visualization whose inputs are present:
 
 - **⭐ All POV visualizations** drop the entire output folder produced by `pov_recipes_cli_bash.sh` (the `$MODERNE_POV_DATATABLES` directory). 
   - Auto-detects every POV data table the script produces and renders every applicable or available visualization inline on one scrolling page. 
   - The Download HTML / PNG / SVG header buttons download every rendered chart at once.
+- **⭐ All Node POV visualizations** drop the entire output folder produced by the Node POV recipes script (the `.moderne-pov-node` directory). Auto-detects the JavaScript / TypeScript dependency-insight, vulnerability-check, language-composition, ECMAScript best-practices, and Node version upgrade tables, plus the awk-built `roi_summary.csv`, `roi_per_kloc.csv`, `recipe_files.csv`, and `language_composition_summary.csv` rollups, and renders Node-relevant visualizations on one scrolling page.
 - **⭐ All Prethink files** drop any mix of Prethink CSVs and it renders every applicable or available Prethink visualization inline.
 - **⭐ All release files** drop `ProjectCoordinates` + `DependenciesInUse` + `ParentRelationships` together (all three are required) to render metro map, metro plan, metro waves, and repository release order in one view.
 
-All three aggregators accept folder and multi-file drops, keep cumulative state across successive drops, show a per-file detection log, auto-skip `.moderne/run/` historical snapshots, and tag rows with their project folder so multi-project drops stay distinguishable.
+All four aggregators accept folder and multi-file drops, keep cumulative state across successive drops, show a per-file detection log, auto-skip `.moderne/run/` historical snapshots, and tag rows with their project folder so multi-project drops stay distinguishable.
 
 ## Which CSV does each tool expect?
 
@@ -90,6 +91,7 @@ Every entry below is a hash-routed view inside `moderne-visualizations.html` —
 | Sidebar label | Slug | Source data table |
 | --- | --- | --- |
 | ⭐ All POV visualizations | `pov_all` | Drop the whole `$MODERNE_POV_DATATABLES` folder produced by `pov_recipes_cli_bash.sh`; auto-detects every POV data table and routes you to the right individual tool or aggregator |
+| ⭐ All Node POV visualizations | `node_pov_all` | Drop the whole `.moderne-pov-node` folder produced by the Node POV recipes script; auto-detects `NodeDependenciesInUse`, `VulnerabilityReportNpm`, `LanguageCompositionPer{File,Folder,Repository}`, `SourcesFileResults`, `UpgradesAndMigrations`, `SecurityIssues`, plus the awk-built `roi_summary.csv` / `roi_per_kloc.csv` / `recipe_files.csv` / `language_composition_summary.csv` rollups |
 
 **Prethink quality**
 
