@@ -1,6 +1,22 @@
 # CHANGELOG
 
 
+## v1.7.0 (2026-04-30)
+
+### Bug Fixes
+
+- Tolerate missing ParentRelationships data table in release metro viz
+  ([#99](https://github.com/moderneinc/moderne-visualizations-misc/pull/99),
+  [`b063e99`](https://github.com/moderneinc/moderne-visualizations-misc/commit/b063e999a2f9b50af448916ae483907dfc7b9c82))
+
+On Gradle codebases the recipe never produces the ParentRelationships data table (parent POMs are a
+  Maven-only construct), so the parents CSV may be absent rather than just empty. Widen the existing
+  guard in release_metro_map, release_metro_plan, and release_metro_waves to also catch
+  FileNotFoundError and fall back to an empty DataFrame.
+
+Tracking the underlying platform-side question in moderneinc/customer-requests#2297.
+
+
 ## v1.6.0 (2026-04-23)
 
 ### Features
