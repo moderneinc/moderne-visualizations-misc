@@ -120,7 +120,7 @@ Every entry below is a hash-routed view inside `moderne-visualizations.html` —
 
 | Sidebar label | Slug | Source data table |
 | --- | --- | --- |
-| CSA impact analysis | `csa_impact_analysis` | `CommonStaticAnalysis_SourcesFileResults` (rows where `parentRecipe = org.openrewrite.staticanalysis.CommonStaticAnalysis`); bubble chart of total issues × hours saved, grouped into Security & Stability / Performance / Code Quality / Modernization, sized by avg time per finding |
+| CSA impact analysis | `csa_impact_analysis` | `CommonStaticAnalysis_SourcesFileResults` (rows where `parentRecipe = org.openrewrite.staticanalysis.CommonStaticAnalysis`); interactive bubble chart of total issues × hours saved, grouped into Security & Stability / Performance / Code Quality / Maintainability (Readability + Dead Code) / Modernization, sized by avg time per finding. Click a bubble or category card to drill into the per-recipe breakdown; uncategorized recipes surface under "Other" |
 | Cyclomatic complexity heatmap | `cyclomatic_complexity_heatmap` | `CyclomaticComplexity` |
 | Cyclomatic complexity risk matrix | `cyclomatic_complexity_risk_matrix` | `CyclomaticComplexity` |
 | Repository category heatmap | `repository_category_heatmap` | Static-analysis findings (top-N repos × impact categories) |
