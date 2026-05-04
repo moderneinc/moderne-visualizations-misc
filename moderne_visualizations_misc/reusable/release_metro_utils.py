@@ -1,6 +1,22 @@
 import networkx as nx
 import pandas as pd
 
+# Scopes that determine release ordering. A test-only dependency does not
+# require the producer to be released first, so test scopes are excluded —
+# otherwise mutual `test`-scoped deps between two repos register as a cycle.
+# Includes Gradle resolved configurations and Maven scopes; rows with no
+# scope value are kept (treated as production by default).
+_RELEASE_SCOPES = frozenset(
+    {
+        "compileClasspath",
+        "runtimeClasspath",
+        "compile",
+        "runtime",
+        "provided",
+        "system",
+    }
+)
+
 
 def build_release_graph(
     coords_df: pd.DataFrame,
@@ -28,6 +44,9 @@ def build_release_graph(
     # --- dependency edges ---
     if len(deps_df) > 0:
         deps = deps_df.copy()
+        if "scope" in deps.columns:
+            scope = deps["scope"].astype(str)
+            deps = deps[scope.isin(_RELEASE_SCOPES) | (scope == "nan") | (scope == "")]
         deps["_key"] = deps["groupId"].astype(str) + ":" + deps["artifactId"].astype(str)
         deps["_producer"] = deps["_key"].map(artifact_to_repo)
         deps["_consumer"] = deps["repositoryPath"].astype(str)
