@@ -4,16 +4,28 @@ import pandas as pd
 # Scopes that determine release ordering. A test-only dependency does not
 # require the producer to be released first, so test scopes are excluded —
 # otherwise mutual `test`-scoped deps between two repos register as a cycle.
-# Includes Gradle resolved configurations and Maven scopes; rows with no
-# scope value are kept (treated as production by default).
+# Covers Maven scopes, Gradle resolved classpath configurations, and the
+# Gradle declared configurations that DependenciesDeclared emits verbatim
+# (`implementation`, `api`, …). Rows with no scope value are kept (treated
+# as production by default).
 _RELEASE_SCOPES = frozenset(
     {
-        "compileClasspath",
-        "runtimeClasspath",
+        # Maven scopes
         "compile",
         "runtime",
         "provided",
         "system",
+        # Gradle resolved classpaths
+        "compileClasspath",
+        "runtimeClasspath",
+        "classpath",
+        # Gradle declared configurations
+        "implementation",
+        "api",
+        "compileOnly",
+        "compileOnlyApi",
+        "runtimeOnly",
+        "annotationProcessor",
     }
 )
 

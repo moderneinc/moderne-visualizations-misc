@@ -9,7 +9,7 @@ description: >
 recipe: io.moderne.recipe.releasemetro.ReleaseMetroPlan
 dataTable: io.moderne.recipe.releasemetro.table.ProjectCoordinates
 additionalDataTables:
-  data_file_dependencies: org.openrewrite.maven.table.DependenciesInUse
+  data_file_dependencies: org.openrewrite.java.dependencies.table.DependenciesDeclared
   data_file_parents: io.moderne.recipe.releasemetro.table.ParentRelationships
 options:
   - repository_filter:
