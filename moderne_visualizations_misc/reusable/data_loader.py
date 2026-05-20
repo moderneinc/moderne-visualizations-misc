@@ -42,6 +42,29 @@ def _build_repository_link(origin: object, path: object) -> str:
     return f"https://{origin.rstrip('/')}/{path.lstrip('/')}"
 
 
+def read_optional_csv(path) -> pd.DataFrame:
+    """Read an `additionalDataTables` CSV, tolerating missing input.
+
+    Returns an empty DataFrame when:
+      * the path is None — the Moderne platform injects None for an
+        `additionalDataTables` parameter when the recipe run did not
+        produce that table;
+      * the file does not exist (e.g. Gradle-only run with no Maven
+        ParentRelationships output);
+      * the file exists but is empty.
+
+    Uses plain `pd.read_csv` rather than `dt.read_csv` so that
+    `NB_DATA_TABLE` (which targets the primary data table only) cannot
+    clobber secondary table paths.
+    """
+    if not path:
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(path, on_bad_lines="skip", comment="#")
+    except (FileNotFoundError, pd.errors.EmptyDataError):
+        return pd.DataFrame()
+
+
 def read_data_table(sample, *args, **kwargs) -> pd.DataFrame:
     """Read a data table CSV that may be v1 or v2 format.
 
