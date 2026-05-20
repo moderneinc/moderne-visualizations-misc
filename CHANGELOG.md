@@ -1,6 +1,50 @@
 # CHANGELOG
 
 
+## v1.8.0 (2026-05-20)
+
+### Bug Fixes
+
+- Tolerate missing dependencies data table in release metro viz
+  ([#104](https://github.com/moderneinc/moderne-visualizations-misc/pull/104),
+  [`cc0e859`](https://github.com/moderneinc/moderne-visualizations-misc/commit/cc0e859b2994f62ad3ae44a9edbe339179c7f4aa))
+
+DependenciesDeclared lives in a different recipe than ProjectCoordinates, so a release metro run can
+  produce coords but no deps. When that happens the Moderne platform injects None for the
+  data_file_dependencies papermill parameter, and pd.read_csv(None, ...) crashes the notebook with:
+
+ValueError: Invalid file path or buffer object type: <class 'NoneType'>
+
+The existing parents guard only caught FileNotFoundError/EmptyDataError and didn't cover the None
+  case (which raises ValueError).
+
+Add read_optional_csv() to data_loader: returns an empty DataFrame for None / missing / empty paths.
+  Switch both secondary tables in release_metro_plan, release_metro_map, and release_metro_waves to
+  use it. Drop the now-unused `import pandas as pd` from the load cells.
+
+### Features
+
+- Switch release metro viz to DependenciesDeclared (incorporates #102)
+  ([#103](https://github.com/moderneinc/moderne-visualizations-misc/pull/103),
+  [`6cc9985`](https://github.com/moderneinc/moderne-visualizations-misc/commit/6cc9985a3e32189f044861eee398154196683e99))
+
+* Release metro plan on OpenRewrite shows everything as circluar, when the are not. I believe the
+  confusion is related to test dependencies, so I'm filtering those out for ordering purposes
+
+* feat: switch release metro viz to DependenciesDeclared
+
+- Specs and notebooks now consume DependenciesDeclared (declared-only, Maven + Gradle) in place of
+  DependenciesInUse - Extend _RELEASE_SCOPES from #102 with Gradle declared configurations
+  (implementation, api, compileOnly, compileOnlyApi, runtimeOnly, annotationProcessor, classpath) —
+  the table emits raw declared scope strings, so the Maven-resolved allowlist dropped most rows -
+  Secondary tables now use pd.read_csv(comment="#") to handle v2 header lines without colliding with
+  NB_DATA_TABLE - Refresh samples/v2/ with Moderne Training extracts; drop orphaned v1 metro CSVs
+
+---------
+
+Co-authored-by: Sam Snyder <sam@moderne.io>
+
+
 ## v1.7.0 (2026-04-30)
 
 ### Bug Fixes
