@@ -18,6 +18,15 @@ on:
         description: 'Pre-release version (PEP 440, must be a/b/rc/dev), e.g. 2.0.0a1'
         required: true
         type: string
+      python_version:
+        description: Python version to build/test under (must satisfy the package's requires-python)
+        required: true
+        default: '3.11'
+        type: choice
+        options:
+          - '3.11'
+          - '3.12'
+          - '3.13'
       repository:
         description: Package index to publish to
         required: true
@@ -42,17 +51,12 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Install Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
       - name: Install uv
-        uses: astral-sh/setup-uv@v4
+        uses: astral-sh/setup-uv@v8.2.0
 
       - name: Install dependencies
         run: |
-          uv sync --all-extras --group ci --python 3.11
+          uv sync --all-extras --group ci --python "${{ github.event.inputs.python_version }}"
 
       - name: Validate version is a PEP 440 pre-release
         env:
@@ -119,6 +123,7 @@ jobs:
       - name: Job summary
         env:
           VERSION: ${{ github.event.inputs.version }}
+          PYTHON_VERSION: ${{ github.event.inputs.python_version }}
           REPOSITORY: ${{ github.event.inputs.repository }}
           REF: ${{ github.ref_name }}
         run: |
@@ -127,6 +132,7 @@ jobs:
             echo ""
             echo "- **Version:** \`${VERSION}\`"
             echo "- **Branch:** \`${REF}\`"
+            echo "- **Python:** \`${PYTHON_VERSION}\`"
             echo "- **Index:** \`${REPOSITORY}\`"
             echo ""
             echo "Install: \`pip install moderne-visualizations-misc==${VERSION}\`"
