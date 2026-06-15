@@ -1,0 +1,141 @@
+name: Publish pre-release to PyPI
+
+# Manually dispatched. Pick the branch to build from with the
+# "Use workflow from" ref selector in the Actions UI — the workflow
+# checks out and publishes that exact ref. The version you supply must
+# be a PEP 440 pre-release (a/b/rc/dev), e.g. 2.0.0a1. A plain
+# `pip install moderne-visualizations-misc` keeps resolving to the
+# latest *stable* release, because pip ignores pre-releases by default;
+# testers opt in with `pip install moderne-visualizations-misc==2.0.0a1`.
+#
+# NOTE: workflow_dispatch only surfaces in the Actions UI once this file
+# is on the default branch (main). Merge it to main first; after that you
+# can dispatch it against any branch.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Pre-release version (PEP 440, must be a/b/rc/dev), e.g. 2.0.0a1'
+        required: true
+        type: string
+      python_version:
+        description: Python version to build/test under (must satisfy the package's requires-python)
+        required: true
+        default: '3.11'
+        type: choice
+        options:
+          - '3.11'
+          - '3.12'
+          - '3.13'
+      repository:
+        description: Package index to publish to
+        required: true
+        default: pypi
+        type: choice
+        options:
+          - pypi
+          - testpypi
+
+concurrency:
+  group: 'prerelease ${{ github.ref }}'
+  cancel-in-progress: false
+
+jobs:
+  check:
+    uses: ./.github/workflows/checks.yml
+    secrets: inherit
+
+  publish:
+    needs: [check]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v8.2.0
+
+      - name: Install dependencies
+        run: |
+          uv sync --all-extras --group ci --python "${{ github.event.inputs.python_version }}"
+
+      - name: Validate version is a PEP 440 pre-release
+        env:
+          VERSION: ${{ github.event.inputs.version }}
+        run: |
+          source .venv/bin/activate
+          python - <<'PY'
+          import os, sys
+          from packaging.version import Version, InvalidVersion
+          raw = os.environ["VERSION"]
+          try:
+              v = Version(raw)
+          except InvalidVersion as e:
+              sys.exit(f"::error::'{raw}' is not a valid PEP 440 version: {e}")
+          if not v.is_prerelease:
+              sys.exit(
+                  f"::error::'{raw}' is not a pre-release. This workflow only "
+                  "publishes pre-releases (a/b/rc/dev). Use the Publish workflow "
+                  "for final releases."
+              )
+          if v.local is not None:
+              sys.exit(
+                  f"::error::'{raw}' has a local version segment ('+{v.local}'). "
+                  "PyPI and TestPyPI both reject local versions on upload — drop "
+                  "the '+...' part (e.g. use '2.0.0a1', not '2.0.0a1+311')."
+              )
+          if str(v) != raw:
+              print(f"::warning::Normalized '{raw}' -> '{v}'; the normalized form is what gets published.")
+          print(f"OK: {v} is a pre-release")
+          PY
+
+      - name: Stamp pre-release version into pyproject.toml
+        env:
+          VERSION: ${{ github.event.inputs.version }}
+        run: |
+          sed -i -E "s|^version = \".*\"|version = \"${VERSION}\"|" pyproject.toml
+          echo "Building:"
+          grep -E '^version = ' pyproject.toml
+
+      - name: Build sdist and wheel
+        run: |
+          source .venv/bin/activate
+          python -m build
+
+      - name: Publish to PyPI
+        if: ${{ github.event.inputs.repository == 'pypi' }}
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          source .venv/bin/activate
+          python -m twine upload dist/*
+
+      - name: Publish to TestPyPI
+        if: ${{ github.event.inputs.repository == 'testpypi' }}
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.TEST_PYPI_TOKEN }}
+          TWINE_REPOSITORY_URL: https://test.pypi.org/legacy/
+        run: |
+          source .venv/bin/activate
+          python -m twine upload dist/*
+
+      - name: Job summary
+        env:
+          VERSION: ${{ github.event.inputs.version }}
+          PYTHON_VERSION: ${{ github.event.inputs.python_version }}
+          REPOSITORY: ${{ github.event.inputs.repository }}
+          REF: ${{ github.ref_name }}
+        run: |
+          {
+            echo "### Pre-release published :rocket:"
+            echo ""
+            echo "- **Version:** \`${VERSION}\`"
+            echo "- **Branch:** \`${REF}\`"
+            echo "- **Python:** \`${PYTHON_VERSION}\`"
+            echo "- **Index:** \`${REPOSITORY}\`"
+            echo ""
+            echo "Install: \`pip install moderne-visualizations-misc==${VERSION}\`"
+            echo ""
+            echo "_Plain \`pip install moderne-visualizations-misc\` still resolves to the latest stable release._"
+          } >> "$GITHUB_STEP_SUMMARY"
