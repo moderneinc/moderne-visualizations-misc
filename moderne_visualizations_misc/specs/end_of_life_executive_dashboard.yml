@@ -1,0 +1,25 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.EndOfLifeExecutiveDashboard
+displayName: End of life exposure executive dashboard
+description: >
+  Single-page executive summary of end-of-life (EOL) dependency exposure across the
+  portfolio. Shows how many repositories rely on end-of-life components, which
+  repositories are most exposed, and which EOL products are most widespread, using the
+  rewrite-end-of-life data table. Designed for leadership to gauge supportability risk
+  at a glance.
+recipe: io.moderne.java.endoflife.FindEndOfLifeDependenciesDefault
+dataTable: io.moderne.java.endoflife.table.EndOfLifeDependencyReport
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case
+        insensitive). Branch names are appended to the repository name with a `/` separator.
+      required: false
+  - total_repositories_scanned:
+      displayName: Total repositories scanned
+      description: >
+        Optional total number of repositories analyzed, used to show the share of
+        repositories affected. Leave at 0 to show only the affected count.
+      required: false
