@@ -1,6 +1,38 @@
 # CHANGELOG
 
 
+## v1.8.3 (2026-06-19)
+
+### Continuous Integration
+
+- Add manual pre-release publish workflow
+  ([#108](https://github.com/moderneinc/moderne-visualizations-misc/pull/108),
+  [`b05034b`](https://github.com/moderneinc/moderne-visualizations-misc/commit/b05034bf28c58650e1b4274142b732e3c76dc7dc))
+
+* ci: add manual pre-release publish workflow
+
+Adds a workflow_dispatch action that builds and publishes a PEP 440 pre-release (a/b/rc/dev) from a
+  selected branch, so the new-Python build can be tested before committing to a 2.0.0 final release.
+  Plain `pip install` still resolves to the latest stable release because pip ignores pre-releases
+  by default; testers opt in with an exact pin (e.g. `==2.0.0a1`) or `--pre`.
+
+Guards reject final versions, invalid PEP 440, and local-version segments (which PyPI/TestPyPI
+  forbid on upload). The version is stamped into pyproject.toml at build time only -- no commit or
+  tag -- so the source branch stays clean. Supports pypi (default) and testpypi targets.
+
+Note: workflow_dispatch only surfaces in the Actions UI once this file
+
+is on the default branch.
+
+* ci: address review — parameterize Python, drop setup-python, bump setup-uv
+
+- Add a `python_version` choice input (3.11/3.12/3.13, default 3.11) and pass it to `uv sync
+  --python`, so the lane can build/test candidates under different interpreters. - Remove the
+  redundant `actions/setup-python` step; `setup-uv` + `uv sync --python` provisions the interpreter.
+  - Bump `astral-sh/setup-uv` v4 -> v8.2.0 (latest). - Surface the Python version in the job
+  summary.
+
+
 ## v1.8.2 (2026-06-08)
 
 
