@@ -46,7 +46,9 @@ lint = "nbqa 'ruff check' ./moderne_visualizations_misc --nbqa-shell"
 fix = "nbqa 'ruff check --fix' ./moderne_visualizations_misc --nbqa-shell"
 check-options = "python3 scripts/check_options.py"
 check-sentence-casing = "python3 scripts/check_sentence_casing.py"
-check-all = ["format", "check-options", "check-sentence-casing"]
+generate-catalog = "python3 scripts/generate_catalog.py"
+check-catalog = "python3 scripts/generate_catalog.py --check"
+check-all = ["format", "check-options", "check-sentence-casing", "check-catalog"]
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]

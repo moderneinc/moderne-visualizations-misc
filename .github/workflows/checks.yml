@@ -37,3 +37,8 @@ jobs:
         run: |
           source .venv/bin/activate
           poe check-options
+
+      - name: Check catalog
+        run: |
+          source .venv/bin/activate
+          poe check-catalog
