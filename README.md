@@ -54,3 +54,10 @@ Check sentence casing on display names:
 ```bash
 poe check-sentence-casing
 ```
+
+Regenerate the visualization catalog (`catalog.csv` + `catalog_columns.csv`) after changing spec files, and verify it is up to date:
+
+```bash
+poe generate-catalog
+poe check-catalog
+```

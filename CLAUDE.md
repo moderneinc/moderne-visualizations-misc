@@ -35,6 +35,52 @@ poe check-options   # Validate notebook parameters match spec files
 poe check-sentence-casing  # Validate proper naming conventions
 ```
 
+### From a data table to a visualization
+
+**Start here when you have a data table (CSV) and want to know which visualization renders it, or when adding a visualization for a new data table.**
+
+Every visualization is fed by an OpenRewrite **data table** (identified by a fully-qualified id such as `org.openrewrite.table.CallGraph`). That id is the semantic link between data on disk and a notebook. The mapping lives in two generated, CI-checked CSVs at the repo root — query them with `duckdb`/`sqlite` like any other data table (GitHub also renders them as sortable tables):
+
+- **`catalog.csv`** — one row per visualization: `displayName`, `name`, `notebook`, `spec`, `recipe`, `dataTable` (primary), `sample`, `additionalDataTables` (`param=id` pairs), `description`.
+- **`catalog_columns.csv`** — long form, one row per `(dataTable, columnIndex, column)` across every referenced data table (primary and additional). Join it to `catalog.csv` on `dataTable`.
+
+Both are generated from the spec files by `scripts/generate_catalog.py`. **Do not edit them by hand.** After changing any spec, regenerate and commit:
+
+```bash
+poe generate-catalog   # rewrites catalog.csv + catalog_columns.csv
+poe check-catalog      # CI check: fails if they are stale
+```
+
+**Discovery procedure:**
+
+1. **Know the data table id?** Filter `catalog.csv` on `dataTable`. Sample files under `samples/v2/` are named after their data table id, so `samples/v2/<id>.csv` is the ready-to-use input.
+2. **Only have a raw CSV?** Match its header against `catalog_columns.csv`, then join to `catalog.csv` to find the notebook. For example, to find visualizations whose data table has both a `wmc` and an `lcom4` column:
+
+   ```bash
+   duckdb -c "
+     SELECT v.displayName, v.notebook, c.dataTable
+     FROM 'catalog_columns.csv' c
+     JOIN 'catalog.csv' v ON v.dataTable = c.dataTable
+     WHERE c.column IN ('wmc', 'lcom4')
+     GROUP BY ALL HAVING count(DISTINCT c.column) = 2;
+   "
+   ```
+
+3. **Render it** using the papermill flow below, passing the sample (or your own CSV) via `NB_DATA_TABLE`.
+4. **No visualization fits?** Author a new one (see "Adding a New Visualization" below); the catalog will pick it up on the next `poe generate-catalog`.
+
+Worked example (data table → rendered HTML):
+
+```bash
+# 1. Find the entry, e.g. CallGraph -> call_graph_uml.ipynb (from catalog.csv)
+# 2. Run the notebook against the sample named after the data table id
+NB_DATA_TABLE="samples/v2/org.openrewrite.table.CallGraph.csv" \
+  uv run papermill moderne_visualizations_misc/call_graph_uml.ipynb /tmp/output.ipynb
+# 3. View it
+uv run jupyter nbconvert --to html /tmp/output.ipynb --output /tmp/output.html
+open /tmp/output.html
+```
+
 ### Running Individual Notebooks
 
 **Important:** Notebooks use `dt.read_csv("../samples/file.csv")` with paths relative to the notebook directory. When running via papermill from the repo root, set `NB_DATA_TABLE` to override the primary CSV path:
@@ -162,6 +208,7 @@ The project uses custom validation scripts instead of traditional unit tests:
 2. **`poe check-sentence-casing`**: Ensures all `displayName` fields in spec files use sentence case
 3. **`poe check-types`**: Runs mypy type checking on notebooks via `nbqa`
 4. **`poe format`**: Auto-formats notebooks with ruff via `nbqa`
+5. **`poe check-catalog`**: Verifies `catalog.csv` and `catalog_columns.csv` are up to date with the spec files (regenerate with `poe generate-catalog`)
 
 ## Common Issues and Solutions
 
