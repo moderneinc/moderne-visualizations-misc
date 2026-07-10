@@ -1,0 +1,9 @@
+# @name org.openrewrite.csharp.dependencies.table.EndOfLifeDependencyReport
+# @instanceName End-of-life NuGet dependencies
+# @group
+repositoryOrigin,repositoryPath,repositoryBranch,packageId,version,product,release,eolFrom,eol,daysUntilEol,direct,dependencyPath,org1,org2
+github.com,moderneinc/dotnet-billing,main,Microsoft.AspNetCore.App,3.1.32,dotnet,3.1,2022-12-13,true,-1305,true,,Open Source,ALL
+github.com,moderneinc/dotnet-billing,main,Microsoft.EntityFrameworkCore,3.1.32,efcore,3.1,2022-12-13,true,-1305,true,,Open Source,ALL
+github.com,moderneinc/dotnet-billing,main,Newtonsoft.Json,9.0.1,newtonsoft-json,9,2020-01-01,true,-2382,false,Microsoft.AspNetCore.App:3.1.32,Open Source,ALL
+github.com,moderneinc/dotnet-agent,main,Microsoft.NETCore.App,6.0.36,dotnet,6.0,2024-11-12,true,-605,true,,Open Source,ALL
+github.com,moderneinc/dotnet-agent,main,EntityFramework,6.4.4,entity-framework,6,2026-11-11,false,124,true,,Open Source,ALL

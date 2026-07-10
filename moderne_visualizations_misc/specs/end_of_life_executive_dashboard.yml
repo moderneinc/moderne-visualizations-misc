@@ -4,12 +4,16 @@ name: io.moderne.EndOfLifeExecutiveDashboard
 displayName: End of life exposure executive dashboard
 description: >
   Single-page executive summary of end-of-life (EOL) dependency exposure across the
-  portfolio. Shows how many repositories rely on end-of-life components, which
-  repositories are most exposed, and which EOL products are most widespread, using the
-  rewrite-end-of-life data table. Designed for leadership to gauge supportability risk
-  at a glance.
-recipe: io.moderne.java.endoflife.FindEndOfLifeDependenciesDefault
-dataTable: io.moderne.java.endoflife.table.EndOfLifeDependencyReport
+  portfolio. Combines the language-specific EOL dependency reports (Java, Node.js,
+  and C#) into one view: how many repositories rely on end-of-life components, which
+  repositories are most exposed, how the exposure is distributed across technologies,
+  and which EOL products are most widespread. Designed for leadership to gauge
+  supportability risk at a glance.
+recipe: org.openrewrite.dependencies.endoflife.FindEndOfLifeDependenciesDefault
+dataTable: org.openrewrite.java.dependencies.endoflife.table.EndOfLifeDependencyReport
+additionalDataTables:
+  data_file_node: org.openrewrite.node.dependencies.table.EndOfLifeDependencyReport
+  data_file_csharp: org.openrewrite.csharp.dependencies.table.EndOfLifeDependencyReport
 options:
   - repository_filter:
       displayName: Repository filter
