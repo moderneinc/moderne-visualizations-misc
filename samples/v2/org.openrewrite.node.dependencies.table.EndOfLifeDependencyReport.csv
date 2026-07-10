@@ -1,0 +1,14 @@
+# @name org.openrewrite.node.dependencies.table.EndOfLifeDependencyReport
+# @instanceName End-of-life npm dependencies
+# @group
+repositoryOrigin,repositoryPath,repositoryBranch,packageName,version,product,release,eolFrom,eol,daysUntilEol,direct,dependencyPath,org1,org2
+github.com,moderneinc/moderne-ui,main,@angular/core,12.2.16,angular,12,2022-11-12,true,-1336,true,,Open Source,ALL
+github.com,moderneinc/moderne-ui,main,@angular/common,12.2.16,angular,12,2022-11-12,true,-1336,true,,Open Source,ALL
+github.com,moderneinc/moderne-ui,main,@angular/router,12.2.16,angular,12,2022-11-12,true,-1336,false,@angular/core:12.2.16,Open Source,ALL
+github.com,moderneinc/moderne-ui,main,bootstrap,4.6.2,bootstrap,4,2023-01-01,true,-1286,true,,Open Source,ALL
+github.com,moderneinc/moderne-ui,main,webpack,4.47.0,webpack,4,2024-01-17,true,-905,false,@angular-devkit/build-angular:12.2.18,Open Source,ALL
+github.com,moderneinc/moderne-organizations,main,vue,2.7.16,vue,2,2023-12-31,true,-922,true,,Open Source,ALL
+github.com,moderneinc/moderne-organizations,main,nuxt,2.17.3,nuxt,2,2024-06-30,true,-740,true,,Open Source,ALL
+github.com,moderneinc/moderne-organizations,main,node-sass,7.0.3,node-sass,7,2023-07-01,true,-1105,false,nuxt:2.17.3,Open Source,ALL
+github.com,moderneinc/moderne-docs,main,gatsby,4.25.9,gatsby,4,2023-06-30,true,-1106,true,,Open Source,ALL
+github.com,moderneinc/moderne-docs,main,react,17.0.2,react,17,2026-10-01,false,83,false,gatsby:4.25.9,Open Source,ALL
