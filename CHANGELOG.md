@@ -1,6 +1,9 @@
 # CHANGELOG
 
 
+## v1.9.0 (2026-07-10)
+
+
 ## v1.8.3 (2026-06-19)
 
 ### Continuous Integration
