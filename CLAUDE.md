@@ -17,7 +17,7 @@ This is a Python package (`moderne-visualizations-misc`) that provides data visu
    source .venv/bin/activate
    ```
 
-2. **Python Version**: Requires Python 3.9+
+2. **Python Version**: Requires Python 3.11+. The Moderne platform's notebook runtime (`mod-cli-base`) ships CPython 3.14, so 3.14 is the version that must stay green.
 
 ## Essential Development Commands
 
