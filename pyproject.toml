@@ -8,19 +8,22 @@ authors = [
     { name = "Kyle Scully", email = "kyle@moderne.io" }
 ]
 license = { text = "Apache-2.0" }
-requires-python = ">=3.11"
+requires-python = ">=3.9"
 dependencies = [
     "code-data-science==2.2.0",
     "graphviz==0.20.1",
-    # Loosen pins to allow versions supporting 3.11 through 3.14. The old hard
-    # pins on the compiled deps (pandas 2.0.3 / numpy 1.24.4 / matplotlib 3.7.1)
+    # Ranged (not pinned) so the resolver picks a build matching the running
+    # interpreter: each release declares its own requires-python, so 3.9 lands
+    # on numpy 2.0 / matplotlib 3.9 while 3.14 lands on numpy 2.5 / matplotlib
+    # 3.11. The old hard pins (pandas 2.0.3 / numpy 1.24.4 / matplotlib 3.7.1)
     # had no 3.12+ wheels, which is what blocked newer Pythons.
+    # numpy floor is 2.0, not 2.1: 2.1 requires >=3.10 and would drop 3.9.
     "matplotlib>=3.9",
     "pandas>=2.2,<3.0",
     "plotly>=5.14.1",
     "typing-extensions",
     "networkx>=3.2",
-    "numpy>=2.1",
+    "numpy>=2.0",
 ]
 
 [dependency-groups]
