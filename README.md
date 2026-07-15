@@ -18,7 +18,7 @@ jupyter notebook
 
 ## Contributing
 
-* Install a Python version >= 3.11 and < 3.13 (3.11 recommended, matching the Moderne platform runtime). [pyenv](https://github.com/pyenv/pyenv) makes this easy.
+* Install a Python version >= 3.11 (3.11 recommended, matching the Moderne platform runtime; 3.11–3.14 supported). [pyenv](https://github.com/pyenv/pyenv) makes this easy.
 
 * Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
 
