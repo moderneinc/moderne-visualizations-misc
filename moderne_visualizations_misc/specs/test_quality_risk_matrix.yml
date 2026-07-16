@@ -6,7 +6,7 @@ description: >
   Bubble chart showing the distribution of test quality issues by issue type
   and severity. Bubble size reflects the count of issues in each combination.
   Quickly identifies which issue types are most prevalent at each severity level.
-recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+recipe: io.moderne.prethink.UpdatePrethinkContextStarter
 dataTable: io.moderne.prethink.table.TestQualityIssues
 options:
   - repository_filter:

@@ -6,7 +6,7 @@ description: >
   Grouped bar chart showing test quality issue counts by issue type and
   programming language. Reveals which languages have the most issues in
   each category.
-recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+recipe: io.moderne.prethink.UpdatePrethinkContextStarter
 dataTable: io.moderne.prethink.table.TestQualityIssues
 options:
   - repository_filter:

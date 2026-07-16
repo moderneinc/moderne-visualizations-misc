@@ -6,7 +6,7 @@ description: >
   Heatmap showing test quality issue counts per repository, bucketed by issue type.
   Color intensity reflects the count in each bucket. Quickly identifies which
   repositories carry the most test quality issues by category.
-recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+recipe: io.moderne.prethink.UpdatePrethinkContextStarter
 dataTable: io.moderne.prethink.table.TestQualityIssues
 options:
   - repository_filter:

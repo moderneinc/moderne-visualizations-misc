@@ -6,7 +6,7 @@ description: >
   Multi-panel dashboard summarizing test quality issues across the portfolio.
   Includes worst repositories, severity distribution, issue type breakdown,
   and top fix priorities.
-recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+recipe: io.moderne.prethink.UpdatePrethinkContextStarter
 dataTable: io.moderne.prethink.table.TestQualityIssues
 options:
   - repository_filter:

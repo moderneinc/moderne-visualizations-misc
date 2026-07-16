@@ -6,7 +6,7 @@ description: >
   Treemap showing test quality issues organized by repository, class, and
   issue type. Size reflects issue count and color reflects worst severity.
   Quickly identifies hotspots of test quality problems.
-recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+recipe: io.moderne.prethink.UpdatePrethinkContextStarter
 dataTable: io.moderne.prethink.table.TestQualityIssues
 options:
   - repository_filter:
