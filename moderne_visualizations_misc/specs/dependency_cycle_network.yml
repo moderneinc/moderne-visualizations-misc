@@ -7,7 +7,7 @@ description: >
   Nodes represent packages and edges represent dependencies forming cycles.
   Hover over a node to highlight all packages in the same cycle. Useful for
   identifying and breaking circular dependencies.
-recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+recipe: io.moderne.prethink.UpdatePrethinkContextStarter
 dataTable: io.moderne.prethink.table.PackageQualityMetrics
 options:
   - repository_filter:

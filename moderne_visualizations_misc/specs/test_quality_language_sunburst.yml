@@ -6,7 +6,7 @@ description: >
   Sunburst chart showing test quality issues organized by language, severity,
   and issue type. Inner ring shows languages, middle ring shows severity levels,
   and outer ring shows specific issue types.
-recipe: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+recipe: io.moderne.prethink.UpdatePrethinkContextStarter
 dataTable: io.moderne.prethink.table.TestQualityIssues
 options:
   - repository_filter:
