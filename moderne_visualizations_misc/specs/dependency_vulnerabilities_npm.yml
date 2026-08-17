@@ -7,10 +7,7 @@ description: >
   Here you can see the type of version increases that would be required to fix current vulnerabilities as well as the associated severity distributions.
   For more information see:
     - **[Dependency updates unmasked](https://www.moderne.io/blog/security-dependency-updates-unmasked)**
-recipe:
-  org.openrewrite.nodejs.DependencyVulnerabilityCheck:
-    scope: runtime
-    overrideManagedVersion: true
+recipe: org.openrewrite.nodejs.security.DependencyVulnerabilityCheck
 dataTable: org.openrewrite.nodejs.table.VulnerabilityReport
 options:
   - repository_filter:
