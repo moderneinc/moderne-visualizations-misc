@@ -20,3 +20,5 @@ moderne_visualizations_misc/local
 .mypy_cache/
 .python/
 .venv/
+
+.cursor/rules/*.local.mdc
