@@ -1,4 +1,4 @@
-name: Publish to the Code Genome Project
+name: Publish to PyPI and the Code Genome Project
 
 # on manually trigger
 on:
@@ -45,12 +45,24 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and publish
+      - name: Build
+        run: |
+          source .venv/bin/activate
+          python -m build
+
+      - name: Publish to the Code Genome Project
         env:
           TWINE_REPOSITORY_URL: https://artifacts.codegenomeproject.org/pypi/
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.CGP_PUBLISH_TOKEN }}
         run: |
           source .venv/bin/activate
-          python -m build
+          python -m twine upload dist/*
+
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          source .venv/bin/activate
           python -m twine upload dist/*

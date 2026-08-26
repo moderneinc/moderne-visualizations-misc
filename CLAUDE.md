@@ -197,7 +197,7 @@ There are no traditional unit tests. Instead, the project uses:
 
 - PRs to main branch trigger automated checks
 - Version bumping uses semantic versioning (major/minor/patch)
-- Package is published to the Code Genome Project as `moderne-visualizations-misc`
+- Package is published to PyPI and the Code Genome Project as `moderne-visualizations-misc`
 - Publishing is done via GitHub Actions workflow (manual trigger)
 
 ## Validation and Quality Checks
