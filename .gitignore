@@ -20,3 +20,7 @@ moderne_visualizations_misc/local
 .mypy_cache/
 .python/
 .venv/
+
+# Moderne CLI
+.moderne/*
+!.moderne/context/
