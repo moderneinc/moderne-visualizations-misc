@@ -4,6 +4,6 @@ name: io.moderne.DependencyUsageViolinNodejs
 displayName: NPM package usage
 description: See the distribution of NPM packages by version.
 recipe:
-  org.openrewrite.nodejs.search.DependencyInsight:
-    namePattern: lodash
-dataTable: org.openrewrite.nodejs.table.DependenciesInUse
+  org.openrewrite.javascript.search.DependencyInsight:
+    packageNamePattern: lodash
+dataTable: org.openrewrite.javascript.table.NodeDependenciesInUse

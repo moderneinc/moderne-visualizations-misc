@@ -4,4 +4,4 @@ name: io.moderne.DependencyUsageViolinNodejsLintingFormatting
 displayName: NPM package usage
 description: See the distribution of NPM packages by version.
 recipe: org.openrewrite.nodejs.search.LintingFormattingInsights
-dataTable: org.openrewrite.nodejs.table.DependenciesInUse
+dataTable: org.openrewrite.javascript.table.NodeDependenciesInUse

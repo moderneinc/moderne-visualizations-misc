@@ -4,6 +4,6 @@ name: io.moderne.JavascriptDependencyInventory
 displayName: Dependency tree view
 description: Render a tree data grid to explore dependencies.
 recipe:
-  org.openrewrite.nodejs.search.DependencyInsight:
-    namePattern: '*'
-dataTable: org.openrewrite.nodejs.table.DependenciesInUse
+  org.openrewrite.javascript.search.DependencyInsight:
+    packageNamePattern: '*'
+dataTable: org.openrewrite.javascript.table.NodeDependenciesInUse

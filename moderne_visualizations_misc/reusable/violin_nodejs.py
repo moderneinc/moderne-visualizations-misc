@@ -5,18 +5,18 @@ import code_data_science.palette as palette
 
 def create_violin_plot():
     # df = read_data_table("../samples/dependency_usage_violin_nodejs.csv")
-    df = read_data_table("../samples/v2/org.openrewrite.nodejs.table.DependenciesInUse.csv")
-    df = df[["name", "requestedVersion"]]
+    df = read_data_table("../samples/v2/org.openrewrite.javascript.table.NodeDependenciesInUse.csv")
+    df = df[["packageName", "versionConstraint"]]
 
     # make sure version is a string
-    df["requestedVersion"] = df["requestedVersion"].astype(str)
+    df["versionConstraint"] = df["versionConstraint"].astype(str)
     df["version"] = list(
         map(
             lambda v: v.removeprefix("^")
             .removeprefix("~")
             .removeprefix(">")
             .removeprefix("="),
-            df.requestedVersion,
+            df.versionConstraint,
         )
     )
 
@@ -27,8 +27,8 @@ def create_violin_plot():
         sorted_names = sorted(list(set(names)))
         return {name: sorted_names.index(name) for name in sorted_names}
 
-    nmap = index_name(df.name)
-    df["nName"] = list(map(lambda g: nmap[g], df.name))
+    nmap = index_name(df.packageName)
+    df["nName"] = list(map(lambda g: nmap[g], df.packageName))
 
     df = df.sort_values(by=["nVersion", "nName"])
 
@@ -49,7 +49,7 @@ def create_violin_plot():
 
         # Generate hover text including the count information
         hover_text = category_data_with_counts.apply(
-            lambda row: f'<b>Package</b>: {row["name"]}<br><b>Version</b>: {row["version"]}<br><b>Count</b>: {row["count"]}',
+            lambda row: f'<b>Package</b>: {row["packageName"]}<br><b>Version</b>: {row["version"]}<br><b>Count</b>: {row["count"]}',
             axis=1,
         )
 
