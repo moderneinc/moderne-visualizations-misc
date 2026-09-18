@@ -4,4 +4,4 @@ name: io.moderne.JavascriptDependencyInventoryServerSideFrameworks
 displayName: Dependency tree view
 description: Render a tree data grid to explore dependencies.
 recipe: org.openrewrite.nodejs.search.ServerSideFrameworksInsights
-dataTable: org.openrewrite.nodejs.table.DependenciesInUse
+dataTable: org.openrewrite.javascript.table.NodeDependenciesInUse

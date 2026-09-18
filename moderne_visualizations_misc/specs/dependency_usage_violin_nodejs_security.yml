@@ -4,4 +4,4 @@ name: io.moderne.DependencyUsageViolinNodejsSecurity
 displayName: NPM package usage
 description: See the distribution of NPM packages by version.
 recipe: org.openrewrite.nodejs.search.SecurityInsights
-dataTable: org.openrewrite.nodejs.table.DependenciesInUse
+dataTable: org.openrewrite.javascript.table.NodeDependenciesInUse
