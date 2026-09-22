@@ -17,6 +17,7 @@ options:
       description: Enter the method name to filter by.
       required: false
   - max_edges:
+      type: Integer
       displayName: Max edges
       description: >
         Cap the number of edges rendered. Large call graphs can overwhelm

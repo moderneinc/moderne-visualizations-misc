@@ -22,6 +22,7 @@ options:
          - The term `moderne-test/main` could be used to filter to a repository named `moderne-test` with a branch named `main`.
       required: false
   - top_n_classes:
+      type: Integer
       displayName: Number of classes to display
       description: >
         The maximum number of classes to display in the heatmap.

@@ -22,6 +22,7 @@ options:
         insensitive). Branch names are appended to the repository name with a `/` separator.
       required: false
   - total_repositories_scanned:
+      type: Integer
       displayName: Total repositories scanned
       description: >
         Optional total number of repositories analyzed, used to show the share of
