@@ -16,6 +16,7 @@ options:
         Branch names are appended to the repository name with a `/` separator.
       required: false
   - top_n_repos:
+      type: Integer
       displayName: Number of repositories to display
       description: >
         The maximum number of repositories to display. Repositories are ranked

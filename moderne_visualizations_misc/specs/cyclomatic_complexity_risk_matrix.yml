@@ -22,6 +22,7 @@ options:
          - The term `moderne-test/main` could be used to filter to a repository named `moderne-test` with a branch named `main`.
       required: false
   - complexity_threshold:
+      type: Integer
       displayName: Complexity threshold
       description: >
         The cyclomatic complexity value at or above which a method is considered "high complexity".

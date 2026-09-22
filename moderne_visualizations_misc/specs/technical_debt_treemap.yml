@@ -16,6 +16,7 @@ options:
         Branch names are appended to the repository name with a `/` separator.
       required: false
   - top_n_methods:
+      type: Integer
       displayName: Number of methods to display
       description: >
         The maximum number of methods to include. Methods are ranked by composite debt score.
