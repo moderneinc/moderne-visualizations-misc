@@ -33,6 +33,7 @@ poe fix             # Auto-fix linting issues with ruff
 poe check-types     # Type checking with mypy
 poe check-options   # Validate notebook parameters match spec files
 poe check-sentence-casing  # Validate proper naming conventions
+poe check-png-filenames    # Validate downloaded PNG names match spec dataTable/name
 ```
 
 ### From a data table to a visualization
@@ -209,6 +210,7 @@ The project uses custom validation scripts instead of traditional unit tests:
 3. **`poe check-types`**: Runs mypy type checking on notebooks via `nbqa`
 4. **`poe format`**: Auto-formats notebooks with ruff via `nbqa`
 5. **`poe check-catalog`**: Verifies `catalog.csv` and `catalog_columns.csv` are up to date with the spec files (regenerate with `poe generate-catalog`)
+6. **`poe check-png-filenames`**: Verifies every plotly visualization passes `config={"toImageButtonOptions": {"filename": ...}}` to `show()`, named `<dataTable>-<name>` from the last dotted segment of each spec field (e.g. `TestGaps-TestGapRiskHeatmap`). Without it, the toolbar's "Download plot as png" saves every chart as `newplot.png`. Notebooks that only use matplotlib, tree data grids, or PlantUML are skipped.
 
 ## Common Issues and Solutions
 
