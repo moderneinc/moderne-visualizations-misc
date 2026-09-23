@@ -3,7 +3,7 @@ from code_data_science.versions import index as index_versions
 import plotly.graph_objects as go
 import code_data_science.palette as palette
 
-def create_violin_plot():
+def create_violin_plot(filename="NodeDependenciesInUse-DependencyUsageViolinNodejs"):
     # df = read_data_table("../samples/dependency_usage_violin_nodejs.csv")
     df = read_data_table("../samples/v2/org.openrewrite.javascript.table.NodeDependenciesInUse.csv")
     df = df[["packageName", "versionConstraint"]]
@@ -109,4 +109,4 @@ def create_violin_plot():
         ),
     )
 
-    fig.show()
+    fig.show(config={"toImageButtonOptions": {"filename": filename}})
