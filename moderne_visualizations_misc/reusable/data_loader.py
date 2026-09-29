@@ -53,14 +53,15 @@ def read_optional_csv(path) -> pd.DataFrame:
         ParentRelationships output);
       * the file exists but is empty.
 
-    Uses plain `pd.read_csv` rather than `dt.read_csv` so that
-    `NB_DATA_TABLE` (which targets the primary data table only) cannot
-    clobber secondary table paths.
+    Uses `dt.read_table` rather than `dt.read_csv` so that `NB_DATA_TABLE`
+    (which targets the primary data table only) cannot clobber secondary
+    table paths. It skips only the leading `# @...` metadata lines, so a `#`
+    inside a quoted cell survives, and it reads gzipped tables.
     """
     if not path:
         return pd.DataFrame()
     try:
-        return pd.read_csv(path, on_bad_lines="skip", comment="#")
+        return dt.read_table(path)
     except (FileNotFoundError, pd.errors.EmptyDataError):
         return pd.DataFrame()
 
