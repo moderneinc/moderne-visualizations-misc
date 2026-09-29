@@ -541,15 +541,15 @@ wheels = [
 
 [[package]]
 name = "code-data-science"
-version = "2.2.1"
+version = "2.2.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ipython" },
     { name = "pandas" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/4c/f2/245de3ed69df131f2f0fbd785f947301f11988637581da0fdd436628f48e/code_data_science-2.2.1.tar.gz", hash = "sha256:8c921e438d5e53dce341e451ad2d008c0643574976688ed0c337abee71b89811", size = 18255 }
+sdist = { url = "https://files.pythonhosted.org/packages/88/55/9936fd279d1d45dc80de5cfb6ad8cc888db6224c2bb0d99ff8cbc85e9d1a/code_data_science-2.2.2.tar.gz", hash = "sha256:d3331aa3763a4357f3dd8a6c5f0c500466eacf90d7ed8cd5aa5cfd2ee4c8c327", size = 18345 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/13/1b/4f23291ad6aa745a5316ef48bd55bf13339d3ef1f60e0102a0cf608bd9d7/code_data_science-2.2.1-py3-none-any.whl", hash = "sha256:1c3c9e3d40788cdae89ab4a014f4b1bdb7a691d6f15fc8a8b221c63ae2b30e44", size = 22636 },
+    { url = "https://files.pythonhosted.org/packages/6d/26/dbca7e867e360782675d3c97f0b98f4e3afa6b17e04c7e72b0e56bc22992/code_data_science-2.2.2-py3-none-any.whl", hash = "sha256:2896ac88cf77dfb84111d57e758f218e5c6157d8839c8b27314836d1bc85243b", size = 22715 },
 ]
 
 [[package]]
@@ -1854,7 +1854,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "code-data-science", specifier = "==2.2.1" },
+    { name = "code-data-science", specifier = "==2.2.2" },
     { name = "graphviz", specifier = "==0.20.1" },
     { name = "matplotlib", specifier = ">=3.9" },
     { name = "networkx", specifier = ">=3.2" },
