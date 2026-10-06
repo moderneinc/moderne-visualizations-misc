@@ -5,9 +5,10 @@ up to four `org*` columns. v2 CSVs drop `scmType`/`repositoryLink`, keep only
 `org1`/`org2`, prepend three `# @...` header lines, and may add new columns
 (e.g. `fromSourceSet`, `returnType`, `resolutionFailure`).
 
-`code_data_science.data_table.read_csv` already strips `#`-prefixed lines, so
-the preamble needs no special handling here. This module only normalizes the
-column set so existing notebooks keep working against both formats.
+For primary tables, `code_data_science.data_table.read_csv` already strips
+`#`-prefixed lines, so `read_data_table` only normalizes the column set.
+`read_optional_csv` reads secondary tables with plain pandas, so it skips the
+leading `#` preamble itself.
 """
 
 from __future__ import annotations
@@ -42,6 +43,17 @@ def _build_repository_link(origin: object, path: object) -> str:
     return f"https://{origin.rstrip('/')}/{path.lstrip('/')}"
 
 
+def _skip_comment_preamble(f) -> None:
+    # Skip only the leading `# @...` block. Not pandas comment="#": that also cuts
+    # rows at an inline `#` (e.g. Kotlin test names like `Repo#findByIdOrNull()`).
+    while True:
+        pos = f.tell()
+        line = f.readline()
+        if not line or not (line.isspace() or line.lstrip().startswith("#")):
+            f.seek(pos)
+            return
+
+
 def read_optional_csv(path) -> pd.DataFrame:
     """Read an `additionalDataTables` CSV, tolerating missing input.
 
@@ -60,7 +72,11 @@ def read_optional_csv(path) -> pd.DataFrame:
     if not path:
         return pd.DataFrame()
     try:
-        return pd.read_csv(path, on_bad_lines="skip", comment="#")
+        # utf-8-sig: a leading BOM would otherwise hide the first `#` line.
+        # newline="": keep `\r\n` inside quoted cells, as pd.read_csv(path) did.
+        with open(path, encoding="utf-8-sig", newline="") as f:
+            _skip_comment_preamble(f)
+            return pd.read_csv(f, on_bad_lines="skip")
     except (FileNotFoundError, pd.errors.EmptyDataError):
         return pd.DataFrame()
 

@@ -16,7 +16,8 @@ SEVERITY_ORDER = ["LOW", "MEDIUM", "HIGH", "CRITICAL"]
 
 def filter_repos(df: pd.DataFrame, repository_filter: list[str]) -> pd.DataFrame:
     """Filter DataFrame by repository path, case insensitive."""
-    if not repository_filter:
+    # Empty check: read_optional_csv returns a column-less frame for missing tables.
+    if not repository_filter or df.empty:
         return df
     pattern = "|".join(repository_filter)
     col = "repositoryPath" if "repositoryPath" in df.columns else df.columns[1]
