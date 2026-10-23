@@ -151,3 +151,96 @@ def add_class_short(df: pd.DataFrame) -> pd.DataFrame:
         df["classShort"] = df["className"].apply(short_class)
         df["package"] = df["className"].apply(extract_package)
     return df
+
+
+_LABEL_OFFSETS = [
+    (ring, dx * r, dy * r)
+    for ring, r in enumerate((40, 70, 110))
+    for dx, dy in (
+        (1, -0.6),
+        (-1, -0.6),
+        (1, 0.6),
+        (-1, 0.6),
+        (1.2, 0),
+        (-1.2, 0),
+        (0, -0.8),
+        (0, 0.8),
+    )
+]
+
+
+def add_point_labels(
+    fig: go.Figure,
+    x: pd.Series,
+    y: pd.Series,
+    sizes: pd.Series,
+    labels: pd.Series,
+    plot_width: float,
+    plot_height: float,
+) -> None:
+    """Label selected scatter points on the chart itself, so they survive static exports.
+
+    `x`, `y` and `sizes` cover every plotted point; `labels` is indexed by the rows to
+    label, highest priority first. Pins both axis ranges so bubble and label positions can
+    be computed in pixels. Each label takes the leader-line offset that stays inside the
+    plot and clear of labels already placed, trading bubbles covered against leader length.
+    """
+    pad = sizes.max() / 2 + 10
+    x_span = (x.max() - x.min()) or 1
+    y_span = (y.max() - y.min()) or 1
+    x_pad = x_span * pad / (plot_width - 2 * pad)
+    y_pad = y_span * pad / (plot_height - 2 * pad)
+    fig.update_xaxes(range=[x.min() - x_pad, x.max() + x_pad])
+    fig.update_yaxes(range=[y.min() - y_pad, y.max() + y_pad])
+    px = pad + (x - x.min()) / x_span * (plot_width - 2 * pad)
+    py = plot_height - pad - (y - y.min()) / y_span * (plot_height - 2 * pad)
+    radius = sizes / 2
+
+    placed: list[tuple[float, float, float, float]] = []
+    for i, text in labels.items():
+        half_w, half_h = 3.4 * len(text) + 4, 9
+        best: tuple[int, tuple[float, float]] | None = None
+        for ring, dx, dy in _LABEL_OFFSETS:
+            cx, cy = px[i] + dx, py[i] + dy
+            box = (cx - half_w, cy - half_h, cx + half_w, cy + half_h)
+            if box[0] < 0 or box[1] < 0 or box[2] > plot_width or box[3] > plot_height:
+                continue
+            if any(
+                box[0] < p[2] and p[0] < box[2] and box[1] < p[3] and p[1] < box[3]
+                for p in placed
+            ):
+                continue
+            score = 2 * ring + int(
+                (
+                    (px + radius > box[0])
+                    & (px - radius < box[2])
+                    & (py + radius > box[1])
+                    & (py - radius < box[3])
+                ).sum()
+            )
+            if best is None or score < best[0]:
+                best = (score, (dx, dy))
+        dx, dy = best[1] if best else _LABEL_OFFSETS[0][1:]
+        placed.append(
+            (
+                px[i] + dx - half_w,
+                py[i] + dy - half_h,
+                px[i] + dx + half_w,
+                py[i] + dy + half_h,
+            )
+        )
+        fig.add_annotation(
+            x=x[i],
+            y=y[i],
+            text=text,
+            ax=dx,
+            ay=dy,
+            showarrow=True,
+            arrowhead=0,
+            arrowwidth=1,
+            arrowcolor="#666",
+            standoff=radius[i],
+            font=dict(size=11, color="#2a3f5f"),
+            bgcolor="rgba(255,255,255,0.85)",
+            borderpad=2,
+        )
