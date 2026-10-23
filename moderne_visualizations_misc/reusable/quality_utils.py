@@ -175,15 +175,17 @@ def add_point_labels(
     y: pd.Series,
     sizes: pd.Series,
     labels: pd.Series,
+    captions: pd.Series,
     plot_width: float,
     plot_height: float,
 ) -> None:
     """Label selected scatter points on the chart itself, so they survive static exports.
 
     `x`, `y` and `sizes` cover every plotted point; `labels` is indexed by the rows to
-    label, highest priority first. Pins both axis ranges so bubble and label positions can
+    label, highest priority first, and `captions` adds a smaller second line. Pins both axis ranges so bubble and label positions can
     be computed in pixels. Each label takes the leader-line offset that stays inside the
-    plot and clear of labels already placed, trading bubbles covered against leader length.
+    plot and clear of labeled bubbles and labels already placed, trading other bubbles
+    covered against leader length.
     """
     pad = sizes.max() / 2 + 10
     x_span = (x.max() - x.min()) or 1
@@ -196,9 +198,13 @@ def add_point_labels(
     py = plot_height - pad - (y - y.min()) / y_span * (plot_height - 2 * pad)
     radius = sizes / 2
 
-    placed: list[tuple[float, float, float, float]] = []
-    for i, text in labels.items():
-        half_w, half_h = 3.4 * len(text) + 4, 9
+    placed = [
+        (px[i] - radius[i], py[i] - radius[i], px[i] + radius[i], py[i] + radius[i])
+        for i in labels.index
+    ]
+    for i, label in labels.items():
+        caption = captions[i]
+        half_w, half_h = max(3.4 * len(label), 3.1 * len(caption)) + 4, 18
         best: tuple[int, tuple[float, float]] | None = None
         for ring, dx, dy in _LABEL_OFFSETS:
             cx, cy = px[i] + dx, py[i] + dy
@@ -232,7 +238,8 @@ def add_point_labels(
         fig.add_annotation(
             x=x[i],
             y=y[i],
-            text=text,
+            text=f'{label}<br><span style="font-size:10px;color:#7f7f7f">{caption}</span>',
+            align="left" if dx > 0 else "right" if dx < 0 else "center",
             ax=dx,
             ay=dy,
             showarrow=True,
