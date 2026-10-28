@@ -1,0 +1,29 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.VulnerabilitiesByEcosystemDrillDown
+displayName: Vulnerabilities by ecosystem drill-down
+description: >
+  Drill down from each card of the vulnerabilities by ecosystem DevCenter to its categories, the
+  repositories in each category, and the organizations each repository belongs to. On the npm, PyPI,
+  and NuGet Severity cards, each repository expands further to all of its distinct vulnerabilities, worst first, or to only
+  its unfixable vulnerabilities under "No fixable vulnerabilities".
+recipe: io.moderne.devcenter.VulnerabilitiesByEcosystemDevCenter
+dataTable: io.moderne.devcenter.table.UpgradesAndMigrations
+additionalDataTables:
+  data_file_npm: org.openrewrite.nodejs.table.VulnerabilityReport
+  data_file_pypi: org.openrewrite.python.dependencies.table.VulnerabilityReport
+  data_file_nuget: org.openrewrite.csharp.dependencies.table.VulnerabilityReport
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case
+        insensitive). Branch names are appended to the repository name with a `/` separator.
+      required: false
+  - max_vulnerabilities_per_repository:
+      type: Integer
+      displayName: Vulnerabilities per repository
+      description: >
+        The most vulnerabilities to list under each repository, worst first. The rest are summarized in
+        one row. Use 0 to list them all.
+      required: false

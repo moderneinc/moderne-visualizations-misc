@@ -1,0 +1,36 @@
+# @name io.moderne.devcenter.table.UpgradesAndMigrations
+# @instanceName Upgrades and migrations
+# @group io.moderne.devcenter.upgradesAndMigrations
+repositoryOrigin,repositoryPath,repositoryBranch,card,ordinal,value,currentMinimumVersion,org1,org2
+github.com,pluginpal/strapi-plugin-config-sync,master,npm vulnerabilities by Severity,0,Critical,268 vulnerabilities in 61 packages.,Strapi Demos,ALL
+github.com,pluginpal/strapi-plugin-config-sync,master,npm vulnerabilities by UpgradeDelta,0,Major,268 vulnerabilities in 61 packages.,Strapi Demos,ALL
+github.com,pluginpal/strapi-plugin-publisher,master,npm vulnerabilities by Severity,0,Critical,229 vulnerabilities in 50 packages.,Strapi Demos,ALL
+github.com,pluginpal/strapi-plugin-publisher,master,npm vulnerabilities by UpgradeDelta,0,Major,229 vulnerabilities in 50 packages.,Strapi Demos,ALL
+github.com,strapi-community/plugin-redis,main,npm vulnerabilities by Severity,0,Critical,140 vulnerabilities in 42 packages.,Strapi Demos,ALL
+github.com,strapi-community/plugin-redis,main,npm vulnerabilities by UpgradeDelta,0,Major,140 vulnerabilities in 42 packages.,Strapi Demos,ALL
+github.com,strapi-community/plugin-seo,main,npm vulnerabilities by Severity,0,Critical,237 vulnerabilities in 55 packages.,Strapi Demos,ALL
+github.com,strapi-community/plugin-seo,main,npm vulnerabilities by UpgradeDelta,0,Major,237 vulnerabilities in 55 packages.,Strapi Demos,ALL
+github.com,strapi-community/strapi-plugin-rest-cache,main,npm vulnerabilities by Severity,0,Critical,345 vulnerabilities in 64 packages.,Strapi Demos,ALL
+github.com,strapi-community/strapi-plugin-rest-cache,main,npm vulnerabilities by UpgradeDelta,0,Major,345 vulnerabilities in 64 packages.,Strapi Demos,ALL
+github.com,strapi/client,main,npm vulnerabilities by Severity,0,Critical,171 vulnerabilities in 31 packages.,Strapi Demos,ALL
+github.com,strapi/client,main,npm vulnerabilities by UpgradeDelta,0,Major,171 vulnerabilities in 31 packages.,Strapi Demos,ALL
+github.com,strapi/community,main,npm vulnerabilities by Severity,0,Critical,282 vulnerabilities in 56 packages.,Strapi Demos,ALL
+github.com,strapi/community,main,npm vulnerabilities by UpgradeDelta,0,Major,282 vulnerabilities in 56 packages.,Strapi Demos,ALL
+github.com,strapi/design-system,main,npm vulnerabilities by Severity,0,Critical,141 vulnerabilities in 34 packages.,Strapi Demos,ALL
+github.com,strapi/design-system,main,npm vulnerabilities by UpgradeDelta,0,Major,141 vulnerabilities in 34 packages.,Strapi Demos,ALL
+github.com,strapi/documentation,main,npm vulnerabilities by Severity,0,Critical,217 vulnerabilities in 56 packages.,Strapi Demos,ALL
+github.com,strapi/documentation,main,npm vulnerabilities by UpgradeDelta,0,Major,217 vulnerabilities in 56 packages.,Strapi Demos,ALL
+github.com,strapi/sdk-plugin,main,npm vulnerabilities by Severity,0,Critical,58 vulnerabilities in 13 packages.,Strapi Demos,ALL
+github.com,strapi/sdk-plugin,main,npm vulnerabilities by UpgradeDelta,0,Major,58 vulnerabilities in 13 packages.,Strapi Demos,ALL
+github.com,strapi/strapi,main,npm vulnerabilities by Severity,0,Critical,407 vulnerabilities in 86 packages.,Strapi Demos,ALL
+github.com,strapi/strapi,main,npm vulnerabilities by UpgradeDelta,0,Major,407 vulnerabilities in 86 packages.,Strapi Demos,ALL
+github.com,VirtusLab-Open-Source/strapi-plugin-comments,master,npm vulnerabilities by Severity,0,Critical,206 vulnerabilities in 53 packages.,Strapi Demos,ALL
+github.com,VirtusLab-Open-Source/strapi-plugin-comments,master,npm vulnerabilities by UpgradeDelta,0,Major,206 vulnerabilities in 53 packages.,Strapi Demos,ALL
+github.com,adeyosemanputra/pygoat,master,PyPI vulnerabilities by Severity,0,Critical,140 vulnerabilities in 15 packages.,Python Vuln Demos,ALL
+github.com,adeyosemanputra/pygoat,master,PyPI vulnerabilities by UpgradeDelta,0,Major,140 vulnerabilities in 15 packages.,Python Vuln Demos,ALL
+github.com,API-Imperfect/django-real-estate,main,npm vulnerabilities by Severity,0,Critical,179 vulnerabilities in 62 packages.,Python Vuln Demos,ALL
+github.com,API-Imperfect/django-real-estate,main,npm vulnerabilities by UpgradeDelta,0,Major,179 vulnerabilities in 62 packages.,Python Vuln Demos,ALL
+github.com,dennisivy/proshop_django,master,npm vulnerabilities by Severity,0,Critical,270 vulnerabilities in 84 packages.,Python Vuln Demos,ALL
+github.com,dennisivy/proshop_django,master,npm vulnerabilities by UpgradeDelta,0,Major,270 vulnerabilities in 84 packages.,Python Vuln Demos,ALL
+github.com,hauxir/rapidbay,master,PyPI vulnerabilities by Severity,0,Critical,73 vulnerabilities in 13 packages.,Python Vuln Demos,ALL
+github.com,hauxir/rapidbay,master,PyPI vulnerabilities by UpgradeDelta,0,Major,73 vulnerabilities in 13 packages.,Python Vuln Demos,ALL
