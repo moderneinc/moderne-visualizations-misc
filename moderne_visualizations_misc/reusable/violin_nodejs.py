@@ -1,5 +1,5 @@
 from moderne_visualizations_misc.reusable.data_loader import read_data_table
-from moderne_visualizations_misc.reusable.versions import index_versions
+from code_data_science.versions import index as index_versions
 import plotly.graph_objects as go
 import code_data_science.palette as palette
 
