@@ -48,7 +48,7 @@ jobs:
       - name: Build and publish
         env:
           TWINE_REPOSITORY_URL: https://artifacts.codegenomeproject.org/pypi/
-          TWINE_USERNAME: __token__
+          TWINE_USERNAME: cgp
           TWINE_PASSWORD: ${{ secrets.CGP_PUBLISH_TOKEN }}
         run: |
           source .venv/bin/activate
