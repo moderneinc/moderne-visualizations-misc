@@ -183,10 +183,22 @@ def _boxes_overlap(a: Box, b: Box) -> bool:
 
 def _segment_hits_box(seg: Segment, box: Box) -> bool:
     x0, y0, x1, y1 = seg
-    return any(
-        box[0] < x0 + (x1 - x0) * t < box[2] and box[1] < y0 + (y1 - y0) * t < box[3]
-        for t in (0.15, 0.3, 0.45, 0.6, 0.75)
-    )
+    dx, dy = x1 - x0, y1 - y0
+    t_in, t_out = 0.0, 1.0
+    for p, q in (
+        (-dx, x0 - box[0]),
+        (dx, box[2] - x0),
+        (-dy, y0 - box[1]),
+        (dy, box[3] - y0),
+    ):
+        if p == 0:
+            if q <= 0:
+                return False
+        elif p < 0:
+            t_in = max(t_in, q / p)
+        else:
+            t_out = min(t_out, q / p)
+    return t_in < t_out
 
 
 def _segments_cross(a: Segment, b: Segment) -> bool:
