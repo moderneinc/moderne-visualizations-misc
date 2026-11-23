@@ -155,7 +155,7 @@ def add_class_short(df: pd.DataFrame) -> pd.DataFrame:
 
 _LABEL_OFFSETS = [
     (ring, dx * r, dy * r)
-    for ring, r in enumerate((40, 70, 110, 160, 220))
+    for ring, r in enumerate((40, 70, 110, 160, 220, 300, 400))
     for dx, dy in (
         (1, -0.6),
         (-1, -0.6),
@@ -251,6 +251,7 @@ def add_point_labels(
         )
         for x0, y0, x1, y1 in keep_clear or []
     ]
+    captions = captions.fillna("").astype(str)
     half_sizes = {
         i: (max(3.4 * len(labels[i]), 3.1 * len(captions[i])) + 4, 18)
         for i in labels.index
@@ -270,18 +271,19 @@ def add_point_labels(
             for j, o in offsets.items()
             if j != i
         ]
-        best: tuple[tuple[int, int], tuple[float, float]] | None = None
+        best: tuple[tuple[int, int, int, int], tuple[float, float]] | None = None
         for ring, dx, dy in _LABEL_OFFSETS:
             box = label_box(i, dx, dy)
             if box[0] < 0 or box[1] < 0 or box[2] > plot_width or box[3] > plot_height:
                 continue
             leader = (px[i], py[i], px[i] + dx, py[i] + dy)
-            clashes = (
-                3 * _boxes_overlap(box, bubbles[i])
-                + 3 * sum(_boxes_overlap(box, b) for b in others)
-                + sum(_segment_hits_box(leader, b) for b in others)
-                + sum(_segments_cross(leader, s) for s in leaders)
+            overlaps = _boxes_overlap(box, bubbles[i]) + sum(
+                _boxes_overlap(box, b) for b in others
             )
+            obscured = sum(_segment_hits_box(leader, b) for b in others) + sum(
+                _segment_hits_box(s, box) for s in leaders
+            )
+            crossings = sum(_segments_cross(leader, s) for s in leaders)
             covered = int(
                 (
                     (px + radius > box[0])
@@ -290,7 +292,7 @@ def add_point_labels(
                     & (py - radius < box[3])
                 ).sum()
             )
-            score = (clashes, 8 * ring + covered)
+            score = (overlaps, obscured, crossings, 8 * ring + covered)
             if best is None or score < best[0]:
                 best = (score, (dx, dy))
         return best[1] if best else _LABEL_OFFSETS[0][1:]
