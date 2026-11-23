@@ -179,12 +179,12 @@ There are no traditional unit tests. Instead, the project uses:
 
 ## Key Dependencies
 
-- `code-data-science==2.1.2` - Core utilities for Moderne visualizations (data_table, tree_data_grid, etc.)
-- `pandas==2.0.3` - Data manipulation
-- `plotly==5.14.1` - Interactive visualizations  
-- `matplotlib==3.7.1` - Static plotting
+- `code-data-science==2.2.3` - Core utilities for Moderne visualizations (data_table, tree_data_grid, etc.)
+- `pandas>=2.2,<3.0` - Data manipulation
+- `plotly>=5.14.1` - Interactive visualizations
+- `matplotlib>=3.9` - Static plotting
 - `graphviz==0.20.1` - Graph visualizations
-- `networkx==3.1` - Network analysis
+- `networkx>=3.2` - Network analysis
 - `papermill` - Notebook execution and parameterization
 - `nbqa` - Code quality tools for notebooks (ruff, mypy)
 
