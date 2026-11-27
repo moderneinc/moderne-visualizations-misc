@@ -176,7 +176,6 @@ def _layout(fig: go.Figure, title: dict, height: int, legend: bool) -> go.Figure
         template="plotly_white",
         height=height,
         margin=dict(l=20, r=40, t=90, b=50),
-        barcornerradius=4,
         bargap=0.35,
         showlegend=legend,
         legend=dict(
@@ -198,10 +197,22 @@ def _layout(fig: go.Figure, title: dict, height: int, legend: bool) -> go.Figure
         tickformat=",d",
         rangemode="tozero",
     )
-    fig.update_yaxes(
-        title=None, showgrid=False, automargin=True, ticks="", ticklabelstandoff=8
-    )
+    fig.update_yaxes(title=None, showgrid=False, automargin=True, ticks="")
+    # Rounded bar ends (Plotly 5.19+) and the gap between labels and bars are
+    # newer than the oldest Plotly this package allows, so set them only where
+    # the installed Plotly knows them.
+    _set_if_supported(fig.update_layout, barcornerradius=4)
+    _set_if_supported(fig.update_yaxes, ticklabelstandoff=8)
     return fig
+
+
+def _set_if_supported(update, **properties) -> None:
+    """Set each property with ``update``, skipping any the installed Plotly rejects."""
+    for name, value in properties.items():
+        try:
+            update(**{name: value})
+        except ValueError:
+            pass
 
 
 def severity_figure(issues: pd.DataFrame) -> go.Figure:
