@@ -1,0 +1,34 @@
+---
+type: specs.moderne.io/v1beta/visualization
+name: io.moderne.SonarIssuesBySeverityTesting
+displayName: Sonar issues by severity
+description: >
+  The outcome of a run of the testing frameworks Sonar rules: the Sonar issues it changed, counted by Sonar
+  severity from blocker to info. Each issue is one file changed by one Sonar rule.
+  Switch the view to see the repositories or the rules with the most issues, each
+  split by severity. A rule the library lists under two severities counts under
+  whichever one changed the file, so its bar can show both.
+recipe: org.openrewrite.java.testing.sonar.SonarRules
+dataTable: org.openrewrite.table.SourcesFileResults
+options:
+  - repository_filter:
+      displayName: Repository filter
+      description: >
+        Only include data where the repository contains one of the following terms (case insensitive).
+        Branch names are appended to the repository name with a `/` separator.
+      required: false
+  - view:
+      displayName: View
+      description: >
+        What each bar counts: severity (default), repository or rule.
+      valid:
+        - severity
+        - repository
+        - rule
+      required: false
+  - top_n:
+      displayName: Top N
+      type: Integer
+      description: >
+        How many repositories or rules the repository and rule views show, the most issues first. (default: 20)
+      required: false
