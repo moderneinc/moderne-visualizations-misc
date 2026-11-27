@@ -116,7 +116,7 @@ def _repository_labels(rows: pd.DataFrame) -> pd.Series:
         .groupby("path")["branch"]
         .transform("nunique")
     )
-    return path.where(branches_per_path <= 1, path + "@" + branch)
+    return path.where(branches_per_path <= 1, path + "/" + branch)
 
 
 def figure(
